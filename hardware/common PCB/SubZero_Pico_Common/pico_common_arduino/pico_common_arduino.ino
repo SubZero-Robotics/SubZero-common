@@ -18,6 +18,7 @@ void parseCommand(uint8_t *, size_t);
 
 static volatile uint8_t receiveBuf[receiveBufSize];
 static volatile bool newData = false;
+static volatile bool newDataToParse = false;
 static Adafruit_NeoPixel pixels(ledNum, ledDataOutPin, NEO_GRB + NEO_KHZ800);
 static Command command;
 static PatternRunner patternRunner(&pixels, Animation::patterns);
@@ -101,7 +102,7 @@ void loop() {
 }
 
 void loop1() {
-    if (newData) {
+    if (newDataToParse) {
         // TODO: Parse it here instead
         uint8_t buf[receiveBufSize];
         // Safely copy our new data
@@ -111,12 +112,15 @@ void loop1() {
         mutex_enter_blocking(&mtx);
         parseCommand(buf, receiveBufSize);
         mutex_exit(&mtx);
+
+        newDataToParse = false;
+        newData = true;
     }
 }
 
 void receiveEvent(int howMany) {
     Wire.readBytes((uint8_t *)receiveBuf, howMany);
-    newData = true;
+    newDataToParse = true;
 }
 
 void requestEvent() {
