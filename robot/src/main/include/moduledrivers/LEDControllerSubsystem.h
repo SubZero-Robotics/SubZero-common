@@ -1,6 +1,8 @@
 #ifndef LED_CONTROLLER_H
 #define LED_CONTROLLER_H
 
+// TODO: Make this file into Generic PCB Driver instead!
+
 #include <frc/I2C.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandPtr.h>
@@ -14,6 +16,7 @@
 
 class LEDControllerSubsystem : public frc2::SubsystemBase {
    public:
+   // TODO: Add new commands
     enum class CommandType {
         On = 0,
         Off = 1,
@@ -27,15 +30,14 @@ class LEDControllerSubsystem : public frc2::SubsystemBase {
         SetAll = 1,
         Blink = 2,
         RGBFade = 3,
-        HackerMode = 4,
-        Chase = 5,
-        Wipe = 6
+        HackerMode = 4
     };
 
+    // TODO: Don't make this class responsible for tracking the color
     enum class Colors { Yellow, Purple };
 
     LEDControllerSubsystem(uint8_t slaveAddress,
-                           frc::I2C::Port port = frc::I2C::kOnboard);
+                           frc::I2C::Port port = frc::I2C::kMXP);
 
     /**
      * @brief Start communication with the LED controller
