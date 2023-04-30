@@ -1,7 +1,7 @@
 #pragma once
 
-#include <Arduino.h>
 #include "Configurator.h"
+#include <Arduino.h>
 
 enum class CommandType {
   On = 0,
@@ -69,7 +69,7 @@ struct CommandDigitalRead {
 };
 
 struct CommandSetConfig {
-    Configuration config;
+  Configuration config;
 };
 
 union CommandData {
