@@ -65,194 +65,198 @@ static PatternRunner patternRunner(&FastLED, patterns);
 static bool systemOn = true;
 
 void setup() {
-    Wire.begin(slaveAddress);      // join i2c bus with address #4
-    Wire.onReceive(receiveEvent);  // register event
-    Wire.onRequest(requestEvent);
-    Serial.begin(115200);  // start serial for output
-    FastLED.addLeds<WS2812B, ledDataOutPin, GRB>(leds, ledNum);
-    FastLED.setBrightness(ledBrightness);
+  Wire.begin(slaveAddress);     // join i2c bus with address #4
+  Wire.onReceive(receiveEvent); // register event
+  Wire.onRequest(requestEvent);
+  Serial.begin(115200); // start serial for output
+  FastLED.addLeds<WS2812B, ledDataOutPin, GRB>(leds, ledNum);
+  FastLED.setBrightness(ledBrightness);
 
-    // Initialize all LEDs to black
-    executePatternSetAll(leds, CRGB::Black, 0, ledNum);
-    FastLED.show();
+  // Initialize all LEDs to black
+  executePatternSetAll(leds, CRGB::Black, 0, ledNum);
+  FastLED.show();
 }
 
 void loop() {
-    // If there's new data, process it
-    if (newData) {
-        uint8_t buf[receiveBufSize];
-        noInterrupts();
-        memcpy(buf, (const void *)receiveBuf, receiveBufSize);
-        parseCommand(buf, receiveBufSize);
-        newData = false;
-        switch (command.commandType) {
-            case CommandType::On:
-                // Go back to running the current color and pattern
-                patternRunner.reset();
-                systemOn = true;
-                break;
+  // If there's new data, process it
+  if (newData) {
+    uint8_t buf[receiveBufSize];
+    noInterrupts();
+    memcpy(buf, (const void *)receiveBuf, receiveBufSize);
+    parseCommand(buf, receiveBufSize);
+    newData = false;
+    switch (command.commandType) {
+    case CommandType::On:
+      // Go back to running the current color and pattern
+      patternRunner.reset();
+      systemOn = true;
+      break;
 
-            case CommandType::Off:
-                // Set LEDs to black and stop running the pattern
-                executePatternSetAll(leds, CRGB::Black, 0, ledNum);
-                FastLED.show();
-                systemOn = false;
-                break;
+    case CommandType::Off:
+      // Set LEDs to black and stop running the pattern
+      executePatternSetAll(leds, CRGB::Black, 0, ledNum);
+      FastLED.show();
+      systemOn = false;
+      break;
 
-            case CommandType::Pattern: {
-                // To set everything to a certain color, change color then call
-                // the 'set all' pattern
-                uint16_t delay = command.commandData.commandPattern.delay == -1 ?
-                    patternRunner.getPattern(command.commandData.commandPattern.pattern)->changeDelayDefault :
-                    command.commandData.commandPattern.delay;
+    case CommandType::Pattern: {
+      // To set everything to a certain color, change color then call
+      // the 'set all' pattern
+      uint16_t delay =
+          command.commandData.commandPattern.delay == -1
+              ? patternRunner
+                    .getPattern(command.commandData.commandPattern.pattern)
+                    ->changeDelayDefault
+              : command.commandData.commandPattern.delay;
 
-                patternRunner.setCurrentPattern(
-                    command.commandData.commandPattern.pattern,
-                    command.commandData.commandPattern.oneShot,
-                    delay);
-            } break;
+      patternRunner.setCurrentPattern(
+          command.commandData.commandPattern.pattern,
+          command.commandData.commandPattern.oneShot, delay);
+    } break;
 
-            case CommandType::ChangeColor: {
-                auto colors = command.commandData.commandColor;
-                currentColor = CRGB(colors.red, colors.green, colors.blue);
-                patternRunner.setCurrentColor(currentColor);
-            } break;
+    case CommandType::ChangeColor: {
+      auto colors = command.commandData.commandColor;
+      currentColor = CRGB(colors.red, colors.green, colors.blue);
+      patternRunner.setCurrentColor(currentColor);
+    } break;
 
-            default:
-                break;
-        }
-
-        Serial.print(F("ON="));
-        Serial.println(systemOn);
-
-        interrupts();
+    default:
+      break;
     }
 
-    if (systemOn) {
-        patternRunner.update();
-    }
+    Serial.print(F("ON="));
+    Serial.println(systemOn);
+
+    interrupts();
+  }
+
+  if (systemOn) {
+    patternRunner.update();
+  }
 }
 
 void receiveEvent(int howMany) {
-    Wire.readBytes((uint8_t *)receiveBuf, howMany);
-    newData = true;
+  Wire.readBytes((uint8_t *)receiveBuf, howMany);
+  newData = true;
 }
 
 void requestEvent() {
-    switch (command.commandType) {
-        case CommandType::ReadPatternDone:
-            Wire.write(patternRunner.patternDone());
-            break;
+  switch (command.commandType) {
+  case CommandType::ReadPatternDone:
+    Wire.write(patternRunner.patternDone());
+    break;
 
-        default:
-            // Send back 255 (-1 signed) to indicate bad/no data
-            Wire.write(0xff);
-    }
+  default:
+    // Send back 255 (-1 signed) to indicate bad/no data
+    Wire.write(0xff);
+  }
 }
 
 void parseCommand(uint8_t *buf, size_t len) {
-    auto type = (CommandType)buf[0];
-    Serial.print("Received command type=");
-    Serial.println(buf[0]);
-    command.commandType = type;
-    switch (type) {
-        case CommandType::On:
-            command.commandData.commandOn = {};
-            break;
+  auto type = (CommandType)buf[0];
+  Serial.print("Received command type=");
+  Serial.println(buf[0]);
+  command.commandType = type;
+  switch (type) {
+  case CommandType::On:
+    command.commandData.commandOn = {};
+    break;
 
-        case CommandType::Off:
-            command.commandData.commandOff = {};
-            break;
+  case CommandType::Off:
+    command.commandData.commandOff = {};
+    break;
 
-        case CommandType::Pattern:
-            memcpy(&command.commandData.commandPattern.pattern, &buf[1], sizeof(CommandPattern));
-            break;
+  case CommandType::Pattern:
+    memcpy(&command.commandData.commandPattern.pattern, &buf[1],
+           sizeof(CommandPattern));
+    break;
 
-        case CommandType::ChangeColor:
-            memcpy(&command.commandData.commandColor.red, &buf[1], sizeof(CommandColor));
-            break;
+  case CommandType::ChangeColor:
+    memcpy(&command.commandData.commandColor.red, &buf[1],
+           sizeof(CommandColor));
+    break;
 
-        case CommandType::ReadPatternDone:
-            command.commandData.commandReadPatternDone = {};
-            break;
+  case CommandType::ReadPatternDone:
+    command.commandData.commandReadPatternDone = {};
+    break;
 
-        default:
-            break;
-    }
+  default:
+    break;
+  }
 }
 
 bool executePatternNone(CRGB *leds, CRGB color, uint16_t state,
                         uint16_t ledCount) {
-    return false;
+  return false;
 }
 
 bool executePatternSetAll(CRGB *leds, CRGB color, uint16_t state,
                           uint16_t ledCount) {
-    for (size_t i = 0; i < ledCount; i++) {
-        leds[i] = color;
-    }
+  for (size_t i = 0; i < ledCount; i++) {
+    leds[i] = color;
+  }
 
-    return true;
+  return true;
 }
 
 bool executePatternBlink(CRGB *leds, CRGB color, uint16_t state,
                          uint16_t ledCount) {
-    switch (state) {
-        case 0:
-            for (size_t i = 0; i < ledCount; i++) {
-                leds[i] = color;
-            }
-            return true;
-
-        case 1:
-            for (size_t i = 0; i < ledCount; i++) {
-                leds[i] = CRGB::Black;
-            }
-            return true;
-
-        default:
-            return false;
+  switch (state) {
+  case 0:
+    for (size_t i = 0; i < ledCount; i++) {
+      leds[i] = color;
     }
+    return true;
+
+  case 1:
+    for (size_t i = 0; i < ledCount; i++) {
+      leds[i] = CRGB::Black;
+    }
+    return true;
+
+  default:
+    return false;
+  }
 }
 
 bool executePatternRGBFade(CRGB *leds, CRGB color, uint16_t state,
                            uint16_t ledCount) {
-    for (size_t i = 0; i < ledCount; i++) {
-        leds[i] = PatternRunner::Wheel(((i * 256 / ledCount) + state) & 255);
-    }
-    return true;
+  for (size_t i = 0; i < ledCount; i++) {
+    leds[i] = PatternRunner::Wheel(((i * 256 / ledCount) + state) & 255);
+  }
+  return true;
 }
 
 bool executePatternHackerMode(CRGB *leds, CRGB color, uint16_t state,
                               uint16_t ledCount) {
-    switch (state) {
-        case 0:
-            return executePatternSetAll(leds, CRGB::Green, 0, ledCount);
+  switch (state) {
+  case 0:
+    return executePatternSetAll(leds, CRGB::Green, 0, ledCount);
 
-        case 1:
-            return executePatternSetAll(leds, CRGB::DarkGreen, 0, ledCount);
+  case 1:
+    return executePatternSetAll(leds, CRGB::DarkGreen, 0, ledCount);
 
-        default:
-            return false;
-    }
+  default:
+    return false;
+  }
 }
 
 bool executePatternChase(CRGB *leds, CRGB color, uint16_t state,
                          uint16_t ledCount) {
-    if (state - 1 >= 0) {
-        leds[state - 1] = CRGB::Black;
-    }
+  if (state - 1 >= 0) {
+    leds[state - 1] = CRGB::Black;
+  }
 
-    for (size_t i = state; i < state + chaseLEDWidth; i++) {
-        if (i < ledCount) {
-            leds[i] = color;
-        }
+  for (size_t i = state; i < state + chaseLEDWidth; i++) {
+    if (i < ledCount) {
+      leds[i] = color;
     }
-    return true;
+  }
+  return true;
 }
 
 bool executePatternWipe(CRGB *leds, CRGB color, uint16_t state,
                         uint16_t ledCount) {
-    leds[state] = color;
-    return true;
+  leds[state] = color;
+  return true;
 }

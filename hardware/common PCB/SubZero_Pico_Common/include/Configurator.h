@@ -8,63 +8,58 @@
 
 #include "Constants.h"
 
-struct LedConfiguration
-{
-    uint16_t count;
-    uint8_t brightness;
+struct LedConfiguration {
+  uint16_t count;
+  uint8_t brightness;
 };
 
-struct EEPROMConfiguration
-{
-    eeprom_size_t size = kbits_2;
-    uint8_t numDevices = 1;
-    uint16_t pageSize = 8;
-    uint8_t address = eepromAddr;
+struct EEPROMConfiguration {
+  eeprom_size_t size = kbits_2;
+  uint8_t numDevices = 1;
+  uint16_t pageSize = 8;
+  uint8_t address = eepromAddr;
 };
 
-struct Configuration
-{
-    int8_t valid;
-    uint8_t i2c0Addr;
-    LedConfiguration led0;
-    LedConfiguration led1;
+struct Configuration {
+  int8_t valid;
+  uint8_t i2c0Addr;
+  LedConfiguration led0;
+  LedConfiguration led1;
 };
 
-class Configurator
-{
+class Configurator {
 public:
-    Configurator();
+  Configurator();
 
-    Configurator(EEPROMConfiguration config, TwoWire* wire)
-    {
-        eeprom = std::make_unique<extEEPROM>(config.size,
-                                             config.numDevices, config.pageSize, config.address);
-        eeprom->begin(eeprom->twiClock400kHz, wire);
-    }
+  Configurator(EEPROMConfiguration config, TwoWire *wire) {
+    eeprom = std::make_unique<extEEPROM>(config.size, config.numDevices,
+                                         config.pageSize, config.address);
+    eeprom->begin(eeprom->twiClock400kHz, wire);
+  }
 
-    Configuration readConfig() {
-        Configuration config;
+  Configuration readConfig() {
+    Configuration config;
 
-        eeprom->read(0, (byte*)&config, sizeof(Configuration));
+    eeprom->read(0, (byte *)&config, sizeof(Configuration));
 
-        return config;
-    }
+    return config;
+  }
 
-    void storeConfig(Configuration config) {
-        config.valid = 1;
+  void storeConfig(Configuration config) {
+    config.valid = 1;
 
-        eeprom->write(0, (byte*)&config, sizeof(Configuration));
-    }
+    eeprom->write(0, (byte *)&config, sizeof(Configuration));
+  }
 
-    bool checkIfValid() {
-        auto cfg = readConfig();
-        return cfg.valid == 1;
-    }
+  bool checkIfValid() {
+    auto cfg = readConfig();
+    return cfg.valid == 1;
+  }
 
-    void configSetup();
+  void configSetup();
 
-    static std::string toString(Configuration);
+  static std::string toString(Configuration);
 
 private:
-    std::unique_ptr<extEEPROM> eeprom;
+  std::unique_ptr<extEEPROM> eeprom;
 };
