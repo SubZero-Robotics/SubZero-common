@@ -56,6 +56,10 @@ static void parseCommand(uint8_t *buf, size_t len, Command *cmd) {
            sizeof(CommandDigitalRead));
     break;
 
+    case CommandType::SetConfig:
+        memcpy(&cmd->commandData.commandSetConfig.config, &buf[1], sizeof(CommandSetConfig));
+        break;
+
   default:
     break;
   }

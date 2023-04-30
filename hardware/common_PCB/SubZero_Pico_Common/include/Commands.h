@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include "Configurator.h"
 
 enum class CommandType {
   On = 0,
@@ -12,7 +13,8 @@ enum class CommandType {
   ReadAnalog = 6,
   DigitalSetup = 7,
   DigitalWrite = 8,
-  DigitalRead = 9
+  DigitalRead = 9,
+  SetConfig = 10
 };
 
 struct CommandOn {};
@@ -66,6 +68,10 @@ struct CommandDigitalRead {
   uint8_t port;
 };
 
+struct CommandSetConfig {
+    Configuration config;
+};
+
 union CommandData {
   CommandOn commandOn;
   CommandOff commandOff;
@@ -77,6 +83,7 @@ union CommandData {
   CommandDigitalSetup commandDigitalSetup;
   CommandDigitalWrite commandDigitalWrite;
   CommandDigitalRead commandDigitalRead;
+  CommandSetConfig commandSetConfig;
 };
 
 struct Command {

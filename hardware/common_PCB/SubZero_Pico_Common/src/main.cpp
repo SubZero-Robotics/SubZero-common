@@ -206,6 +206,14 @@ void loop() {
         break;
       }
 
+      case CommandType::SetConfig: {
+        config = command.commandData.commandSetConfig.config;
+        Serial.println("Storing new config=");
+        Serial.println(configurator->toString(config).c_str());
+        configurator->storeConfig(config);
+        break;
+      }
+
       default:
         break;
       }
