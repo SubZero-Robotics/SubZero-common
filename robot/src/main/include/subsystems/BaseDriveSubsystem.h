@@ -9,6 +9,4 @@
 #include "Constants.h"
 #include "utils/Logger.h"
 
-class BaseDriveSubsystem : public frc2::SubsystemBase {
-
-};
+class BaseDriveSubsystem : public frc2::SubsystemBase {};

@@ -15,29 +15,29 @@
 #include "utils/Logging.h"
 
 class LEDControllerSubsystem : public frc2::SubsystemBase {
-   public:
-   // TODO: Add new commands
-    enum class CommandType {
-        On = 0,
-        Off = 1,
-        Pattern = 2,
-        ChangeColor = 3,
-        ReadPatternDone = 4
-    };
+public:
+  // TODO: Add new commands
+  enum class CommandType {
+    On = 0,
+    Off = 1,
+    Pattern = 2,
+    ChangeColor = 3,
+    ReadPatternDone = 4
+  };
 
-    enum class PatternType {
-        None = 0,
-        SetAll = 1,
-        Blink = 2,
-        RGBFade = 3,
-        HackerMode = 4
-    };
+  enum class PatternType {
+    None = 0,
+    SetAll = 1,
+    Blink = 2,
+    RGBFade = 3,
+    HackerMode = 4
+  };
 
-    // TODO: Don't make this class responsible for tracking the color
-    enum class Colors { Yellow, Purple };
+  // TODO: Don't make this class responsible for tracking the color
+  enum class Colors { Yellow, Purple };
 
-    LEDControllerSubsystem(uint8_t slaveAddress,
-                           frc::I2C::Port port = frc::I2C::kMXP);
+  LEDControllerSubsystem(uint8_t slaveAddress,
+                         frc::I2C::Port port = frc::I2C::kMXP);
 
   /**
    * @brief Start communication with the LED controller
