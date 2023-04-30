@@ -4,22 +4,22 @@
 
 #include <span>
 
-template <typname MOTOR>
-class BrakeModeSubsystem : public frc2::SubsystemBase {
-    public:
-        BrakeModeSubsystem(std::span<MOTOR*> motors, bool initialState) : _motors(motors) {
-            SetBrakeMode(initialState);
-        };
+template <typname MOTOR> class BrakeModeSubsystem : public frc2::SubsystemBase {
+public:
+  BrakeModeSubsystem(std::span<MOTOR *> motors, bool initialState)
+      : _motors(motors) {
+    SetBrakeMode(initialState);
+  };
 
-        /**
-         * @brief Set/unset brake mode
-         * 
-         * @param state true = Brake mode, false = Coast
-         */
-        void SetBrakeMode(bool state);
+  /**
+   * @brief Set/unset brake mode
+   *
+   * @param state true = Brake mode, false = Coast
+   */
+  void SetBrakeMode(bool state);
 
-        void SetBrakeMode(uint8_t index, bool state);
+  void SetBrakeMode(uint8_t index, bool state);
 
-    private:
-        std::span<MOTOR> _motors;
+private:
+  std::span<MOTOR> _motors;
 };
