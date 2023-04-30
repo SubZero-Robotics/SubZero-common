@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include <unordered_map>
 
 namespace Pin
 {
@@ -49,6 +50,14 @@ namespace Pin
         constexpr uint8_t P3 = 17;
         constexpr uint8_t P4 = 18;
         constexpr uint8_t P5 = 19;
+
+        static const std::unordered_map<uint8_t, uint8_t> digitalIOMap = {
+            {0, P0},
+            {1, P1},
+            {2, P2},
+            {3, P3},
+            {4, P4},
+            {5, P5}};
     }
 
     namespace ANALOGIO
@@ -56,9 +65,16 @@ namespace Pin
         constexpr uint8_t ADC0 = A0;
         constexpr uint8_t ADC1 = A1;
         constexpr uint8_t ADC2 = A2;
+
+        static const std::unordered_map<uint8_t, uint8_t> analogIOMap = {
+            {0, ADC0},
+            {1, ADC1},
+            {2, ADC2}
+        };
     }
 
-    namespace CONFIG {
+    namespace CONFIG
+    {
         constexpr uint8_t CONFIG_SETUP = 8;
     }
 }

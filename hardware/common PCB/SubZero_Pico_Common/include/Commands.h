@@ -2,16 +2,18 @@
 
 #include <Arduino.h>
 
-// TODO: Add commands for Digital IO
-// TODO: Add command for Analog Input
-// TODO: Add command to set active LED port
 enum class CommandType
 {
     On = 0,
     Off = 1,
     Pattern = 2,
     ChangeColor = 3,
-    ReadPatternDone = 4
+    ReadPatternDone = 4,
+    SetLedPort = 5,
+    ReadAnalog = 6,
+    DigitalSetup = 7,
+    DigitalWrite = 8,
+    DigitalRead = 9
 };
 
 struct CommandOn
@@ -41,6 +43,38 @@ struct CommandReadPatternDone
 {
 };
 
+struct CommandSetLedPort {
+    uint8_t port;
+};
+
+struct CommandReadAnalog {
+    uint8_t port;
+};
+
+struct CommandDigitalSetup {
+    uint8_t port;
+    /** Follows the Arduino-defined values for pinMode
+     * INPUT = 0
+     * INPUT_PULLUP = 2
+     * INPUT_PULLDOWN = 3
+     * OUTPUT = 1
+     * OUTPUT_2MA = 4
+     * OUTPUT_4MA = 5
+     * OUTPUT_8MA = 6
+     * OUTPUT_12MA = 7
+     */
+    uint8_t mode;
+};
+
+struct CommandDigitalWrite {
+    uint8_t port;
+    uint8_t value;
+};
+
+struct CommandDigitalRead {
+    uint8_t port;
+};
+
 union CommandData
 {
     CommandOn commandOn;
@@ -48,6 +82,11 @@ union CommandData
     CommandPattern commandPattern;
     CommandColor commandColor;
     CommandReadPatternDone commandReadPatternDone;
+    CommandSetLedPort commandSetLedPort;
+    CommandReadAnalog commandReadAnalog;
+    CommandDigitalSetup commandDigitalSetup;
+    CommandDigitalWrite commandDigitalWrite;
+    CommandDigitalRead commandDigitalRead;
 };
 
 struct Command

@@ -8,6 +8,8 @@
 
 class PatternRunner {
    public:
+    PatternRunner() {}
+
     PatternRunner(Adafruit_NeoPixel *strip, Pattern *patterns,
                   uint8_t numPatterns = patternCount)
         : _pixels(strip),

@@ -32,6 +32,26 @@ namespace CommandParser {
             cmd->commandData.commandReadPatternDone = {};
             break;
 
+        case CommandType::SetLedPort:
+            memcpy(&cmd->commandData.commandSetLedPort.port, &buf[1], sizeof(CommandSetLedPort));
+            break;
+
+        case CommandType::ReadAnalog:
+            memcpy(&cmd->commandData.commandReadAnalog.port, &buf[1], sizeof(CommandReadAnalog));
+            break;
+
+        case CommandType::DigitalSetup:
+            memcpy(&cmd->commandData.commandDigitalSetup.port, &buf[1], sizeof(CommandDigitalSetup));
+            break;
+
+        case CommandType::DigitalWrite:
+            memcpy(&cmd->commandData.commandDigitalWrite.port, &buf[1], sizeof(CommandDigitalWrite));
+            break;
+
+        case CommandType::DigitalRead:
+            memcpy(&cmd->commandData.commandDigitalRead.port, &buf[1], sizeof(CommandDigitalRead));
+            break;
+
         default:
             break;
         }

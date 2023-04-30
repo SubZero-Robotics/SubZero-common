@@ -95,26 +95,6 @@ namespace Animation {
         }
     }
 
-    static bool executePatternChase(Adafruit_NeoPixel &strip, uint32_t color, uint16_t state,
-                            uint16_t ledCount) {
-        if (state - 1 >= 0) {
-            strip.setPixelColor(state -1, 0);
-        }
-
-        for (auto i = state; i < state + chaseLEDWidth; i++) {
-            if (i < ledCount) {
-                strip.setPixelColor(i, color);
-            }
-        }
-        return true;
-    }
-
-    static bool executePatternWipe(Adafruit_NeoPixel &strip, uint32_t color, uint16_t state,
-                            uint16_t ledCount) {
-        strip.setPixelColor(state, color);
-        return true;
-    }
-
     // ! The order of these MUST match the order in PatternType !
     static Pattern patterns[patternCount] = {
         {.type = PatternType::None,
@@ -137,5 +117,5 @@ namespace Animation {
         .numStates = 2,
         .changeDelayDefault = 100u,
         .cb = Animation::executePatternHackerMode}
-    }
+    };
 }

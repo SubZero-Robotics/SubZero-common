@@ -16,6 +16,8 @@ static mutex_t mtx;
 // Forward declarations
 void receiveEvent(int);
 void requestEvent(void);
+Adafruit_NeoPixel *getPixels(uint8_t port);
+PatternRunner *getPatternRunner(uint8_t port);
 
 static volatile uint8_t receiveBuf[i2cReceiveBufSize];
 static volatile bool newData = false;
@@ -25,17 +27,16 @@ static constexpr EEPROMConfiguration eepromConfig = {
     .size = kbits_2,
     .numDevices = 1,
     .pageSize = 8,
-    .address = eepromAddr
-};
+    .address = eepromAddr};
 
 static Configuration config;
-static Configurator configurator;
+static Configurator *configurator;
+static uint8_t ledPort = 0;
 
-// TODO: Set up dynamically after reading config data
-static Adafruit_NeoPixel pixels0(config.led0.count, Pin::LED::Dout0, NEO_GRB + NEO_KHZ800);
-static Adafruit_NeoPixel pixels1(config.led1.count, Pin::LED::Dout1, NEO_GRB + NEO_KHZ800);
-static PatternRunner patternRunner0(&pixels0, Animation::patterns);
-static PatternRunner patternRunner1(&pixels1, Animation::patterns);
+static Adafruit_NeoPixel *pixels0;
+static Adafruit_NeoPixel *pixels1;
+static PatternRunner *patternRunner0;
+static PatternRunner *patternRunner1;
 
 static Command command;
 
@@ -47,22 +48,28 @@ void setup()
     Wire1.setSCL(Pin::I2C::Port1::SCL);
     Wire1.begin();
 
-    configurator = Configurator(eepromConfig, &Wire1);
+    configurator = new Configurator(eepromConfig, &Wire1);
 
     Serial.begin(115200);
     pinMode(Pin::CONFIG::CONFIG_SETUP, INPUT_PULLUP);
-    if (!configurator.checkIfValid() || !digitalRead(Pin::CONFIG::CONFIG_SETUP)) {
-        configurator.configSetup();
+    if (!configurator->checkIfValid() || !digitalRead(Pin::CONFIG::CONFIG_SETUP))
+    {
+        configurator->configSetup();
     }
 
-    config = configurator.readConfig();
+    config = configurator->readConfig();
+
+    pixels0 = new Adafruit_NeoPixel(config.led0.count, Pin::LED::Dout0, NEO_GRB + NEO_KHZ800);
+    pixels1 = new Adafruit_NeoPixel(config.led1.count, Pin::LED::Dout1, NEO_GRB + NEO_KHZ800);
+    patternRunner0 = new PatternRunner(pixels0, Animation::patterns);
+    patternRunner1 = new PatternRunner(pixels1, Animation::patterns);
 
     // Peripherals
     Wire.setSDA(Pin::I2C::Port0::SDA);
     Wire.setSCL(Pin::I2C::Port0::SCL);
     Wire.onReceive(receiveEvent); // register event
     Wire.onRequest(requestEvent);
-    Wire.begin(config.i2c0Addr);  // join i2c bus as slave
+    Wire.begin(config.i2c0Addr); // join i2c bus as slave
 
     SPI1.setTX(Pin::SPI::MOSI);
     SPI1.setRX(Pin::SPI::MISO);
@@ -70,8 +77,8 @@ void setup()
     SPI1.setCS(Pin::SPI::CS0);
     SPI1.begin();
 
-    Serial1.setTx(Pin::UART::Tx);
-    Serial1.setRx(Pin::UART::Rx);
+    Serial1.setTX(Pin::UART::Tx);
+    Serial1.setRX(Pin::UART::Rx);
     Serial1.begin(uartBaudRate);
 
     mutex_init(&mtx);
@@ -101,21 +108,41 @@ void setup()
     pinMode(Pin::ANALOGIO::ADC1, INPUT);
     pinMode(Pin::ANALOGIO::ADC2, INPUT);
 
-    pixels0.begin();
-    pixels0.setBrightness(config.led0.brightness);
+    pixels0->begin();
+    pixels0->setBrightness(config.led0.brightness);
     // Initialize all LEDs to black
-    Animation::executePatternSetAll(pixels0, 0, 0, pixels0.numPixels());
-    pixels0.show();
+    Animation::executePatternSetAll(*pixels0, 0, 0, pixels0->numPixels());
+    pixels0->show();
 
-    pixels1.begin();
-    pixels1.setBrightness(config.led1.brightness);
+    pixels1->begin();
+    pixels1->setBrightness(config.led1.brightness);
     // Initialize all LEDs to black
-    Animation::executePatternSetAll(pixels1, 0, 0, pixels1.numPixels());
-    pixels1.show();
+    Animation::executePatternSetAll(*pixels1, 0, 0, pixels1->numPixels());
+    pixels1->show();
 }
 
 void setup1()
 {
+}
+
+Adafruit_NeoPixel *getPixels(uint8_t port)
+{
+    if (port == 0)
+    {
+        return pixels0;
+    }
+
+    return pixels1;
+}
+
+PatternRunner *getPatternRunner(uint8_t port)
+{
+    if (port == 0)
+    {
+        return patternRunner0;
+    }
+
+    return patternRunner1;
 }
 
 void loop()
@@ -130,38 +157,70 @@ void loop()
             switch (command.commandType)
             {
             case CommandType::On:
+            {
                 // Go back to running the current color and pattern
-                patternRunner0.reset();
-                patternRunner1.reset();
+                patternRunner0->reset();
+                patternRunner1->reset();
                 systemOn = true;
                 break;
+            }
 
             case CommandType::Off:
+            {
                 // Set LEDs to black and stop running the pattern
-                Animation::executePatternSetAll(pixels, 0, 0, ledNum);
-                pixels.show();
+                for (uint8_t port = 0; port < 2; port++)
+                {
+                    auto pixels = getPixels(ledPort);
+                    Animation::executePatternSetAll(*pixels, 0, 0, pixels->numPixels());
+                    pixels->show();
+                }
                 systemOn = false;
                 break;
+            }
 
             case CommandType::Pattern:
             {
                 // To set everything to a certain color, change color then call
                 // the 'set all' pattern
-                uint16_t delay = command.commandData.commandPattern.delay == -1 ? patternRunner.getPattern(command.commandData.commandPattern.pattern)->changeDelayDefault : command.commandData.commandPattern.delay;
+                auto runner = getPatternRunner(ledPort);
+                uint16_t delay = command.commandData.commandPattern.delay == -1 ? runner->getPattern(command.commandData.commandPattern.pattern)->changeDelayDefault : command.commandData.commandPattern.delay;
 
-                patternRunner.setCurrentPattern(
+                runner->setCurrentPattern(
                     command.commandData.commandPattern.pattern,
                     command.commandData.commandPattern.oneShot,
                     delay);
+                break;
             }
-            break;
 
             case CommandType::ChangeColor:
             {
+                auto runner = getPatternRunner(ledPort);
                 auto colors = command.commandData.commandColor;
-                patternRunner.setCurrentColor(Adafruit_NeoPixel::Color(colors.red, colors.green, colors.blue));
+                runner->setCurrentColor(Adafruit_NeoPixel::Color(colors.red, colors.green, colors.blue));
+                break;
             }
-            break;
+
+            case CommandType::SetLedPort:
+            {
+                ledPort = command.commandData.commandSetLedPort.port;
+                break;
+            }
+
+            case CommandType::DigitalSetup:
+            {
+                auto cfg = command.commandData.commandDigitalSetup;
+                auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
+                pinMode(pin, cfg.mode);
+                break;
+            }
+
+            case CommandType::DigitalWrite:
+            {
+                auto cfg = command.commandData.commandDigitalWrite;
+                auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
+                digitalWrite(pin, cfg.value);
+                break;
+            }
 
             default:
                 break;
@@ -176,8 +235,8 @@ void loop()
 
     if (systemOn)
     {
-        patternRunner0.update();
-        patternRunner1.update();
+        patternRunner0->update();
+        patternRunner1->update();
     }
 }
 
@@ -209,9 +268,38 @@ void requestEvent()
 {
     switch (command.commandType)
     {
+    /**
+     * @brief Returns uint8_t
+     * 
+     */
     case CommandType::ReadPatternDone:
-        Wire.write(patternRunner.patternDone());
+    {
+        auto runner = getPatternRunner(ledPort);
+        Wire.write(runner->patternDone());
         break;
+    }
+
+    /**
+     * @brief Returns uint16_t
+     * 
+     */
+    case CommandType::ReadAnalog:
+    {
+        uint16_t value = analogRead(Pin::ANALOGIO::analogIOMap.at(command.commandData.commandReadAnalog.port));
+        Wire.write((uint8_t *)&value, sizeof(value));
+        break;
+    }
+
+    /**
+     * @brief Returns uint8_t
+     * 
+     */
+    case CommandType::DigitalRead:
+    {
+        uint8_t value = digitalRead(Pin::DIGITALIO::digitalIOMap.at(command.commandData.commandDigitalRead.port));
+        Wire.write(value);
+        break;
+    }
 
     default:
         // Send back 255 (-1 signed) to indicate bad/no data
