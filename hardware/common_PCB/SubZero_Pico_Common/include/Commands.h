@@ -75,14 +75,13 @@ struct CommandSetConfig {
 };
 
 struct CommandRadioSend {
-    // Set to 0xFFFF to send to all
-    uint16_t teamNumber;
-    uint8_t dataLen;
-    uint8_t data[61];
+  // Set to 0xFFFF to send to all
+  uint16_t teamNumber;
+  uint8_t dataLen;
+  uint8_t data[61];
 };
 
-struct CommandRadioGetLatestReceived {
-};
+struct CommandRadioGetLatestReceived {};
 
 union CommandData {
   CommandOn commandOn;

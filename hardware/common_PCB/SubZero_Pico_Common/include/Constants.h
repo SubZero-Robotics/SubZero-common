@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include <unordered_map>
 #include <RFM69.h>
+#include <unordered_map>
 
 namespace Pin {
 namespace I2C {
@@ -71,7 +71,7 @@ constexpr uint8_t NetworkId = 0;
 constexpr uint8_t Frequency = RF69_915MHZ;
 constexpr uint8_t MaxDataLen = RF69_MAX_DATA_LEN;
 constexpr uint16_t SendToAll = 0xFFFF;
-}
+} // namespace Radio
 
 constexpr uint8_t i2cReceiveBufSize = 128;
 constexpr uint8_t eepromAddr = 0b01011000;

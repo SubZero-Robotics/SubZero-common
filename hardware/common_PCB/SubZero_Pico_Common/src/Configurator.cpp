@@ -5,14 +5,14 @@ void Configurator::configSetup() {
 
   Serial.println(
       "Enter your selections with line ending set to LINE FEED only");
-    Serial.print("Team number: ");
-    config.teamNumber = Serial.parseInt();
-    Serial.println();
-    Serial.print("Other team number 1: ");
-    config.initialTeams[0] = Serial.parseInt();
-    Serial.print("\nOther team number 2: ");
-    config.initialTeams[1] = Serial.parseInt();
-    Serial.println();
+  Serial.print("Team number: ");
+  config.teamNumber = Serial.parseInt();
+  Serial.println();
+  Serial.print("Other team number 1: ");
+  config.initialTeams[0] = Serial.parseInt();
+  Serial.print("\nOther team number 2: ");
+  config.initialTeams[1] = Serial.parseInt();
+  Serial.println();
   Serial.print("I2C address for comms with RIO: ");
   config.i2c0Addr = Serial.parseInt();
   Serial.println();

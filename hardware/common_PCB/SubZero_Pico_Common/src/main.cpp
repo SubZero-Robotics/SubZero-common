@@ -9,8 +9,8 @@
 #include "Commands.h"
 #include "Configurator.h"
 #include "Constants.h"
-#include "PatternRunner.h"
 #include "PacketRadio.h"
+#include "PatternRunner.h"
 
 static mutex_t i2cCommandMtx;
 static mutex_t radioDataMtx;
@@ -225,9 +225,9 @@ void loop() {
         msg.len = message.dataLen;
         memcpy(&msg, message.data, message.dataLen);
         if (msg.teamNumber == Radio::SendToAll) {
-            radio->sendToAll(msg);
+          radio->sendToAll(msg);
         } else {
-            radio->send(msg);
+          radio->send(msg);
         }
       }
 
@@ -267,19 +267,19 @@ void loop1() {
 }
 
 void handleRadioDataReceive(Message msg) {
-    mutex_enter_blocking(&radioDataMtx);
-    Serial.println("New data:");
-    Serial.printf("Team = %d\n", msg.teamNumber);
-    Serial.printf("Data len = %d\n", msg.len);
-    Serial.print("Data (HEX) = ");
+  mutex_enter_blocking(&radioDataMtx);
+  Serial.println("New data:");
+  Serial.printf("Team = %d\n", msg.teamNumber);
+  Serial.printf("Data len = %d\n", msg.len);
+  Serial.print("Data (HEX) = ");
 
-    for (uint8_t i = 0; i < msg.len; i++) {
-        Serial.printf("%02X ", msg.data[i]);
-    }
+  for (uint8_t i = 0; i < msg.len; i++) {
+    Serial.printf("%02X ", msg.data[i]);
+  }
 
-    Serial.println();
+  Serial.println();
 
-    mutex_exit(&radioDataMtx);
+  mutex_exit(&radioDataMtx);
 }
 
 void receiveEvent(int howMany) {
@@ -326,9 +326,9 @@ void requestEvent() {
     auto msg = radio->getLastReceived();
 
     for (int i = 0; i < sizeof(msg); i++) {
-        // Cast a pointer offset of msg byte to uint8_t pointer then dereference
-        // Trust me...
-        Wire.write(*(uint8_t*)((&msg) + i));
+      // Cast a pointer offset of msg byte to uint8_t pointer then dereference
+      // Trust me...
+      Wire.write(*(uint8_t *)((&msg) + i));
     }
     mutex_exit(&radioDataMtx);
     break;
