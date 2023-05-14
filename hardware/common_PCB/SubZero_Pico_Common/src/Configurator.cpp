@@ -5,19 +5,32 @@ void Configurator::configSetup() {
 
   Serial.println(
       "Enter your selections with line ending set to LINE FEED only");
+    Serial.print("Team number: ");
+    config.teamNumber = Serial.parseInt();
+    Serial.println();
+    Serial.print("Other team number 1: ");
+    config.initialTeams[0] = Serial.parseInt();
+    Serial.print("\nOther team number 2: ");
+    config.initialTeams[1] = Serial.parseInt();
+    Serial.println();
   Serial.print("I2C address for comms with RIO: ");
   config.i2c0Addr = Serial.parseInt();
+  Serial.println();
   Serial.print("LED0 count: ");
   config.led0.count = Serial.parseInt();
+  Serial.println();
   Serial.print("LED0 brightness (1 - 100): ");
   config.led0.brightness = Serial.parseInt();
+  Serial.println();
   Serial.print("LED1 count: ");
   config.led1.count = Serial.parseInt();
+  Serial.println();
   Serial.print("LED1 brightness (1 - 100): ");
   config.led1.brightness = Serial.parseInt();
+  Serial.println();
 
   Serial.println("Storing config:");
-  Serial.print(toString(config).c_str());
+  Serial.println(toString(config).c_str());
   storeConfig(config);
   Serial.println("Done");
 }

@@ -1,5 +1,4 @@
-#ifndef LED_CONTROLLER_H
-#define LED_CONTROLLER_H
+#pragma once
 
 // TODO: Make this file into Generic PCB Driver instead!
 
@@ -110,5 +109,3 @@ private:
   PatternType _lastPattern;
   Colors _currentColor;
 };
-
-#endif

@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include <unordered_map>
+#include <RFM69.h>
 
 namespace Pin {
 namespace I2C {
@@ -61,7 +62,18 @@ constexpr uint8_t CONFIG_SETUP = 8;
 }
 } // namespace Pin
 
-constexpr uint8_t i2cReceiveBufSize = 8;
+namespace Radio {
+// ! Change to match schematic
+constexpr uint8_t RadioCS = 23;
+constexpr uint8_t RadioInterrupt = 24;
+constexpr uint8_t MaxRadioAddresses = 254;
+constexpr uint8_t NetworkId = 0;
+constexpr uint8_t Frequency = RF69_915MHZ;
+constexpr uint8_t MaxDataLen = RF69_MAX_DATA_LEN;
+constexpr uint16_t SendToAll = 0xFFFF;
+}
+
+constexpr uint8_t i2cReceiveBufSize = 128;
 constexpr uint8_t eepromAddr = 0b01011000;
 
 constexpr uint32_t uartBaudRate = 115200;

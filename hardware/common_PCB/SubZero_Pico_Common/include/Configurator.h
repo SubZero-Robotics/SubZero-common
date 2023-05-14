@@ -22,6 +22,9 @@ struct EEPROMConfiguration {
 
 struct Configuration {
   int8_t valid;
+  uint16_t teamNumber;
+  // Send messages to 2 other teams
+  uint16_t initialTeams[2];
   uint8_t i2c0Addr;
   LedConfiguration led0;
   LedConfiguration led1;

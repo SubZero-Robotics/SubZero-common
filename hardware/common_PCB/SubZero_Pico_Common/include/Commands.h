@@ -14,7 +14,9 @@ enum class CommandType {
   DigitalSetup = 7,
   DigitalWrite = 8,
   DigitalRead = 9,
-  SetConfig = 10
+  SetConfig = 10,
+  RadioSend = 11,
+  RadioGetLatestReceived = 12
 };
 
 struct CommandOn {};
@@ -72,6 +74,16 @@ struct CommandSetConfig {
   Configuration config;
 };
 
+struct CommandRadioSend {
+    // Set to 0xFFFF to send to all
+    uint16_t teamNumber;
+    uint8_t dataLen;
+    uint8_t data[61];
+};
+
+struct CommandRadioGetLatestReceived {
+};
+
 union CommandData {
   CommandOn commandOn;
   CommandOff commandOff;
@@ -84,6 +96,8 @@ union CommandData {
   CommandDigitalWrite commandDigitalWrite;
   CommandDigitalRead commandDigitalRead;
   CommandSetConfig commandSetConfig;
+  CommandRadioSend commandRadioSend;
+  CommandRadioGetLatestReceived commandRadioGetLatestReceived;
 };
 
 struct Command {
