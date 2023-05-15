@@ -15,14 +15,21 @@
 
 class LEDControllerSubsystem : public frc2::SubsystemBase {
 public:
-  // TODO: Add new commands
   enum class CommandType {
     On = 0,
     Off = 1,
     Pattern = 2,
     ChangeColor = 3,
-    ReadPatternDone = 4
-  };
+    ReadPatternDone = 4,
+    SetLedPort = 5,
+    ReadAnalog = 6,
+    DigitalSetup = 7,
+    DigitalWrite = 8,
+    DigitalRead = 9,
+    SetConfig = 10,
+    RadioSend = 11,
+    RadioGetLatestReceived = 12
+};
 
   enum class PatternType {
     None = 0,
@@ -32,14 +39,64 @@ public:
     HackerMode = 4
   };
 
-  // TODO: Don't make this class responsible for tracking the color
-  enum class Colors { Yellow, Purple };
+  enum class PinMode {
+    INPUT = 0,
+    OUTPUT = 1,
+    INPUT_PULLUP = 2,
+    INPUT_PULLDOWN = 3,
+    OUTPUT_2MA = 4,
+    OUTPUT_4MA = 5,
+    OUTPUT_8MA = 6,
+    OUTPUT_12MA = 7
+  };
 
-  LEDControllerSubsystem(uint8_t slaveAddress,
+  enum class DigitalPort {
+    P0 = 0,
+    P1 = 1,
+    P2 = 2,
+    P3 = 3,
+    P4 = 4,
+    P5 = 5
+  };
+
+  enum class AnalogPort {
+    A0 = 0,
+    A1 = 1,
+    A2 = 2
+  };
+
+  enum class LedPort {
+    P0 = 0,
+    P1 = 1
+  };
+
+  struct LedConfiguration {
+    uint16_t count;
+    uint8_t brightness;
+    };
+
+    struct EEPROMConfiguration {
+    eeprom_size_t size = kbits_2;
+    uint8_t numDevices = 1;
+    uint16_t pageSize = 8;
+    uint8_t address = eepromAddr;
+    };
+
+    struct Configuration {
+    int8_t valid;
+    uint16_t teamNumber;
+    // Send messages to 2 other teams
+    uint16_t initialTeams[2];
+    uint8_t i2c0Addr;
+    LedConfiguration led0;
+    LedConfiguration led1;
+    };
+
+  ConnectorX(uint8_t slaveAddress,
                          frc::I2C::Port port = frc::I2C::kMXP);
 
   /**
-   * @brief Start communication with the LED controller
+   * @brief Start communication with the controller
    *
    * @return true if successful init
    */
@@ -50,21 +107,29 @@ public:
    *
    * @return CommandType
    */
-  inline CommandType lastCommand() const { return _lastCommand; }
+  inline CommandType lastCommand(LedPort port) const { return _lastCommand[(uint8_t)port]; }
 
-  inline PatternType lastPattern() const { return _lastPattern; }
+  inline PatternType lastPattern(LedPort port) const { return _lastPattern[(uint8_t)port]; }
+
+  void configureDigitalPin(DigitalPort port, PinMode mode);
+
+    void writeDigitalPin(DigitalPort value);
+
+  bool readDigitalPin(DigitalPort port);
+
+  uint16_t readAnalogPin(AnalogPort port);
 
   /**
    * @brief Send the ON command
    *
    */
-  bool setOn();
+  void setOn(LedPort port);
 
   /**
    * @brief Send the OFF command
    *
    */
-  bool setOff();
+  void setOff(LedPort port);
 
   /**
    * @brief Send the PATTERN command
@@ -72,40 +137,33 @@ public:
    * @param pattern
    * @param oneShot Only run the pattern once
    */
-  bool setPattern(PatternType pattern, bool oneShot = false,
+  void setPattern(LedPort port, PatternType pattern, bool oneShot = false,
                   int16_t delay = -1);
 
   /**
    * @brief Send the COLOR command
    *
    */
-  bool setColor(uint8_t red, uint8_t green, uint8_t blue);
+  void setColor(LedPort port, uint8_t red, uint8_t green, uint8_t blue);
   /**
    * @brief Send the COLOR command
    *
    * @param color Color data in the form of 0x00RRGGBB
    */
-  bool setColor(uint32_t color);
-
-  bool setColor(Colors color);
-
-  frc2::CommandPtr SetMovementLED(uint32_t color, PatternType pattern);
-
-  frc2::CommandPtr DisplayCurrentColor();
+  bool setColor(LedPort port, uint32_t color);
 
   /**
    * @brief Send the READPATTERNDONE command
    *
    * @return true if pattern is done
    */
-  bool getPatternDone();
+  bool getPatternDone(LedPort port);
 
-  inline Colors getCurrentColor() const { return _currentColor; }
+  void 
 
 private:
   std::unique_ptr<frc::I2C> _i2c;
   uint8_t _slaveAddress;
-  CommandType _lastCommand;
-  PatternType _lastPattern;
-  Colors _currentColor;
+  CommandType _lastCommands[2];
+  PatternType _lastPattern[2];
 };

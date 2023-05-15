@@ -4,7 +4,7 @@
 
 #include <span>
 
-template <typname MOTOR> class BrakeModeSubsystem : public frc2::SubsystemBase {
+template <typename MOTOR> class BrakeModeSubsystem : public frc2::SubsystemBase {
 public:
   BrakeModeSubsystem(std::span<MOTOR *> motors, bool initialState)
       : _motors(motors) {
