@@ -29,7 +29,7 @@ public:
     SetConfig = 10,
     RadioSend = 11,
     RadioGetLatestReceived = 12
-};
+  };
 
   enum class PatternType {
     None = 0,
@@ -50,39 +50,25 @@ public:
     OUTPUT_12MA = 7
   };
 
-  enum class DigitalPort {
-    P0 = 0,
-    P1 = 1,
-    P2 = 2,
-    P3 = 3,
-    P4 = 4,
-    P5 = 5
-  };
+  enum class DigitalPort { P0 = 0, P1 = 1, P2 = 2, P3 = 3, P4 = 4, P5 = 5 };
 
-  enum class AnalogPort {
-    A0 = 0,
-    A1 = 1,
-    A2 = 2
-  };
+  enum class AnalogPort { A0 = 0, A1 = 1, A2 = 2 };
 
-  enum class LedPort {
-    P0 = 0,
-    P1 = 1
-  };
+  enum class LedPort { P0 = 0, P1 = 1 };
 
   struct LedConfiguration {
     uint16_t count;
     uint8_t brightness;
-    };
+  };
 
-    struct EEPROMConfiguration {
+  struct EEPROMConfiguration {
     eeprom_size_t size = kbits_2;
     uint8_t numDevices = 1;
     uint16_t pageSize = 8;
     uint8_t address = eepromAddr;
-    };
+  };
 
-    struct Configuration {
+  struct Configuration {
     int8_t valid;
     uint16_t teamNumber;
     // Send messages to 2 other teams
@@ -90,10 +76,9 @@ public:
     uint8_t i2c0Addr;
     LedConfiguration led0;
     LedConfiguration led1;
-    };
+  };
 
-  ConnectorX(uint8_t slaveAddress,
-                         frc::I2C::Port port = frc::I2C::kMXP);
+  ConnectorX(uint8_t slaveAddress, frc::I2C::Port port = frc::I2C::kMXP);
 
   /**
    * @brief Start communication with the controller
@@ -107,13 +92,17 @@ public:
    *
    * @return CommandType
    */
-  inline CommandType lastCommand(LedPort port) const { return _lastCommand[(uint8_t)port]; }
+  inline CommandType lastCommand(LedPort port) const {
+    return _lastCommand[(uint8_t)port];
+  }
 
-  inline PatternType lastPattern(LedPort port) const { return _lastPattern[(uint8_t)port]; }
+  inline PatternType lastPattern(LedPort port) const {
+    return _lastPattern[(uint8_t)port];
+  }
 
   void configureDigitalPin(DigitalPort port, PinMode mode);
 
-    void writeDigitalPin(DigitalPort value);
+  void writeDigitalPin(DigitalPort value);
 
   bool readDigitalPin(DigitalPort port);
 
@@ -159,10 +148,10 @@ public:
    */
   bool getPatternDone(LedPort port);
 
-  void 
+  void
 
-private:
-  std::unique_ptr<frc::I2C> _i2c;
+      private : std::unique_ptr<frc::I2C>
+                    _i2c;
   uint8_t _slaveAddress;
   CommandType _lastCommands[2];
   PatternType _lastPattern[2];
