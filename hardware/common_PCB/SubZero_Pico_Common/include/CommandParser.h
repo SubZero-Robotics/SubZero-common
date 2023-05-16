@@ -66,7 +66,7 @@ static void parseCommand(uint8_t *buf, size_t len, Command *cmd) {
     break;
 
   case CommandType::RadioSend:
-    memcpy(&cmd->commandData.commandRadioSend.teamNumber, &buf[1],
+    memcpy(&cmd->commandData.commandRadioSend.msg, &buf[1],
            sizeof(CommandRadioSend));
     break;
 

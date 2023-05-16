@@ -221,15 +221,11 @@ void loop() {
       }
 
       case CommandType::RadioSend: {
-        auto message = command.commandData.commandRadioSend;
-        Message msg;
-        msg.teamNumber = message.teamNumber;
-        msg.len = message.dataLen;
-        memcpy(&msg, message.data, message.dataLen);
-        if (msg.teamNumber == Radio::SendToAll) {
-          radio->sendToAll(msg);
+        auto message = command.commandData.commandRadioSend.msg;
+        if (message.teamNumber == Radio::SendToAll) {
+          radio->sendToAll(message);
         } else {
-          radio->send(msg);
+          radio->send(message);
         }
       }
 
@@ -300,7 +296,7 @@ void requestEvent() {
    */
   case CommandType::ReadPatternDone: {
     auto done = getPatternRunner(ledPort)->patternDone();
-    res.responseData.responsePatternDone = done;
+    res.responseData.responsePatternDone.done = done;
     break;
   }
 

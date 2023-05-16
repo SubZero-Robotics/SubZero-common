@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Arduino.h>
 #include <Hash.h>
 #include <RFM69.h>
 #include <RFM69_ATC.h>

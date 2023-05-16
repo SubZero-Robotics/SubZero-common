@@ -12,6 +12,12 @@
 #include "utils/Logging.h"
 
 namespace ConnectorX {
+struct Message {
+  uint8_t data[61];
+  uint8_t len;
+  // Set to 0xFFFF to send to all
+  uint16_t teamNumber;
+};
 namespace Commands {
 enum class CommandType {
   // W
@@ -217,8 +223,8 @@ public:
    *
    * @return CommandType
    */
-  inline Commands::CommandType lastCommand(LedPort port) const {
-    return _lastCommand[(uint8_t)port];
+  inline Commands::CommandType lastCommand() const {
+    return _lastCommand;
   }
 
   /**
@@ -310,13 +316,37 @@ public:
    */
   void setConfig(Configuration config);
 
+    /**
+     * @brief Read the config stored in EEPROM
+     * 
+     * @return Configuration 
+     */
+  Configuration readConfig();
+
+    /**
+     * @brief Send a message via the radio; set team to 0xFFFF to broadcast to all
+     * 
+     * @param message 
+     */
+  void sendRadioMessage(Message message);
+
+    /**
+     * @brief Read the last received message
+     * 
+     * @return Message 
+     */
+  Message getLatestRadioMessage();
+
 private:
   Commands::Response sendCommand(Commands::Command command,
                                  bool expectResponse = false);
 
+    void setLedPort(LedPort port);
+
   std::unique_ptr<frc::I2C> _i2c;
   uint8_t _slaveAddress;
-  Commands::CommandType _lastCommands[2];
+  LedPort _currentLedPort = LedPort::P0;
+  Commands::CommandType _lastCommand;
   PatternType _lastPattern[2];
 };
 } // namespace ConnectorX
