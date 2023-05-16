@@ -1,22 +1,38 @@
 #pragma once
 
 #include "Configurator.h"
+#include "PacketRadio.h"
 #include <Arduino.h>
 
 enum class CommandType {
+// W
   On = 0,
+  // W
   Off = 1,
+  // W
   Pattern = 2,
+  // W
   ChangeColor = 3,
+  // R
   ReadPatternDone = 4,
+  // W
   SetLedPort = 5,
+  // R
   ReadAnalog = 6,
+  // W
   DigitalSetup = 7,
+  // W
   DigitalWrite = 8,
+  // R
   DigitalRead = 9,
+  // W
   SetConfig = 10,
-  RadioSend = 11,
-  RadioGetLatestReceived = 12
+  // R
+  ReadConfig = 11,
+  // W
+  RadioSend = 12,
+  // R
+  RadioGetLatestReceived = 13
 };
 
 struct CommandOn {};
@@ -74,11 +90,10 @@ struct CommandSetConfig {
   Configuration config;
 };
 
+struct CommandReadConfig {};
+
 struct CommandRadioSend {
-  // Set to 0xFFFF to send to all
-  uint16_t teamNumber;
-  uint8_t dataLen;
-  uint8_t data[61];
+  Message msg;
 };
 
 struct CommandRadioGetLatestReceived {};
@@ -95,6 +110,7 @@ union CommandData {
   CommandDigitalWrite commandDigitalWrite;
   CommandDigitalRead commandDigitalRead;
   CommandSetConfig commandSetConfig;
+  CommandReadConfig commandReadConfig;
   CommandRadioSend commandRadioSend;
   CommandRadioGetLatestReceived commandRadioGetLatestReceived;
 };
@@ -102,4 +118,37 @@ union CommandData {
 struct Command {
   CommandType commandType;
   CommandData commandData;
+};
+
+struct ResponsePatternDone {
+    uint8_t done;
+};
+
+struct ResponseReadAnalog {
+    uint16_t value;
+};
+
+struct ResponseDigitalRead {
+    uint8_t value;
+};
+
+struct ResponseRadioLastReceived {
+    Message msg;
+};
+
+struct ResponseReadConfiguration {
+    Configuration config;
+};
+
+union ResponseData {
+    ResponsePatternDone responsePatternDone;
+    ResponseReadAnalog responseReadAnalog;
+    ResponseDigitalRead responseDigitalRead;
+    ResponseRadioLastReceived responseRadioLastReceived;
+    ResponseReadConfiguration responseReadConfiguration;
+};
+
+struct Response {
+    CommandType commandType;
+    ResponseData responseData;
 };

@@ -16,6 +16,7 @@
 struct Message {
   uint8_t data[61];
   uint8_t len;
+  // Set to 0xFFFF to send to all
   uint16_t teamNumber;
 };
 

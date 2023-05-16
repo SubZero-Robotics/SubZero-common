@@ -1,7 +1,5 @@
 #pragma once
 
-// TODO: Make this file into Generic PCB Driver instead!
-
 #include <frc/I2C.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc2/command/CommandPtr.h>
@@ -13,24 +11,157 @@
 #include "Constants.h"
 #include "utils/Logging.h"
 
-class LEDControllerSubsystem : public frc2::SubsystemBase {
-public:
-  enum class CommandType {
-    On = 0,
-    Off = 1,
-    Pattern = 2,
-    ChangeColor = 3,
-    ReadPatternDone = 4,
-    SetLedPort = 5,
-    ReadAnalog = 6,
-    DigitalSetup = 7,
-    DigitalWrite = 8,
-    DigitalRead = 9,
-    SetConfig = 10,
-    RadioSend = 11,
-    RadioGetLatestReceived = 12
-  };
+namespace ConnectorX {
+namespace Commands {
+    enum class CommandType {
+// W
+  On = 0,
+  // W
+  Off = 1,
+  // W
+  Pattern = 2,
+  // W
+  ChangeColor = 3,
+  // R
+  ReadPatternDone = 4,
+  // W
+  SetLedPort = 5,
+  // R
+  ReadAnalog = 6,
+  // W
+  DigitalSetup = 7,
+  // W
+  DigitalWrite = 8,
+  // R
+  DigitalRead = 9,
+  // W
+  SetConfig = 10,
+  // R
+  ReadConfig = 11,
+  // W
+  RadioSend = 12,
+  // R
+  RadioGetLatestReceived = 13
+};
 
+struct CommandOn {};
+
+struct CommandOff {};
+
+// * Set delay to -1 to use default delay
+struct CommandPattern {
+  uint8_t pattern;
+  uint8_t oneShot;
+  int16_t delay;
+};
+
+struct CommandColor {
+  uint8_t red;
+  uint8_t green;
+  uint8_t blue;
+};
+
+struct CommandReadPatternDone {};
+
+struct CommandSetLedPort {
+  uint8_t port;
+};
+
+struct CommandReadAnalog {
+  uint8_t port;
+};
+
+struct CommandDigitalSetup {
+  uint8_t port;
+  /** Follows the Arduino-defined values for pinMode
+   * INPUT = 0
+   * INPUT_PULLUP = 2
+   * INPUT_PULLDOWN = 3
+   * OUTPUT = 1
+   * OUTPUT_2MA = 4
+   * OUTPUT_4MA = 5
+   * OUTPUT_8MA = 6
+   * OUTPUT_12MA = 7
+   */
+  uint8_t mode;
+};
+
+struct CommandDigitalWrite {
+  uint8_t port;
+  uint8_t value;
+};
+
+struct CommandDigitalRead {
+  uint8_t port;
+};
+
+struct CommandSetConfig {
+  Configuration config;
+};
+
+struct CommandReadConfig {};
+
+struct CommandRadioSend {
+  Message msg;
+};
+
+struct CommandRadioGetLatestReceived {};
+
+union CommandData {
+  CommandOn commandOn;
+  CommandOff commandOff;
+  CommandPattern commandPattern;
+  CommandColor commandColor;
+  CommandReadPatternDone commandReadPatternDone;
+  CommandSetLedPort commandSetLedPort;
+  CommandReadAnalog commandReadAnalog;
+  CommandDigitalSetup commandDigitalSetup;
+  CommandDigitalWrite commandDigitalWrite;
+  CommandDigitalRead commandDigitalRead;
+  CommandSetConfig commandSetConfig;
+  CommandReadConfig commandReadConfig;
+  CommandRadioSend commandRadioSend;
+  CommandRadioGetLatestReceived commandRadioGetLatestReceived;
+};
+
+struct Command {
+  CommandType commandType;
+  CommandData commandData;
+};
+
+struct ResponsePatternDone {
+    uint8_t done;
+};
+
+struct ResponseReadAnalog {
+    uint16_t value;
+};
+
+struct ResponseDigitalRead {
+    uint8_t value;
+};
+
+struct ResponseRadioLastReceived {
+    Message msg;
+};
+
+struct ResponseReadConfiguration {
+    Configuration config;
+};
+
+union ResponseData {
+    ResponsePatternDone responsePatternDone;
+    ResponseReadAnalog responseReadAnalog;
+    ResponseDigitalRead responseDigitalRead;
+    ResponseRadioLastReceived responseRadioLastReceived;
+    ResponseReadConfiguration responseReadConfiguration;
+};
+
+struct Response {
+    CommandType commandType;
+    ResponseData responseData;
+};
+}
   enum class PatternType {
     None = 0,
     SetAll = 1,
@@ -50,7 +181,7 @@ public:
     OUTPUT_12MA = 7
   };
 
-  enum class DigitalPort { P0 = 0, P1 = 1, P2 = 2, P3 = 3, P4 = 4, P5 = 5 };
+  enum class DigitalPort { D0 = 0, D1 = 1, D2 = 2, D3 = 3, D4 = 4, D5 = 5 };
 
   enum class AnalogPort { A0 = 0, A1 = 1, A2 = 2 };
 
@@ -59,13 +190,6 @@ public:
   struct LedConfiguration {
     uint16_t count;
     uint8_t brightness;
-  };
-
-  struct EEPROMConfiguration {
-    eeprom_size_t size = kbits_2;
-    uint8_t numDevices = 1;
-    uint16_t pageSize = 8;
-    uint8_t address = eepromAddr;
   };
 
   struct Configuration {
@@ -77,7 +201,8 @@ public:
     LedConfiguration led0;
     LedConfiguration led1;
   };
-
+class ConnectorX : public frc2::SubsystemBase {
+public:
   ConnectorX(uint8_t slaveAddress, frc::I2C::Port port = frc::I2C::kMXP);
 
   /**
@@ -92,30 +217,60 @@ public:
    *
    * @return CommandType
    */
-  inline CommandType lastCommand(LedPort port) const {
+  inline Commands::CommandType lastCommand(LedPort port) const {
     return _lastCommand[(uint8_t)port];
   }
 
+    /**
+     * @brief Get the last pattern sent
+     * 
+     * @param port 
+     * @return PatternType 
+     */
   inline PatternType lastPattern(LedPort port) const {
     return _lastPattern[(uint8_t)port];
   }
 
+/**
+ * @brief Configure a digital IO pin. Think Arduino pinMode()
+ * 
+ * @param port 
+ * @param mode Input, Output, etc.
+ */
   void configureDigitalPin(DigitalPort port, PinMode mode);
 
-  void writeDigitalPin(DigitalPort value);
+    /**
+     * @brief Set a digital IO pin
+     * 
+     * @param value 
+     */
+  void writeDigitalPin(DigitalPort port, bool value);
 
+    /**
+     * @brief Read state of digital IO pin
+     * 
+     * @param port 
+     * @return true - Remember this will be HIGH by default if set to INPUT_PULLUP
+     * @return false 
+     */
   bool readDigitalPin(DigitalPort port);
 
+    /**
+     * @brief Read the ADC value. Ranges from 0 - 3.3v; 12 bits of precision
+     * 
+     * @param port 
+     * @return uint16_t 
+     */
   uint16_t readAnalogPin(AnalogPort port);
 
   /**
-   * @brief Send the ON command
+   * @brief Turn on
    *
    */
   void setOn(LedPort port);
 
   /**
-   * @brief Send the OFF command
+   * @brief Turn off
    *
    */
   void setOff(LedPort port);
@@ -130,29 +285,37 @@ public:
                   int16_t delay = -1);
 
   /**
-   * @brief Send the COLOR command
+   * @brief Set the color; must also call a pattern to see it
    *
    */
   void setColor(LedPort port, uint8_t red, uint8_t green, uint8_t blue);
   /**
-   * @brief Send the COLOR command
+   * @brief Set the color; must also call a pattern to see it
    *
    * @param color Color data in the form of 0x00RRGGBB
    */
   bool setColor(LedPort port, uint32_t color);
 
   /**
-   * @brief Send the READPATTERNDONE command
+   * @brief Read if pattern is done running
    *
    * @return true if pattern is done
    */
   bool getPatternDone(LedPort port);
 
-  void
+    /**
+     * @brief Store the config in board's EEPROM
+     * 
+     * @param config 
+     */
+  void setConfig(Configuration config);
 
-      private : std::unique_ptr<frc::I2C>
-                    _i2c;
+private:
+    Commands::Response sendCommand(Commands::Command command, bool expectResponse = false);
+
+    std::unique_ptr<frc::I2C> _i2c;
   uint8_t _slaveAddress;
-  CommandType _lastCommands[2];
+  Commands::CommandType _lastCommands[2];
   PatternType _lastPattern[2];
 };
+}

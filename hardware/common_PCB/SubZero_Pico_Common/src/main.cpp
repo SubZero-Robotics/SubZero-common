@@ -19,6 +19,8 @@ static mutex_t radioDataMtx;
 void receiveEvent(int);
 void requestEvent(void);
 void handleRadioDataReceive(Message msg);
+void centralRespond(Response response);
+
 Adafruit_NeoPixel *getPixels(uint8_t port);
 PatternRunner *getPatternRunner(uint8_t port);
 
@@ -288,14 +290,17 @@ void receiveEvent(int howMany) {
 }
 
 void requestEvent() {
+    Response res;
+    res.commandType = command.commandType;
+
   switch (command.commandType) {
   /**
    * @brief Returns uint8_t
    *
    */
   case CommandType::ReadPatternDone: {
-    auto runner = getPatternRunner(ledPort);
-    Wire.write(runner->patternDone());
+    auto done = getPatternRunner(ledPort)->patternDone();
+    res.responseData.responsePatternDone = done;
     break;
   }
 
@@ -306,7 +311,7 @@ void requestEvent() {
   case CommandType::ReadAnalog: {
     uint16_t value = analogRead(Pin::ANALOGIO::analogIOMap.at(
         command.commandData.commandReadAnalog.port));
-    Wire.write((uint8_t *)&value, sizeof(value));
+    res.responseData.responseReadAnalog.value = value;
     break;
   }
 
@@ -317,25 +322,56 @@ void requestEvent() {
   case CommandType::DigitalRead: {
     uint8_t value = digitalRead(Pin::DIGITALIO::digitalIOMap.at(
         command.commandData.commandDigitalRead.port));
-    Wire.write(value);
+    res.responseData.responseDigitalRead.value = value;
     break;
   }
 
   case CommandType::RadioGetLatestReceived: {
     mutex_enter_blocking(&radioDataMtx);
     auto msg = radio->getLastReceived();
-
-    for (int i = 0; i < sizeof(msg); i++) {
-      // Cast a pointer offset of msg byte to uint8_t pointer then dereference
-      // Trust me...
-      Wire.write(*(uint8_t *)((&msg) + i));
-    }
     mutex_exit(&radioDataMtx);
+
+    res.responseData.responseRadioLastReceived.msg = msg;
+    break;
+  }
+
+  case CommandType::ReadConfig: {
+    auto cfg = configurator->readConfig();
+    res.responseData.responseReadConfiguration.config = cfg;
     break;
   }
 
   default:
     // Send back 255 (-1 signed) to indicate bad/no data
     Wire.write(0xff);
+    return;
   }
+
+  centralRespond(res);
+}
+
+void centralRespond(Response response) {
+    uint16_t size;
+
+    switch (response.commandType) {
+        case CommandType::ReadPatternDone:
+            size = sizeof(ResponsePatternDone);
+            break;
+        case CommandType::ReadAnalog:
+            size = sizeof(ResponseReadAnalog);
+            break;
+        case CommandType::DigitalRead:
+            size = sizeof(ResponseDigitalRead);
+            break;
+        case CommandType::RadioGetLatestReceived:
+            size = sizeof(ResponseRadioLastReceived);
+            break;
+        case CommandType::ReadConfig:
+            size = sizeof(ResponseReadConfiguration);
+            break;
+        default:
+            size = 0;
+    }
+
+    Wire.write((uint8_t*)&response, size + sizeof(response.commandType));
 }

@@ -61,6 +61,10 @@ static void parseCommand(uint8_t *buf, size_t len, Command *cmd) {
            sizeof(CommandSetConfig));
     break;
 
+case CommandType::ReadConfig:
+    cmd->commandData.commandReadConfig = {};
+    break;
+
   case CommandType::RadioSend:
     memcpy(&cmd->commandData.commandRadioSend.teamNumber, &buf[1],
            sizeof(CommandRadioSend));
