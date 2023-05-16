@@ -223,9 +223,7 @@ public:
    *
    * @return CommandType
    */
-  inline Commands::CommandType lastCommand() const {
-    return _lastCommand;
-  }
+  inline Commands::CommandType lastCommand() const { return _lastCommand; }
 
   /**
    * @brief Get the last pattern sent
@@ -316,32 +314,32 @@ public:
    */
   void setConfig(Configuration config);
 
-    /**
-     * @brief Read the config stored in EEPROM
-     * 
-     * @return Configuration 
-     */
+  /**
+   * @brief Read the config stored in EEPROM
+   *
+   * @return Configuration
+   */
   Configuration readConfig();
 
-    /**
-     * @brief Send a message via the radio; set team to 0xFFFF to broadcast to all
-     * 
-     * @param message 
-     */
+  /**
+   * @brief Send a message via the radio; set team to 0xFFFF to broadcast to all
+   *
+   * @param message
+   */
   void sendRadioMessage(Message message);
 
-    /**
-     * @brief Read the last received message
-     * 
-     * @return Message 
-     */
+  /**
+   * @brief Read the last received message
+   *
+   * @return Message
+   */
   Message getLatestRadioMessage();
 
 private:
   Commands::Response sendCommand(Commands::Command command,
                                  bool expectResponse = false);
 
-    void setLedPort(LedPort port);
+  void setLedPort(LedPort port);
 
   std::unique_ptr<frc::I2C> _i2c;
   uint8_t _slaveAddress;
