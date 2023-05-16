@@ -5,7 +5,7 @@
 #include <Arduino.h>
 
 enum class CommandType {
-// W
+  // W
   On = 0,
   // W
   Off = 1,
@@ -121,34 +121,34 @@ struct Command {
 };
 
 struct ResponsePatternDone {
-    uint8_t done;
+  uint8_t done;
 };
 
 struct ResponseReadAnalog {
-    uint16_t value;
+  uint16_t value;
 };
 
 struct ResponseDigitalRead {
-    uint8_t value;
+  uint8_t value;
 };
 
 struct ResponseRadioLastReceived {
-    Message msg;
+  Message msg;
 };
 
 struct ResponseReadConfiguration {
-    Configuration config;
+  Configuration config;
 };
 
 union ResponseData {
-    ResponsePatternDone responsePatternDone;
-    ResponseReadAnalog responseReadAnalog;
-    ResponseDigitalRead responseDigitalRead;
-    ResponseRadioLastReceived responseRadioLastReceived;
-    ResponseReadConfiguration responseReadConfiguration;
+  ResponsePatternDone responsePatternDone;
+  ResponseReadAnalog responseReadAnalog;
+  ResponseDigitalRead responseDigitalRead;
+  ResponseRadioLastReceived responseRadioLastReceived;
+  ResponseReadConfiguration responseReadConfiguration;
 };
 
 struct Response {
-    CommandType commandType;
-    ResponseData responseData;
+  CommandType commandType;
+  ResponseData responseData;
 };

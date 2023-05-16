@@ -13,8 +13,8 @@
 
 namespace ConnectorX {
 namespace Commands {
-    enum class CommandType {
-// W
+enum class CommandType {
+  // W
   On = 0,
   // W
   Off = 1,
@@ -130,77 +130,77 @@ struct Command {
 };
 
 struct ResponsePatternDone {
-    uint8_t done;
+  uint8_t done;
 };
 
 struct ResponseReadAnalog {
-    uint16_t value;
+  uint16_t value;
 };
 
 struct ResponseDigitalRead {
-    uint8_t value;
+  uint8_t value;
 };
 
 struct ResponseRadioLastReceived {
-    Message msg;
+  Message msg;
 };
 
 struct ResponseReadConfiguration {
-    Configuration config;
+  Configuration config;
 };
 
 union ResponseData {
-    ResponsePatternDone responsePatternDone;
-    ResponseReadAnalog responseReadAnalog;
-    ResponseDigitalRead responseDigitalRead;
-    ResponseRadioLastReceived responseRadioLastReceived;
-    ResponseReadConfiguration responseReadConfiguration;
+  ResponsePatternDone responsePatternDone;
+  ResponseReadAnalog responseReadAnalog;
+  ResponseDigitalRead responseDigitalRead;
+  ResponseRadioLastReceived responseRadioLastReceived;
+  ResponseReadConfiguration responseReadConfiguration;
 };
 
 struct Response {
-    CommandType commandType;
-    ResponseData responseData;
+  CommandType commandType;
+  ResponseData responseData;
 };
-}
-  enum class PatternType {
-    None = 0,
-    SetAll = 1,
-    Blink = 2,
-    RGBFade = 3,
-    HackerMode = 4
-  };
+} // namespace Commands
+enum class PatternType {
+  None = 0,
+  SetAll = 1,
+  Blink = 2,
+  RGBFade = 3,
+  HackerMode = 4
+};
 
-  enum class PinMode {
-    INPUT = 0,
-    OUTPUT = 1,
-    INPUT_PULLUP = 2,
-    INPUT_PULLDOWN = 3,
-    OUTPUT_2MA = 4,
-    OUTPUT_4MA = 5,
-    OUTPUT_8MA = 6,
-    OUTPUT_12MA = 7
-  };
+enum class PinMode {
+  INPUT = 0,
+  OUTPUT = 1,
+  INPUT_PULLUP = 2,
+  INPUT_PULLDOWN = 3,
+  OUTPUT_2MA = 4,
+  OUTPUT_4MA = 5,
+  OUTPUT_8MA = 6,
+  OUTPUT_12MA = 7
+};
 
-  enum class DigitalPort { D0 = 0, D1 = 1, D2 = 2, D3 = 3, D4 = 4, D5 = 5 };
+enum class DigitalPort { D0 = 0, D1 = 1, D2 = 2, D3 = 3, D4 = 4, D5 = 5 };
 
-  enum class AnalogPort { A0 = 0, A1 = 1, A2 = 2 };
+enum class AnalogPort { A0 = 0, A1 = 1, A2 = 2 };
 
-  enum class LedPort { P0 = 0, P1 = 1 };
+enum class LedPort { P0 = 0, P1 = 1 };
 
-  struct LedConfiguration {
-    uint16_t count;
-    uint8_t brightness;
-  };
+struct LedConfiguration {
+  uint16_t count;
+  uint8_t brightness;
+};
 
-  struct Configuration {
-    int8_t valid;
-    uint16_t teamNumber;
-    // Send messages to 2 other teams
-    uint16_t initialTeams[2];
-    uint8_t i2c0Addr;
-    LedConfiguration led0;
-    LedConfiguration led1;
-  };
+struct Configuration {
+  int8_t valid;
+  uint16_t teamNumber;
+  // Send messages to 2 other teams
+  uint16_t initialTeams[2];
+  uint8_t i2c0Addr;
+  LedConfiguration led0;
+  LedConfiguration led1;
+};
 class ConnectorX : public frc2::SubsystemBase {
 public:
   ConnectorX(uint8_t slaveAddress, frc::I2C::Port port = frc::I2C::kMXP);
@@ -221,46 +221,46 @@ public:
     return _lastCommand[(uint8_t)port];
   }
 
-    /**
-     * @brief Get the last pattern sent
-     * 
-     * @param port 
-     * @return PatternType 
-     */
+  /**
+   * @brief Get the last pattern sent
+   *
+   * @param port
+   * @return PatternType
+   */
   inline PatternType lastPattern(LedPort port) const {
     return _lastPattern[(uint8_t)port];
   }
 
-/**
- * @brief Configure a digital IO pin. Think Arduino pinMode()
- * 
- * @param port 
- * @param mode Input, Output, etc.
- */
+  /**
+   * @brief Configure a digital IO pin. Think Arduino pinMode()
+   *
+   * @param port
+   * @param mode Input, Output, etc.
+   */
   void configureDigitalPin(DigitalPort port, PinMode mode);
 
-    /**
-     * @brief Set a digital IO pin
-     * 
-     * @param value 
-     */
+  /**
+   * @brief Set a digital IO pin
+   *
+   * @param value
+   */
   void writeDigitalPin(DigitalPort port, bool value);
 
-    /**
-     * @brief Read state of digital IO pin
-     * 
-     * @param port 
-     * @return true - Remember this will be HIGH by default if set to INPUT_PULLUP
-     * @return false 
-     */
+  /**
+   * @brief Read state of digital IO pin
+   *
+   * @param port
+   * @return true - Remember this will be HIGH by default if set to INPUT_PULLUP
+   * @return false
+   */
   bool readDigitalPin(DigitalPort port);
 
-    /**
-     * @brief Read the ADC value. Ranges from 0 - 3.3v; 12 bits of precision
-     * 
-     * @param port 
-     * @return uint16_t 
-     */
+  /**
+   * @brief Read the ADC value. Ranges from 0 - 3.3v; 12 bits of precision
+   *
+   * @param port
+   * @return uint16_t
+   */
   uint16_t readAnalogPin(AnalogPort port);
 
   /**
@@ -303,19 +303,20 @@ public:
    */
   bool getPatternDone(LedPort port);
 
-    /**
-     * @brief Store the config in board's EEPROM
-     * 
-     * @param config 
-     */
+  /**
+   * @brief Store the config in board's EEPROM
+   *
+   * @param config
+   */
   void setConfig(Configuration config);
 
 private:
-    Commands::Response sendCommand(Commands::Command command, bool expectResponse = false);
+  Commands::Response sendCommand(Commands::Command command,
+                                 bool expectResponse = false);
 
-    std::unique_ptr<frc::I2C> _i2c;
+  std::unique_ptr<frc::I2C> _i2c;
   uint8_t _slaveAddress;
   Commands::CommandType _lastCommands[2];
   PatternType _lastPattern[2];
 };
-}
+} // namespace ConnectorX

@@ -61,7 +61,7 @@ static void parseCommand(uint8_t *buf, size_t len, Command *cmd) {
            sizeof(CommandSetConfig));
     break;
 
-case CommandType::ReadConfig:
+  case CommandType::ReadConfig:
     cmd->commandData.commandReadConfig = {};
     break;
 

@@ -290,8 +290,8 @@ void receiveEvent(int howMany) {
 }
 
 void requestEvent() {
-    Response res;
-    res.commandType = command.commandType;
+  Response res;
+  res.commandType = command.commandType;
 
   switch (command.commandType) {
   /**
@@ -351,27 +351,27 @@ void requestEvent() {
 }
 
 void centralRespond(Response response) {
-    uint16_t size;
+  uint16_t size;
 
-    switch (response.commandType) {
-        case CommandType::ReadPatternDone:
-            size = sizeof(ResponsePatternDone);
-            break;
-        case CommandType::ReadAnalog:
-            size = sizeof(ResponseReadAnalog);
-            break;
-        case CommandType::DigitalRead:
-            size = sizeof(ResponseDigitalRead);
-            break;
-        case CommandType::RadioGetLatestReceived:
-            size = sizeof(ResponseRadioLastReceived);
-            break;
-        case CommandType::ReadConfig:
-            size = sizeof(ResponseReadConfiguration);
-            break;
-        default:
-            size = 0;
-    }
+  switch (response.commandType) {
+  case CommandType::ReadPatternDone:
+    size = sizeof(ResponsePatternDone);
+    break;
+  case CommandType::ReadAnalog:
+    size = sizeof(ResponseReadAnalog);
+    break;
+  case CommandType::DigitalRead:
+    size = sizeof(ResponseDigitalRead);
+    break;
+  case CommandType::RadioGetLatestReceived:
+    size = sizeof(ResponseRadioLastReceived);
+    break;
+  case CommandType::ReadConfig:
+    size = sizeof(ResponseReadConfiguration);
+    break;
+  default:
+    size = 0;
+  }
 
-    Wire.write((uint8_t*)&response, size + sizeof(response.commandType));
+  Wire.write((uint8_t *)&response, size + sizeof(response.commandType));
 }
