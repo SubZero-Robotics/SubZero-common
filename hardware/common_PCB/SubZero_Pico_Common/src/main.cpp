@@ -369,5 +369,6 @@ void centralRespond(Response response) {
     size = 0;
   }
 
-  Wire.write((uint8_t *)&response, size + sizeof(response.commandType));
+    Wire.write((uint8_t)response.commandType);
+  Wire.write((uint8_t *)&response.responseData, size);
 }
