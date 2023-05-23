@@ -27,7 +27,7 @@ frc2::CommandPtr MultiAxisSubsystem::SetPose(std::span<Pose> poses) {
 
 frc2::CommandPtr MultiAxisSubsystem::Stop(AxisIndex index) {
   return frc2::InstantCommand([this] { _axes[index]->StopMovement(); },
-                              {this, _axes})
+                              {_axes[index]})
       .ToPtr();
 }
 
@@ -36,7 +36,7 @@ frc2::CommandPtr MultiAxisSubsystem::Stop() {
   if (poses.empty()) {
     return cmd;
   }
-  for (int i = 0; i < size(_axes); i++) {
+  for (int i = 0; i < axes.size(); i++) {
     cmd = std::move(cmd).AlongWith(Stop(i));
   };
   return cmd;
