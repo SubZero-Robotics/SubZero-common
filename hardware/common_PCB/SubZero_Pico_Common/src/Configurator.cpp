@@ -10,14 +10,6 @@ void Configurator::configSetup() {
   while (!Serial.available());
   config.teamNumber = Serial.parseInt();
   Serial.println(config.teamNumber);
-  Serial.print("Other team number 1: ");
-  while (!Serial.available());
-  config.initialTeams[0] = Serial.parseInt();
-  Serial.println(config.initialTeams[0]);
-  Serial.print("Other team number 2: ");
-  while (!Serial.available());
-  config.initialTeams[1] = Serial.parseInt();
-  Serial.println(config.initialTeams[1]);
   Serial.print("I2C address for comms with RIO: ");
   while (!Serial.available());
   config.i2c0Addr = Serial.parseInt();

@@ -70,7 +70,6 @@ void setup() {
     }
 
     config = configurator->readConfig();
-    Serial.printf("Got config:\r\n%s\r\n", Configurator::toString(config).c_str());
 
     pixels0 = new Adafruit_NeoPixel(config.led0.count, Pin::LED::Dout0,
                                     NEO_GRB + NEO_KHZ800);
@@ -141,9 +140,9 @@ void setup() {
     // Initialize all LEDs to black
     Animation::executePatternSetAll(*pixels1, 0, 0, pixels1->numPixels());
     pixels1->show();
-}
 
-void setup1() {}
+    Serial.printf("Got config:\r\n%s\r\n", Configurator::toString(config).c_str());
+}
 
 Adafruit_NeoPixel *getPixels(uint8_t port) {
   if (port == 0) {
@@ -163,11 +162,25 @@ PatternRunner *getPatternRunner(uint8_t port) {
 
 void loop() {
   // If there's new data, process it
+  if (newDataToParse) {
+        uint8_t buf[i2cReceiveBufSize];
+        // Safely copy our new data
+        noInterrupts();
+        memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
+        interrupts();
+        CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
+
+        newDataToParse = false;
+        newData = true;
+    }
+
   if (newData) {
     newData = false;
-    uint32_t owner;
-    if (mutex_try_enter(&i2cCommandMtx, &owner)) {
-      switch (command.commandType) {
+    for (int i = 0; i < sizeof(command); i++) {
+        Serial.printf("%X ", ((uint8_t*)&command)[i]);
+    }
+    Serial.println();
+    switch (command.commandType) {
       case CommandType::On: {
         // Go back to running the current color and pattern
         patternRunner0->reset();
@@ -198,8 +211,8 @@ void loop() {
                 : command.commandData.commandPattern.delay;
 
         runner->setCurrentPattern(command.commandData.commandPattern.pattern,
-                                  command.commandData.commandPattern.oneShot,
-                                  delay);
+                                  delay,
+                                  command.commandData.commandPattern.oneShot);
         break;
       }
 
@@ -253,9 +266,6 @@ void loop() {
         break;
       }
 
-      mutex_exit(&i2cCommandMtx);
-    }
-
     Serial.print(F("ON="));
     Serial.println(systemOn);
   }
@@ -264,25 +274,8 @@ void loop() {
     patternRunner0->update();
     patternRunner1->update();
   }
-}
 
-void loop1() {
-    if (newDataToParse) {
-        uint8_t buf[i2cReceiveBufSize];
-        // Safely copy our new data
-        noInterrupts();
-        memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
-        interrupts();
-        mutex_enter_blocking(&i2cCommandMtx);
-        CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
-        mutex_exit(&i2cCommandMtx);
-
-        newDataToParse = false;
-        newData = true;
-        Serial.printf("Found new command type=%d\r\n", (uint8_t)command.commandType);
-    }
-
-    #ifdef ENABLE_RADIO
+  #ifdef ENABLE_RADIO
     radio->update();
     #endif
 }

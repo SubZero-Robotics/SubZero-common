@@ -19,7 +19,7 @@ static void parseCommand(uint8_t *buf, size_t len, Command *cmd) {
     break;
 
   case CommandType::Pattern:
-    memcpy(&cmd->commandData.commandPattern.pattern, &buf[1],
+    memcpy(&cmd->commandData.commandPattern, &buf[1],
            sizeof(CommandPattern));
     break;
 
