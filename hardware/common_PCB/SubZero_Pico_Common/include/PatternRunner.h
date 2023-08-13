@@ -61,7 +61,8 @@ public:
     _delay = delay;
     reset();
 
-    Serial.printf("Set pattern to %d | one shot=%d | delay=%d\r\n", pattern, isOneShot, delay);
+    Serial.printf("Set pattern to %d | one shot=%d | delay=%d\r\n", pattern,
+                  isOneShot, delay);
 
     // Force the newly set pattern to run immediately
     update(true);

@@ -3,31 +3,38 @@
 void Configurator::configSetup() {
   Configuration config;
 
-  while (Serial.available()) Serial.read();
-    Serial.println(
+  while (Serial.available())
+    Serial.read();
+  Serial.println(
       "Enter your selections with line ending set to NO LINE ENDING only");
   Serial.print("Team number: ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.teamNumber = Serial.parseInt();
   Serial.println(config.teamNumber);
   Serial.print("I2C address for comms with RIO: ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.i2c0Addr = Serial.parseInt();
   Serial.println(config.i2c0Addr);
   Serial.print("LED0 count: ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.led0.count = Serial.parseInt();
   Serial.println(config.led0.count);
   Serial.print("LED0 brightness (1 - 100): ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.led0.brightness = Serial.parseInt();
   Serial.println(config.led0.brightness);
   Serial.print("LED1 count: ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.led1.count = Serial.parseInt();
   Serial.println(config.led1.count);
   Serial.print("LED1 brightness (1 - 100): ");
-  while (!Serial.available());
+  while (!Serial.available())
+    ;
   config.led1.brightness = Serial.parseInt();
   Serial.println(config.led1.brightness);
 

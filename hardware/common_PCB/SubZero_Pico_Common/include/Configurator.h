@@ -1,8 +1,8 @@
 #pragma once
 
 #include <Arduino.h>
-#include <extEEPROM.h>
 #include <EEPROM.h>
+#include <extEEPROM.h>
 
 #include <memory>
 #include <string>
@@ -33,7 +33,7 @@ struct Configuration {
 
 class Configurator {
 public:
-  Configurator() { }
+  Configurator() {}
 
   Configurator(EEPROMConfiguration config, TwoWire *wire) {
     eeprom = std::make_unique<extEEPROM>(config.size, config.numDevices,
@@ -49,7 +49,7 @@ public:
     EEPROM.get(0, config);
 
     for (uint8_t i = 0; i < sizeof(Configuration); i++) {
-        Serial.printf("%X\r\n", *((uint8_t *)&config + i));
+      Serial.printf("%X\r\n", *((uint8_t *)&config + i));
     }
 
     return config;
