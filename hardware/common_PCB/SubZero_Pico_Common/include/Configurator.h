@@ -2,6 +2,7 @@
 
 #include <Arduino.h>
 #include <extEEPROM.h>
+#include <EEPROM.h>
 
 #include <memory>
 #include <string>
@@ -21,7 +22,7 @@ struct EEPROMConfiguration {
 };
 
 struct Configuration {
-  int8_t valid;
+  uint8_t valid;
   uint16_t teamNumber;
   // Send messages to 2 other teams
   uint16_t initialTeams[2];
@@ -32,18 +33,24 @@ struct Configuration {
 
 class Configurator {
 public:
-  Configurator();
+  Configurator() { }
 
   Configurator(EEPROMConfiguration config, TwoWire *wire) {
     eeprom = std::make_unique<extEEPROM>(config.size, config.numDevices,
                                          config.pageSize, config.address);
-    eeprom->begin(eeprom->twiClock400kHz, wire);
+    // eeprom->begin(eeprom->twiClock400kHz, wire);
+    EEPROM.begin(256);
   }
 
   Configuration readConfig() {
     Configuration config;
 
-    eeprom->read(0, (byte *)&config, sizeof(Configuration));
+    // eeprom->read(0, (byte *)&config, sizeof(Configuration));
+    EEPROM.get(0, config);
+
+    for (uint8_t i = 0; i < sizeof(Configuration); i++) {
+        Serial.printf("%X\r\n", *((uint8_t *)&config + i));
+    }
 
     return config;
   }
@@ -51,7 +58,8 @@ public:
   void storeConfig(Configuration config) {
     config.valid = 1;
 
-    eeprom->write(0, (byte *)&config, sizeof(Configuration));
+    EEPROM.put(0, config);
+    EEPROM.commit();
   }
 
   bool checkIfValid() {

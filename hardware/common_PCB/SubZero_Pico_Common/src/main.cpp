@@ -12,6 +12,9 @@
 #include "PacketRadio.h"
 #include "PatternRunner.h"
 
+// Uncomment to enable radio module communications
+// #define ENABLE_RADIO
+
 static mutex_t i2cCommandMtx;
 static mutex_t radioDataMtx;
 
@@ -40,89 +43,104 @@ static Adafruit_NeoPixel *pixels1;
 static PatternRunner *patternRunner0;
 static PatternRunner *patternRunner1;
 
+#ifdef ENABLE_RADIO
 static PacketRadio *radio;
+#endif
 
 static Command command;
 
 static bool systemOn = true;
 
 void setup() {
-  Wire1.setSDA(Pin::I2C::Port1::SDA);
-  Wire1.setSCL(Pin::I2C::Port1::SCL);
-  Wire1.begin();
+    Wire1.setSDA(Pin::I2C::Port1::SDA);
+    Wire1.setSCL(Pin::I2C::Port1::SCL);
+    Wire1.begin();
 
-  configurator = new Configurator(eepromConfig, &Wire1);
+    configurator = new Configurator(eepromConfig, &Wire1);
 
-  Serial.begin(115200);
-  pinMode(Pin::CONFIG::CONFIG_SETUP, INPUT_PULLUP);
-  if (!configurator->checkIfValid() ||
-      !digitalRead(Pin::CONFIG::CONFIG_SETUP)) {
-    configurator->configSetup();
-  }
+    Serial.begin(115200);
+    
+    pinMode(Pin::CONFIG::CONFIG_SETUP, INPUT_PULLUP);
+    if (!configurator->checkIfValid() ||
+        !digitalRead(Pin::CONFIG::CONFIG_SETUP)) {
+        while (!Serial);
+        delay(1000);
+        Serial.println("Entering configurator...");
+        configurator->configSetup();
+    }
 
-  config = configurator->readConfig();
+    config = configurator->readConfig();
+    Serial.printf("Got config:\r\n%s\r\n", Configurator::toString(config).c_str());
 
-  pixels0 = new Adafruit_NeoPixel(config.led0.count, Pin::LED::Dout0,
-                                  NEO_GRB + NEO_KHZ800);
-  pixels1 = new Adafruit_NeoPixel(config.led1.count, Pin::LED::Dout1,
-                                  NEO_GRB + NEO_KHZ800);
-  patternRunner0 = new PatternRunner(pixels0, Animation::patterns);
-  patternRunner1 = new PatternRunner(pixels1, Animation::patterns);
+    pixels0 = new Adafruit_NeoPixel(config.led0.count, Pin::LED::Dout0,
+                                    NEO_GRB + NEO_KHZ800);
+    pixels1 = new Adafruit_NeoPixel(config.led1.count, Pin::LED::Dout1,
+                                    NEO_GRB + NEO_KHZ800);
+    patternRunner0 = new PatternRunner(pixels0, Animation::patterns);
+    patternRunner1 = new PatternRunner(pixels1, Animation::patterns);
 
-  radio = new PacketRadio(&SPI1, config, handleRadioDataReceive);
+    #ifdef ENABLE_RADIO
+    radio = new PacketRadio(&SPI1, config, handleRadioDataReceive);
 
-  for (int i = 0; i < 2; i++) {
-    radio->addTeam(config.initialTeams[i]);
-  }
+    for (int i = 0; i < 2; i++) {
+        radio->addTeam(config.initialTeams[i]);
+    }
+    #endif
 
-  // Peripherals
-  Wire.setSDA(Pin::I2C::Port0::SDA);
-  Wire.setSCL(Pin::I2C::Port0::SCL);
-  Wire.onReceive(receiveEvent); // register event
-  Wire.onRequest(requestEvent);
-  Wire.begin(config.i2c0Addr); // join i2c bus as slave
+    // Peripherals
+    Wire.setSDA(Pin::I2C::Port0::SDA);
+    Wire.setSCL(Pin::I2C::Port0::SCL);
+    Wire.onReceive(receiveEvent); // register event
+    Wire.onRequest(requestEvent);
+    Wire.begin(config.i2c0Addr); // join i2c bus as slave
 
-  SPI1.setTX(Pin::SPI::MOSI);
-  SPI1.setRX(Pin::SPI::MISO);
-  SPI1.setSCK(Pin::SPI::CLK);
-  SPI1.setCS(Pin::SPI::CS0);
-  SPI1.begin();
+    SPI1.setTX(Pin::SPI::MOSI);
+    SPI1.setRX(Pin::SPI::MISO);
+    SPI1.setSCK(Pin::SPI::CLK);
+    SPI1.setCS(Pin::SPI::CS0);
+    SPI1.begin();
 
-  Serial1.setTX(Pin::UART::Tx);
-  Serial1.setRX(Pin::UART::Rx);
-  Serial1.begin(uartBaudRate);
+    Serial1.setTX(Pin::UART::Tx);
+    Serial1.setRX(Pin::UART::Rx);
+    Serial1.begin(uartBaudRate);
 
-  mutex_init(&i2cCommandMtx);
-  mutex_init(&radioDataMtx);
+    mutex_init(&i2cCommandMtx);
+    mutex_init(&radioDataMtx);
 
-  pinMode(Pin::SPI::CS0, OUTPUT);
-  digitalWrite(Pin::SPI::CS0, HIGH);
-  pinMode(Pin::SPI::CS1, OUTPUT);
-  digitalWrite(Pin::SPI::CS1, HIGH);
-  pinMode(Pin::SPI::SdCardCS, OUTPUT);
-  digitalWrite(Pin::SPI::SdCardCS, HIGH);
-  SD.begin(Pin::SPI::SdCardCS, SPI);
+    pinMode(Pin::SPI::CS0, OUTPUT);
+    digitalWrite(Pin::SPI::CS0, HIGH);
+    pinMode(Pin::SPI::CS1, OUTPUT);
+    digitalWrite(Pin::SPI::CS1, HIGH);
+    pinMode(Pin::SPI::SdCardCS, OUTPUT);
+    digitalWrite(Pin::SPI::SdCardCS, HIGH);
+    SD.begin(Pin::SPI::SdCardCS, SPI);
 
-  for (auto pin : Pin::DIGITALIO::digitalIOMap) {
-    pinMode(pin.second, OUTPUT);
-    digitalWrite(pin.second, LOW);
-  }
+    for (auto pin : Pin::DIGITALIO::digitalIOMap) {
+        pinMode(pin.second, OUTPUT);
+        digitalWrite(pin.second, LOW);
+    }
 
-  for (auto pin : Pin::ANALOGIO::analogIOMap) {
-    pinMode(pin.second, INPUT);
-  }
+    for (auto pin : Pin::ANALOGIO::analogIOMap) {
+        pinMode(pin.second, INPUT);
+    }
 
-  pixels0->begin();
-  pixels0->setBrightness(config.led0.brightness);
-  // Initialize all LEDs to black
-  Animation::executePatternSetAll(*pixels0, 0, 0, pixels0->numPixels());
-  pixels0->show();
+    pixels0->begin();
+    pixels0->setBrightness(config.led0.brightness);
+    pixels0->setPixelColor(0, Adafruit_NeoPixel::Color(255, 127, 31));
+    pixels0->show();
+    delay(1000);
+    // Initialize all LEDs to black
+    Animation::executePatternSetAll(*pixels0, 0, 0, pixels0->numPixels());
+    pixels0->show();
 
-  pixels1->begin();
-  pixels1->setBrightness(config.led1.brightness);
-  // Initialize all LEDs to black
-  Animation::executePatternSetAll(*pixels1, 0, 0, pixels1->numPixels());
-  pixels1->show();
+    pixels1->begin();
+    pixels1->setBrightness(config.led1.brightness);
+    pixels1->setPixelColor(0, Adafruit_NeoPixel::Color(255, 127, 31));
+    pixels1->show();
+    delay(1000);
+    // Initialize all LEDs to black
+    Animation::executePatternSetAll(*pixels1, 0, 0, pixels1->numPixels());
+    pixels1->show();
 }
 
 void setup1() {}
@@ -220,6 +238,7 @@ void loop() {
         break;
       }
 
+    #ifdef ENABLE_RADIO
       case CommandType::RadioSend: {
         auto message = command.commandData.commandRadioSend.msg;
         if (message.teamNumber == Radio::SendToAll) {
@@ -228,6 +247,7 @@ void loop() {
           radio->send(message);
         }
       }
+    #endif
 
       default:
         break;
@@ -247,21 +267,24 @@ void loop() {
 }
 
 void loop1() {
-  if (newDataToParse) {
-    uint8_t buf[i2cReceiveBufSize];
-    // Safely copy our new data
-    noInterrupts();
-    memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
-    interrupts();
-    mutex_enter_blocking(&i2cCommandMtx);
-    CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
-    mutex_exit(&i2cCommandMtx);
+    if (newDataToParse) {
+        uint8_t buf[i2cReceiveBufSize];
+        // Safely copy our new data
+        noInterrupts();
+        memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
+        interrupts();
+        mutex_enter_blocking(&i2cCommandMtx);
+        CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
+        mutex_exit(&i2cCommandMtx);
 
-    newDataToParse = false;
-    newData = true;
-  }
+        newDataToParse = false;
+        newData = true;
+        Serial.printf("Found new command type=%d\r\n", (uint8_t)command.commandType);
+    }
 
-  radio->update();
+    #ifdef ENABLE_RADIO
+    radio->update();
+    #endif
 }
 
 void handleRadioDataReceive(Message msg) {
@@ -322,6 +345,7 @@ void requestEvent() {
     break;
   }
 
+#ifdef ENABLE_RADIO
   case CommandType::RadioGetLatestReceived: {
     mutex_enter_blocking(&radioDataMtx);
     auto msg = radio->getLastReceived();
@@ -330,6 +354,7 @@ void requestEvent() {
     res.responseData.responseRadioLastReceived.msg = msg;
     break;
   }
+#endif
 
   case CommandType::ReadConfig: {
     auto cfg = configurator->readConfig();
