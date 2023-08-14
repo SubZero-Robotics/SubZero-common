@@ -41,3 +41,30 @@ frc2::CommandPtr MultiAxisSubsystem::Stop() {
   };
   return cmd;
 }
+
+frc2::CommandPtr MultiAxisSubsystem::Home() {
+  auto cmd = frc2::RunCommand([] {}, {}).ToPtr();
+  if (poses.empty()) {
+    return cmd;
+  }
+  for (int i = 0; i < axes.size(); i++) {
+    cmd = std::move(cmd).AlongWith(Home(i));
+  };
+  return cmd;
+}
+
+frc2::CommandPtr MultiAxisSubsystem::Home(AxisIndex index) {
+  return frc2::InstantCommand([this] { _axes[index]->Home(); },
+                              {_axes[index]})
+      .ToPtr();
+}
+
+bool IsMoving(AxisIndex index) {
+  return _axes[index]->GetIsMovingToPosition();
+}
+
+void Periodic() {
+  for (auto axis : _axes) {
+    axis->UpdateMovement();
+  }
+}
