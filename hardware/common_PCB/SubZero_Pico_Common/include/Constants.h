@@ -33,7 +33,7 @@ constexpr uint8_t Rx = 1;
 
 namespace LED {
 constexpr uint8_t Dout0 = 20;
-constexpr uint8_t Dout1 = 27;
+constexpr uint8_t Dout1 = 21;
 } // namespace LED
 
 namespace DIGITALIO {

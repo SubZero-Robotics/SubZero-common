@@ -12,6 +12,9 @@
 #include "PacketRadio.h"
 #include "PatternRunner.h"
 
+// Uncomment to enable radio module communications
+// #define ENABLE_RADIO
+
 static mutex_t i2cCommandMtx;
 static mutex_t radioDataMtx;
 
@@ -40,7 +43,9 @@ static Adafruit_NeoPixel *pixels1;
 static PatternRunner *patternRunner0;
 static PatternRunner *patternRunner1;
 
+#ifdef ENABLE_RADIO
 static PacketRadio *radio;
+#endif
 
 static Command command;
 
@@ -54,9 +59,14 @@ void setup() {
   configurator = new Configurator(eepromConfig, &Wire1);
 
   Serial.begin(115200);
+
   pinMode(Pin::CONFIG::CONFIG_SETUP, INPUT_PULLUP);
   if (!configurator->checkIfValid() ||
       !digitalRead(Pin::CONFIG::CONFIG_SETUP)) {
+    while (!Serial)
+      ;
+    delay(1000);
+    Serial.println("Entering configurator...");
     configurator->configSetup();
   }
 
@@ -69,11 +79,13 @@ void setup() {
   patternRunner0 = new PatternRunner(pixels0, Animation::patterns);
   patternRunner1 = new PatternRunner(pixels1, Animation::patterns);
 
+#ifdef ENABLE_RADIO
   radio = new PacketRadio(&SPI1, config, handleRadioDataReceive);
 
   for (int i = 0; i < 2; i++) {
     radio->addTeam(config.initialTeams[i]);
   }
+#endif
 
   // Peripherals
   Wire.setSDA(Pin::I2C::Port0::SDA);
@@ -114,18 +126,25 @@ void setup() {
 
   pixels0->begin();
   pixels0->setBrightness(config.led0.brightness);
+  pixels0->setPixelColor(0, Adafruit_NeoPixel::Color(255, 127, 31));
+  pixels0->show();
+  delay(1000);
   // Initialize all LEDs to black
   Animation::executePatternSetAll(*pixels0, 0, 0, pixels0->numPixels());
   pixels0->show();
 
   pixels1->begin();
   pixels1->setBrightness(config.led1.brightness);
+  pixels1->setPixelColor(0, Adafruit_NeoPixel::Color(255, 127, 31));
+  pixels1->show();
+  delay(1000);
   // Initialize all LEDs to black
   Animation::executePatternSetAll(*pixels1, 0, 0, pixels1->numPixels());
   pixels1->show();
-}
 
-void setup1() {}
+  Serial.printf("Got config:\r\n%s\r\n",
+                Configurator::toString(config).c_str());
+}
 
 Adafruit_NeoPixel *getPixels(uint8_t port) {
   if (port == 0) {
@@ -145,95 +164,108 @@ PatternRunner *getPatternRunner(uint8_t port) {
 
 void loop() {
   // If there's new data, process it
+  if (newDataToParse) {
+    uint8_t buf[i2cReceiveBufSize];
+    // Safely copy our new data
+    noInterrupts();
+    memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
+    interrupts();
+    CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
+
+    newDataToParse = false;
+    newData = true;
+  }
+
   if (newData) {
     newData = false;
-    uint32_t owner;
-    if (mutex_try_enter(&i2cCommandMtx, &owner)) {
-      switch (command.commandType) {
-      case CommandType::On: {
-        // Go back to running the current color and pattern
-        patternRunner0->reset();
-        patternRunner1->reset();
-        systemOn = true;
-        break;
+    for (int i = 0; i < sizeof(command); i++) {
+      Serial.printf("%X ", ((uint8_t *)&command)[i]);
+    }
+    Serial.println();
+    switch (command.commandType) {
+    case CommandType::On: {
+      // Go back to running the current color and pattern
+      patternRunner0->reset();
+      patternRunner1->reset();
+      systemOn = true;
+      break;
+    }
+
+    case CommandType::Off: {
+      // Set LEDs to black and stop running the pattern
+      for (uint8_t port = 0; port < 2; port++) {
+        auto pixels = getPixels(ledPort);
+        Animation::executePatternSetAll(*pixels, 0, 0, pixels->numPixels());
+        pixels->show();
       }
+      systemOn = false;
+      break;
+    }
 
-      case CommandType::Off: {
-        // Set LEDs to black and stop running the pattern
-        for (uint8_t port = 0; port < 2; port++) {
-          auto pixels = getPixels(ledPort);
-          Animation::executePatternSetAll(*pixels, 0, 0, pixels->numPixels());
-          pixels->show();
-        }
-        systemOn = false;
-        break;
+    case CommandType::Pattern: {
+      // To set everything to a certain color, change color then call
+      // the 'set all' pattern
+      auto runner = getPatternRunner(ledPort);
+      uint16_t delay =
+          command.commandData.commandPattern.delay == -1
+              ? runner->getPattern(command.commandData.commandPattern.pattern)
+                    ->changeDelayDefault
+              : command.commandData.commandPattern.delay;
+
+      runner->setCurrentPattern(command.commandData.commandPattern.pattern,
+                                delay,
+                                command.commandData.commandPattern.oneShot);
+      break;
+    }
+
+    case CommandType::ChangeColor: {
+      auto runner = getPatternRunner(ledPort);
+      auto colors = command.commandData.commandColor;
+      runner->setCurrentColor(
+          Adafruit_NeoPixel::Color(colors.red, colors.green, colors.blue));
+      break;
+    }
+
+    case CommandType::SetLedPort: {
+      ledPort = command.commandData.commandSetLedPort.port;
+      break;
+    }
+
+    case CommandType::DigitalSetup: {
+      auto cfg = command.commandData.commandDigitalSetup;
+      auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
+      pinMode(pin, cfg.mode);
+      break;
+    }
+
+    case CommandType::DigitalWrite: {
+      auto cfg = command.commandData.commandDigitalWrite;
+      auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
+      digitalWrite(pin, cfg.value);
+      break;
+    }
+
+    case CommandType::SetConfig: {
+      config = command.commandData.commandSetConfig.config;
+      Serial.println("Storing new config=");
+      Serial.println(configurator->toString(config).c_str());
+      configurator->storeConfig(config);
+      break;
+    }
+
+#ifdef ENABLE_RADIO
+    case CommandType::RadioSend: {
+      auto message = command.commandData.commandRadioSend.msg;
+      if (message.teamNumber == Radio::SendToAll) {
+        radio->sendToAll(message);
+      } else {
+        radio->send(message);
       }
+    }
+#endif
 
-      case CommandType::Pattern: {
-        // To set everything to a certain color, change color then call
-        // the 'set all' pattern
-        auto runner = getPatternRunner(ledPort);
-        uint16_t delay =
-            command.commandData.commandPattern.delay == -1
-                ? runner->getPattern(command.commandData.commandPattern.pattern)
-                      ->changeDelayDefault
-                : command.commandData.commandPattern.delay;
-
-        runner->setCurrentPattern(command.commandData.commandPattern.pattern,
-                                  command.commandData.commandPattern.oneShot,
-                                  delay);
-        break;
-      }
-
-      case CommandType::ChangeColor: {
-        auto runner = getPatternRunner(ledPort);
-        auto colors = command.commandData.commandColor;
-        runner->setCurrentColor(
-            Adafruit_NeoPixel::Color(colors.red, colors.green, colors.blue));
-        break;
-      }
-
-      case CommandType::SetLedPort: {
-        ledPort = command.commandData.commandSetLedPort.port;
-        break;
-      }
-
-      case CommandType::DigitalSetup: {
-        auto cfg = command.commandData.commandDigitalSetup;
-        auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
-        pinMode(pin, cfg.mode);
-        break;
-      }
-
-      case CommandType::DigitalWrite: {
-        auto cfg = command.commandData.commandDigitalWrite;
-        auto pin = Pin::DIGITALIO::digitalIOMap.at(cfg.port);
-        digitalWrite(pin, cfg.value);
-        break;
-      }
-
-      case CommandType::SetConfig: {
-        config = command.commandData.commandSetConfig.config;
-        Serial.println("Storing new config=");
-        Serial.println(configurator->toString(config).c_str());
-        configurator->storeConfig(config);
-        break;
-      }
-
-      case CommandType::RadioSend: {
-        auto message = command.commandData.commandRadioSend.msg;
-        if (message.teamNumber == Radio::SendToAll) {
-          radio->sendToAll(message);
-        } else {
-          radio->send(message);
-        }
-      }
-
-      default:
-        break;
-      }
-
-      mutex_exit(&i2cCommandMtx);
+    default:
+      break;
     }
 
     Serial.print(F("ON="));
@@ -244,24 +276,10 @@ void loop() {
     patternRunner0->update();
     patternRunner1->update();
   }
-}
 
-void loop1() {
-  if (newDataToParse) {
-    uint8_t buf[i2cReceiveBufSize];
-    // Safely copy our new data
-    noInterrupts();
-    memcpy(buf, (const void *)receiveBuf, i2cReceiveBufSize);
-    interrupts();
-    mutex_enter_blocking(&i2cCommandMtx);
-    CommandParser::parseCommand(buf, i2cReceiveBufSize, &command);
-    mutex_exit(&i2cCommandMtx);
-
-    newDataToParse = false;
-    newData = true;
-  }
-
+#ifdef ENABLE_RADIO
   radio->update();
+#endif
 }
 
 void handleRadioDataReceive(Message msg) {
@@ -322,6 +340,7 @@ void requestEvent() {
     break;
   }
 
+#ifdef ENABLE_RADIO
   case CommandType::RadioGetLatestReceived: {
     mutex_enter_blocking(&radioDataMtx);
     auto msg = radio->getLastReceived();
@@ -330,6 +349,7 @@ void requestEvent() {
     res.responseData.responseRadioLastReceived.msg = msg;
     break;
   }
+#endif
 
   case CommandType::ReadConfig: {
     auto cfg = configurator->readConfig();
