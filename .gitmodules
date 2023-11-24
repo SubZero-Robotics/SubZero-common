@@ -1,0 +1,3 @@
+[submodule "Connector-X"]
+	path = Connector-X
+	url = https://github.com/having11/Connector-X.git
