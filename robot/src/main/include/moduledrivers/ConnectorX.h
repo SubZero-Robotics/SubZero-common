@@ -9,7 +9,7 @@
 #include <memory>
 
 #include "Constants.h"
-#include "utils/Logging.h"
+#include "utils/Logger.h"
 
 namespace ConnectorX {
 struct Message {
@@ -19,6 +19,19 @@ struct Message {
   uint16_t teamNumber;
 };
 namespace Commands {
+    struct LedConfiguration {
+  uint16_t count;
+  uint8_t brightness;
+};
+
+struct Configuration {
+  int8_t valid;
+  uint16_t teamNumber;
+  // Send messages to 2 other teams
+  uint16_t initialTeams[2];
+  LedConfiguration led0;
+  LedConfiguration led1;
+};
 enum class CommandType {
   // W
   On = 0,
@@ -32,8 +45,6 @@ enum class CommandType {
   ReadPatternDone = 4,
   // W
   SetLedPort = 5,
-  // R
-  ReadAnalog = 6,
   // W
   DigitalSetup = 7,
   // W
@@ -120,7 +131,6 @@ union CommandData {
   CommandColor commandColor;
   CommandReadPatternDone commandReadPatternDone;
   CommandSetLedPort commandSetLedPort;
-  CommandReadAnalog commandReadAnalog;
   CommandDigitalSetup commandDigitalSetup;
   CommandDigitalWrite commandDigitalWrite;
   CommandDigitalRead commandDigitalRead;
@@ -152,12 +162,11 @@ struct ResponseRadioLastReceived {
 };
 
 struct ResponseReadConfiguration {
-  Configuration config;
+  Commands::Configuration config;
 };
 
 union ResponseData {
   ResponsePatternDone responsePatternDone;
-  ResponseReadAnalog responseReadAnalog;
   ResponseDigitalRead responseDigitalRead;
   ResponseRadioLastReceived responseRadioLastReceived;
   ResponseReadConfiguration responseReadConfiguration;
@@ -193,23 +202,9 @@ enum class AnalogPort { A0 = 0, A1 = 1, A2 = 2 };
 
 enum class LedPort { P0 = 0, P1 = 1 };
 
-struct LedConfiguration {
-  uint16_t count;
-  uint8_t brightness;
-};
-
-struct Configuration {
-  int8_t valid;
-  uint16_t teamNumber;
-  // Send messages to 2 other teams
-  uint16_t initialTeams[2];
-  uint8_t i2c0Addr;
-  LedConfiguration led0;
-  LedConfiguration led1;
-};
-class ConnectorX : public frc2::SubsystemBase {
+class ConnectorXBoard : public frc2::SubsystemBase {
 public:
-  ConnectorX(uint8_t slaveAddress, frc::I2C::Port port = frc::I2C::kMXP);
+  ConnectorXBoard(uint8_t slaveAddress, frc::I2C::Port port = frc::I2C::kMXP);
 
   /**
    * @brief Start communication with the controller
@@ -260,14 +255,6 @@ public:
   bool readDigitalPin(DigitalPort port);
 
   /**
-   * @brief Read the ADC value. Ranges from 0 - 3.3v; 12 bits of precision
-   *
-   * @param port
-   * @return uint16_t
-   */
-  uint16_t readAnalogPin(AnalogPort port);
-
-  /**
    * @brief Turn on
    *
    */
@@ -298,7 +285,19 @@ public:
    *
    * @param color Color data in the form of 0x00RRGGBB
    */
-  bool setColor(LedPort port, uint32_t color);
+  void setColor(LedPort port, uint32_t color);
+
+  void setColor(LedPort port, Commands::CommandColor color) {
+    setColor(port, color.red, color.green, color.blue);
+  }
+
+  bool compareColor(Commands::CommandColor C1, Commands::CommandColor C2) {
+
+    return !((C1.red - C2.red) |
+            (C1.green - C2.green) |
+              (C1.blue - C2.blue));
+    // return 1-memcmp(&C1, &C2, sizeof(C2));
+  }
 
   /**
    * @brief Read if pattern is done running
@@ -312,14 +311,14 @@ public:
    *
    * @param config
    */
-  void setConfig(Configuration config);
+  void setConfig(Commands::Configuration config);
 
   /**
    * @brief Read the config stored in EEPROM
    *
    * @return Configuration
    */
-  Configuration readConfig();
+  Commands::Configuration readConfig();
 
   /**
    * @brief Send a message via the radio; set team to 0xFFFF to broadcast to all
@@ -327,6 +326,10 @@ public:
    * @param message
    */
   void sendRadioMessage(Message message);
+
+  inline Commands::CommandColor getCurrentColor(LedPort port) {
+    return m_currentColors[(uint8_t)port];
+  }
 
   /**
    * @brief Read the last received message
@@ -346,5 +349,6 @@ private:
   LedPort _currentLedPort = LedPort::P0;
   Commands::CommandType _lastCommand;
   PatternType _lastPattern[2];
+  Commands::CommandColor m_currentColors[2] = { {0}, {0} };
 };
 } // namespace ConnectorX
