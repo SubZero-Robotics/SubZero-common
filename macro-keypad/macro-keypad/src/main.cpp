@@ -12,33 +12,33 @@ using namespace Keys;
 
 static GamepadButton keyMapping[RowCount][ColCount] = {
     /* Row 0 */ {
-        GamepadButton::None,
-        GamepadButton::None,
-        GamepadButton::None,
+        GamepadButton::ButtonVirtual0,
+        GamepadButton::ButtonVirtual1,
+        GamepadButton::ButtonVirtual2,
     },
     /* Row 1 */
     {
-        GamepadButton::None,
-        GamepadButton::None,
-        GamepadButton::None,
+        GamepadButton::ButtonX,
+        GamepadButton::ButtonB,
+        GamepadButton::ButtonA,
     },
     /* Row 2 */
     {
-        GamepadButton::None,
+        GamepadButton::ButtonY,
         GamepadButton::None,
         GamepadButton::None,
     },
     /* Row 3 */
     {
-        GamepadButton::None,
-        GamepadButton::None,
-        GamepadButton::None,
+        GamepadButton::ButtonBumperLeft,
+        GamepadButton::ButtonBumperRight,
+        GamepadButton::ButtonLeftStick,
     },
     /* Row 4 */
     {
-        GamepadButton::None,
-        GamepadButton::None,
-        GamepadButton::None,
+        GamepadButton::ButtonRightStick,
+        GamepadButton::ButtonRightStick,
+        GamepadButton::ButtonRightStick,
     },
 };
 
@@ -103,11 +103,11 @@ void processKey(uint8_t row, uint8_t col) {
 
   if ((millis() - key->timestamp) > DebounceDelay) {
     if (key->lastSteadyState && !key->currentState) {
-      // Pressed
-      gamepad.setButton(static_cast<uint8_t>(key->button), 1);
-    } else if (!key->lastSteadyState && key->currentState) {
       // Released
       gamepad.setButton(static_cast<uint8_t>(key->button), 0);
+    } else if (!key->lastSteadyState && key->currentState) {
+      // Pressed
+      gamepad.setButton(static_cast<uint8_t>(key->button), 1);
     }
 
     key->lastSteadyState = key->currentState;

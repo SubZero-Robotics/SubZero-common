@@ -33,6 +33,9 @@ enum class GamepadButton {
   ButtonStart = 7,
   ButtonLeftStick = 8,
   ButtonRightStick = 9,
+  ButtonVirtual0 = 15,
+  ButtonVirtual1 = 16,
+  ButtonVirtual2 = 17,
 };
 } // namespace Keys
 
