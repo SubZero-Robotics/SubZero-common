@@ -25,8 +25,8 @@ static GamepadButton keyMapping[RowCount][ColCount] = {
     /* Row 2 */
     {
         GamepadButton::ButtonY,
-        GamepadButton::None,
-        GamepadButton::None,
+        GamepadButton::ButtonVirtual4,
+        GamepadButton::ButtonVirtual5,
     },
     /* Row 3 */
     {
@@ -38,7 +38,7 @@ static GamepadButton keyMapping[RowCount][ColCount] = {
     {
         GamepadButton::ButtonRightStick,
         GamepadButton::ButtonRightStick,
-        GamepadButton::ButtonRightStick,
+        GamepadButton::ButtonVirtual3,
     },
 };
 
