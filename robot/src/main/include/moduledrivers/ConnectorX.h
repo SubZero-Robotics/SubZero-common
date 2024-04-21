@@ -8,8 +8,10 @@
 
 #include <memory>
 
+// TODO: pass config through constructor and remove reference to Constants.h
 #include "Constants.h"
-#include "utils/Logging.h"
+
+namespace subzero {
 
 namespace ConnectorX {
 struct Message {
@@ -348,3 +350,5 @@ private:
   PatternType _lastPattern[2];
 };
 } // namespace ConnectorX
+
+} // namespace subzero

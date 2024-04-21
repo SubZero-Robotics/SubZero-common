@@ -7,6 +7,10 @@
 #include <memory>
 
 #include "Constants.h"
-#include "utils/Logger.h"
+#include "utils/logging/Logger.h"
+
+namespace subzero {
 
 class BaseDriveSubsystem : public frc2::SubsystemBase {};
+
+} // namespace subzero

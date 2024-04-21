@@ -1,5 +1,7 @@
 #include "subsystems/MultiAxisSubsystem.h"
 
+using namespace subzero;
+
 frc2::CommandPtr MultiAxisSubsystem::SetPose(Pose pose) {
   auto axis = _axes[pose.index];
   return frc2

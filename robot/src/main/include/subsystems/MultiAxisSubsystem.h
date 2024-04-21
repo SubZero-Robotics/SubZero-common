@@ -8,8 +8,9 @@
 #include <memory>
 #include <span>
 
-#include "subsystems/ISingleAxisSubsystem.h"
+#include "subsystems/singleaxis/ISingleAxisSubsystem.h"
 
+// TODO: Make this generic
 class MultiAxisSubsystem : frc2::SubsystemBase {
 public:
   typedef uint8_t AxisIndex;

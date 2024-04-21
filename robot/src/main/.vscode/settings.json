@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.ino": "cpp",
+        "xstring": "cpp"
+    }
+}

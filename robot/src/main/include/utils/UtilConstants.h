@@ -1,11 +1,11 @@
 #pragma once
 
-namespace Logging {
-enum class Level { VERBOSE = 0, INFO, WARNING, ERROR };
-// Don't log at levels below this one
-constexpr auto kMinLogLevel = Level::VERBOSE;
-} // namespace Logging
+namespace subzero {
 
-namespace DetectionParser {
-enum class ObjectClasses { Cone = 0, Cube = 1, Merge = 2 };
-}
+namespace Logging {
+enum class LogLevel { VERBOSE = 0, INFO, WARNING, ERROR, FATAL };
+// Don't log at levels below this one
+constexpr auto kMinLogLevel = LogLevel::VERBOSE;
+}  // namespace Logging
+
+} // namespace subzero
