@@ -8,8 +8,8 @@
 
 #include <limits>
 #include <memory>
-#include <vector>
 #include <utility>
+#include <vector>
 
 // TODO: pass in everything so we can remove the reference to Constants.h
 #include "Constants.h"
@@ -30,7 +30,7 @@ struct CameraResults {
 };
 
 class Vision {
- public:
+public:
   Vision() {
     photonEstimator.SetMultiTagFallbackStrategy(
         photon::PoseStrategy::LOWEST_AMBIGUITY);
@@ -38,9 +38,9 @@ class Vision {
         photon::PoseStrategy::LOWEST_AMBIGUITY);
   }
 
-  std::optional<photon::EstimatedRobotPose> GetPoseFromCamera(
-      frc::Pose3d prevPose, photon::PhotonPoseEstimator& est,
-      photon::PhotonCamera& camera, double maxAbmiguity = 0.2) {
+  std::optional<photon::EstimatedRobotPose>
+  GetPoseFromCamera(frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
+                    photon::PhotonCamera &camera, double maxAbmiguity = 0.2) {
     est.SetReferencePose(prevPose);
     auto camResult = camera.GetLatestResult();
 
@@ -68,7 +68,7 @@ class Vision {
   // https://github.com/Hemlock5712/2023-Robot/blob/Joe-Test/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java
   std::pair<std::optional<photon::EstimatedRobotPose>,
             std::optional<photon::EstimatedRobotPose>>
-  UpdateEstimatedGlobalPose(frc::SwerveDrivePoseEstimator<4U>& estimator) {
+  UpdateEstimatedGlobalPose(frc::SwerveDrivePoseEstimator<4U> &estimator) {
     auto cam1Pose =
         GetPoseFromCamera(frc::Pose3d(estimator.GetEstimatedPosition()),
                           photonEstimator, *camera);
@@ -90,14 +90,14 @@ class Vision {
     return std::make_pair(cam1Pose, cam2Pose);
   }
 
-  Eigen::Matrix<double, 3, 1> GetEstimationStdDevs(
-      photon::EstimatedRobotPose& pose) {
+  Eigen::Matrix<double, 3, 1>
+  GetEstimationStdDevs(photon::EstimatedRobotPose &pose) {
     Eigen::Matrix<double, 3, 1> estStdDevs = VisionConstants::kSingleTagStdDevs;
     int numTags = 0;
     units::meter_t avgDist = 0_m;
     // ConsoleWriter.logVerbose("Vision", "targets used length
     // %d", pose.targetsUsed.size());
-    for (const auto& tgt : pose.targetsUsed) {
+    for (const auto &tgt : pose.targetsUsed) {
       auto tagPose =
           photonEstimator.GetFieldLayout().GetTagPose(tgt.GetFiducialId());
       if (tagPose.has_value()) {
@@ -124,9 +124,9 @@ class Vision {
     return estStdDevs;
   }
 
- private:
-  void AddVisionMeasurement(photon::EstimatedRobotPose& estimate,
-                            frc::SwerveDrivePoseEstimator<4U>& estimator) {
+private:
+  void AddVisionMeasurement(photon::EstimatedRobotPose &estimate,
+                            frc::SwerveDrivePoseEstimator<4U> &estimator) {
     auto stdDevs = GetEstimationStdDevs(estimate);
     wpi::array<double, 3> newStdDevs{stdDevs(0), stdDevs(1), stdDevs(2)};
     estimator.AddVisionMeasurement(estimate.estimatedPose.ToPose2d(),

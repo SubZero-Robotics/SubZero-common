@@ -15,7 +15,7 @@
 namespace subzero {
 
 class TurnToPose {
- public:
+public:
   struct TurnToPoseConfig {
     frc::TrapezoidProfile<units::radians>::Constraints rotationConstraints;
     double turnP;
@@ -25,8 +25,9 @@ class TurnToPose {
     frc::Pose2d poseTolerance;
   };
 
-  explicit TurnToPose(TurnToPoseConfig config, std::function<frc::Pose2d()> poseGetter,
-                      std::function<frc::Field2d*()> fieldGetter);
+  explicit TurnToPose(TurnToPoseConfig config,
+                      std::function<frc::Pose2d()> poseGetter,
+                      std::function<frc::Field2d *()> fieldGetter);
 
   void Update();
 
@@ -37,15 +38,15 @@ class TurnToPose {
    * @param currentPose
    * @param targetPose
    */
-  static units::degree_t GetAngleFromOtherPose(const frc::Pose2d&,
-                                               const frc::Pose2d&);
+  static units::degree_t GetAngleFromOtherPose(const frc::Pose2d &,
+                                               const frc::Pose2d &);
 
   /**
    * @param other The initial ChassisSpeeds
    * @param correctionFactor Ranges from 0 to 1; percentage of the TurnToPose
    * correction to apply
    */
-  frc::ChassisSpeeds BlendWithInput(const frc::ChassisSpeeds& other,
+  frc::ChassisSpeeds BlendWithInput(const frc::ChassisSpeeds &other,
                                     double correctionFactor);
 
   inline bool AtGoal() const { return m_driveController->AtReference(); }
@@ -56,10 +57,10 @@ class TurnToPose {
 
   inline units::degree_t GetTargetHeading() const { return m_targetHeading; }
 
- private:
+private:
   TurnToPoseConfig m_config;
   std::function<frc::Pose2d()> m_poseGetter;
-  std::function<frc::Field2d*()> m_fieldGetter;
+  std::function<frc::Field2d *()> m_fieldGetter;
   std::unique_ptr<frc::HolonomicDriveController> m_driveController;
   frc::Pose2d m_startPose;
   std::optional<frc::Pose2d> m_targetPose;

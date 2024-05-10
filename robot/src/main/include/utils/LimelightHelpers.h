@@ -67,14 +67,15 @@ inline frc::Pose2d toPose2D(const std::vector<double> &inData) {
       frc::Rotation2d(units::angle::radian_t(inData[5] * (M_PI / 180.0))));
 }
 
-inline std::shared_ptr<nt::NetworkTable> getLimelightNTTable(
-    const std::string &tableName) {
+inline std::shared_ptr<nt::NetworkTable>
+getLimelightNTTable(const std::string &tableName) {
   return nt::NetworkTableInstance::GetDefault().GetTable(
       sanitizeName(tableName));
 }
 
-inline nt::NetworkTableEntry getLimelightNTTableEntry(
-    const std::string &tableName, const std::string &entryName) {
+inline nt::NetworkTableEntry
+getLimelightNTTableEntry(const std::string &tableName,
+                         const std::string &entryName) {
   return getLimelightNTTable(tableName)->GetEntry(entryName);
 }
 
@@ -83,8 +84,9 @@ inline double getLimelightNTDouble(const std::string &tableName,
   return getLimelightNTTableEntry(tableName, entryName).GetDouble(0.0);
 }
 
-inline std::vector<double> getLimelightNTDoubleArray(
-    const std::string &tableName, const std::string &entryName) {
+inline std::vector<double>
+getLimelightNTDoubleArray(const std::string &tableName,
+                          const std::string &entryName) {
   return getLimelightNTTableEntry(tableName, entryName)
       .GetDoubleArray(std::span<double>{});
 }
@@ -137,43 +139,43 @@ inline std::vector<double> getBotpose(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "botpose");
 }
 
-inline std::vector<double> getBotpose_wpiRed(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getBotpose_wpiRed(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "botpose_wpired");
 }
 
-inline std::vector<double> getBotpose_wpiBlue(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getBotpose_wpiBlue(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "botpose_wpiblue");
 }
 
-inline std::vector<double> getBotpose_TargetSpace(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getBotpose_TargetSpace(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "botpose_targetspace");
 }
 
-inline std::vector<double> getCameraPose_TargetSpace(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getCameraPose_TargetSpace(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "camerapose_targetspace");
 }
 
-inline std::vector<double> getCameraPose_RobotSpace(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getCameraPose_RobotSpace(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "camerapose_robotspace");
 }
 
-inline std::vector<double> getTargetPose_CameraSpace(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getTargetPose_CameraSpace(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "targetpose_cameraspace");
 }
 
-inline std::vector<double> getTargetPose_RobotSpace(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getTargetPose_RobotSpace(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "targetpose_robotspace");
 }
 
-inline std::vector<double> getTargetColor(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getTargetColor(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "tc");
 }
 
@@ -273,8 +275,8 @@ inline void setPythonScriptData(const std::string &limelightName,
       std::span{outgoingPythonData.begin(), outgoingPythonData.size()});
 }
 
-inline std::vector<double> getPythonScriptData(
-    const std::string &limelightName = "") {
+inline std::vector<double>
+getPythonScriptData(const std::string &limelightName = "") {
   return getLimelightNTDoubleArray(limelightName, "llpython");
 }
 
@@ -295,7 +297,7 @@ inline double extractBotPoseEntry(const std::vector<double> &inData,
 }
 
 class RawFiducial {
- public:
+public:
   int id{0};
   double txnc{0.0};
   double tync{0.0};
@@ -306,17 +308,12 @@ class RawFiducial {
 
   RawFiducial(int id, double txnc, double tync, double ta, double distToCamera,
               double distToRobot, double ambiguity)
-      : id(id),
-        txnc(txnc),
-        tync(tync),
-        ta(ta),
-        distToCamera(distToCamera),
-        distToRobot(distToRobot),
-        ambiguity(ambiguity) {}
+      : id(id), txnc(txnc), tync(tync), ta(ta), distToCamera(distToCamera),
+        distToRobot(distToRobot), ambiguity(ambiguity) {}
 };
 
 class PoseEstimate {
- public:
+public:
   frc::Pose2d pose;
   units::time::second_t timestampSeconds{0.0};
   double latency{0.0};
@@ -331,14 +328,9 @@ class PoseEstimate {
   PoseEstimate(const frc::Pose2d &pose, units::time::second_t timestampSeconds,
                double latency, int tagCount, double tagSpan, double avgTagDist,
                double avgTagArea, const std::vector<RawFiducial> &rawFiducials)
-      : pose(pose),
-        timestampSeconds(timestampSeconds),
-        latency(latency),
-        tagCount(tagCount),
-        tagSpan(tagSpan),
-        avgTagDist(avgTagDist),
-        avgTagArea(avgTagArea),
-        rawFiducials(rawFiducials) {}
+      : pose(pose), timestampSeconds(timestampSeconds), latency(latency),
+        tagCount(tagCount), tagSpan(tagSpan), avgTagDist(avgTagDist),
+        avgTagArea(avgTagArea), rawFiducials(rawFiducials) {}
 };
 
 inline PoseEstimate getBotPoseEstimate(const std::string &limelightName,
@@ -381,29 +373,29 @@ inline PoseEstimate getBotPoseEstimate(const std::string &limelightName,
                       tagArea, rawFiducials);
 }
 
-inline PoseEstimate getBotPoseEstimate_wpiBlue(
-    const std::string &limelightName = "") {
+inline PoseEstimate
+getBotPoseEstimate_wpiBlue(const std::string &limelightName = "") {
   return getBotPoseEstimate(limelightName, "botpose_wpiblue");
 }
 
-inline PoseEstimate getBotPoseEstimate_wpiRed(
-    const std::string &limelightName = "") {
+inline PoseEstimate
+getBotPoseEstimate_wpiRed(const std::string &limelightName = "") {
   return getBotPoseEstimate(limelightName, "botpose_wpired");
 }
 
-inline PoseEstimate getBotPoseEstimate_wpiBlue_MegaTag2(
-    const std::string &limelightName = "") {
+inline PoseEstimate
+getBotPoseEstimate_wpiBlue_MegaTag2(const std::string &limelightName = "") {
   return getBotPoseEstimate(limelightName, "botpose_orb_wpiblue");
 }
 
-inline PoseEstimate getBotPoseEstimate_wpiRed_MegaTag2(
-    const std::string &limelightName = "") {
+inline PoseEstimate
+getBotPoseEstimate_wpiRed_MegaTag2(const std::string &limelightName = "") {
   return getBotPoseEstimate(limelightName, "botpose_orb_wpired");
 }
 
 inline const double INVALID_TARGET = 0.0;
 class SingleTargetingResultClass {
- public:
+public:
   SingleTargetingResultClass() {}
   ~SingleTargetingResultClass() {}
   double m_TargetXPixels{INVALID_TARGET};
@@ -437,13 +429,13 @@ class SingleTargetingResultClass {
 };
 
 class RetroreflectiveResultClass : public SingleTargetingResultClass {
- public:
+public:
   RetroreflectiveResultClass() {}
   ~RetroreflectiveResultClass() {}
 };
 
 class FiducialResultClass : public SingleTargetingResultClass {
- public:
+public:
   FiducialResultClass() {}
   ~FiducialResultClass() {}
   int m_fiducialID{0};
@@ -451,7 +443,7 @@ class FiducialResultClass : public SingleTargetingResultClass {
 };
 
 class DetectionResultClass : public SingleTargetingResultClass {
- public:
+public:
   DetectionResultClass() {}
   ~DetectionResultClass() {}
 
@@ -461,7 +453,7 @@ class DetectionResultClass : public SingleTargetingResultClass {
 };
 
 class ClassificationResultClass : public SingleTargetingResultClass {
- public:
+public:
   ClassificationResultClass() {}
   ~ClassificationResultClass() {}
 
@@ -471,7 +463,7 @@ class ClassificationResultClass : public SingleTargetingResultClass {
 };
 
 class VisionResultsClass {
- public:
+public:
   VisionResultsClass() {}
   ~VisionResultsClass() {}
   std::vector<RetroreflectiveResultClass> RetroResults;
@@ -503,7 +495,7 @@ class VisionResultsClass {
 };
 
 class LimelightResultsClass {
- public:
+public:
   LimelightResultsClass() {}
   ~LimelightResultsClass() {}
   VisionResultsClass targetingResults;
@@ -549,7 +541,7 @@ inline const std::string _key_skew{"skew"};
 inline const std::string _key_ffamily{"fam"};
 inline const std::string _key_colorRGB{"cRGB"};
 inline const std::string _key_colorHSV{"cHSV"};
-}  // namespace internal
+} // namespace internal
 
 inline void SetupPortForwarding(const std::string &limelightName) {
   auto &portForwarder = wpi::PortForwarder::GetInstance();
@@ -707,8 +699,8 @@ inline void from_json(const wpi::json &j, LimelightResultsClass &t) {
       j, "Results", LimelightHelpers::VisionResultsClass{});
 }
 
-inline LimelightResultsClass getLatestResults(
-    const std::string &limelightName = "", bool profile = false) {
+inline LimelightResultsClass
+getLatestResults(const std::string &limelightName = "", bool profile = false) {
   auto start = std::chrono::high_resolution_clock::now();
   std::string jsonString = getJSONDump(limelightName);
   wpi::json data;
@@ -735,8 +727,8 @@ inline LimelightResultsClass getLatestResults(
   }
 }
 
-inline std::optional<std::vector<double>> getCurrentCorners(
-    const std::string &limelightName = "") {
+inline std::optional<std::vector<double>>
+getCurrentCorners(const std::string &limelightName = "") {
   auto entry = getLimelightNTDoubleArray(limelightName, "tcornxy");
 
   if (entry.size() < 8) {
@@ -745,7 +737,7 @@ inline std::optional<std::vector<double>> getCurrentCorners(
 
   return entry;
 }
-}  // namespace LimelightHelpers
+} // namespace LimelightHelpers
 
 } // namespace subzero
-#endif  // LIMELIGHTHELPERS_H
+#endif // LIMELIGHTHELPERS_H

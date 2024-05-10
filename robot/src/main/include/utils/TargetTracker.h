@@ -15,7 +15,7 @@ struct DetectedCorner {
 
   DetectedCorner() {}
 
-  explicit DetectedCorner(const std::vector<double>& coord) {
+  explicit DetectedCorner(const std::vector<double> &coord) {
     x = coord[0];
     y = coord[1];
   }
@@ -29,8 +29,9 @@ struct DetectedCorners {
 
   DetectedCorners() {}
 
-  explicit DetectedCorners(const std::vector<std::vector<double>>& corners) {
-    if (corners.empty()) return;
+  explicit DetectedCorners(const std::vector<std::vector<double>> &corners) {
+    if (corners.empty())
+      return;
 
     topLeft = DetectedCorner(corners[0]);
     topRight = DetectedCorner(corners[1]);
@@ -38,8 +39,9 @@ struct DetectedCorners {
     bottomRight = DetectedCorner(corners[3]);
   }
 
-  explicit DetectedCorners(const std::vector<double>& rawCorners) {
-    if (rawCorners.size() < 8) return;
+  explicit DetectedCorners(const std::vector<double> &rawCorners) {
+    if (rawCorners.size() < 8)
+      return;
 
     topLeft = DetectedCorner({rawCorners[0], rawCorners[1]});
     bottomLeft = DetectedCorner({rawCorners[6], rawCorners[7]});
@@ -61,15 +63,11 @@ struct DetectedObject {
   explicit DetectedObject(uint8_t id, double conf, units::degree_t cX,
                           units::degree_t cY, double area,
                           std::vector<std::vector<double>> corners)
-      : classId{id},
-        confidence{conf},
-        centerX{cX},
-        centerY{cY},
-        areaPercentage{area},
-        detectedCorners{corners} {}
+      : classId{id}, confidence{conf}, centerX{cX}, centerY{cY},
+        areaPercentage{area}, detectedCorners{corners} {}
 
   explicit DetectedObject(
-      const LimelightHelpers::DetectionResultClass& detectionResult)
+      const LimelightHelpers::DetectionResultClass &detectionResult)
       : classId{static_cast<uint8_t>(detectionResult.m_classID)},
         confidence{detectionResult.m_confidence},
         centerX{detectionResult.m_TargetXDegreesCrosshairAdjusted},
@@ -77,13 +75,13 @@ struct DetectedObject {
         areaPercentage{detectionResult.m_TargetAreaNormalized},
         detectedCorners{detectionResult.m_TargetCorners} {}
 
-  void withRawCorners(const std::vector<double>& rawCorners) {
+  void withRawCorners(const std::vector<double> &rawCorners) {
     detectedCorners = DetectedCorners(rawCorners);
   }
 };
 
 class TargetTracker {
- public:
+public:
   struct TargetTrackerConfig {
     units::degree_t cameraAngle;
     units::inch_t cameraLensHeight;
@@ -100,13 +98,13 @@ class TargetTracker {
 
   TargetTracker(TargetTrackerConfig config);
   std::vector<DetectedObject> GetTargets();
-  std::optional<DetectedObject> GetBestTarget(std::vector<DetectedObject>&);
-  bool HasTargetLock(std::vector<DetectedObject>&);
-  std::optional<frc::Pose2d> GetTargetPose(const DetectedObject&);
-  std::optional<frc::Pose2d> GetBestTargetPose(std::vector<DetectedObject>&);
-  units::inch_t GetDistanceToTarget(const DetectedObject&);
+  std::optional<DetectedObject> GetBestTarget(std::vector<DetectedObject> &);
+  bool HasTargetLock(std::vector<DetectedObject> &);
+  std::optional<frc::Pose2d> GetTargetPose(const DetectedObject &);
+  std::optional<frc::Pose2d> GetBestTargetPose(std::vector<DetectedObject> &);
+  units::inch_t GetDistanceToTarget(const DetectedObject &);
 
- private:
+private:
   TargetTrackerConfig m_config;
 };
 

@@ -22,13 +22,13 @@ double SwerveUtils::StepTowardsCircular(double _current, double _target,
   _target = WrapAngle(_target);
 
   double temp = _target - _current;
-  double stepDirection = temp > 0 ? 1 : temp < 0 ? -1 : 0;  // Get sign
+  double stepDirection = temp > 0 ? 1 : temp < 0 ? -1 : 0; // Get sign
   double difference = abs(_current - _target);
 
   if (difference <= _stepsize) {
     return _target;
-  } else if (difference > std::numbers::pi) {  // does the system need to wrap
-                                               // over eventually?
+  } else if (difference > std::numbers::pi) { // does the system need to wrap
+                                              // over eventually?
     // handle the special case where you can reach the target in one step while
     // also wrapping
     if (_current + 2 * std::numbers::pi - _target < _stepsize ||
@@ -37,7 +37,7 @@ double SwerveUtils::StepTowardsCircular(double _current, double _target,
     } else {
       return WrapAngle(_current -
                        stepDirection *
-                           _stepsize);  // this will handle wrapping gracefully
+                           _stepsize); // this will handle wrapping gracefully
     }
 
   } else {
@@ -55,8 +55,8 @@ double SwerveUtils::WrapAngle(double _angle) {
   double twoPi = 2 * std::numbers::pi;
 
   if (_angle ==
-      twoPi) {  // Handle this case separately to avoid floating point errors
-                // with the floor after the division in the case below
+      twoPi) { // Handle this case separately to avoid floating point errors
+               // with the floor after the division in the case below
     return 0.0;
   } else if (_angle > twoPi) {
     return _angle - twoPi * floor(_angle / twoPi);

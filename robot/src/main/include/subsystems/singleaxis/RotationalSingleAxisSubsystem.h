@@ -11,7 +11,7 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 class RotationalSingleAxisSubsystem
     : public BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                                      TAbsoluteEncoder, units::degree> {
- public:
+public:
   RotationalSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -66,7 +66,7 @@ class RotationalSingleAxisSubsystem
         .RunWithVelocity(speed);
   }
 
- protected:
+protected:
   units::meter_t m_armatureLength;
 };
 

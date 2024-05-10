@@ -8,7 +8,7 @@ using namespace subzero;
 
 TurnToPose::TurnToPose(TurnToPoseConfig config,
                        std::function<frc::Pose2d()> poseGetter,
-                       std::function<frc::Field2d*()> fieldGetter)
+                       std::function<frc::Field2d *()> fieldGetter)
     : m_config{config}, m_poseGetter{poseGetter}, m_fieldGetter{fieldGetter} {
   using namespace AutoConstants;
 
@@ -28,7 +28,8 @@ TurnToPose::TurnToPose(TurnToPoseConfig config,
 }
 
 void TurnToPose::Update() {
-  if (!m_targetPose) return;
+  if (!m_targetPose)
+    return;
 
   auto currentPose = m_poseGetter();
   auto angleOffset = GetAngleFromOtherPose(currentPose, m_targetPose.value());
@@ -37,15 +38,16 @@ void TurnToPose::Update() {
   frc::Pose2d newTargetPose(m_targetPose.value().Translation(),
                             frc::Rotation2d(angleOffset));
 
-  auto* field = m_fieldGetter();
+  auto *field = m_fieldGetter();
   field->GetObject("pose_target")->SetPose(m_targetPose.value());
 
   m_speeds = m_driveController->Calculate(currentPose, newTargetPose, 0_mps,
                                           newTargetPose.Rotation());
 }
 
-units::degree_t TurnToPose::GetAngleFromOtherPose(
-    const frc::Pose2d& currentPose, const frc::Pose2d& otherPose) {
+units::degree_t
+TurnToPose::GetAngleFromOtherPose(const frc::Pose2d &currentPose,
+                                  const frc::Pose2d &otherPose) {
   auto diff = currentPose.Translation() - otherPose.Translation();
 
   auto newDegree = units::radian_t(atan2(diff.Y().value(), diff.X().value()))
@@ -60,7 +62,7 @@ void TurnToPose::SetTargetPose(frc::Pose2d pose) {
 
 frc::ChassisSpeeds TurnToPose::GetSpeedCorrection() { return m_speeds; }
 
-frc::ChassisSpeeds TurnToPose::BlendWithInput(const frc::ChassisSpeeds& other,
+frc::ChassisSpeeds TurnToPose::BlendWithInput(const frc::ChassisSpeeds &other,
                                               double correctionFactor) {
   frc::ChassisSpeeds speeds{
       .vx = other.vx, .vy = other.vy, .omega = other.omega};

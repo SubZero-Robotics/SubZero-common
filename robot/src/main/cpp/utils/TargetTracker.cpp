@@ -5,34 +5,33 @@
 
 using namespace subzero;
 
-TargetTracker::TargetTracker(TargetTrackerConfig config)
-    : m_config{config} {}
+TargetTracker::TargetTracker(TargetTrackerConfig config) : m_config{config} {}
 
 std::vector<DetectedObject> TargetTracker::GetTargets() {
   auto llResult = LimelightHelpers::getLatestResults(m_config.limelightName);
-  auto& detectionResults = llResult.targetingResults.DetectionResults;
+  auto &detectionResults = llResult.targetingResults.DetectionResults;
 
   std::vector<DetectedObject> objects;
   objects.reserve(detectionResults.size());
 
   std::transform(detectionResults.begin(), detectionResults.end(),
                  std::back_inserter(objects),
-                 [](const LimelightHelpers::DetectionResultClass& det) {
+                 [](const LimelightHelpers::DetectionResultClass &det) {
                    return DetectedObject(det);
                  });
 
   return objects;
 }
 
-std::optional<DetectedObject> TargetTracker::GetBestTarget(
-    std::vector<DetectedObject>& targets) {
+std::optional<DetectedObject>
+TargetTracker::GetBestTarget(std::vector<DetectedObject> &targets) {
   if (targets.empty()) {
     return std::nullopt;
   }
 
   auto it =
       std::max_element(targets.begin(), targets.end(),
-                       [](const DetectedObject& a, const DetectedObject& b) {
+                       [](const DetectedObject &a, const DetectedObject &b) {
                          return a.confidence < b.confidence;
                        });
 
@@ -44,14 +43,14 @@ std::optional<DetectedObject> TargetTracker::GetBestTarget(
   return *it;
 }
 
-bool TargetTracker::HasTargetLock(std::vector<DetectedObject>& targets) {
+bool TargetTracker::HasTargetLock(std::vector<DetectedObject> &targets) {
   auto bestTarget = GetBestTarget(targets);
   return bestTarget &&
          bestTarget.value().confidence >= m_config.confidenceThreshold;
 }
 
-std::optional<frc::Pose2d> TargetTracker::GetBestTargetPose(
-    std::vector<DetectedObject>& targets) {
+std::optional<frc::Pose2d>
+TargetTracker::GetBestTargetPose(std::vector<DetectedObject> &targets) {
   if (!frc::RobotBase::IsReal()) {
     return m_config.simGamepiecePose;
   }
@@ -65,8 +64,8 @@ std::optional<frc::Pose2d> TargetTracker::GetBestTargetPose(
   return GetTargetPose(bestTarget);
 }
 
-std::optional<frc::Pose2d> TargetTracker::GetTargetPose(
-    const DetectedObject& object) {
+std::optional<frc::Pose2d>
+TargetTracker::GetTargetPose(const DetectedObject &object) {
   units::radian_t horizontalAngle = object.centerX.convert<units::radian>();
 
   frc::Pose2d currentPose = m_drive->GetPose();
@@ -91,7 +90,7 @@ std::optional<frc::Pose2d> TargetTracker::GetTargetPose(
   return frc::Pose2d(wpiFinalPose.Translation(), m_config.gamepieceRotation);
 }
 
-units::inch_t TargetTracker::GetDistanceToTarget(const DetectedObject& target) {
+units::inch_t TargetTracker::GetDistanceToTarget(const DetectedObject &target) {
   units::degree_t targetOffsetVertical = target.centerY;
   units::degree_t verticalDelta = targetOffsetVertical + m_config.cameraAngle;
   units::radian_t verticalAngle = verticalDelta.convert<units::radian>();

@@ -23,8 +23,8 @@
 
 #include "Constants.h"
 #include "subsystems/singleaxis/ISingleAxisSubsystem.h"
-#include "utils/logging/ConsoleLogger.h"
 #include "utils/PidMotorController.h"
+#include "utils/logging/ConsoleLogger.h"
 #include "utils/logging/ShuffleboardLogger.h"
 
 namespace subzero {
@@ -34,7 +34,7 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 class BaseSingleAxisSubsystem
     : public ISingleAxisSubsystem<TDistance>,
       public frc2::TrapezoidProfileSubsystem<TDistance> {
- public:
+public:
   using PidState = typename frc::TrapezoidProfile<TDistance>::State;
   using Distance_t = units::unit_t<TDistance>;
   using Velocity =
@@ -44,7 +44,7 @@ class BaseSingleAxisSubsystem
       units::compound_unit<Velocity, units::inverse<units::seconds>>;
   using Acceleration_t = units::unit_t<Acceleration>;
 
- protected:
+protected:
   bool IsMovementAllowed(double speed, bool ignoreEncoder = false) {
     bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
     bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -78,7 +78,7 @@ class BaseSingleAxisSubsystem
     return true;
   }
 
- public:
+public:
   BaseSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -88,11 +88,8 @@ class BaseSingleAxisSubsystem
       frc::MechanismObject2d *mechanismNode = nullptr)
       : frc2::TrapezoidProfileSubsystem<TDistance>{profileConstraints},
         m_minLimitSwitch{config.minLimitSwitch},
-        m_maxLimitSwitch{config.maxLimitSwitch},
-        m_controller{controller},
-        m_config{config},
-        m_name{name},
-        m_pidEnabled{false} {
+        m_maxLimitSwitch{config.maxLimitSwitch}, m_controller{controller},
+        m_config{config}, m_name{name}, m_pidEnabled{false} {
     m_pidEnabled = false;
 
     if (mechanismNode) {
@@ -293,7 +290,7 @@ class BaseSingleAxisSubsystem
           m_config.absoluteEncoderDistancePerRevolution.value().value());
   }
 
- protected:
+protected:
   std::optional<frc::DigitalInput *> m_minLimitSwitch;
   std::optional<frc::DigitalInput *> m_maxLimitSwitch;
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>

@@ -21,9 +21,8 @@ struct SingleAxisMechanism {
   frc::Color8Bit color;
 };
 
-template <typename Distance>
-class ISingleAxisSubsystem {
- public:
+template <typename Distance> class ISingleAxisSubsystem {
+public:
   using Distance_t = units::unit_t<Distance>;
   using Velocity =
       units::compound_unit<Distance, units::inverse<units::seconds>>;
@@ -56,19 +55,15 @@ class ISingleAxisSubsystem {
         SingleAxisMechanism _mechanismConfig,
         std::optional<std::function<std::string(Distance_t)>>
             _conversionFunction)
-        : minDistance{_minDistance},
-          maxDistance{_maxDistance},
+        : minDistance{_minDistance}, maxDistance{_maxDistance},
           encoderDistancePerRevolution{_encoderDistancePerRevolution},
           absoluteEncoderDistancePerRevolution{
               _absoluteEncoderDistancePerRevolution},
-          defaultSpeed{_defaultSpeed},
-          velocityScalar{_velocityScalar},
-          tolerance{_tolerance},
-          minLimitSwitch{_minLimitSwitch},
-          maxLimitSwitch{_maxLimitSwitch},
-          reversed{_reversed},
-          mechanismConfig{_mechanismConfig},
-          conversionFunction{_conversionFunction} {}
+          defaultSpeed{_defaultSpeed}, velocityScalar{_velocityScalar},
+          tolerance{_tolerance}, minLimitSwitch{_minLimitSwitch},
+          maxLimitSwitch{_maxLimitSwitch}, reversed{_reversed},
+          mechanismConfig{_mechanismConfig}, conversionFunction{
+                                                 _conversionFunction} {}
   };
 
   // Will disable position-based movements when called
