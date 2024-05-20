@@ -5,10 +5,10 @@
 
 #include "logging/ILogger.h"
 
-class ConsoleLogger : ILogger {
+class ShuffleboardLogger : ILogger {
  public:
-  static ConsoleLogger& getInstance() {
-    static ConsoleLogger instance;
+  static ShuffleboardLogger& getInstance() {
+    static ShuffleboardLogger instance;
 
     return instance;
   }
@@ -50,24 +50,16 @@ class ConsoleLogger : ILogger {
   void logFatal(std::string key, wpi::Sendable* val) override;
 
  private:
-  ConsoleLogger();
+  ShuffleboardLogger();
 
-  void log(Logging::LogLevel level, std::string key, std::string fmt,
-           va_list ap) {
-    if (!shouldLog(level)) return;
+  std::string formatToShuffleboardString(Logging::LogLevel level,
+                                         const std::string format, ...) {
+    va_list args;
+    va_start(args, format);
+    std::string val = formatString(format, args);
+    val = levelToString(level) + " - " + val;
+    va_end(args);
 
-    std::string val = formatString(fmt, ap);
-    std::cout << levelToString(level) << " - " << key << ": " << val
-              << std::endl;
+    return val;
   }
 };
-
-#define ConsoleWriter ConsoleLogger::getInstance()
-#define ConsoleInfo(key, fmt, ...)                \
-  frc2::InstantCommand([] {                       \
-    ConsoleWriter.logInfo(key, fmt, __VA_ARGS__); \
-  }).ToPtr()
-#define ConsoleVerbose(key, fmt, ...)             \
-  frc2::InstantCommand([] {                       \
-    ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__); \
-  }).ToPtr()

@@ -19,24 +19,24 @@
 // intersection of T where all selections are in T's list of tags
 
 template <typename TKey>
-class AutoChooser {
+class TaggedChooser {
  public:
   // A pair of:
   // - The entry's key
   // - The entry's name
-  using AutoChooserValue = std::pair<TKey, std::string>;
+  using TaggedChooserValue = std::pair<TKey, std::string>;
   // A pair of:
   // - The entry's key and name
   // - A set of associated tags
-  using AutoChooserEntry = std::pair<AutoChooserValue, std::set<std::string>>;
+  using TaggedChooserEntry = std::pair<TaggedChooserValue, std::set<std::string>>;
   // A pair of:
   // - The group's name
   // - A set of associated tags that can be selected from
-  using AutoChooserSelectorGroup =
+  using TaggedChooserSelectorGroup =
       std::pair<std::string, std::set<std::string>>;
 
-  AutoChooser(const std::vector<AutoChooserEntry>& entries,
-              const std::vector<AutoChooserSelectorGroup>& groups,
+  TaggedChooser(const std::vector<TaggedChooserEntry>& entries,
+              const std::vector<TaggedChooserSelectorGroup>& groups,
               std::string chooserName)
       : m_chooserName{chooserName} {
     m_entries = entries;
@@ -75,7 +75,7 @@ class AutoChooser {
         std::transform(
             availableEntries.begin(), availableEntries.end(),
             std::back_inserter(availableKeys),
-            [](const AutoChooserValue& value) { return value.first; });
+            [](const TaggedChooserValue& value) { return value.first; });
       });
 
       frc::SmartDashboard::PutData(group.group.first, group.chooser.get());
@@ -88,8 +88,8 @@ class AutoChooser {
   void SetOnChangeCallback(std::function<void(TKey)> cb) { m_onChangeCb = cb; }
 
   // Returns a list of all valid entries by key and name
-  std::vector<AutoChooserValue> GetAvailableEntries() {
-    std::vector<AutoChooserValue> availableEntries;
+  std::vector<TaggedChooserValue> GetAvailableEntries() {
+    std::vector<TaggedChooserValue> availableEntries;
     std::vector<std::string> selectedTags;
     for (auto& group : m_groups) {
       auto selected = group.chooser->GetSelected();
@@ -132,13 +132,13 @@ class AutoChooser {
   inline TKey GetSelectedValue() { return m_chooser.GetSelected(); }
 
  private:
-  struct AutoChooserSendableGroup {
-    AutoChooserSelectorGroup group;
+  struct TaggedChooserSendableGroup {
+    TaggedChooserSelectorGroup group;
     std::unique_ptr<frc::SendableChooser<std::string>> chooser;
   };
   std::function<void(TKey)> m_onChangeCb;
-  std::vector<AutoChooserEntry> m_entries;
-  std::vector<AutoChooserSendableGroup> m_groups;
+  std::vector<TaggedChooserEntry> m_entries;
+  std::vector<TaggedChooserSendableGroup> m_groups;
   ModifiableChooser<TKey> m_chooser;
   std::string m_chooserName;
 };

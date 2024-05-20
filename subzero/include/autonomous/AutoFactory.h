@@ -14,8 +14,7 @@
 #include <string>
 #include <vector>
 
-#include "Constants.h"
-#include "utils/ConsoleLogger.h"
+#include "logging/ConsoleLogger.h"
 
 template <typename T>
 class AutoFactory {

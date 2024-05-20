@@ -1,15 +1,13 @@
 #pragma once
 
+#include <frc/smartdashboard/Field2d.h>
 #include <pathplanner/lib/commands/FollowPathHolonomic.h>
 
 #include <string>
 #include <vector>
+#include <functional>
 
-#include "Constants.h"
-#include "LimelightHelpers.h"
-#include "subsystems/DriveSubsystem.h"
-#include "subsystems/IntakeSubsystem.h"
-#include "subsystems/ScoringSubsystem.h"
+#include "vision/LimelightHelpers.h"
 
 struct DetectedCorner {
   double x;
@@ -115,8 +113,9 @@ class TargetTracker {
     frc::Pose2d invalidTrackedPose;
   };
 
-  TargetTracker(TargetTrackerConfig config, IntakeSubsystem* intake,
-                ScoringSubsystem* scoring, DriveSubsystem* drive);
+  TargetTracker(TargetTrackerConfig config,
+                std::function<frc::Pose2d()> poseGetter,
+                std::function<frc::Field2d*()> fieldGetter);
   std::vector<DetectedObject> GetTargets();
   void UpdateTrackedTargets(const std::vector<DetectedObject>& objects);
   std::optional<DetectedObject> GetBestTarget(std::vector<DetectedObject>&);
@@ -133,8 +132,7 @@ class TargetTracker {
   void PublishTrackedTarget(const TrackedTarget& target, int index);
 
   TargetTrackerConfig m_config;
-  IntakeSubsystem* m_intake;
-  ScoringSubsystem* m_scoring;
-  DriveSubsystem* m_drive;
+  std::function<frc::Pose2d()> m_poseGetter;
+  std::function<frc::Field2d*()> m_fieldGetter;
   std::vector<TrackedTarget> m_trackedTargets;
 };

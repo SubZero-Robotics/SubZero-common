@@ -21,11 +21,10 @@
 #include <memory>
 #include <string>
 
-#include "Constants.h"
-#include "subsystems/singleaxis/ISingleAxisSubsystem.h"
-#include "utils/ConsoleLogger.h"
-#include "utils/PidMotorController.h"
-#include "utils/ShuffleboardLogger.h"
+#include "singleaxis/ISingleAxisSubsystem.h"
+#include "logging/ConsoleLogger.h"
+#include "motor/PidMotorController.h"
+#include "logging/ShuffleboardLogger.h"
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TDistance>
