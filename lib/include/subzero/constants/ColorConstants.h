@@ -1,6 +1,7 @@
 #pragma once
 
 #include <frc/util/Color.h>
+#include <frc/util/Color8Bit.h>
 
 namespace ColorConstants {
 static const frc::Color8Bit kYellow{0xE5, 0xD5, 0x24};

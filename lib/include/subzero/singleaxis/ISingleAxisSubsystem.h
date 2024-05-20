@@ -7,6 +7,7 @@
 #include <units/angular_velocity.h>
 #include <units/length.h>
 #include <units/velocity.h>
+#include <frc/trajectory/TrapezoidProfile.h>
 
 #include <functional>
 #include <memory>
@@ -44,6 +45,7 @@ class ISingleAxisSubsystem {
     SingleAxisMechanism mechanismConfig;
     std::optional<std::function<std::string(Distance_t)>> conversionFunction;
     std::function<bool()> ignoreLimit;
+    frc::TrapezoidProfile<Distance>::Constraints profileConstraints;
 
     SingleAxisConfig(
         Distance_t _minDistance, Distance_t _maxDistance,
@@ -55,7 +57,8 @@ class ISingleAxisSubsystem {
         SingleAxisMechanism _mechanismConfig,
         std::optional<std::function<std::string(Distance_t)>>
             _conversionFunction,
-        std::function<bool()> _ignoreLimit)
+        std::function<bool()> _ignoreLimit,
+        frc::TrapezoidProfile<Distance>::Constraints _profileConstraints)
         : minDistance{_minDistance},
           maxDistance{_maxDistance},
           encoderDistancePerRevolution{_encoderDistancePerRevolution},
@@ -69,7 +72,8 @@ class ISingleAxisSubsystem {
           reversed{_reversed},
           mechanismConfig{_mechanismConfig},
           conversionFunction{_conversionFunction},
-          ignoreLimit{_ignoreLimit} {}
+          ignoreLimit{_ignoreLimit},
+          profileConstraints{_profileConstraints} {}
   };
 
   // Will disable position-based movements when called

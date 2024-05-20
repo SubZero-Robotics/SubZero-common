@@ -15,8 +15,8 @@
 #include <thread>
 #include <vector>
 
-#include "logging/ConsoleLogger.h"
-#include "logging/ShuffleboardLogger.h"
+#include "subzero/logging/ConsoleLogger.h"
+#include "subzero/logging/ShuffleboardLogger.h"
 
 namespace ConnectorX {
 struct Message {

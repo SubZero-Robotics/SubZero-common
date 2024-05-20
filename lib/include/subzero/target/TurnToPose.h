@@ -12,7 +12,7 @@
 #include <functional>
 #include <memory>
 
-#include "target/ITurnToTarget.h"
+#include "subzero/target/ITurnToTarget.h"
 
 class TurnToPose : public ITurnToTarget {
  public:

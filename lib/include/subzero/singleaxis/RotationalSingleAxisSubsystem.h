@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "singleaxis/BaseSingleAxisSubsystem.h"
+#include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
@@ -18,8 +18,7 @@ class RotationalSingleAxisSubsystem
       units::meter_t armatureLength, frc::MechanismObject2d *node = nullptr)
       : BaseSingleAxisSubsystem<
             TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
-            units::degree>{name, controller, config,
-                           AutoConstants::kRotationalAxisConstraints, node},
+            units::degree>{name, controller, config, node},
         m_armatureLength{armatureLength} {}
 
   void Periodic() override {

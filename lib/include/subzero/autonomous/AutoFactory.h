@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-#include "logging/ConsoleLogger.h"
+#include "subzero/logging/ConsoleLogger.h"
 
 template <typename T>
 class AutoFactory {
@@ -56,7 +56,6 @@ class AutoFactory {
 
  public:
   frc2::CommandPtr GetAuto(T type) {
-    using namespace AutoConstants;
 
     if (!m_autos.contains(type)) {
       ConsoleWriter.logWarning(

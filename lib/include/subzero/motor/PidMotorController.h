@@ -99,7 +99,7 @@ class PidMotorController {
   }
 
   void RunToPosition(double position) {
-    ConsoleLogger::getInstance().logVerbose(m_name + " Target position",
+    ConsoleWriter.logVerbose(m_name + " Target position",
                                                  position);
     Stop();
     m_pidController.Reset();

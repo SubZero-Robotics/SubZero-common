@@ -7,8 +7,8 @@
 
 #include <string>
 
-#include "logging/ConsoleLogger.h"
-#include "motor/PidMotorController.h"
+#include "subzero/logging/ConsoleLogger.h"
+#include "subzero/motor/PidMotorController.h"
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>

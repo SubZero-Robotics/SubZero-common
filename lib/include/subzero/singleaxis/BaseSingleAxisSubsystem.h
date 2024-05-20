@@ -86,9 +86,8 @@ class BaseSingleAxisSubsystem
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &controller,
       ISingleAxisSubsystem<TDistance>::SingleAxisConfig config,
-      frc::TrapezoidProfile<TDistance>::Constraints profileConstraints,
       frc::MechanismObject2d *mechanismNode = nullptr)
-      : frc2::TrapezoidProfileSubsystem<TDistance>{profileConstraints},
+      : frc2::TrapezoidProfileSubsystem<TDistance>{config.profileConstraints},
         m_minLimitSwitch{config.minLimitSwitch},
         m_maxLimitSwitch{config.maxLimitSwitch},
         m_controller{controller},

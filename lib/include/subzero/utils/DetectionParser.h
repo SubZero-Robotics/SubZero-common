@@ -4,7 +4,7 @@
 #include <utility>
 #include <vector>
 
-#include "utils/UtilConstants.h"
+#include "subzero/utils/UtilConstants.h"
 
 namespace DetectionParser {
 

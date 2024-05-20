@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CONSOLE_LOGGER_H
+#define CONSOLE_LOGGER_H
 
 #include <iostream>
 #include <string>
@@ -71,3 +72,5 @@ class ConsoleLogger : ILogger {
   frc2::InstantCommand([] {                       \
     ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__); \
   }).ToPtr()
+
+#endif
