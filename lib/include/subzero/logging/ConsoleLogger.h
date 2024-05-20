@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "logging/ILogger.h"
+#include "subzero/logging/ILogger.h"
 
 class ConsoleLogger : ILogger {
  public:
@@ -52,7 +52,7 @@ class ConsoleLogger : ILogger {
  private:
   ConsoleLogger();
 
-  void log(Logging::LogLevel level, std::string key, std::string fmt,
+  void log(Logging::Level level, std::string key, std::string fmt,
            va_list ap) {
     if (!shouldLog(level)) return;
 

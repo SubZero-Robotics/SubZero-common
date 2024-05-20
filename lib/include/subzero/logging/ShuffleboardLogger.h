@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 
-#include "logging/ILogger.h"
+#include "subzero/logging/ILogger.h"
 
 class ShuffleboardLogger : ILogger {
  public:
@@ -52,7 +52,7 @@ class ShuffleboardLogger : ILogger {
  private:
   ShuffleboardLogger();
 
-  std::string formatToShuffleboardString(Logging::LogLevel level,
+  std::string formatToShuffleboardString(Logging::Level level,
                                          const std::string format, ...) {
     va_list args;
     va_start(args, format);

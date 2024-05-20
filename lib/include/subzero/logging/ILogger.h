@@ -8,7 +8,7 @@
 #include <cstdarg>
 #include <string>
 
-#include "utils/UtilConstants.h"
+#include "subzero/utils/UtilConstants.h"
 
 class ILogger {
  public:
@@ -55,19 +55,19 @@ class ILogger {
   virtual void logFatal(std::string key, wpi::Sendable* val) = 0;
 
  protected:
-  std::string levelToString(Logging::LogLevel level) const {
+  std::string levelToString(Logging::Level level) const {
     using namespace Logging;
 
     switch (level) {
-      case LogLevel::VERBOSE:
+      case Level::VERBOSE:
         return "VERBOSE";
-      case LogLevel::INFO:
+      case Level::INFO:
         return "INFO";
-      case LogLevel::WARNING:
+      case Level::WARNING:
         return "WARNING";
-      case LogLevel::ERROR:
+      case Level::ERROR:
         return "ERROR";
-      case LogLevel::FATAL:
+      case Level::FATAL:
         return "FATAL";
       default:
         return "INVALID LOG LEVEL";
@@ -88,7 +88,7 @@ class ILogger {
     return json.dump();
   }
 
-  inline bool shouldLog(Logging::LogLevel level) {
+  inline bool shouldLog(Logging::Level level) {
     return static_cast<int>(level) >= static_cast<int>(Logging::kMinLogLevel);
   }
 };

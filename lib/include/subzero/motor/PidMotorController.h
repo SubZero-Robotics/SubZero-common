@@ -8,7 +8,7 @@
 
 #include <string>
 
-#include "logging/ConsoleLogger.h"
+#include "subzero/logging/ConsoleLogger.h"
 
 struct PidSettings {
   double p, i, d, iZone, ff;

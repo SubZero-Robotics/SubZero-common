@@ -8,6 +8,7 @@
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/FunctionalCommand.h>
 #include <frc2/command/TrapezoidProfileSubsystem.h>
+#include <frc2/command/InstantCommand.h>
 #include <rev/CANSparkFlex.h>
 #include <rev/CANSparkMax.h>
 #include <rev/SparkMaxPIDController.h>
@@ -21,10 +22,10 @@
 #include <memory>
 #include <string>
 
-#include "singleaxis/ISingleAxisSubsystem.h"
-#include "logging/ConsoleLogger.h"
-#include "motor/PidMotorController.h"
-#include "logging/ShuffleboardLogger.h"
+#include "subzero/singleaxis/ISingleAxisSubsystem.h"
+#include "subzero/logging/ConsoleLogger.h"
+#include "subzero/motor/PidMotorController.h"
+#include "subzero/logging/ShuffleboardLogger.h"
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TDistance>
