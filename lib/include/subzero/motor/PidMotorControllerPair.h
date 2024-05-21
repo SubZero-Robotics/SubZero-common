@@ -10,14 +10,25 @@
 #include "subzero/logging/ConsoleLogger.h"
 #include "subzero/motor/PidMotorController.h"
 
+/**
+ * @brief Encapsulates a pair of motors that should be treated as a single unit
+ * 
+ * @tparam TMotor 
+ * @tparam TController 
+ * @tparam TRelativeEncoder 
+ * @tparam TAbsoluteEncoder 
+ */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerPair {
  public:
-  /// @brief
-  /// @param prefix Name prefix in shuffleboard
-  /// @param first First controller
-  /// @param second Second controller
+  /**
+   * @brief Construct a new Pi MotorControllerPair
+   * 
+   * @param prefix Common identifier prefix in SmartDashboard
+   * @param first 
+   * @param second 
+   */
   explicit PidMotorControllerPair(
       std::string prefix,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -28,24 +39,33 @@ class PidMotorControllerPair {
         m_controllerFirst{first},
         m_controllerSecond{second} {}
 
-  /// @brief
-  /// @param rpmFirst RPM of the first motor
-  /// @param rpmSecond RPM of the second motor
+  /**
+   * @brief Run motors at the given RPM
+   * 
+   * @param rpmFirst RPM of the first motor
+   * @param rpmSecond RPM of the second motor
+   */
   void RunWithVelocity(units::revolutions_per_minute_t rpmFirst,
                        units::revolutions_per_minute_t rpmSecond) {
     m_controllerFirst.RunWithVelocity(rpmFirst);
     m_controllerSecond.RunWithVelocity(rpmSecond);
   }
 
-  /// @brief
-  /// @param percentageFirst Percentage of the max RPM of the first motor
-  /// @param percentageSecond Percentage of the max RPM of the second motor
+  /**
+   * @brief Run motors at the given percentage of max RPM
+   * 
+   * @param percentageFirst Percentage of the first motor
+   * @param percentageSecond Percentage of the second motor
+   */
   void RunWithVelocity(double percentageFirst, double percentageSecond) {
     m_controllerFirst.RunWithVelocity(percentageFirst);
     m_controllerSecond.RunWithVelocity(percentageSecond);
   }
 
-  /// @brief Stop both motors
+  /**
+   * @brief Stop both motors
+   * 
+   */
   void Stop() {
     m_controllerFirst.Stop();
     m_controllerSecond.Stop();
@@ -70,6 +90,14 @@ class PidMotorControllerPair {
   PidSettings m_pidSettings;
 };
 
+/**
+ * @brief Tunes a pair of motors concurrently through SmartDashboard
+ * 
+ * @tparam TMotor 
+ * @tparam TController 
+ * @tparam TRelativeEncoder 
+ * @tparam TAbsoluteEncoder 
+ */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerPairTuner {

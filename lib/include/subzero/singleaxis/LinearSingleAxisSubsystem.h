@@ -4,6 +4,14 @@
 
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
 
+/**
+ * @brief A single axis representing a linear path of motion in meters
+ * 
+ * @tparam TMotor 
+ * @tparam TController 
+ * @tparam TRelativeEncoder 
+ * @tparam TAbsoluteEncoder 
+ */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class LinearSingleAxisSubsystem
@@ -19,8 +27,7 @@ public:
       frc::MechanismObject2d *node = nullptr)
       : BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                                 TAbsoluteEncoder, units::meter>{
-            name, controller, config,
-            node} {}
+            name, controller, config, node} {}
 
   void Periodic() override
   {
@@ -50,6 +57,12 @@ public:
     }
   }
 
+  /**
+   * @brief Not allowed
+   * 
+   * @param speed 
+   * @param ignoreEncoder 
+   */
   void RunMotorVelocity(units::meters_per_second_t speed,
                         bool ignoreEncoder = false) override
   {

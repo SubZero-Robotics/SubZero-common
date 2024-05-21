@@ -273,6 +273,10 @@ enum class AnalogPort {};
 
 enum class LedPort { P0 = 0, P1 = 1 };
 
+/**
+ * @brief Stores the state of the Connector-X device locally 
+ * 
+ */
 struct CachedZone {
   uint16_t offset;
   uint16_t count;
@@ -309,8 +313,19 @@ struct CachedDevice {
   std::vector<CachedPort> ports;
 };
 
+/**
+ * @brief Driver for use with the I2C, V2 iteration of Connector-X
+ * 
+ */
 class ConnectorXBoard : public frc2::SubsystemBase {
  public:
+  /**
+   * @brief Construct a new Connector-X driver instance
+   * 
+   * @param slaveAddress Set in the board's configuration
+   * @param port Will typically be the 40-pin frc::I2C::kMXP header
+   * @param connectorXDelay Delay in seconds between sending commands
+   */
   explicit ConnectorXBoard(uint8_t slaveAddress,
                            frc::I2C::Port port = frc::I2C::kMXP,
                            units::second_t connectorXDelay = 0.002_s);
@@ -474,6 +489,15 @@ class ConnectorXBoard : public frc2::SubsystemBase {
 
   void setLedPort(LedPort port);
 
+  /**
+   * @brief Set the current zone for running patterns
+   * 
+   * @param port 
+   * @param zoneIndex 
+   * @param reversed Run the pattern in reverse
+   * @param setReversed Will set the zone to reversed when true and reversed is true
+   * @return CachedZone& 
+   */
   CachedZone& setCurrentZone(LedPort port, uint8_t zoneIndex = 0,
                              bool reversed = false, bool setReversed = false);
 
@@ -484,12 +508,12 @@ class ConnectorXBoard : public frc2::SubsystemBase {
   }
 
   /**
-   * Sync up to 10 zones to the same 0 state
+   * @brief Sync up to 10 zones to the same 0 state
    */
   void syncZones(LedPort port, const std::vector<uint8_t>& zones);
 
   /**
-   * Create up to 10 new zones
+   * @brief Create up to 10 new zones
    */
   void createZones(LedPort port, std::vector<Commands::NewZone>&& newZones);
 

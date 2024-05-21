@@ -4,6 +4,14 @@
 
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
 
+/**
+ * @brief A single axis representing a circular path of motion in degrees
+ * 
+ * @tparam TMotor 
+ * @tparam TController 
+ * @tparam TRelativeEncoder 
+ * @tparam TAbsoluteEncoder 
+ */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class RotationalSingleAxisSubsystem

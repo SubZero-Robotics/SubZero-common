@@ -27,6 +27,16 @@
 #include "subzero/motor/PidMotorController.h"
 #include "subzero/logging/ShuffleboardLogger.h"
 
+/**
+ * @brief The ultimate solution for turrets, arms, and much more. This class allows for absolute, relative, and joystick control across both linear and rotational axes.
+ * Even better, it checks motion limits, outputs real-time stats via SmartDashboard, and allows for out-of-the-box simulations via Mechanism2d
+ * 
+ * @tparam TMotor 
+ * @tparam TController 
+ * @tparam TRelativeEncoder 
+ * @tparam TAbsoluteEncoder 
+ * @tparam TDistance 
+ */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TDistance>
 class BaseSingleAxisSubsystem
@@ -109,6 +119,10 @@ class BaseSingleAxisSubsystem
     frc2::TrapezoidProfileSubsystem<TDistance>::Disable();
   }
 
+  /**
+   * @brief Runs the absolute positioning task and updates relevant info on SmartDashboard
+   * 
+   */
   void Periodic() override {
     frc::SmartDashboard::PutBoolean(m_name + " Pid Enabled", m_pidEnabled);
     frc::SmartDashboard::PutNumber(m_name + " Position",
@@ -284,6 +298,10 @@ class BaseSingleAxisSubsystem
     frc2::TrapezoidProfileSubsystem<TDistance>::Enable();
   }
 
+  /**
+   * @brief This must be called once upon robot startup
+   * 
+   */
   void OnInit() {
     m_controller.SetPidTolerance(m_config.tolerance.value());
     m_controller.SetEncoderConversionFactor(
