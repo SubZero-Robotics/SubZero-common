@@ -83,4 +83,4 @@ public:
     return PathPlannerPathFromName(m_autos.at(type));
   }
 };
-}
+} // namespace subzero

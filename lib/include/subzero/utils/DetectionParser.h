@@ -56,6 +56,6 @@ struct DetectedObject {
   }
 };
 } // namespace DetectionParser
-}
+} // namespace subzero
 
 #endif

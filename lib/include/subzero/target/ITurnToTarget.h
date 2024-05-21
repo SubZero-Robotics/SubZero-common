@@ -20,4 +20,4 @@ public:
   virtual bool AtGoal() = 0;
   virtual void Update() = 0;
 };
-}
+} // namespace subzero

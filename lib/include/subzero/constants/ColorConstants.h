@@ -15,4 +15,4 @@ static const frc::Color8Bit kOrange{0xE8, 0x61, 0x19};
 static const frc::Color8Bit kAcidGreen{0xB0, 0xBF, 0x1A};
 static const frc::Color8Bit kBlack{0x00, 0x00, 0x00};
 } // namespace ColorConstants
-}
+} // namespace subzero

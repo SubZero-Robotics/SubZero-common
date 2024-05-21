@@ -264,4 +264,4 @@ public:
         [this](std::string_view val) { SetNtSelected(std::string{val}); });
   }
 };
-}
+} // namespace subzero

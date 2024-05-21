@@ -332,4 +332,4 @@ protected:
   frc2::CommandPtr m_resetEncCmd = frc2::InstantCommand([] {}).ToPtr();
   frc::MechanismLigament2d *m_ligament2d;
 };
-}
+} // namespace subzero

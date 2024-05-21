@@ -77,4 +77,4 @@ public:
 protected:
   units::meter_t m_armatureLength;
 };
-}
+} // namespace subzero

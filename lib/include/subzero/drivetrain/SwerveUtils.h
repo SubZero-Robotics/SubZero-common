@@ -52,4 +52,4 @@ public:
    */
   static double WrapAngle(double _angle);
 };
-}
+} // namespace subzero

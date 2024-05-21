@@ -226,4 +226,4 @@ private:
   std::function<frc::Field2d *()> m_fieldGetter;
   std::vector<TrackedTarget> m_trackedTargets;
 };
-}
+} // namespace subzero

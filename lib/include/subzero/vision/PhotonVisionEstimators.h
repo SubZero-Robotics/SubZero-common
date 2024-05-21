@@ -151,4 +151,4 @@ private:
 
   units::second_t lastEstTimestamp{0_s};
 };
-}
+} // namespace subzero
