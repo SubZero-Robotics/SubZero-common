@@ -11,17 +11,18 @@ typedef struct {
 
 /**
  * @brief Remaps x/y inputs to a combined value before applying a deadzone
- * 
- * @param x 
- * @param y 
- * @param deadzoneDistance 
- * @return DeadzoneAxes 
+ *
+ * @param x
+ * @param y
+ * @param deadzoneDistance
+ * @return DeadzoneAxes
  */
-DeadzoneAxes CalculateCircularDeadzone(double x, double y, double deadzoneDistance) {
+DeadzoneAxes CalculateCircularDeadzone(double x, double y,
+                                       double deadzoneDistance) {
   if (std::hypot(x, y) > deadzoneDistance) {
     return {.x = x, .y = y, .deadzoneApplied = false};
   }
 
   return {.x = 0, .y = 0, .deadzoneApplied = true};
 }
-}  // namespace InputUtils
+} // namespace InputUtils

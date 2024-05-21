@@ -1,7 +1,7 @@
 #pragma once
 
 class SwerveUtils {
- public:
+public:
   /**
    * Steps a value towards a target with a specified step size.
    *

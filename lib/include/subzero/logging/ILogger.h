@@ -12,10 +12,10 @@
 
 /**
  * @brief Logger interface
- * 
+ *
  */
 class ILogger {
- public:
+public:
   // string
   virtual void logVerbose(std::string key, const std::string format, ...) = 0;
   virtual void logInfo(std::string key, const std::string format, ...) = 0;
@@ -45,36 +45,36 @@ class ILogger {
   virtual void logFatal(std::string key, bool val) = 0;
 
   // Pose2d
-  virtual void logInfo(std::string key, frc::Pose2d& val) = 0;
-  virtual void logVerbose(std::string key, frc::Pose2d& val) = 0;
-  virtual void logWarning(std::string key, frc::Pose2d& val) = 0;
-  virtual void logError(std::string key, frc::Pose2d& val) = 0;
-  virtual void logFatal(std::string key, frc::Pose2d& val) = 0;
+  virtual void logInfo(std::string key, frc::Pose2d &val) = 0;
+  virtual void logVerbose(std::string key, frc::Pose2d &val) = 0;
+  virtual void logWarning(std::string key, frc::Pose2d &val) = 0;
+  virtual void logError(std::string key, frc::Pose2d &val) = 0;
+  virtual void logFatal(std::string key, frc::Pose2d &val) = 0;
 
   // Sendable
-  virtual void logInfo(std::string key, wpi::Sendable* val) = 0;
-  virtual void logVerbose(std::string key, wpi::Sendable* val) = 0;
-  virtual void logWarning(std::string key, wpi::Sendable* val) = 0;
-  virtual void logError(std::string key, wpi::Sendable* val) = 0;
-  virtual void logFatal(std::string key, wpi::Sendable* val) = 0;
+  virtual void logInfo(std::string key, wpi::Sendable *val) = 0;
+  virtual void logVerbose(std::string key, wpi::Sendable *val) = 0;
+  virtual void logWarning(std::string key, wpi::Sendable *val) = 0;
+  virtual void logError(std::string key, wpi::Sendable *val) = 0;
+  virtual void logFatal(std::string key, wpi::Sendable *val) = 0;
 
- protected:
+protected:
   std::string levelToString(Logging::Level level) const {
     using namespace Logging;
 
     switch (level) {
-      case Level::VERBOSE:
-        return "VERBOSE";
-      case Level::INFO:
-        return "INFO";
-      case Level::WARNING:
-        return "WARNING";
-      case Level::ERROR:
-        return "ERROR";
-      case Level::FATAL:
-        return "FATAL";
-      default:
-        return "INVALID LOG LEVEL";
+    case Level::VERBOSE:
+      return "VERBOSE";
+    case Level::INFO:
+      return "INFO";
+    case Level::WARNING:
+      return "WARNING";
+    case Level::ERROR:
+      return "ERROR";
+    case Level::FATAL:
+      return "FATAL";
+    default:
+      return "INVALID LOG LEVEL";
     }
   }
 
@@ -85,7 +85,7 @@ class ILogger {
     return std::string(buf);
   }
 
-  std::string poseToString(const frc::Pose2d& pose) {
+  std::string poseToString(const frc::Pose2d &pose) {
     wpi::json json;
 
     frc::to_json(json, pose);

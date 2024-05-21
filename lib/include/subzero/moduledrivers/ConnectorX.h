@@ -237,14 +237,14 @@ struct Response {
   CommandType commandType;
   ResponseData responseData;
 };
-}  // namespace Commands
+} // namespace Commands
 
 enum class PatternType {
   None = 0,
   SetAll = 1,
   Blink = 2,
   RGBFade = 3,
-  HackerMode = 4,  // No worky
+  HackerMode = 4, // No worky
   Breathe = 5,
   SineRoll = 6,
   Chase = 7,
@@ -274,8 +274,8 @@ enum class AnalogPort {};
 enum class LedPort { P0 = 0, P1 = 1 };
 
 /**
- * @brief Stores the state of the Connector-X device locally 
- * 
+ * @brief Stores the state of the Connector-X device locally
+ *
  */
 struct CachedZone {
   uint16_t offset;
@@ -315,13 +315,13 @@ struct CachedDevice {
 
 /**
  * @brief Driver for use with the I2C, V2 iteration of Connector-X
- * 
+ *
  */
 class ConnectorXBoard : public frc2::SubsystemBase {
- public:
+public:
   /**
    * @brief Construct a new Connector-X driver instance
-   * 
+   *
    * @param slaveAddress Set in the board's configuration
    * @param port Will typically be the 40-pin frc::I2C::kMXP header
    * @param connectorXDelay Delay in seconds between sending commands
@@ -483,7 +483,7 @@ class ConnectorXBoard : public frc2::SubsystemBase {
     return static_cast<LedPort>(m_device.currentPort);
   }
 
-  CachedPort& getCurrentCachedPort() {
+  CachedPort &getCurrentCachedPort() {
     return m_device.ports[m_device.currentPort];
   }
 
@@ -491,18 +491,19 @@ class ConnectorXBoard : public frc2::SubsystemBase {
 
   /**
    * @brief Set the current zone for running patterns
-   * 
-   * @param port 
-   * @param zoneIndex 
+   *
+   * @param port
+   * @param zoneIndex
    * @param reversed Run the pattern in reverse
-   * @param setReversed Will set the zone to reversed when true and reversed is true
-   * @return CachedZone& 
+   * @param setReversed Will set the zone to reversed when true and reversed is
+   * true
+   * @return CachedZone&
    */
-  CachedZone& setCurrentZone(LedPort port, uint8_t zoneIndex = 0,
+  CachedZone &setCurrentZone(LedPort port, uint8_t zoneIndex = 0,
                              bool reversed = false, bool setReversed = false);
 
-  CachedZone& getCurrentZone() {
-    auto& port = getCurrentCachedPort();
+  CachedZone &getCurrentZone() {
+    auto &port = getCurrentCachedPort();
 
     return port.zones[port.currentZoneIndex];
   }
@@ -510,14 +511,14 @@ class ConnectorXBoard : public frc2::SubsystemBase {
   /**
    * @brief Sync up to 10 zones to the same 0 state
    */
-  void syncZones(LedPort port, const std::vector<uint8_t>& zones);
+  void syncZones(LedPort port, const std::vector<uint8_t> &zones);
 
   /**
    * @brief Create up to 10 new zones
    */
-  void createZones(LedPort port, std::vector<Commands::NewZone>&& newZones);
+  void createZones(LedPort port, std::vector<Commands::NewZone> &&newZones);
 
- private:
+private:
   Commands::Response sendCommand(Commands::Command command,
                                  bool expectResponse = false);
 
@@ -535,4 +536,4 @@ class ConnectorXBoard : public frc2::SubsystemBase {
   hal::SimInt m_simColorR, m_simColorG, m_simColorB;
   hal::SimBoolean m_simOn;
 };
-}  // namespace ConnectorX
+} // namespace ConnectorX

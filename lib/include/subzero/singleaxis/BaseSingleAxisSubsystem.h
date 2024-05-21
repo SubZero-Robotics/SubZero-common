@@ -7,8 +7,8 @@
 #include <frc/smartdashboard/MechanismRoot2d.h>
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/FunctionalCommand.h>
-#include <frc2/command/TrapezoidProfileSubsystem.h>
 #include <frc2/command/InstantCommand.h>
+#include <frc2/command/TrapezoidProfileSubsystem.h>
 #include <rev/CANSparkFlex.h>
 #include <rev/CANSparkMax.h>
 #include <rev/SparkMaxPIDController.h>
@@ -22,27 +22,30 @@
 #include <memory>
 #include <string>
 
-#include "subzero/singleaxis/ISingleAxisSubsystem.h"
 #include "subzero/logging/ConsoleLogger.h"
-#include "subzero/motor/PidMotorController.h"
 #include "subzero/logging/ShuffleboardLogger.h"
+#include "subzero/motor/PidMotorController.h"
+#include "subzero/singleaxis/ISingleAxisSubsystem.h"
 
 /**
- * @brief The ultimate solution for turrets, arms, and much more. This class allows for absolute, relative, and joystick control across both linear and rotational axes.
- * Even better, it checks motion limits, outputs real-time stats via SmartDashboard, and allows for out-of-the-box simulations via Mechanism2d
- * 
- * @tparam TMotor 
- * @tparam TController 
- * @tparam TRelativeEncoder 
- * @tparam TAbsoluteEncoder 
- * @tparam TDistance 
+ * @brief The ultimate solution for turrets, arms, and much more. This class
+ * allows for absolute, relative, and joystick control across both linear and
+ * rotational axes. Even better, it checks motion limits, outputs real-time
+ * stats via SmartDashboard, and allows for out-of-the-box simulations via
+ * Mechanism2d
+ *
+ * @tparam TMotor
+ * @tparam TController
+ * @tparam TRelativeEncoder
+ * @tparam TAbsoluteEncoder
+ * @tparam TDistance
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TDistance>
 class BaseSingleAxisSubsystem
     : public ISingleAxisSubsystem<TDistance>,
       public frc2::TrapezoidProfileSubsystem<TDistance> {
- public:
+public:
   using PidState = typename frc::TrapezoidProfile<TDistance>::State;
   using Distance_t = units::unit_t<TDistance>;
   using Velocity =
@@ -52,9 +55,10 @@ class BaseSingleAxisSubsystem
       units::compound_unit<Velocity, units::inverse<units::seconds>>;
   using Acceleration_t = units::unit_t<Acceleration>;
 
- protected:
+protected:
   bool IsMovementAllowed(double speed, bool ignoreEncoder = false) {
-    if (m_config.ignoreLimit()) return true;
+    if (m_config.ignoreLimit())
+      return true;
 
     bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
     bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -74,7 +78,8 @@ class BaseSingleAxisSubsystem
   }
 
   bool IsMovementAllowed(bool ignoreEncoder = false) {
-    if (m_config.ignoreLimit()) return true;
+    if (m_config.ignoreLimit())
+      return true;
 
     bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
     bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -90,7 +95,7 @@ class BaseSingleAxisSubsystem
     return true;
   }
 
- public:
+public:
   BaseSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -99,11 +104,8 @@ class BaseSingleAxisSubsystem
       frc::MechanismObject2d *mechanismNode = nullptr)
       : frc2::TrapezoidProfileSubsystem<TDistance>{config.profileConstraints},
         m_minLimitSwitch{config.minLimitSwitch},
-        m_maxLimitSwitch{config.maxLimitSwitch},
-        m_controller{controller},
-        m_config{config},
-        m_name{name},
-        m_pidEnabled{false} {
+        m_maxLimitSwitch{config.maxLimitSwitch}, m_controller{controller},
+        m_config{config}, m_name{name}, m_pidEnabled{false} {
     m_pidEnabled = false;
 
     if (mechanismNode) {
@@ -120,8 +122,9 @@ class BaseSingleAxisSubsystem
   }
 
   /**
-   * @brief Runs the absolute positioning task and updates relevant info on SmartDashboard
-   * 
+   * @brief Runs the absolute positioning task and updates relevant info on
+   * SmartDashboard
+   *
    */
   void Periodic() override {
     frc::SmartDashboard::PutBoolean(m_name + " Pid Enabled", m_pidEnabled);
@@ -300,7 +303,7 @@ class BaseSingleAxisSubsystem
 
   /**
    * @brief This must be called once upon robot startup
-   * 
+   *
    */
   void OnInit() {
     m_controller.SetPidTolerance(m_config.tolerance.value());
@@ -312,7 +315,7 @@ class BaseSingleAxisSubsystem
           m_config.absoluteEncoderDistancePerRevolution.value().value());
   }
 
- protected:
+protected:
   std::optional<frc::DigitalInput *> m_minLimitSwitch;
   std::optional<frc::DigitalInput *> m_maxLimitSwitch;
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
