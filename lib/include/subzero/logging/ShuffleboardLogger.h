@@ -13,7 +13,7 @@ namespace subzero {
  * @remark Singleton class
  */
 class ShuffleboardLogger : ILogger {
- public:
+public:
   static ShuffleboardLogger &getInstance() {
     static ShuffleboardLogger instance;
 
@@ -56,7 +56,7 @@ class ShuffleboardLogger : ILogger {
   void logError(std::string key, wpi::Sendable *val) override;
   void logFatal(std::string key, wpi::Sendable *val) override;
 
- private:
+private:
   ShuffleboardLogger();
 
   std::string formatToShuffleboardString(Logging::Level level,
@@ -70,4 +70,4 @@ class ShuffleboardLogger : ILogger {
     return val;
   }
 };
-}  // namespace subzero
+} // namespace subzero

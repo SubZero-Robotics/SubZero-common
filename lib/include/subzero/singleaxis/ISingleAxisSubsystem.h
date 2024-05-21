@@ -32,9 +32,8 @@ struct SingleAxisMechanism {
  * @tparam Distance The distance unit- typically meter, inch, degree, radian,
  * etc.
  */
-template <typename Distance>
-class ISingleAxisSubsystem {
- public:
+template <typename Distance> class ISingleAxisSubsystem {
+public:
   using Distance_t = units::unit_t<Distance>;
   using Velocity =
       units::compound_unit<Distance, units::inverse<units::seconds>>;
@@ -138,20 +137,15 @@ class ISingleAxisSubsystem {
             _conversionFunction,
         std::function<bool()> _ignoreLimit,
         frc::TrapezoidProfile<Distance>::Constraints _profileConstraints)
-        : minDistance{_minDistance},
-          maxDistance{_maxDistance},
+        : minDistance{_minDistance}, maxDistance{_maxDistance},
           encoderDistancePerRevolution{_encoderDistancePerRevolution},
           absoluteEncoderDistancePerRevolution{
               _absoluteEncoderDistancePerRevolution},
-          defaultSpeed{_defaultSpeed},
-          velocityScalar{_velocityScalar},
-          tolerance{_tolerance},
-          minLimitSwitch{_minLimitSwitch},
-          maxLimitSwitch{_maxLimitSwitch},
-          reversed{_reversed},
+          defaultSpeed{_defaultSpeed}, velocityScalar{_velocityScalar},
+          tolerance{_tolerance}, minLimitSwitch{_minLimitSwitch},
+          maxLimitSwitch{_maxLimitSwitch}, reversed{_reversed},
           mechanismConfig{_mechanismConfig},
-          conversionFunction{_conversionFunction},
-          ignoreLimit{_ignoreLimit},
+          conversionFunction{_conversionFunction}, ignoreLimit{_ignoreLimit},
           profileConstraints{_profileConstraints} {}
   };
 
@@ -275,4 +269,4 @@ class ISingleAxisSubsystem {
    */
   virtual void Stop() = 0;
 };
-}  // namespace subzero
+} // namespace subzero

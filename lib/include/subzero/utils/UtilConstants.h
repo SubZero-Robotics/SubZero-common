@@ -12,9 +12,9 @@ enum class Level { VERBOSE = 0, INFO, WARNING, ERROR, FATAL };
  *
  */
 constexpr auto kMinLogLevel = Level::VERBOSE;
-}  // namespace Logging
+} // namespace Logging
 
 namespace DetectionParser {
 enum class ObjectClasses { Cone = 0, Cube = 1, Merge = 2 };
 }
-}  // namespace subzero
+} // namespace subzero

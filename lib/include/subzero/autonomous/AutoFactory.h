@@ -25,13 +25,12 @@ namespace subzero {
  * @tparam T Key for identifying the auto, typically an enum
  * @remark Will return an empty command if the auto does not exist
  */
-template <typename T>
-class AutoFactory {
- public:
+template <typename T> class AutoFactory {
+public:
   explicit AutoFactory(const std::map<T, std::string> &autos)
       : m_autos{autos} {}
 
- private:
+private:
   const std::map<T, std::string> &m_autos;
 
   inline frc2::CommandPtr GetEmptyCommand() {
@@ -63,7 +62,7 @@ class AutoFactory {
     return pathplanner::PathPlannerAuto(autoName).ToPtr();
   }
 
- public:
+public:
   /**
    * @brief Get the auto command specified by the key
    *
@@ -83,4 +82,4 @@ class AutoFactory {
     return PathPlannerPathFromName(m_autos.at(type));
   }
 };
-}  // namespace subzero
+} // namespace subzero
