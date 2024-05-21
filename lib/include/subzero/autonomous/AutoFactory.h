@@ -14,8 +14,8 @@
 #include <string>
 #include <vector>
 
-#include "subzero/logging/ConsoleLogger.h"
 #include "subzero/frc2/command/EmptyCommand.h"
+#include "subzero/logging/ConsoleLogger.h"
 
 namespace subzero {
 
