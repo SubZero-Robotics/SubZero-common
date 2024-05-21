@@ -15,6 +15,7 @@
 #include <vector>
 
 #include "subzero/logging/ConsoleLogger.h"
+#include "subzero/frc2/command/EmptyCommand.h"
 
 namespace subzero {
 
@@ -33,10 +34,6 @@ class AutoFactory {
 
  private:
   const std::map<T, std::string> &m_autos;
-
-  inline frc2::CommandPtr GetEmptyCommand() {
-    return frc2::WaitCommand(15_s).ToPtr();
-  }
 
   bool AutoFileExists(const std::string fileName) {
     const std::string filePath = frc::filesystem::GetDeployDirectory() +
@@ -58,7 +55,7 @@ class AutoFactory {
       ConsoleWriter.logError("Auto Factory",
                              "AUTO '%s' DOES NOT EXIST HELP US EVAN",
                              autoName.c_str());
-      return GetEmptyCommand();
+      return EmptyCommand().ToPtr();
     }
     return pathplanner::PathPlannerAuto(autoName).ToPtr();
   }
@@ -77,7 +74,7 @@ class AutoFactory {
           "Auto type %d does not exist, defaulting to empty "
           "auto",
           static_cast<int>(type));
-      return GetEmptyCommand();
+      return EmptyCommand().ToPtr();
     }
 
     return PathPlannerPathFromName(m_autos.at(type));
