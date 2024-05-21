@@ -7,12 +7,12 @@
 
 /**
  * @brief Outputs formatted information to SmartDashboard
- * 
+ *
  * @remark Singleton class
  */
 class ShuffleboardLogger : ILogger {
- public:
-  static ShuffleboardLogger& getInstance() {
+public:
+  static ShuffleboardLogger &getInstance() {
     static ShuffleboardLogger instance;
 
     return instance;
@@ -42,19 +42,19 @@ class ShuffleboardLogger : ILogger {
   void logError(std::string key, bool val) override;
   void logFatal(std::string key, bool val) override;
 
-  void logInfo(std::string key, frc::Pose2d& val) override;
-  void logVerbose(std::string key, frc::Pose2d& val) override;
-  void logWarning(std::string key, frc::Pose2d& val) override;
-  void logError(std::string key, frc::Pose2d& val) override;
-  void logFatal(std::string key, frc::Pose2d& val) override;
+  void logInfo(std::string key, frc::Pose2d &val) override;
+  void logVerbose(std::string key, frc::Pose2d &val) override;
+  void logWarning(std::string key, frc::Pose2d &val) override;
+  void logError(std::string key, frc::Pose2d &val) override;
+  void logFatal(std::string key, frc::Pose2d &val) override;
 
-  void logInfo(std::string key, wpi::Sendable* val) override;
-  void logVerbose(std::string key, wpi::Sendable* val) override;
-  void logWarning(std::string key, wpi::Sendable* val) override;
-  void logError(std::string key, wpi::Sendable* val) override;
-  void logFatal(std::string key, wpi::Sendable* val) override;
+  void logInfo(std::string key, wpi::Sendable *val) override;
+  void logVerbose(std::string key, wpi::Sendable *val) override;
+  void logWarning(std::string key, wpi::Sendable *val) override;
+  void logError(std::string key, wpi::Sendable *val) override;
+  void logFatal(std::string key, wpi::Sendable *val) override;
 
- private:
+private:
   ShuffleboardLogger();
 
   std::string formatToShuffleboardString(Logging::Level level,

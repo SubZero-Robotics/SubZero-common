@@ -8,7 +8,7 @@
 
 TargetTracker::TargetTracker(TargetTrackerConfig config,
                              std::function<frc::Pose2d()> poseGetter,
-                             std::function<frc::Field2d*()> fieldGetter)
+                             std::function<frc::Field2d *()> fieldGetter)
     : m_config{config}, m_poseGetter{poseGetter}, m_fieldGetter{fieldGetter} {
   m_trackedTargets = std::vector<TrackedTarget>(m_config.maxTrackedItems);
 }
@@ -39,21 +39,21 @@ std::vector<DetectedObject> TargetTracker::GetTargets() {
   }
 
   auto llResult = LimelightHelpers::getLatestResults(m_config.limelightName);
-  auto& detectionResults = llResult.targetingResults.DetectionResults;
+  auto &detectionResults = llResult.targetingResults.DetectionResults;
 
   std::vector<DetectedObject> objects;
   objects.reserve(detectionResults.size());
 
   std::transform(detectionResults.begin(), detectionResults.end(),
                  std::back_inserter(objects),
-                 [](const LimelightHelpers::DetectionResultClass& det) {
+                 [](const LimelightHelpers::DetectionResultClass &det) {
                    return DetectedObject(det);
                  });
 
   std::vector<DetectedObject> filteredObjects;
   std::copy_if(objects.begin(), objects.end(),
                std::inserter(filteredObjects, filteredObjects.end()),
-               [this](const DetectedObject& object) {
+               [this](const DetectedObject &object) {
                  return object.areaPercentage >=
                         m_config.areaPercentageThreshold;
                });
@@ -62,7 +62,7 @@ std::vector<DetectedObject> TargetTracker::GetTargets() {
 }
 
 void TargetTracker::UpdateTrackedTargets(
-    const std::vector<DetectedObject>& _objects) {
+    const std::vector<DetectedObject> &_objects) {
   std::vector<DetectedObject> objects = _objects;
   SortTargetsByProximity(objects);
 
@@ -96,15 +96,15 @@ void TargetTracker::UpdateTrackedTargets(
   }
 }
 
-std::optional<DetectedObject> TargetTracker::GetBestTarget(
-    std::vector<DetectedObject>& targets) {
+std::optional<DetectedObject>
+TargetTracker::GetBestTarget(std::vector<DetectedObject> &targets) {
   if (targets.empty()) {
     return std::nullopt;
   }
 
   auto it =
       std::max_element(targets.begin(), targets.end(),
-                       [](const DetectedObject& a, const DetectedObject& b) {
+                       [](const DetectedObject &a, const DetectedObject &b) {
                          return a.confidence < b.confidence;
                        });
 
@@ -116,14 +116,14 @@ std::optional<DetectedObject> TargetTracker::GetBestTarget(
   return *it;
 }
 
-bool TargetTracker::HasTargetLock(std::vector<DetectedObject>& targets) {
+bool TargetTracker::HasTargetLock(std::vector<DetectedObject> &targets) {
   auto bestTarget = GetBestTarget(targets);
   return bestTarget &&
          bestTarget.value().confidence >= m_config.confidenceThreshold;
 }
 
-std::optional<frc::Pose2d> TargetTracker::GetBestTargetPose(
-    std::vector<DetectedObject>& targets) {
+std::optional<frc::Pose2d>
+TargetTracker::GetBestTargetPose(std::vector<DetectedObject> &targets) {
   if (!HasTargetLock(targets)) {
     return std::nullopt;
   }
@@ -133,8 +133,8 @@ std::optional<frc::Pose2d> TargetTracker::GetBestTargetPose(
   return GetTargetPose(bestTarget);
 }
 
-std::optional<frc::Pose2d> TargetTracker::GetTargetPose(
-    const DetectedObject& object) {
+std::optional<frc::Pose2d>
+TargetTracker::GetTargetPose(const DetectedObject &object) {
   units::radian_t horizontalAngle = object.centerX.convert<units::radian>();
 
   frc::Pose2d currentPose = m_poseGetter();
@@ -159,7 +159,7 @@ std::optional<frc::Pose2d> TargetTracker::GetTargetPose(
   return frc::Pose2d(wpiFinalPose.Translation(), m_config.gamepieceRotation);
 }
 
-units::inch_t TargetTracker::GetDistanceToTarget(const DetectedObject& target) {
+units::inch_t TargetTracker::GetDistanceToTarget(const DetectedObject &target) {
   units::degree_t targetOffsetVertical = target.centerY;
   units::degree_t verticalDelta = targetOffsetVertical + m_config.cameraAngle;
   units::radian_t verticalAngle = verticalDelta.convert<units::radian>();
@@ -191,9 +191,9 @@ units::inch_t TargetTracker::GetDistanceToTarget(const DetectedObject& target) {
 }
 
 void TargetTracker::SortTargetsByProximity(
-    std::vector<DetectedObject>& objects) {
+    std::vector<DetectedObject> &objects) {
   std::sort(objects.begin(), objects.end(),
-            [this](const auto& a, const auto& b) {
+            [this](const auto &a, const auto &b) {
               auto distanceA = GetDistanceToTarget(a);
               auto distanceB = GetDistanceToTarget(b);
 
@@ -201,7 +201,7 @@ void TargetTracker::SortTargetsByProximity(
             });
 }
 
-void TargetTracker::PublishTrackedTarget(const TrackedTarget& target,
+void TargetTracker::PublishTrackedTarget(const TrackedTarget &target,
                                          int index) {
   std::string key = "object[" + std::to_string(index) + "]";
   m_fieldGetter()->GetObject(key)->SetPose(target.currentPose);

@@ -6,7 +6,7 @@
 
 TurnToPose::TurnToPose(TurnToPoseConfig config,
                        std::function<frc::Pose2d()> poseGetter,
-                       std::function<frc::Field2d*()> fieldGetter)
+                       std::function<frc::Field2d *()> fieldGetter)
     : m_config{config}, m_poseGetter{poseGetter}, m_fieldGetter{fieldGetter} {
   auto xController = frc::PIDController(
       m_config.translationP, m_config.translationI, m_config.translationD);
@@ -22,10 +22,11 @@ TurnToPose::TurnToPose(TurnToPoseConfig config,
 }
 
 void TurnToPose::Update() {
-  if (!m_targetPose && !m_targetAngle) return;
+  if (!m_targetPose && !m_targetAngle)
+    return;
 
   auto currentPose = m_poseGetter();
-  auto* field = m_fieldGetter();
+  auto *field = m_fieldGetter();
 
   units::degree_t targetAngle = 0_deg;
   if (m_targetPose) {
@@ -45,8 +46,9 @@ void TurnToPose::Update() {
                                           newTargetPose.Rotation());
 }
 
-units::degree_t TurnToPose::GetAngleFromOtherPose(
-    const frc::Pose2d& currentPose, const frc::Pose2d& otherPose) {
+units::degree_t
+TurnToPose::GetAngleFromOtherPose(const frc::Pose2d &currentPose,
+                                  const frc::Pose2d &otherPose) {
   auto diff = currentPose.Translation() - otherPose.Translation();
 
   auto newDegree = units::radian_t(atan2(diff.Y().value(), diff.X().value()))
@@ -74,7 +76,7 @@ void TurnToPose::SetTargetAngleAbsolute(units::degree_t angle) {
 
 frc::ChassisSpeeds TurnToPose::GetSpeedCorrection() { return m_speeds; }
 
-frc::ChassisSpeeds TurnToPose::BlendWithInput(const frc::ChassisSpeeds& other,
+frc::ChassisSpeeds TurnToPose::BlendWithInput(const frc::ChassisSpeeds &other,
                                               double correctionFactor) {
   frc::ChassisSpeeds speeds{
       .vx = other.vx, .vy = other.vy, .omega = other.omega};

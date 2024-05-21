@@ -6,18 +6,17 @@
 
 /**
  * @brief A single axis representing a linear path of motion in meters
- * 
- * @tparam TMotor 
- * @tparam TController 
- * @tparam TRelativeEncoder 
- * @tparam TAbsoluteEncoder 
+ *
+ * @tparam TMotor
+ * @tparam TController
+ * @tparam TRelativeEncoder
+ * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class LinearSingleAxisSubsystem
     : public BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
-                                     TAbsoluteEncoder, units::meter>
-{
+                                     TAbsoluteEncoder, units::meter> {
 public:
   LinearSingleAxisSubsystem(
       std::string name,
@@ -29,14 +28,12 @@ public:
                                 TAbsoluteEncoder, units::meter>{
             name, controller, config, node} {}
 
-  void Periodic() override
-  {
+  void Periodic() override {
     BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                             TAbsoluteEncoder, units::meter>::Periodic();
 
     if (BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
-                                TAbsoluteEncoder, units::meter>::m_ligament2d)
-    {
+                                TAbsoluteEncoder, units::meter>::m_ligament2d) {
       BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                               TAbsoluteEncoder, units::meter>::m_ligament2d
           ->SetLength(
@@ -59,13 +56,12 @@ public:
 
   /**
    * @brief Not allowed
-   * 
-   * @param speed 
-   * @param ignoreEncoder 
+   *
+   * @param speed
+   * @param ignoreEncoder
    */
   void RunMotorVelocity(units::meters_per_second_t speed,
-                        bool ignoreEncoder = false) override
-  {
+                        bool ignoreEncoder = false) override {
     BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                             TAbsoluteEncoder, units::meter>::DisablePid();
     ConsoleWriter.logWarning(

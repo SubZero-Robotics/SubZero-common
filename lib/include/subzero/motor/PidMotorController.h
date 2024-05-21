@@ -16,40 +16,38 @@ struct PidSettings {
 
 // TODO: Group into a single, combined typename
 /**
- * @brief Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper;
- * helpful for absolute positioning, setting velocities, or tuning PID values
- * 
- * @tparam TMotor 
- * @tparam TController 
- * @tparam TRelativeEncoder 
- * @tparam TAbsoluteEncoder 
+ * @brief Combines a motor, motor drvier, relative encoder, and absolute encoder
+ * into a single wrapper; helpful for absolute positioning, setting velocities,
+ * or tuning PID values
+ *
+ * @tparam TMotor
+ * @tparam TController
+ * @tparam TRelativeEncoder
+ * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorController {
- public:
+public:
   /**
    * @brief Construct a new PidMotorController
-   * 
+   *
    * @param name Display name in SmartDashboard
-   * @param motor 
-   * @param encoder 
-   * @param controller 
+   * @param motor
+   * @param encoder
+   * @param controller
    * @param pidSettings Initial PID settings
    * @param absEncoder Set to nullptr for a disconnected encoder
-   * @param maxRpm Max RPM of the motor; used to set velocity based on percentage
+   * @param maxRpm Max RPM of the motor; used to set velocity based on
+   * percentage
    */
   explicit PidMotorController(std::string name, TMotor &motor,
                               TRelativeEncoder &encoder,
                               TController &controller, PidSettings pidSettings,
                               TAbsoluteEncoder *absEncoder,
                               units::revolutions_per_minute_t maxRpm)
-      : m_name{name},
-        m_motor{motor},
-        m_controller{controller},
-        m_encoder{encoder},
-        m_absEncoder{absEncoder},
-        m_settings{pidSettings},
+      : m_name{name}, m_motor{motor}, m_controller{controller},
+        m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
         m_pidController{
             frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
         m_maxRpm{maxRpm} {
@@ -59,25 +57,25 @@ class PidMotorController {
 
   /**
    * @brief Set the motor to a percentage of max voltage
-   * 
-   * @param percentage 
+   *
+   * @param percentage
    */
   void Set(double percentage) { m_motor.Set(percentage); }
 
   /**
    * @brief Set a motor to a voltage
-   * 
-   * @param volts 
+   *
+   * @param volts
    */
   void Set(units::volt_t volts) {
     frc::SmartDashboard::PutNumber(m_name + " Commanded volts", volts.value());
-        m_motor.SetVoltage(volts);
+    m_motor.SetVoltage(volts);
   }
 
   /**
    * @brief Absolute positioning is considered 'Done' when within this zone
-   * 
-   * @param tolerance 
+   *
+   * @param tolerance
    */
   void SetPidTolerance(double tolerance) {
     m_pidController.SetTolerance(tolerance);
@@ -85,7 +83,7 @@ class PidMotorController {
 
   /**
    * @brief ! Call this every loop in Periodic !
-   * 
+   *
    */
   void Update() {
     if (m_absolutePositionEnabled) {
@@ -93,7 +91,8 @@ class PidMotorController {
       //     m_name,
       //     "relative position %0.3f, absolute position %0.3f, absolute target"
       //     "%0.3f",
-      //     GetEncoderPosition(), GetAbsoluteEncoderPosition(), m_absoluteTarget);
+      //     GetEncoderPosition(), GetAbsoluteEncoderPosition(),
+      //     m_absoluteTarget);
       auto effort =
           m_pidController.Calculate(GetEncoderPosition(), m_absoluteTarget);
       double totalEffort = effort;
@@ -109,8 +108,8 @@ class PidMotorController {
 
   /**
    * @brief Set to this velocity
-   * 
-   * @param rpm 
+   *
+   * @param rpm
    */
   void RunWithVelocity(units::revolutions_per_minute_t rpm) {
     m_absolutePositionEnabled = false;
@@ -121,8 +120,8 @@ class PidMotorController {
 
   /**
    * @brief Set to a percentage of max RPM
-   * 
-   * @param percentage 
+   *
+   * @param percentage
    */
   void RunWithVelocity(double percentage) {
     if (abs(percentage) > 1.0) {
@@ -137,12 +136,11 @@ class PidMotorController {
 
   /**
    * @brief Enables absolute positioning and sets the target to the position
-   * 
-   * @param position 
+   *
+   * @param position
    */
   void RunToPosition(double position) {
-    ConsoleWriter.logVerbose(m_name + " Target position",
-                                                 position);
+    ConsoleWriter.logVerbose(m_name + " Target position", position);
     Stop();
     m_pidController.Reset();
     m_absolutePositionEnabled = true;
@@ -165,18 +163,20 @@ class PidMotorController {
   }
 
   /**
-   * @brief Sets the multiplier for going between encoder ticks and actual distance
-   * 
-   * @param factor 
+   * @brief Sets the multiplier for going between encoder ticks and actual
+   * distance
+   *
+   * @param factor
    */
   void SetEncoderConversionFactor(double factor) {
     m_encoder.SetPositionConversionFactor(factor);
   }
 
   /**
-   * @brief Sets the multiplier for going between encoder ticks and actual distance
-   * 
-   * @param factor 
+   * @brief Sets the multiplier for going between encoder ticks and actual
+   * distance
+   *
+   * @param factor
    */
   void SetAbsoluteEncoderConversionFactor(double factor) {
     if (m_absEncoder) {
@@ -186,7 +186,7 @@ class PidMotorController {
 
   /**
    * @brief Disable absolute positioning and stop the motor
-   * 
+   *
    */
   void Stop() {
     m_absolutePositionEnabled = false;
@@ -232,7 +232,7 @@ class PidMotorController {
 
   const std::string m_name;
 
- protected:
+protected:
   TMotor &m_motor;
   TController &m_controller;
   TRelativeEncoder &m_encoder;
@@ -245,17 +245,18 @@ class PidMotorController {
 };
 
 /**
- * @brief Intended for use alongside a PidMotorController for simple tuning through SmartDashboard
- * 
- * @tparam TMotor 
- * @tparam TController 
- * @tparam TRelativeEncoder 
- * @tparam TAbsoluteEncoder 
+ * @brief Intended for use alongside a PidMotorController for simple tuning
+ * through SmartDashboard
+ *
+ * @tparam TMotor
+ * @tparam TController
+ * @tparam TRelativeEncoder
+ * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerTuner {
- public:
+public:
   explicit PidMotorControllerTuner(
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &controller)
@@ -271,10 +272,10 @@ class PidMotorControllerTuner {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " Feed Forward",
                                    m_controller.GetPidSettings().ff);
   }
-  
+
   /**
    * @brief Call this within the Periodic method of the encapsulating subsystem
-   * 
+   *
    */
   void UpdateFromShuffleboard() {
     double tP = frc::SmartDashboard::GetNumber(m_controller.m_name + " P Gain",
@@ -293,7 +294,7 @@ class PidMotorControllerTuner {
         {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward});
   }
 
- private:
+private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
       &m_controller;
 };

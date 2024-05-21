@@ -87,34 +87,34 @@ void ConsoleLogger::logFatal(std::string key, bool val) {
   logFatal(key, "%s", val ? "true" : "false");
 }
 
-void ConsoleLogger::logInfo(std::string key, frc::Pose2d& val) {
+void ConsoleLogger::logInfo(std::string key, frc::Pose2d &val) {
   logInfo(key, poseToString(val));
 }
-void ConsoleLogger::logVerbose(std::string key, frc::Pose2d& val) {
+void ConsoleLogger::logVerbose(std::string key, frc::Pose2d &val) {
   logVerbose(key, poseToString(val));
 }
-void ConsoleLogger::logWarning(std::string key, frc::Pose2d& val) {
+void ConsoleLogger::logWarning(std::string key, frc::Pose2d &val) {
   logWarning(key, poseToString(val));
 }
-void ConsoleLogger::logError(std::string key, frc::Pose2d& val) {
+void ConsoleLogger::logError(std::string key, frc::Pose2d &val) {
   logError(key, poseToString(val));
 }
-void ConsoleLogger::logFatal(std::string key, frc::Pose2d& val) {
+void ConsoleLogger::logFatal(std::string key, frc::Pose2d &val) {
   logFatal(key, poseToString(val));
 }
 
-void ConsoleLogger::logInfo(std::string key, wpi::Sendable* val) {
+void ConsoleLogger::logInfo(std::string key, wpi::Sendable *val) {
   logInfo(key, "Sendable");
 }
-void ConsoleLogger::logVerbose(std::string key, wpi::Sendable* val) {
+void ConsoleLogger::logVerbose(std::string key, wpi::Sendable *val) {
   logVerbose(key, "Sendable");
 }
-void ConsoleLogger::logWarning(std::string key, wpi::Sendable* val) {
+void ConsoleLogger::logWarning(std::string key, wpi::Sendable *val) {
   logWarning(key, "Sendable");
 }
-void ConsoleLogger::logError(std::string key, wpi::Sendable* val) {
+void ConsoleLogger::logError(std::string key, wpi::Sendable *val) {
   logError(key, "Sendable");
 }
-void ConsoleLogger::logFatal(std::string key, wpi::Sendable* val) {
+void ConsoleLogger::logFatal(std::string key, wpi::Sendable *val) {
   logFatal(key, "Sendable");
 }

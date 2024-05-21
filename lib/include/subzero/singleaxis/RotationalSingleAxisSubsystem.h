@@ -6,27 +6,28 @@
 
 /**
  * @brief A single axis representing a circular path of motion in degrees
- * 
- * @tparam TMotor 
- * @tparam TController 
- * @tparam TRelativeEncoder 
- * @tparam TAbsoluteEncoder 
+ *
+ * @tparam TMotor
+ * @tparam TController
+ * @tparam TRelativeEncoder
+ * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class RotationalSingleAxisSubsystem
     : public BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                                      TAbsoluteEncoder, units::degree> {
- public:
+public:
   RotationalSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &controller,
       ISingleAxisSubsystem<units::degree>::SingleAxisConfig config,
       units::meter_t armatureLength, frc::MechanismObject2d *node = nullptr)
-      : BaseSingleAxisSubsystem<
-            TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
-            units::degree>{name, controller, config, node},
+      : BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
+                                TAbsoluteEncoder, units::degree>{name,
+                                                                 controller,
+                                                                 config, node},
         m_armatureLength{armatureLength} {}
 
   void Periodic() override {
@@ -71,6 +72,6 @@ class RotationalSingleAxisSubsystem
         .RunWithVelocity(speed);
   }
 
- protected:
+protected:
   units::meter_t m_armatureLength;
 };

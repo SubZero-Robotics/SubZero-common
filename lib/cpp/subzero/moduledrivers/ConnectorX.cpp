@@ -8,8 +8,7 @@ ConnectorX::ConnectorXBoard::ConnectorXBoard(uint8_t slaveAddress,
                                              frc::I2C::Port port,
                                              units::second_t connectorXDelay)
     : _i2c(std::make_unique<frc::I2C>(port, slaveAddress)),
-      _slaveAddress(slaveAddress),
-      _delay{connectorXDelay},
+      _slaveAddress(slaveAddress), _delay{connectorXDelay},
       m_simDevice("Connector-X", static_cast<int>(port), slaveAddress) {
   // TODO: read config from device to get # of LEDs per port
   m_device.ports = {
@@ -73,14 +72,14 @@ uint16_t ConnectorX::ConnectorXBoard::readAnalogPin(AnalogPort port) {
   return res.responseData.responseReadAnalog.value;
 }
 
-CachedZone& ConnectorX::ConnectorXBoard::setCurrentZone(LedPort port,
+CachedZone &ConnectorX::ConnectorXBoard::setCurrentZone(LedPort port,
                                                         uint8_t zoneIndex,
                                                         bool reversed,
                                                         bool setReversed) {
   setLedPort(port);
   delaySeconds(_delay);
-  auto& currentPort = getCurrentCachedPort();
-  auto& currentZone = getCurrentZone();
+  auto &currentPort = getCurrentCachedPort();
+  auto &currentZone = getCurrentZone();
 
   if (zoneIndex > currentPort.zones.size()) {
     return currentZone;
@@ -109,7 +108,7 @@ CachedZone& ConnectorX::ConnectorXBoard::setCurrentZone(LedPort port,
 }
 
 void ConnectorX::ConnectorXBoard::syncZones(LedPort port,
-                                            const std::vector<uint8_t>& zones) {
+                                            const std::vector<uint8_t> &zones) {
   Commands::Command cmd;
   cmd.commandType = Commands::CommandType::SyncStates;
   cmd.commandData.commandSyncZoneStates.zoneCount = zones.size();
@@ -122,7 +121,7 @@ void ConnectorX::ConnectorXBoard::syncZones(LedPort port,
 }
 
 void ConnectorX::ConnectorXBoard::createZones(
-    LedPort port, std::vector<ConnectorX::Commands::NewZone>&& newZones) {
+    LedPort port, std::vector<ConnectorX::Commands::NewZone> &&newZones) {
   setLedPort(port);
   delaySeconds(_delay);
 
@@ -134,19 +133,19 @@ void ConnectorX::ConnectorXBoard::createZones(
     cmd.commandData.commandSetNewZones.zones[i] = newZones[i];
   }
 
-  auto& currentPort = getCurrentCachedPort();
+  auto &currentPort = getCurrentCachedPort();
 
   std::vector<CachedZone> zones;
   zones.reserve(newZones.size());
 
-  for (auto& zone : newZones) {
+  for (auto &zone : newZones) {
     zones.push_back(CachedZone(zone));
   }
 
   currentPort.zones = zones;
 
   ConsoleWriter.logVerbose("ConnectorX", "Created zones: %s", "");
-  for (auto& zone : currentPort.zones) {
+  for (auto &zone : currentPort.zones) {
     ConsoleWriter.logVerbose("ConnectorX", "Zone: %s", zone.toString().c_str());
   }
 }
@@ -170,7 +169,7 @@ void ConnectorX::ConnectorXBoard::setOn() {
 
   bool shouldSet = false;
 
-  for (auto& port : m_device.ports) {
+  for (auto &port : m_device.ports) {
     if (!port.on) {
       shouldSet = true;
     }
@@ -202,7 +201,7 @@ void ConnectorX::ConnectorXBoard::setOff() {
 
   bool shouldSet = false;
 
-  for (auto& port : m_device.ports) {
+  for (auto &port : m_device.ports) {
     if (port.on) {
       shouldSet = true;
     }
@@ -222,7 +221,7 @@ void ConnectorX::ConnectorXBoard::setOff() {
 void ConnectorX::ConnectorXBoard::setPattern(LedPort port, PatternType pattern,
                                              bool oneShot, int16_t delay,
                                              uint8_t zoneIndex, bool reversed) {
-  auto& zone = setCurrentZone(port, zoneIndex, reversed, true);
+  auto &zone = setCurrentZone(port, zoneIndex, reversed, true);
 
   delaySeconds(_delay);
 
@@ -248,7 +247,7 @@ void ConnectorX::ConnectorXBoard::setColor(LedPort port, uint8_t red,
     m_simColorB.Set(blue);
   }
 
-  auto& zone = getCurrentZone();
+  auto &zone = getCurrentZone();
   auto newColor = frc::Color8Bit(red, green, blue);
 
   setLedPort(port);
@@ -315,8 +314,9 @@ Message ConnectorX::ConnectorXBoard::getLatestRadioMessage() {
   return res.responseData.responseRadioLastReceived.msg;
 }
 
-Commands::Response ConnectorX::ConnectorXBoard::sendCommand(
-    Commands::Command command, bool expectResponse) {
+Commands::Response
+ConnectorX::ConnectorXBoard::sendCommand(Commands::Command command,
+                                         bool expectResponse) {
   using namespace Commands;
 
   _lastCommand = command.commandType;
@@ -329,70 +329,70 @@ Commands::Response ConnectorX::ConnectorXBoard::sendCommand(
   sendBuf[0] = static_cast<uint8_t>(command.commandType);
 
   switch (command.commandType) {
-    case CommandType::On:
-    case CommandType::Off:
-      sendLen = 0;
-      break;
-    case CommandType::ReadConfig:
-      sendLen = 0;
-      recSize = sizeof(ResponseReadConfiguration);
-      break;
-    case CommandType::ReadPatternDone:
-      sendLen = 0;
-      recSize = sizeof(ResponsePatternDone);
-      break;
-    case CommandType::RadioGetLatestReceived:
-      sendLen = 0;
-      recSize = sizeof(ResponseRadioLastReceived);
-      break;
-    case CommandType::SetLedPort:
-      sendLen = 1;
-      break;
-    case CommandType::ReadAnalog:
-      sendLen = 1;
-      recSize = sizeof(ResponseReadAnalog);
-      break;
-    case CommandType::DigitalRead:
-      sendLen = 1;
-      recSize = sizeof(ResponseDigitalRead);
-      break;
-    case CommandType::DigitalWrite:
-      sendLen = sizeof(CommandDigitalWrite);
-      break;
-    case CommandType::DigitalSetup:
-      sendLen = sizeof(CommandDigitalSetup);
-      break;
-    case CommandType::Pattern:
-      sendLen = sizeof(CommandPattern);
-      break;
-    case CommandType::ChangeColor:
-      sendLen = sizeof(CommandColor);
-      break;
-    case CommandType::SetConfig:
-      sendLen = sizeof(CommandSetConfig);
-      break;
-    case CommandType::RadioSend:
-      sendLen = sizeof(CommandRadioSend);
-      break;
-    case CommandType::GetColor:
-      sendLen = 0;
-      break;
-    case CommandType::GetPort:
-      sendLen = 0;
-      break;
-    case CommandType::SetPatternZone:
-      sendLen = 3;
-      break;
-    case CommandType::SetNewZones:
-      sendLen =
-          sizeof(CommandSetNewZones::zoneCount) +
-          command.commandData.commandSetNewZones.zoneCount * sizeof(NewZone);
-      break;
-    case CommandType::SyncStates:
-      sendLen =
-          sizeof(CommandSyncZoneStates::zoneCount) +
-          command.commandData.commandSyncZoneStates.zoneCount * sizeof(uint8_t);
-      break;
+  case CommandType::On:
+  case CommandType::Off:
+    sendLen = 0;
+    break;
+  case CommandType::ReadConfig:
+    sendLen = 0;
+    recSize = sizeof(ResponseReadConfiguration);
+    break;
+  case CommandType::ReadPatternDone:
+    sendLen = 0;
+    recSize = sizeof(ResponsePatternDone);
+    break;
+  case CommandType::RadioGetLatestReceived:
+    sendLen = 0;
+    recSize = sizeof(ResponseRadioLastReceived);
+    break;
+  case CommandType::SetLedPort:
+    sendLen = 1;
+    break;
+  case CommandType::ReadAnalog:
+    sendLen = 1;
+    recSize = sizeof(ResponseReadAnalog);
+    break;
+  case CommandType::DigitalRead:
+    sendLen = 1;
+    recSize = sizeof(ResponseDigitalRead);
+    break;
+  case CommandType::DigitalWrite:
+    sendLen = sizeof(CommandDigitalWrite);
+    break;
+  case CommandType::DigitalSetup:
+    sendLen = sizeof(CommandDigitalSetup);
+    break;
+  case CommandType::Pattern:
+    sendLen = sizeof(CommandPattern);
+    break;
+  case CommandType::ChangeColor:
+    sendLen = sizeof(CommandColor);
+    break;
+  case CommandType::SetConfig:
+    sendLen = sizeof(CommandSetConfig);
+    break;
+  case CommandType::RadioSend:
+    sendLen = sizeof(CommandRadioSend);
+    break;
+  case CommandType::GetColor:
+    sendLen = 0;
+    break;
+  case CommandType::GetPort:
+    sendLen = 0;
+    break;
+  case CommandType::SetPatternZone:
+    sendLen = 3;
+    break;
+  case CommandType::SetNewZones:
+    sendLen =
+        sizeof(CommandSetNewZones::zoneCount) +
+        command.commandData.commandSetNewZones.zoneCount * sizeof(NewZone);
+    break;
+  case CommandType::SyncStates:
+    sendLen =
+        sizeof(CommandSyncZoneStates::zoneCount) +
+        command.commandData.commandSyncZoneStates.zoneCount * sizeof(uint8_t);
+    break;
   }
 
   memcpy(sendBuf + 1, &command.commandData, sendLen);
@@ -423,7 +423,7 @@ Commands::Response ConnectorX::ConnectorXBoard::sendCommand(
   ConsoleWriter.logVerbose("ConnectorX", "UNREACHABLE %s", "");
 
   _i2c->Transaction(sendBuf, sendLen + 1,
-                    reinterpret_cast<uint8_t*>(&response.responseData),
+                    reinterpret_cast<uint8_t *>(&response.responseData),
                     recSize);
   return response;
 }
