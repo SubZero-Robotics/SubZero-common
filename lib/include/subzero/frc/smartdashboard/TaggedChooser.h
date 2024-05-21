@@ -13,6 +13,8 @@
 
 #include "subzero/frc/smartdashboard/ModifiableChooser.h"
 
+namespace subzero {
+
 /**
  * @brief Each key of type T has a vector<string> of tags; accepts a list of
  * groups that each have a name and list of possible tags that are mutually
@@ -178,3 +180,4 @@ private:
   ModifiableChooser<TKey> m_chooser;
   std::string m_chooserName;
 };
+}

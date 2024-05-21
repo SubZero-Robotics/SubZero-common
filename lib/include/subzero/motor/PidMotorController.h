@@ -10,6 +10,7 @@
 
 #include "subzero/logging/ConsoleLogger.h"
 
+namespace subzero {
 struct PidSettings {
   double p, i, d, iZone, ff;
 };
@@ -303,3 +304,4 @@ class RevPidMotorController
     : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
                                 rev::SparkRelativeEncoder,
                                 rev::SparkAbsoluteEncoder> {};
+}

@@ -7,6 +7,7 @@
 
 #include "subzero/utils/UtilConstants.h"
 
+namespace subzero {
 namespace DetectionParser {
 
 struct BoundingBox {
@@ -54,7 +55,7 @@ struct DetectedObject {
     return detectedObjects;
   }
 };
-
 } // namespace DetectionParser
+}
 
 #endif

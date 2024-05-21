@@ -4,6 +4,8 @@
 
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
 
+namespace subzero {
+
 /**
  * @brief A single axis representing a linear path of motion in meters
  *
@@ -71,3 +73,4 @@ public:
         "");
   }
 };
+}

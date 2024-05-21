@@ -2,6 +2,7 @@
 
 #include <cmath>
 
+namespace subzero {
 namespace InputUtils {
 typedef struct {
   double x;
@@ -26,3 +27,4 @@ DeadzoneAxes CalculateCircularDeadzone(double x, double y,
   return {.x = 0, .y = 0, .deadzoneApplied = true};
 }
 } // namespace InputUtils
+}

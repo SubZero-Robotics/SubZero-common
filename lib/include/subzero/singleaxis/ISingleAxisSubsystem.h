@@ -13,6 +13,8 @@
 #include <memory>
 #include <string>
 
+namespace subzero {
+
 /**
  * @brief Describes the axis for simulation
  *
@@ -267,3 +269,4 @@ public:
    */
   virtual void Stop() = 0;
 };
+}

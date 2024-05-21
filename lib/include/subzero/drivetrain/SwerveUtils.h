@@ -1,5 +1,6 @@
 #pragma once
 
+namespace subzero {
 class SwerveUtils {
 public:
   /**
@@ -51,3 +52,4 @@ public:
    */
   static double WrapAngle(double _angle);
 };
+}

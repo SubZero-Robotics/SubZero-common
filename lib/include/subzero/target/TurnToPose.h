@@ -14,6 +14,8 @@
 
 #include "subzero/target/ITurnToTarget.h"
 
+namespace subzero {
+
 /**
  * @brief Allows the robot/an axis to face an arbitrary Pose2d
  *
@@ -147,3 +149,4 @@ private:
   units::degree_t m_targetHeading;
   frc::ChassisSpeeds m_speeds;
 };
+}

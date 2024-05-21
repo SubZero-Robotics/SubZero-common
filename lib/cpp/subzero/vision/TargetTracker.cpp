@@ -6,6 +6,8 @@
 
 #include <ranges>
 
+using namespace subzero;
+
 TargetTracker::TargetTracker(TargetTrackerConfig config,
                              std::function<frc::Pose2d()> poseGetter,
                              std::function<frc::Field2d *()> fieldGetter)

@@ -2,6 +2,7 @@
 
 #include <wpi/json.h>
 
+using namespace subzero;
 using namespace Logging;
 
 ConsoleLogger::ConsoleLogger() {

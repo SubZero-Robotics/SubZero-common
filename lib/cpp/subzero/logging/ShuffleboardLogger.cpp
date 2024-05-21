@@ -3,6 +3,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <wpi/json.h>
 
+using namespace subzero;
 using namespace Logging;
 
 ShuffleboardLogger::ShuffleboardLogger() {}

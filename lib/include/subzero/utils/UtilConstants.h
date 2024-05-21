@@ -1,5 +1,6 @@
 #pragma once
 
+namespace subzero {
 namespace Logging {
 /**
  * @brief Levels of logging
@@ -15,4 +16,5 @@ constexpr auto kMinLogLevel = Level::VERBOSE;
 
 namespace DetectionParser {
 enum class ObjectClasses { Cone = 0, Cube = 1, Merge = 2 };
+}
 }

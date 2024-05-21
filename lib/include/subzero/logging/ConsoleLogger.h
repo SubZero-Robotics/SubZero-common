@@ -6,6 +6,7 @@
 
 #include "subzero/logging/ILogger.h"
 
+namespace subzero {
 /**
  * @brief Outputs formatted strings to stdout
  *
@@ -67,8 +68,9 @@ private:
               << std::endl;
   }
 };
+}
 
-#define ConsoleWriter ConsoleLogger::getInstance()
+#define ConsoleWriter subzero::ConsoleLogger::getInstance()
 /**
  * @brief Shortcut to log at the Logging::Level::Info level from a command
  * composition
@@ -87,5 +89,4 @@ private:
   frc2::InstantCommand([] {                                                    \
     ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__);                           \
   }).ToPtr()
-
 #endif

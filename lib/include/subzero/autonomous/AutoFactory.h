@@ -16,6 +16,8 @@
 
 #include "subzero/logging/ConsoleLogger.h"
 
+namespace subzero {
+
 /**
  * @brief Safely get an auto command from PPLib without the risk of crashing
  * from a missing auto file
@@ -81,3 +83,4 @@ public:
     return PathPlannerPathFromName(m_autos.at(type));
   }
 };
+}

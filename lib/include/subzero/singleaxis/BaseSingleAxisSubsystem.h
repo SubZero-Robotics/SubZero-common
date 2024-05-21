@@ -27,6 +27,8 @@
 #include "subzero/motor/PidMotorController.h"
 #include "subzero/singleaxis/ISingleAxisSubsystem.h"
 
+namespace subzero {
+
 /**
  * @brief The ultimate solution for turrets, arms, and much more. This class
  * allows for absolute, relative, and joystick control across both linear and
@@ -330,3 +332,4 @@ protected:
   frc2::CommandPtr m_resetEncCmd = frc2::InstantCommand([] {}).ToPtr();
   frc::MechanismLigament2d *m_ligament2d;
 };
+}

@@ -5,6 +5,8 @@
 #include <frc/geometry/Rotation2d.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 
+namespace subzero {
+
 /**
  * @brief Interface for classes that move towards a target while maintaining
  * driver input
@@ -18,3 +20,4 @@ public:
   virtual bool AtGoal() = 0;
   virtual void Update() = 0;
 };
+}

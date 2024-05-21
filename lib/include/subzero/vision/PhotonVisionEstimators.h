@@ -11,6 +11,8 @@
 #include <utility>
 #include <vector>
 
+namespace subzero {
+
 /**
  * @brief Combines estimated poses from an aritrary number of PhotonVision
  * cameras and applies them to a Holonomic pose estimator
@@ -149,3 +151,4 @@ private:
 
   units::second_t lastEstTimestamp{0_s};
 };
+}

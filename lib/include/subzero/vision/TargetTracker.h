@@ -9,6 +9,8 @@
 
 #include "subzero/vision/LimelightHelpers.h"
 
+namespace subzero {
+
 struct DetectedCorner {
   double x;
   double y;
@@ -224,3 +226,4 @@ private:
   std::function<frc::Field2d *()> m_fieldGetter;
   std::vector<TrackedTarget> m_trackedTargets;
 };
+}

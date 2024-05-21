@@ -5,6 +5,8 @@
 
 #include "subzero/logging/ILogger.h"
 
+namespace subzero {
+
 /**
  * @brief Outputs formatted information to SmartDashboard
  *
@@ -68,3 +70,4 @@ private:
     return val;
   }
 };
+}

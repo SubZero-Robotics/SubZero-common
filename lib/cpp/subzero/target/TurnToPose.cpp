@@ -4,6 +4,8 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <frc/trajectory/TrajectoryGenerator.h>
 
+using namespace subzero;
+
 TurnToPose::TurnToPose(TurnToPoseConfig config,
                        std::function<frc::Pose2d()> poseGetter,
                        std::function<frc::Field2d *()> fieldGetter)

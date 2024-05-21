@@ -10,6 +10,8 @@
 
 #include "subzero/utils/UtilConstants.h"
 
+namespace subzero {
+
 /**
  * @brief Logger interface
  *
@@ -96,3 +98,4 @@ protected:
     return static_cast<int>(level) >= static_cast<int>(Logging::kMinLogLevel);
   }
 };
+}

@@ -18,6 +18,8 @@
 #include <string>
 #include <vector>
 
+namespace subzero {
+
 /**
  * @brief A SmartDashboard drop-down that can have its options dynamically
  * change
@@ -262,3 +264,4 @@ public:
         [this](std::string_view val) { SetNtSelected(std::string{val}); });
   }
 };
+}

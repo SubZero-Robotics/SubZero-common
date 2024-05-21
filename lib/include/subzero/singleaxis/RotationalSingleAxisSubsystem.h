@@ -4,6 +4,8 @@
 
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
 
+namespace subzero {
+
 /**
  * @brief A single axis representing a circular path of motion in degrees
  *
@@ -75,3 +77,4 @@ public:
 protected:
   units::meter_t m_armatureLength;
 };
+}

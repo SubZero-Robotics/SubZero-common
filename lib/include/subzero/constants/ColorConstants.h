@@ -3,6 +3,7 @@
 #include <frc/util/Color.h>
 #include <frc/util/Color8Bit.h>
 
+namespace subzero {
 namespace ColorConstants {
 static const frc::Color8Bit kYellow{0xE5, 0xD5, 0x24};
 static const frc::Color8Bit kPurple{0x57, 0x14, 0xE8};
@@ -14,3 +15,4 @@ static const frc::Color8Bit kOrange{0xE8, 0x61, 0x19};
 static const frc::Color8Bit kAcidGreen{0xB0, 0xBF, 0x1A};
 static const frc::Color8Bit kBlack{0x00, 0x00, 0x00};
 } // namespace ColorConstants
+}

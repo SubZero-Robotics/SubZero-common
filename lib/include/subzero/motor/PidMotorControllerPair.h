@@ -10,6 +10,8 @@
 #include "subzero/logging/ConsoleLogger.h"
 #include "subzero/motor/PidMotorController.h"
 
+namespace subzero {
+
 /**
  * @brief Encapsulates a pair of motors that should be treated as a single unit
  *
@@ -148,3 +150,4 @@ private:
   PidMotorControllerPair<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &m_controllerPair;
 };
+}
