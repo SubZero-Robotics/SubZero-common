@@ -7,7 +7,7 @@
 #include <vector>
 #include <functional>
 
-#include "vision/LimelightHelpers.h"
+#include "subzero/vision/LimelightHelpers.h"
 
 struct DetectedCorner {
   double x;

@@ -1,4 +1,4 @@
-#include "moduledrivers/ConnectorX.h"
+#include "subzero/moduledrivers/ConnectorX.h"
 
 #include <hal/I2C.h>
 

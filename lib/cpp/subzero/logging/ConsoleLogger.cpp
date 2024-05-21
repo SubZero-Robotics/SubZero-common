@@ -11,31 +11,31 @@ ConsoleLogger::ConsoleLogger() {
 void ConsoleLogger::logVerbose(std::string key, const std::string format, ...) {
   va_list args;
   va_start(args, format);
-  log(LogLevel::VERBOSE, key, format, args);
+  log(Level::VERBOSE, key, format, args);
   va_end(args);
 }
 void ConsoleLogger::logInfo(std::string key, const std::string format, ...) {
   va_list args;
   va_start(args, format);
-  log(LogLevel::INFO, key, format, args);
+  log(Level::INFO, key, format, args);
   va_end(args);
 }
 void ConsoleLogger::logWarning(std::string key, const std::string format, ...) {
   va_list args;
   va_start(args, format);
-  log(LogLevel::WARNING, key, format, args);
+  log(Level::WARNING, key, format, args);
   va_end(args);
 }
 void ConsoleLogger::logError(std::string key, const std::string format, ...) {
   va_list args;
   va_start(args, format);
-  log(LogLevel::ERROR, key, format, args);
+  log(Level::ERROR, key, format, args);
   va_end(args);
 }
 void ConsoleLogger::logFatal(std::string key, const std::string format, ...) {
   va_list args;
   va_start(args, format);
-  log(LogLevel::FATAL, key, format, args);
+  log(Level::FATAL, key, format, args);
   va_end(args);
 }
 
