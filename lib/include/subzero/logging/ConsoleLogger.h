@@ -6,6 +6,11 @@
 
 #include "subzero/logging/ILogger.h"
 
+/**
+ * @brief Outputs formatted strings to stdout
+ * 
+ * @remark Singleton class
+ */
 class ConsoleLogger : ILogger {
  public:
   static ConsoleLogger& getInstance() {
@@ -64,10 +69,18 @@ class ConsoleLogger : ILogger {
 };
 
 #define ConsoleWriter ConsoleLogger::getInstance()
+/**
+ * @brief Shortcut to log at the Logging::Level::Info level from a command composition
+ * 
+ */
 #define ConsoleInfo(key, fmt, ...)                \
   frc2::InstantCommand([] {                       \
     ConsoleWriter.logInfo(key, fmt, __VA_ARGS__); \
   }).ToPtr()
+/**
+ * @brief Shortcut to log at the Logging::Level::Verbose level from a command composition
+ * 
+ */
 #define ConsoleVerbose(key, fmt, ...)             \
   frc2::InstantCommand([] {                       \
     ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__); \

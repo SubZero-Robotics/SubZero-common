@@ -5,6 +5,11 @@
 
 #include "subzero/logging/ILogger.h"
 
+/**
+ * @brief Outputs formatted information to SmartDashboard
+ * 
+ * @remark Singleton class
+ */
 class ShuffleboardLogger : ILogger {
  public:
   static ShuffleboardLogger& getInstance() {

@@ -10,6 +10,10 @@
 
 #include "subzero/utils/UtilConstants.h"
 
+/**
+ * @brief Logger interface
+ * 
+ */
 class ILogger {
  public:
   // string

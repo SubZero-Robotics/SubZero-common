@@ -18,6 +18,11 @@
 #include <string>
 #include <vector>
 
+/**
+ * @brief A SmartDashboard drop-down that can have its options dynamically change
+ * 
+ * @tparam T The underlying value to return for a selected option
+*/
 template <typename T>
 class ModifiableChooser : public wpi::Sendable {
  private:
@@ -45,8 +50,19 @@ class ModifiableChooser : public wpi::Sendable {
 
   ~ModifiableChooser() { wpi::SendableRegistry::Remove(this); }
 
+  /**
+   * @brief Add a new option to the chooser
+   * 
+   * @param name Name to display
+   * @param object Value that gets returned upon selection 
+   */
   void AddOption(std::string name, T object) { m_map[name] = object; }
 
+  /**
+   * @brief Removes the option and updates the default option accoringly
+   * 
+   * @param name 
+   */
   void RemoveOption(std::string name) {
     if (m_map.contains(name)) {
       if (m_defaultChoice == name) {
@@ -61,6 +77,10 @@ class ModifiableChooser : public wpi::Sendable {
     }
   }
 
+  /**
+   * @brief Clears all options
+   * 
+   */
   void ClearOptions() {
     m_defaultChoice = "";
     m_selected = m_defaultChoice;
@@ -68,17 +88,35 @@ class ModifiableChooser : public wpi::Sendable {
     m_map.clear();
   }
 
+  /**
+   * @brief Populates options from an existing set
+   * 
+   * @param options 
+   */
   void SetOptions(std::map<std::string, T> options) {
     ClearOptions();
 
     m_map = options;
   }
 
+  /**
+   * @brief Set the default option to return
+   * 
+   * @param name 
+   * @param object 
+   */
   void SetDefaultOption(std::string name, T object) {
     m_defaultChoice = name;
     AddOption(name, object);
   }
 
+  /**
+   * @brief Set the options from an existing set along with a default
+   * 
+   * @param options 
+   * @param defaultName 
+   * @param defaultObject 
+   */
   void SetOptions(std::map<std::string, T> options, std::string defaultName,
                   T defaultObject) {
     SetOptions(options);
@@ -88,6 +126,11 @@ class ModifiableChooser : public wpi::Sendable {
     }
   }
 
+  /**
+   * @brief Get the selected option
+   * 
+   * @return T 
+   */
   T GetSelected() {
     std::lock_guard<std::recursive_mutex> lk(m_mutex);
 
@@ -103,6 +146,11 @@ class ModifiableChooser : public wpi::Sendable {
     }
   }
 
+  /**
+   * @brief Get the selected key rather than the value
+   * 
+   * @return std::string 
+   */
   std::string GetSelectedKey() {
     std::lock_guard<std::recursive_mutex> lk(m_mutex);
 
@@ -184,6 +232,11 @@ class ModifiableChooser : public wpi::Sendable {
     }
   }
 
+  /**
+   * @brief Register a callback that gets executed whenever the selection changes
+   * 
+   * @param listener 
+   */
   void OnChange(std::function<void(std::optional<T>)> listener) {
     std::lock_guard<std::recursive_mutex> lk(m_mutex);
     m_listener = listener;

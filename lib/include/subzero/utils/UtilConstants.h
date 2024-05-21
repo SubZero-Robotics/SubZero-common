@@ -1,8 +1,15 @@
 #pragma once
 
 namespace Logging {
+/**
+ * @brief Levels of logging
+ * 
+ */
 enum class Level { VERBOSE = 0, INFO, WARNING, ERROR, FATAL };
-// Don't log at levels below this one
+/**
+ * @brief Will not log messages that fall below this level
+ * 
+ */
 constexpr auto kMinLogLevel = Level::VERBOSE;
 } // namespace Logging
 
