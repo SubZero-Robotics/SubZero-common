@@ -1,10 +1,10 @@
-name: Doxygen GitHub Pages Deploy Action
+name: 'Doxygen'
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   deploy:
