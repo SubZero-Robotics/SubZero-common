@@ -26,9 +26,8 @@ namespace subzero {
  *
  * @tparam T The underlying value to return for a selected option
  */
-template <typename T>
-class ModifiableChooser : public wpi::Sendable {
- private:
+template <typename T> class ModifiableChooser : public wpi::Sendable {
+private:
   static inline const std::string kDefault = "default";
   static inline const std::string kSelected = "selected";
   static inline const std::string kActive = "active";
@@ -45,7 +44,7 @@ class ModifiableChooser : public wpi::Sendable {
   std::string m_selected;
   std::recursive_mutex m_mutex;
 
- public:
+public:
   ModifiableChooser() {
     m_instance = m_instances.fetch_add(1);
     wpi::SendableRegistry::Add(this, "SendableChangableChooser", m_instance);
@@ -265,4 +264,4 @@ class ModifiableChooser : public wpi::Sendable {
         [this](std::string_view val) { SetNtSelected(std::string{val}); });
   }
 };
-}  // namespace subzero
+} // namespace subzero

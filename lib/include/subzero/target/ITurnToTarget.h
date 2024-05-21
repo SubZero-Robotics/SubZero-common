@@ -13,11 +13,11 @@ namespace subzero {
  *
  */
 class ITurnToTarget {
- public:
+public:
   virtual frc::ChassisSpeeds GetSpeedCorrection() = 0;
   virtual frc::ChassisSpeeds BlendWithInput(const frc::ChassisSpeeds &other,
                                             double correctionFactor) = 0;
   virtual bool AtGoal() = 0;
   virtual void Update() = 0;
 };
-}  // namespace subzero
+} // namespace subzero

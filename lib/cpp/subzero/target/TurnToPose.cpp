@@ -24,7 +24,8 @@ TurnToPose::TurnToPose(TurnToPoseConfig config,
 }
 
 void TurnToPose::Update() {
-  if (!m_targetPose && !m_targetAngle) return;
+  if (!m_targetPose && !m_targetAngle)
+    return;
 
   auto currentPose = m_poseGetter();
   auto *field = m_fieldGetter();
@@ -47,8 +48,9 @@ void TurnToPose::Update() {
                                           newTargetPose.Rotation());
 }
 
-units::degree_t TurnToPose::GetAngleFromOtherPose(
-    const frc::Pose2d &currentPose, const frc::Pose2d &otherPose) {
+units::degree_t
+TurnToPose::GetAngleFromOtherPose(const frc::Pose2d &currentPose,
+                                  const frc::Pose2d &otherPose) {
   auto diff = currentPose.Translation() - otherPose.Translation();
 
   auto newDegree = units::radian_t(atan2(diff.Y().value(), diff.X().value()))

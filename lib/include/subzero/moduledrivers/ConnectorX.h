@@ -237,14 +237,14 @@ struct Response {
   CommandType commandType;
   ResponseData responseData;
 };
-}  // namespace Commands
+} // namespace Commands
 
 enum class PatternType {
   None = 0,
   SetAll = 1,
   Blink = 2,
   RGBFade = 3,
-  HackerMode = 4,  // No worky
+  HackerMode = 4, // No worky
   Breathe = 5,
   SineRoll = 6,
   Chase = 7,
@@ -318,7 +318,7 @@ struct CachedDevice {
  *
  */
 class ConnectorXBoard : public frc2::SubsystemBase {
- public:
+public:
   /**
    * @brief Construct a new Connector-X driver instance
    *
@@ -518,7 +518,7 @@ class ConnectorXBoard : public frc2::SubsystemBase {
    */
   void createZones(LedPort port, std::vector<Commands::NewZone> &&newZones);
 
- private:
+private:
   Commands::Response sendCommand(Commands::Command command,
                                  bool expectResponse = false);
 
@@ -536,4 +536,4 @@ class ConnectorXBoard : public frc2::SubsystemBase {
   hal::SimInt m_simColorR, m_simColorG, m_simColorB;
   hal::SimBoolean m_simOn;
 };
-}  // namespace ConnectorX
+} // namespace ConnectorX

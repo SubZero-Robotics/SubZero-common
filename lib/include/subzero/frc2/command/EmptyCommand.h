@@ -9,9 +9,9 @@
 namespace subzero {
 class EmptyCommand
     : public frc2::CommandHelper<frc2::FunctionalCommand, EmptyCommand> {
- public:
+public:
   explicit EmptyCommand();
 
   EmptyCommand(EmptyCommand &&other) = default;
 };
-}  // namespace subzero
+} // namespace subzero
