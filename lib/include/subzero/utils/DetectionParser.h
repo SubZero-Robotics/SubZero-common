@@ -1,5 +1,6 @@
 #ifndef DETECTION_PARSER_H
 #define DETECTION_PARSER_H
+
 #include <array>
 #include <utility>
 #include <vector>

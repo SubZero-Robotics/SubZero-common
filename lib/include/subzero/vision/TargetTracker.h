@@ -96,32 +96,120 @@ struct TrackedTarget {
 class TargetTracker {
  public:
   struct TargetTrackerConfig {
+    /**
+     * @brief Camera angle relative to the floor; positive = up
+     * 
+     */
     units::degree_t cameraAngle;
+    /**
+     * @brief Camera height relative to the floor
+     * 
+     */
     units::inch_t cameraLensHeight;
+    /**
+     * @brief Targets must have a greater value in order to be used
+     * 
+     */
     double confidenceThreshold;
+    /**
+     * @brief Name of the limelight in shuffleboard
+     * 
+     */
     std::string limelightName;
+    /**
+     * @brief Width of the gamepiece
+     * 
+     */
     units::inch_t gamepieceWidth;
+    /**
+     * @brief Calculated by doing: (known distance / known width in pixels) * gamepiece width
+     * 
+     */
     units::dimensionless::scalar_t focalLength;
+    /**
+     * @brief Pose of the mock gamepiece in sim
+     * 
+     */
     frc::Pose2d simGamepiecePose;
+    /**
+     * @brief Rotation of the gamepiece relative to the field; helpful for automatic intaking
+     * 
+     */
     units::degree_t gamepieceRotation;
-    /// @brief Ranges from 0 to 1; Multiplies trig-based distances and then
-    /// applies the inverse to width-based estimate
+    /**
+     * @brief Ranges from 0 to 1; Multiplies trig-based distances and then
+     * applies the inverse to width-based estimate
+     * 
+     */
     double trigDistancePercentage;
+    /**
+     * @brief Ignore any targets below this percentage to exclude spurious detections
+     * 
+     */
     double areaPercentageThreshold;
-
+    /**
+     * @brief Max number of items that will be pushed to SmartDashboard as poses
+     * 
+     */
     uint8_t maxTrackedItems;
+    /**
+     * @brief Move invalid objects to this pose
+     * 
+     */
     frc::Pose2d invalidTrackedPose;
   };
 
   TargetTracker(TargetTrackerConfig config,
                 std::function<frc::Pose2d()> poseGetter,
                 std::function<frc::Field2d*()> fieldGetter);
+  /**
+   * @brief Get a list of all found, valid targets
+   * 
+   * @return std::vector<DetectedObject> 
+   */
   std::vector<DetectedObject> GetTargets();
+
+  /**
+   * @brief Push targets to SmartDashboard
+   * 
+   * @param objects 
+   */
   void UpdateTrackedTargets(const std::vector<DetectedObject>& objects);
+
+  /**
+   * @brief Get the best target for tracking/intaking
+   * 
+   * @return std::optional<DetectedObject> 
+   */
   std::optional<DetectedObject> GetBestTarget(std::vector<DetectedObject>&);
+
+  /**
+   * @brief Check if a target has been acquired
+   * 
+   * @return true 
+   * @return false 
+   */
   bool HasTargetLock(std::vector<DetectedObject>&);
+
+  /**
+   * @brief Get the pose of the given object
+   * 
+   * @return std::optional<frc::Pose2d> 
+   */
   std::optional<frc::Pose2d> GetTargetPose(const DetectedObject&);
+
+  /**
+   * @brief From a list of detected objects, get the pose of the best one
+   * 
+   * @return std::optional<frc::Pose2d> 
+   */
   std::optional<frc::Pose2d> GetBestTargetPose(std::vector<DetectedObject>&);
+
+  /**
+   * @brief Get the estimated distance to the target
+   * 
+   * @return units::inch_t 
+   */
   units::inch_t GetDistanceToTarget(const DetectedObject&);
 
  private:

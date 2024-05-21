@@ -11,8 +11,16 @@
 #include <utility>
 #include <vector>
 
+/**
+ * @brief Combines estimated poses from an aritrary number of PhotonVision cameras and applies them to a Holonomic pose estimator
+ * 
+ */
 class PhotonVisionEstimators {
  public:
+  /**
+   * @brief Represents a single camera
+   * 
+   */
   class PhotonCameraEstimator {
    public:
     explicit PhotonCameraEstimator(photon::PhotonPoseEstimator& est)
@@ -24,8 +32,9 @@ class PhotonVisionEstimators {
     std::shared_ptr<photon::PhotonCamera> camera;
   };
 
-  explicit PhotonVisionEstimators(std::vector<PhotonCameraEstimator>& estms)
-      : m_cameraEstimators{estms} {
+  explicit PhotonVisionEstimators(std::vector<PhotonCameraEstimator>& estms,
+      Eigen::Matrix<double, 3, 1> singleTagStdDevs, Eigen::Matrix<double, 3, 1> multiTagStdDevs)
+      : m_cameraEstimators{estms}, m_singleTagStdDevs{singleTagStdDevs}, m_multiTagStdDevs{multiTagStdDevs} {
     for (auto& est : m_cameraEstimators) {
       est.estimator.SetMultiTagFallbackStrategy(
           photon::PoseStrategy::LOWEST_AMBIGUITY);
@@ -60,6 +69,12 @@ class PhotonVisionEstimators {
 
   // See:
   // https://github.com/Hemlock5712/2023-Robot/blob/Joe-Test/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java
+  /**
+   * @brief Call in the drivetrain's Periodic method to update the estimated robot's position 
+   * 
+   * @param estimator 
+   * @param test 
+   */
   void UpdateEstimatedGlobalPose(frc::SwerveDrivePoseEstimator<4U>& estimator,
                                  bool test) {
     for (auto& est : m_cameraEstimators) {
@@ -75,7 +90,8 @@ class PhotonVisionEstimators {
 
   Eigen::Matrix<double, 3, 1> GetEstimationStdDevs(
       photon::EstimatedRobotPose& pose, PhotonCameraEstimator& photonEst) {
-    Eigen::Matrix<double, 3, 1> estStdDevs = VisionConstants::kSingleTagStdDevs;
+        // TODO:
+    Eigen::Matrix<double, 3, 1> estStdDevs = m_singleTagStdDevs;
     int numTags = 0;
     units::meter_t avgDist = 0_m;
     // ConsoleWriter.logVerbose("Vision", "targets used length
@@ -96,7 +112,8 @@ class PhotonVisionEstimators {
 
     avgDist /= numTags;
     if (numTags > 1) {
-      estStdDevs = VisionConstants::kMultiTagStdDevs;
+      // TODO:
+      estStdDevs = m_multiTagStdDevs;
     }
 
     if (numTags == 1 && avgDist > 4_m) {
@@ -122,6 +139,8 @@ class PhotonVisionEstimators {
   }
 
   std::vector<PhotonCameraEstimator>& m_cameraEstimators;
+  Eigen::Matrix<double, 3, 1> m_singleTagStdDevs;
+  Eigen::Matrix<double, 3, 1> m_multiTagStdDevs;
 
   units::second_t lastEstTimestamp{0_s};
 };

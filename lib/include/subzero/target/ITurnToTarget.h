@@ -5,6 +5,10 @@
 #include <frc/geometry/Rotation2d.h>
 #include <frc/kinematics/ChassisSpeeds.h>
 
+/**
+ * @brief Interface for classes that move towards a target while maintaining driver input
+ * 
+ */
 class ITurnToTarget {
  public:
   virtual frc::ChassisSpeeds GetSpeedCorrection() = 0;
