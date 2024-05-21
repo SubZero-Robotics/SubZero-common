@@ -32,8 +32,7 @@ struct DetectedCorners {
   DetectedCorners() {}
 
   explicit DetectedCorners(const std::vector<std::vector<double>> &corners) {
-    if (corners.empty())
-      return;
+    if (corners.empty()) return;
 
     topLeft = DetectedCorner(corners[0]);
     topRight = DetectedCorner(corners[1]);
@@ -42,8 +41,7 @@ struct DetectedCorners {
   }
 
   explicit DetectedCorners(const std::vector<double> &rawCorners) {
-    if (rawCorners.size() < 8)
-      return;
+    if (rawCorners.size() < 8) return;
 
     topLeft = DetectedCorner({rawCorners[0], rawCorners[1]});
     bottomLeft = DetectedCorner({rawCorners[6], rawCorners[7]});
@@ -68,8 +66,13 @@ struct DetectedObject {
   explicit DetectedObject(uint8_t id, double conf, units::degree_t cX,
                           units::degree_t cY, double area,
                           std::vector<std::vector<double>> corners)
-      : classId{id}, className{"unknown"}, confidence{conf}, centerX{cX},
-        centerY{cY}, areaPercentage{area}, detectedCorners{corners} {}
+      : classId{id},
+        className{"unknown"},
+        confidence{conf},
+        centerX{cX},
+        centerY{cY},
+        areaPercentage{area},
+        detectedCorners{corners} {}
 
   explicit DetectedObject(
       const LimelightHelpers::DetectionResultClass &detectionResult)
@@ -93,7 +96,7 @@ struct TrackedTarget {
 };
 
 class TargetTracker {
-public:
+ public:
   struct TargetTrackerConfig {
     /**
      * @brief Camera angle relative to the floor; positive = up
@@ -214,7 +217,7 @@ public:
    */
   units::inch_t GetDistanceToTarget(const DetectedObject &);
 
-private:
+ private:
   /**
    * Sort targets by ASC distance to camera
    */
@@ -226,4 +229,4 @@ private:
   std::function<frc::Field2d *()> m_fieldGetter;
   std::vector<TrackedTarget> m_trackedTargets;
 };
-} // namespace subzero
+}  // namespace subzero

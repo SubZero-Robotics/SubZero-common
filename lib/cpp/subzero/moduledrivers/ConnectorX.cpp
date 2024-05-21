@@ -8,7 +8,8 @@ ConnectorX::ConnectorXBoard::ConnectorXBoard(uint8_t slaveAddress,
                                              frc::I2C::Port port,
                                              units::second_t connectorXDelay)
     : _i2c(std::make_unique<frc::I2C>(port, slaveAddress)),
-      _slaveAddress(slaveAddress), _delay{connectorXDelay},
+      _slaveAddress(slaveAddress),
+      _delay{connectorXDelay},
       m_simDevice("Connector-X", static_cast<int>(port), slaveAddress) {
   // TODO: read config from device to get # of LEDs per port
   m_device.ports = {
@@ -314,9 +315,8 @@ Message ConnectorX::ConnectorXBoard::getLatestRadioMessage() {
   return res.responseData.responseRadioLastReceived.msg;
 }
 
-Commands::Response
-ConnectorX::ConnectorXBoard::sendCommand(Commands::Command command,
-                                         bool expectResponse) {
+Commands::Response ConnectorX::ConnectorXBoard::sendCommand(
+    Commands::Command command, bool expectResponse) {
   using namespace Commands;
 
   _lastCommand = command.commandType;
@@ -329,70 +329,70 @@ ConnectorX::ConnectorXBoard::sendCommand(Commands::Command command,
   sendBuf[0] = static_cast<uint8_t>(command.commandType);
 
   switch (command.commandType) {
-  case CommandType::On:
-  case CommandType::Off:
-    sendLen = 0;
-    break;
-  case CommandType::ReadConfig:
-    sendLen = 0;
-    recSize = sizeof(ResponseReadConfiguration);
-    break;
-  case CommandType::ReadPatternDone:
-    sendLen = 0;
-    recSize = sizeof(ResponsePatternDone);
-    break;
-  case CommandType::RadioGetLatestReceived:
-    sendLen = 0;
-    recSize = sizeof(ResponseRadioLastReceived);
-    break;
-  case CommandType::SetLedPort:
-    sendLen = 1;
-    break;
-  case CommandType::ReadAnalog:
-    sendLen = 1;
-    recSize = sizeof(ResponseReadAnalog);
-    break;
-  case CommandType::DigitalRead:
-    sendLen = 1;
-    recSize = sizeof(ResponseDigitalRead);
-    break;
-  case CommandType::DigitalWrite:
-    sendLen = sizeof(CommandDigitalWrite);
-    break;
-  case CommandType::DigitalSetup:
-    sendLen = sizeof(CommandDigitalSetup);
-    break;
-  case CommandType::Pattern:
-    sendLen = sizeof(CommandPattern);
-    break;
-  case CommandType::ChangeColor:
-    sendLen = sizeof(CommandColor);
-    break;
-  case CommandType::SetConfig:
-    sendLen = sizeof(CommandSetConfig);
-    break;
-  case CommandType::RadioSend:
-    sendLen = sizeof(CommandRadioSend);
-    break;
-  case CommandType::GetColor:
-    sendLen = 0;
-    break;
-  case CommandType::GetPort:
-    sendLen = 0;
-    break;
-  case CommandType::SetPatternZone:
-    sendLen = 3;
-    break;
-  case CommandType::SetNewZones:
-    sendLen =
-        sizeof(CommandSetNewZones::zoneCount) +
-        command.commandData.commandSetNewZones.zoneCount * sizeof(NewZone);
-    break;
-  case CommandType::SyncStates:
-    sendLen =
-        sizeof(CommandSyncZoneStates::zoneCount) +
-        command.commandData.commandSyncZoneStates.zoneCount * sizeof(uint8_t);
-    break;
+    case CommandType::On:
+    case CommandType::Off:
+      sendLen = 0;
+      break;
+    case CommandType::ReadConfig:
+      sendLen = 0;
+      recSize = sizeof(ResponseReadConfiguration);
+      break;
+    case CommandType::ReadPatternDone:
+      sendLen = 0;
+      recSize = sizeof(ResponsePatternDone);
+      break;
+    case CommandType::RadioGetLatestReceived:
+      sendLen = 0;
+      recSize = sizeof(ResponseRadioLastReceived);
+      break;
+    case CommandType::SetLedPort:
+      sendLen = 1;
+      break;
+    case CommandType::ReadAnalog:
+      sendLen = 1;
+      recSize = sizeof(ResponseReadAnalog);
+      break;
+    case CommandType::DigitalRead:
+      sendLen = 1;
+      recSize = sizeof(ResponseDigitalRead);
+      break;
+    case CommandType::DigitalWrite:
+      sendLen = sizeof(CommandDigitalWrite);
+      break;
+    case CommandType::DigitalSetup:
+      sendLen = sizeof(CommandDigitalSetup);
+      break;
+    case CommandType::Pattern:
+      sendLen = sizeof(CommandPattern);
+      break;
+    case CommandType::ChangeColor:
+      sendLen = sizeof(CommandColor);
+      break;
+    case CommandType::SetConfig:
+      sendLen = sizeof(CommandSetConfig);
+      break;
+    case CommandType::RadioSend:
+      sendLen = sizeof(CommandRadioSend);
+      break;
+    case CommandType::GetColor:
+      sendLen = 0;
+      break;
+    case CommandType::GetPort:
+      sendLen = 0;
+      break;
+    case CommandType::SetPatternZone:
+      sendLen = 3;
+      break;
+    case CommandType::SetNewZones:
+      sendLen =
+          sizeof(CommandSetNewZones::zoneCount) +
+          command.commandData.commandSetNewZones.zoneCount * sizeof(NewZone);
+      break;
+    case CommandType::SyncStates:
+      sendLen =
+          sizeof(CommandSyncZoneStates::zoneCount) +
+          command.commandData.commandSyncZoneStates.zoneCount * sizeof(uint8_t);
+      break;
   }
 
   memcpy(sendBuf + 1, &command.commandData, sendLen);

@@ -29,7 +29,7 @@ struct PidSettings {
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorController {
-public:
+ public:
   /**
    * @brief Construct a new PidMotorController
    *
@@ -47,8 +47,12 @@ public:
                               TController &controller, PidSettings pidSettings,
                               TAbsoluteEncoder *absEncoder,
                               units::revolutions_per_minute_t maxRpm)
-      : m_name{name}, m_motor{motor}, m_controller{controller},
-        m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
+      : m_name{name},
+        m_motor{motor},
+        m_controller{controller},
+        m_encoder{encoder},
+        m_absEncoder{absEncoder},
+        m_settings{pidSettings},
         m_pidController{
             frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
         m_maxRpm{maxRpm} {
@@ -233,7 +237,7 @@ public:
 
   const std::string m_name;
 
-protected:
+ protected:
   TMotor &m_motor;
   TController &m_controller;
   TRelativeEncoder &m_encoder;
@@ -257,7 +261,7 @@ protected:
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerTuner {
-public:
+ public:
   explicit PidMotorControllerTuner(
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &controller)
@@ -295,7 +299,7 @@ public:
         {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward});
   }
 
-private:
+ private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
       &m_controller;
 };
@@ -304,4 +308,4 @@ class RevPidMotorController
     : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
                                 rev::SparkRelativeEncoder,
                                 rev::SparkAbsoluteEncoder> {};
-} // namespace subzero
+}  // namespace subzero

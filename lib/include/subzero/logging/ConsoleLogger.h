@@ -13,7 +13,7 @@ namespace subzero {
  * @remark Singleton class
  */
 class ConsoleLogger : ILogger {
-public:
+ public:
   static ConsoleLogger &getInstance() {
     static ConsoleLogger instance;
 
@@ -56,19 +56,18 @@ public:
   void logError(std::string key, wpi::Sendable *val) override;
   void logFatal(std::string key, wpi::Sendable *val) override;
 
-private:
+ private:
   ConsoleLogger();
 
   void log(Logging::Level level, std::string key, std::string fmt, va_list ap) {
-    if (!shouldLog(level))
-      return;
+    if (!shouldLog(level)) return;
 
     std::string val = formatString(fmt, ap);
     std::cout << levelToString(level) << " - " << key << ": " << val
               << std::endl;
   }
 };
-} // namespace subzero
+}  // namespace subzero
 
 #define ConsoleWriter subzero::ConsoleLogger::getInstance()
 /**
@@ -76,17 +75,17 @@ private:
  * composition
  *
  */
-#define ConsoleInfo(key, fmt, ...)                                             \
-  frc2::InstantCommand([] {                                                    \
-    ConsoleWriter.logInfo(key, fmt, __VA_ARGS__);                              \
+#define ConsoleInfo(key, fmt, ...)                \
+  frc2::InstantCommand([] {                       \
+    ConsoleWriter.logInfo(key, fmt, __VA_ARGS__); \
   }).ToPtr()
 /**
  * @brief Shortcut to log at the Logging::Level::Verbose level from a command
  * composition
  *
  */
-#define ConsoleVerbose(key, fmt, ...)                                          \
-  frc2::InstantCommand([] {                                                    \
-    ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__);                           \
+#define ConsoleVerbose(key, fmt, ...)                \
+  frc2::InstantCommand([] {                          \
+    ConsoleWriter.logVerbose(key, fmt, __VA_ARGS__); \
   }).ToPtr()
 #endif

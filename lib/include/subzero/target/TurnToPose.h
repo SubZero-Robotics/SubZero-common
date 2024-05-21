@@ -21,7 +21,7 @@ namespace subzero {
  *
  */
 class TurnToPose : public ITurnToTarget {
-public:
+ public:
   struct TurnToPoseConfig {
     frc::TrapezoidProfile<units::radians>::Constraints rotationConstraints;
     double turnP;
@@ -138,7 +138,7 @@ public:
     return (x - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
   }
 
-private:
+ private:
   TurnToPoseConfig m_config;
   std::function<frc::Pose2d()> m_poseGetter;
   std::function<frc::Field2d *()> m_fieldGetter;
@@ -149,4 +149,4 @@ private:
   units::degree_t m_targetHeading;
   frc::ChassisSpeeds m_speeds;
 };
-} // namespace subzero
+}  // namespace subzero

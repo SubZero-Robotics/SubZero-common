@@ -26,5 +26,5 @@ DeadzoneAxes CalculateCircularDeadzone(double x, double y,
 
   return {.x = 0, .y = 0, .deadzoneApplied = true};
 }
-} // namespace InputUtils
-} // namespace subzero
+}  // namespace InputUtils
+}  // namespace subzero

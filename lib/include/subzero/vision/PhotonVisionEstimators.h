@@ -19,13 +19,13 @@ namespace subzero {
  *
  */
 class PhotonVisionEstimators {
-public:
+ public:
   /**
    * @brief Represents a single camera
    *
    */
   class PhotonCameraEstimator {
-  public:
+   public:
     explicit PhotonCameraEstimator(photon::PhotonPoseEstimator &est)
         : estimator{est} {
       camera = estimator.GetCamera();
@@ -38,7 +38,8 @@ public:
   explicit PhotonVisionEstimators(std::vector<PhotonCameraEstimator> &estms,
                                   Eigen::Matrix<double, 3, 1> singleTagStdDevs,
                                   Eigen::Matrix<double, 3, 1> multiTagStdDevs)
-      : m_cameraEstimators{estms}, m_singleTagStdDevs{singleTagStdDevs},
+      : m_cameraEstimators{estms},
+        m_singleTagStdDevs{singleTagStdDevs},
         m_multiTagStdDevs{multiTagStdDevs} {
     for (auto &est : m_cameraEstimators) {
       est.estimator.SetMultiTagFallbackStrategy(
@@ -46,9 +47,9 @@ public:
     }
   }
 
-  std::optional<photon::EstimatedRobotPose>
-  GetPoseFromCamera(frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
-                    photon::PhotonCamera &camera, double maxAbmiguity = 0.2) {
+  std::optional<photon::EstimatedRobotPose> GetPoseFromCamera(
+      frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
+      photon::PhotonCamera &camera, double maxAbmiguity = 0.2) {
     est.SetReferencePose(prevPose);
     auto camResult = camera.GetLatestResult();
 
@@ -94,9 +95,8 @@ public:
     }
   }
 
-  Eigen::Matrix<double, 3, 1>
-  GetEstimationStdDevs(photon::EstimatedRobotPose &pose,
-                       PhotonCameraEstimator &photonEst) {
+  Eigen::Matrix<double, 3, 1> GetEstimationStdDevs(
+      photon::EstimatedRobotPose &pose, PhotonCameraEstimator &photonEst) {
     // TODO:
     Eigen::Matrix<double, 3, 1> estStdDevs = m_singleTagStdDevs;
     int numTags = 0;
@@ -135,7 +135,7 @@ public:
     return estStdDevs;
   }
 
-private:
+ private:
   void AddVisionMeasurement(photon::EstimatedRobotPose &estimate,
                             frc::SwerveDrivePoseEstimator<4U> &estimator,
                             PhotonCameraEstimator &photonEst) {
@@ -151,4 +151,4 @@ private:
 
   units::second_t lastEstTimestamp{0_s};
 };
-} // namespace subzero
+}  // namespace subzero

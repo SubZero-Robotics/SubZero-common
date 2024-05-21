@@ -19,7 +19,7 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 class LinearSingleAxisSubsystem
     : public BaseSingleAxisSubsystem<TMotor, TController, TRelativeEncoder,
                                      TAbsoluteEncoder, units::meter> {
-public:
+ public:
   LinearSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -73,4 +73,4 @@ public:
         "");
   }
 };
-} // namespace subzero
+}  // namespace subzero

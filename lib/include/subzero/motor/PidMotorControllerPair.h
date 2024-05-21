@@ -23,7 +23,7 @@ namespace subzero {
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerPair {
-public:
+ public:
   /**
    * @brief Construct a new Pi MotorControllerPair
    *
@@ -37,7 +37,8 @@ public:
                          TAbsoluteEncoder> &first,
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &second)
-      : m_shuffleboardPrefix{prefix}, m_controllerFirst{first},
+      : m_shuffleboardPrefix{prefix},
+        m_controllerFirst{first},
         m_controllerSecond{second} {}
 
   /**
@@ -83,7 +84,7 @@ public:
 
   const std::string m_shuffleboardPrefix;
 
-private:
+ private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
       &m_controllerFirst;
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
@@ -102,26 +103,26 @@ private:
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerPairTuner {
-public:
+ public:
   explicit PidMotorControllerPairTuner(
       PidMotorControllerPair<TMotor, TController, TRelativeEncoder,
                              TAbsoluteEncoder> &controllerPair)
       : m_controllerPair{controllerPair} {
-    frc::SmartDashboard::PutNumber(m_controllerPair.m_shuffleboardPrefix +
-                                       " P Gain",
-                                   m_controllerPair.GetPidSettings().p);
-    frc::SmartDashboard::PutNumber(m_controllerPair.m_shuffleboardPrefix +
-                                       " I Gain",
-                                   m_controllerPair.GetPidSettings().i);
-    frc::SmartDashboard::PutNumber(m_controllerPair.m_shuffleboardPrefix +
-                                       " D Gain",
-                                   m_controllerPair.GetPidSettings().d);
-    frc::SmartDashboard::PutNumber(m_controllerPair.m_shuffleboardPrefix +
-                                       " IZone",
-                                   m_controllerPair.GetPidSettings().iZone);
-    frc::SmartDashboard::PutNumber(m_controllerPair.m_shuffleboardPrefix +
-                                       " Feed Forward",
-                                   m_controllerPair.GetPidSettings().ff);
+    frc::SmartDashboard::PutNumber(
+        m_controllerPair.m_shuffleboardPrefix + " P Gain",
+        m_controllerPair.GetPidSettings().p);
+    frc::SmartDashboard::PutNumber(
+        m_controllerPair.m_shuffleboardPrefix + " I Gain",
+        m_controllerPair.GetPidSettings().i);
+    frc::SmartDashboard::PutNumber(
+        m_controllerPair.m_shuffleboardPrefix + " D Gain",
+        m_controllerPair.GetPidSettings().d);
+    frc::SmartDashboard::PutNumber(
+        m_controllerPair.m_shuffleboardPrefix + " IZone",
+        m_controllerPair.GetPidSettings().iZone);
+    frc::SmartDashboard::PutNumber(
+        m_controllerPair.m_shuffleboardPrefix + " Feed Forward",
+        m_controllerPair.GetPidSettings().ff);
   }
 
   /// @brief Call this within the Periodic method of the encapsulating subsystem
@@ -146,8 +147,8 @@ public:
         {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward});
   }
 
-private:
+ private:
   PidMotorControllerPair<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &m_controllerPair;
 };
-} // namespace subzero
+}  // namespace subzero

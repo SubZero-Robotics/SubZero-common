@@ -26,6 +26,7 @@
 #include "subzero/logging/ShuffleboardLogger.h"
 #include "subzero/motor/PidMotorController.h"
 #include "subzero/singleaxis/ISingleAxisSubsystem.h"
+#include "subzero/frc2/command/EmptyCommand.h"
 
 namespace subzero {
 
@@ -47,7 +48,7 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 class BaseSingleAxisSubsystem
     : public ISingleAxisSubsystem<TDistance>,
       public frc2::TrapezoidProfileSubsystem<TDistance> {
-public:
+ public:
   using PidState = typename frc::TrapezoidProfile<TDistance>::State;
   using Distance_t = units::unit_t<TDistance>;
   using Velocity =
@@ -57,10 +58,9 @@ public:
       units::compound_unit<Velocity, units::inverse<units::seconds>>;
   using Acceleration_t = units::unit_t<Acceleration>;
 
-protected:
+ protected:
   bool IsMovementAllowed(double speed, bool ignoreEncoder = false) {
-    if (m_config.ignoreLimit())
-      return true;
+    if (m_config.ignoreLimit()) return true;
 
     bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
     bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -80,8 +80,7 @@ protected:
   }
 
   bool IsMovementAllowed(bool ignoreEncoder = false) {
-    if (m_config.ignoreLimit())
-      return true;
+    if (m_config.ignoreLimit()) return true;
 
     bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
     bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -97,7 +96,7 @@ protected:
     return true;
   }
 
-public:
+ public:
   BaseSingleAxisSubsystem(
       std::string name,
       PidMotorController<TMotor, TController, TRelativeEncoder,
@@ -106,8 +105,11 @@ public:
       frc::MechanismObject2d *mechanismNode = nullptr)
       : frc2::TrapezoidProfileSubsystem<TDistance>{config.profileConstraints},
         m_minLimitSwitch{config.minLimitSwitch},
-        m_maxLimitSwitch{config.maxLimitSwitch}, m_controller{controller},
-        m_config{config}, m_name{name}, m_pidEnabled{false} {
+        m_maxLimitSwitch{config.maxLimitSwitch},
+        m_controller{controller},
+        m_config{config},
+        m_name{name},
+        m_pidEnabled{false} {
     m_pidEnabled = false;
 
     if (mechanismNode) {
@@ -317,7 +319,7 @@ public:
           m_config.absoluteEncoderDistancePerRevolution.value().value());
   }
 
-protected:
+ protected:
   std::optional<frc::DigitalInput *> m_minLimitSwitch;
   std::optional<frc::DigitalInput *> m_maxLimitSwitch;
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
@@ -329,7 +331,7 @@ protected:
   bool m_home;
   bool resetOccurred = false;
   double m_latestSpeed;
-  frc2::CommandPtr m_resetEncCmd = frc2::InstantCommand([] {}).ToPtr();
+  frc2::CommandPtr m_resetEncCmd = EmptyCommand().ToPtr();
   frc::MechanismLigament2d *m_ligament2d;
 };
-} // namespace subzero
+}  // namespace subzero

@@ -98,8 +98,8 @@ void TargetTracker::UpdateTrackedTargets(
   }
 }
 
-std::optional<DetectedObject>
-TargetTracker::GetBestTarget(std::vector<DetectedObject> &targets) {
+std::optional<DetectedObject> TargetTracker::GetBestTarget(
+    std::vector<DetectedObject> &targets) {
   if (targets.empty()) {
     return std::nullopt;
   }
@@ -124,8 +124,8 @@ bool TargetTracker::HasTargetLock(std::vector<DetectedObject> &targets) {
          bestTarget.value().confidence >= m_config.confidenceThreshold;
 }
 
-std::optional<frc::Pose2d>
-TargetTracker::GetBestTargetPose(std::vector<DetectedObject> &targets) {
+std::optional<frc::Pose2d> TargetTracker::GetBestTargetPose(
+    std::vector<DetectedObject> &targets) {
   if (!HasTargetLock(targets)) {
     return std::nullopt;
   }
@@ -135,8 +135,8 @@ TargetTracker::GetBestTargetPose(std::vector<DetectedObject> &targets) {
   return GetTargetPose(bestTarget);
 }
 
-std::optional<frc::Pose2d>
-TargetTracker::GetTargetPose(const DetectedObject &object) {
+std::optional<frc::Pose2d> TargetTracker::GetTargetPose(
+    const DetectedObject &object) {
   units::radian_t horizontalAngle = object.centerX.convert<units::radian>();
 
   frc::Pose2d currentPose = m_poseGetter();
