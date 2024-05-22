@@ -7,9 +7,12 @@ on:
   workflow_dispatch:
   pull_request:
 
-defaults:
-  run:
-    working-directory: lib
+# defaults:
+# run:
+#    working-directory: lib
+  
+permissions:
+  contents: write
 
 jobs:
   deploy:
@@ -25,9 +28,9 @@ jobs:
         uses: mattnotmitt/doxygen-action@edge
         with:
           working-directory: 'lib/'
-      - name: Publish generated content to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          dir: lib/docs/html
-          branch: gh-pages
-          token: ${{ secrets.GITHUB_TOKEN }}
+          folder: lib/docs/html # The folder the action should deploy.
+          target-folder: .
+          force: true
