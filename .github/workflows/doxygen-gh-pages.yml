@@ -30,7 +30,7 @@ jobs:
         with:
           working-directory: 'lib/'
       - name: Give permissions
-        run: sudo chmod -R a+rw lib/docs/*
+        run: sudo chmod -R a+rw lib/docs/**/*
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
