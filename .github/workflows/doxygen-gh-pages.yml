@@ -14,6 +14,7 @@ on:
 permissions:
   contents: write
 
+
 jobs:
   deploy:
     runs-on: ubuntu-20.04
@@ -28,6 +29,8 @@ jobs:
         uses: mattnotmitt/doxygen-action@edge
         with:
           working-directory: 'lib/'
+      - name: Give permissions
+        run: sudo chmod -R a+rw lib/docs/*
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
