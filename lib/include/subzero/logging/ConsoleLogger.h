@@ -68,7 +68,7 @@ private:
               << std::endl;
   }
 };
-}
+} // namespace subzero
 
 #define ConsoleWriter subzero::ConsoleLogger::getInstance()
 /**

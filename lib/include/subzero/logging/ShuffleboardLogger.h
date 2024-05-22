@@ -70,4 +70,4 @@ private:
     return val;
   }
 };
-}
+} // namespace subzero

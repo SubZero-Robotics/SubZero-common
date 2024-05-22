@@ -149,4 +149,4 @@ private:
   units::degree_t m_targetHeading;
   frc::ChassisSpeeds m_speeds;
 };
-}
+} // namespace subzero

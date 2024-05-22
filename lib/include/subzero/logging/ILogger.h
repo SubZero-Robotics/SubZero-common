@@ -98,4 +98,4 @@ protected:
     return static_cast<int>(level) >= static_cast<int>(Logging::kMinLogLevel);
   }
 };
-}
+} // namespace subzero

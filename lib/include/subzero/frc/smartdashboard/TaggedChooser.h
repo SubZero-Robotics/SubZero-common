@@ -180,4 +180,4 @@ private:
   ModifiableChooser<TKey> m_chooser;
   std::string m_chooserName;
 };
-}
+} // namespace subzero

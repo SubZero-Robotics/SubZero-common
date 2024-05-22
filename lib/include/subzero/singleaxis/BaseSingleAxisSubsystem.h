@@ -22,6 +22,7 @@
 #include <memory>
 #include <string>
 
+#include "subzero/frc2/command/EmptyCommand.h"
 #include "subzero/logging/ConsoleLogger.h"
 #include "subzero/logging/ShuffleboardLogger.h"
 #include "subzero/motor/PidMotorController.h"
@@ -329,7 +330,7 @@ protected:
   bool m_home;
   bool resetOccurred = false;
   double m_latestSpeed;
-  frc2::CommandPtr m_resetEncCmd = frc2::InstantCommand([] {}).ToPtr();
+  frc2::CommandPtr m_resetEncCmd = EmptyCommand().ToPtr();
   frc::MechanismLigament2d *m_ligament2d;
 };
-}
+} // namespace subzero

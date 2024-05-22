@@ -14,6 +14,7 @@
 #include <string>
 #include <vector>
 
+#include "subzero/frc2/command/EmptyCommand.h"
 #include "subzero/logging/ConsoleLogger.h"
 
 namespace subzero {
@@ -32,10 +33,6 @@ public:
 
 private:
   const std::map<T, std::string> &m_autos;
-
-  inline frc2::CommandPtr GetEmptyCommand() {
-    return frc2::WaitCommand(15_s).ToPtr();
-  }
 
   bool AutoFileExists(const std::string fileName) {
     const std::string filePath = frc::filesystem::GetDeployDirectory() +
@@ -57,7 +54,7 @@ private:
       ConsoleWriter.logError("Auto Factory",
                              "AUTO '%s' DOES NOT EXIST HELP US EVAN",
                              autoName.c_str());
-      return GetEmptyCommand();
+      return EmptyCommand().ToPtr();
     }
     return pathplanner::PathPlannerAuto(autoName).ToPtr();
   }
@@ -70,17 +67,16 @@ public:
    * @return frc2::CommandPtr The schedulable auto command
    */
   frc2::CommandPtr GetAuto(T type) {
-
     if (!m_autos.contains(type)) {
       ConsoleWriter.logWarning(
           "Auto Factory",
           "Auto type %d does not exist, defaulting to empty "
           "auto",
           static_cast<int>(type));
-      return GetEmptyCommand();
+      return EmptyCommand().ToPtr();
     }
 
     return PathPlannerPathFromName(m_autos.at(type));
   }
 };
-}
+} // namespace subzero

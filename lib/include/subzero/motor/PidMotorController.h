@@ -304,4 +304,4 @@ class RevPidMotorController
     : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
                                 rev::SparkRelativeEncoder,
                                 rev::SparkAbsoluteEncoder> {};
-}
+} // namespace subzero

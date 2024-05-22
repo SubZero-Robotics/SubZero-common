@@ -150,4 +150,4 @@ private:
   PidMotorControllerPair<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &m_controllerPair;
 };
-}
+} // namespace subzero

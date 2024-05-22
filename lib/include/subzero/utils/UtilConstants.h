@@ -17,4 +17,4 @@ constexpr auto kMinLogLevel = Level::VERBOSE;
 namespace DetectionParser {
 enum class ObjectClasses { Cone = 0, Cube = 1, Merge = 2 };
 }
-}
+} // namespace subzero
