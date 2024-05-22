@@ -1,0 +1,11 @@
+<map id="LimelightHelpers::SingleTargetingResultClass" name="LimelightHelpers::SingleTargetingResultClass">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,104,167,145"/>
+<area shape="rect" id="Node000002" href="$classLimelightHelpers_1_1ClassificationResultClass.html" title=" " alt="" coords="218,5,420,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,94,214,57,247,44,249,49,216,61,138,99"/>
+<area shape="rect" id="Node000003" href="$classLimelightHelpers_1_1DetectionResultClass.html" title=" " alt="" coords="229,71,409,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,108,228,101,229,107,183,113"/>
+<area shape="rect" id="Node000004" href="$classLimelightHelpers_1_1FiducialResultClass.html" title=" " alt="" coords="234,136,404,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="182,135,233,142,233,147,182,140"/>
+<area shape="rect" id="Node000005" href="$classLimelightHelpers_1_1RetroreflectiveResultClass.html" title=" " alt="" coords="215,201,423,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="139,150,216,186,249,198,247,203,214,191,137,154"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ConnectorX::Commands::ResponseRadioLastReceived" name="ConnectorX::Commands::ResponseRadioLastReceived">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,94,204,135"/>
+<area shape="rect" id="Node000002" href="$structConnectorX_1_1Message.html" title=" " alt="" coords="30,5,179,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,46,107,93,102,93,102,46"/>
+</map>

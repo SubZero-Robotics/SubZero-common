@@ -1,0 +1,27 @@
+var classConnectorX_1_1ConnectorXBoard =
+[
+    [ "ConnectorXBoard", "classConnectorX_1_1ConnectorXBoard.html#a54e08b6a3bf6efd26410c56d724be030", null ],
+    [ "configureDigitalPin", "classConnectorX_1_1ConnectorXBoard.html#a78cbd7d32d3d96d9598f28d20289f91b", null ],
+    [ "createZones", "classConnectorX_1_1ConnectorXBoard.html#a3a200b489b77c7c055c9baa91dfa141b", null ],
+    [ "getCurrentColor", "classConnectorX_1_1ConnectorXBoard.html#a8b883c19f12dd85885e8778040c7b88b", null ],
+    [ "getCurrentLedPort", "classConnectorX_1_1ConnectorXBoard.html#abf3ab16b9f7f6b7efc5db0fae65832aa", null ],
+    [ "getLatestRadioMessage", "classConnectorX_1_1ConnectorXBoard.html#ac8b44a88c6b042b5f9f4435d0c1f35a8", null ],
+    [ "getPatternDone", "classConnectorX_1_1ConnectorXBoard.html#ac7dcf8dcbefe1774bccf82a17c14408c", null ],
+    [ "initialize", "classConnectorX_1_1ConnectorXBoard.html#a23cb4d6a008edf9881c23087617a97ac", null ],
+    [ "lastCommand", "classConnectorX_1_1ConnectorXBoard.html#a478bccf547169b2130fb6c137cc5704e", null ],
+    [ "lastPattern", "classConnectorX_1_1ConnectorXBoard.html#aeee656e5a4c84a6ad2662a38a6c2b820", null ],
+    [ "readAnalogPin", "classConnectorX_1_1ConnectorXBoard.html#ad67d34fdb728617a3dfe5e62db407dbb", null ],
+    [ "readConfig", "classConnectorX_1_1ConnectorXBoard.html#abdf6bfc516b973423d377bdbcc65fabc", null ],
+    [ "readDigitalPin", "classConnectorX_1_1ConnectorXBoard.html#ab4134482cdaeb9891ff868e0640f1b54", null ],
+    [ "sendRadioMessage", "classConnectorX_1_1ConnectorXBoard.html#a298dab006c1b052c73f0f7b09e686712", null ],
+    [ "setColor", "classConnectorX_1_1ConnectorXBoard.html#ad186821f4c850e73ed3a9127eef637f8", null ],
+    [ "setColor", "classConnectorX_1_1ConnectorXBoard.html#aea16a85ba59bae9e499c6d4667dfe175", null ],
+    [ "setColor", "classConnectorX_1_1ConnectorXBoard.html#a98b7a4484f084b836323f5739128994c", null ],
+    [ "setConfig", "classConnectorX_1_1ConnectorXBoard.html#a5fb5d8eea8d14134f1117cc4c6bf4553", null ],
+    [ "setCurrentZone", "classConnectorX_1_1ConnectorXBoard.html#ae8ce56908cd2adee3c0ca06b13ed8bc0", null ],
+    [ "setOff", "classConnectorX_1_1ConnectorXBoard.html#ae04fee83c22715205c7e3a5efee0243f", null ],
+    [ "setOn", "classConnectorX_1_1ConnectorXBoard.html#ab09a769d730c8cb07777eee5c4637d8d", null ],
+    [ "setPattern", "classConnectorX_1_1ConnectorXBoard.html#a7e97da9cbb3ebac71956640024328108", null ],
+    [ "syncZones", "classConnectorX_1_1ConnectorXBoard.html#a29dab459ce57a5865e8bb365d99a13f4", null ],
+    [ "writeDigitalPin", "classConnectorX_1_1ConnectorXBoard.html#ad8abacaaf7fc4191c18430be29c04680", null ]
+];

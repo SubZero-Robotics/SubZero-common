@@ -1,0 +1,7 @@
+<map id="ConnectorX::Commands::ResponseReadConfiguration" name="ConnectorX::Commands::ResponseReadConfiguration">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,228,196,268"/>
+<area shape="rect" id="Node000002" href="$structConnectorX_1_1Commands_1_1Configuration.html" title=" " alt="" coords="20,124,181,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,180,103,227,98,227,98,180"/>
+<area shape="rect" id="Node000003" href="$structConnectorX_1_1Commands_1_1LedConfiguration.html" title=" " alt="" coords="20,5,181,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="103,61,103,123,98,123,98,61"/>
+</map>

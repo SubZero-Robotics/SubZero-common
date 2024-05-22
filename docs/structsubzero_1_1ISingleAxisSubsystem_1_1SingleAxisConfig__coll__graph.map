@@ -1,0 +1,5 @@
+<map id="subzero::ISingleAxisSubsystem&lt; Distance &gt;::SingleAxisConfig" name="subzero::ISingleAxisSubsystem&lt; Distance &gt;::SingleAxisConfig">
+<area shape="rect" id="Node000001" title="The configuration for single&#45;axis mechanisms." alt="" coords="5,94,208,135"/>
+<area shape="rect" id="Node000002" href="$structsubzero_1_1SingleAxisMechanism.html" title="Describes the axis for simulation." alt="" coords="6,5,207,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,109,93,104,93,104,46"/>
+</map>

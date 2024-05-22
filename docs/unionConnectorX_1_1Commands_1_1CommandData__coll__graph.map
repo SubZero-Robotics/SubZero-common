@@ -1,0 +1,49 @@
+<map id="ConnectorX::Commands::CommandData" name="ConnectorX::Commands::CommandData">
+<area shape="rect" id="Node000001" title=" " alt="" coords="972,607,1134,647"/>
+<area shape="rect" id="Node000002" href="$structConnectorX_1_1Commands_1_1CommandOn.html" title=" " alt="" coords="523,19,684,59"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="700,20,762,17,829,23,862,31,894,42,923,58,950,78,965,96,978,119,1000,180,1017,255,1030,337,1047,496,1054,606,1048,607,1042,497,1025,337,1012,256,995,182,973,121,960,99,946,82,921,62,892,47,860,36,828,28,762,23,700,25"/>
+<area shape="rect" id="Node000003" href="$structConnectorX_1_1Commands_1_1CommandOff.html" title=" " alt="" coords="523,84,684,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="700,98,771,98,844,102,908,112,932,121,950,132,964,147,976,168,997,222,1014,288,1027,361,1045,505,1053,606,1048,606,1040,505,1022,362,1009,289,992,223,971,170,959,150,947,136,930,126,906,117,844,107,771,103,700,103"/>
+<area shape="rect" id="Node000004" href="$structConnectorX_1_1Commands_1_1CommandPattern.html" title=" " alt="" coords="523,149,684,190"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="700,152,761,150,828,156,861,164,893,175,923,190,950,210,972,240,991,285,1007,340,1021,400,1041,520,1052,606,1047,607,1036,521,1016,401,1002,341,986,287,967,243,946,214,920,195,891,180,860,169,827,161,761,155,700,157"/>
+<area shape="rect" id="Node000005" href="$structConnectorX_1_1Commands_1_1CommandColor.html" title=" " alt="" coords="523,215,684,255"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="700,229,771,229,844,233,907,244,932,252,950,262,970,288,988,326,1018,425,1039,529,1051,606,1046,606,1034,530,1013,426,983,328,966,290,947,266,930,257,906,249,843,239,771,234,700,234"/>
+<area shape="rect" id="Node000006" href="$structConnectorX_1_1Commands_1_1CommandReadPatternDone.html" title=" " alt="" coords="510,280,698,321"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="713,281,772,280,834,286,895,303,924,317,950,334,980,364,1003,398,1021,436,1034,476,1049,550,1054,606,1049,607,1044,551,1029,477,1016,438,998,401,976,367,947,338,921,321,893,308,833,291,772,285,713,286"/>
+<area shape="rect" id="Node000007" href="$structConnectorX_1_1Commands_1_1CommandSetLedPort.html" title=" " alt="" coords="523,345,684,386"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="700,353,760,353,826,361,891,379,921,392,950,410,973,431,993,455,1022,510,1041,563,1051,605,1046,607,1036,565,1018,512,988,458,969,434,947,414,919,397,889,384,825,366,760,359,700,358"/>
+<area shape="rect" id="Node000008" href="$structConnectorX_1_1Commands_1_1CommandReadAnalog.html" title=" " alt="" coords="523,411,684,451"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="700,426,759,430,824,440,889,459,950,487,982,514,1009,545,1045,605,1040,608,1005,549,979,517,947,492,887,464,823,446,759,436,700,431"/>
+<area shape="rect" id="Node000009" href="$structConnectorX_1_1Commands_1_1CommandDigitalSetup.html" title=" " alt="" coords="523,476,684,517"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="700,501,821,519,886,535,949,557,992,579,1028,604,1025,608,989,583,947,561,885,540,820,525,700,506"/>
+<area shape="rect" id="Node000010" href="$structConnectorX_1_1Commands_1_1CommandDigitalWrite.html" title=" " alt="" coords="523,541,684,582"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="701,570,949,604,973,608,972,614,948,610,700,575"/>
+<area shape="rect" id="Node000011" href="$structConnectorX_1_1Commands_1_1CommandDigitalRead.html" title=" " alt="" coords="523,607,684,647"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="700,624,972,624,972,630,700,630"/>
+<area shape="rect" id="Node000012" href="$structConnectorX_1_1Commands_1_1CommandSetConfig.html" title=" " alt="" coords="523,672,684,713"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="700,679,948,645,972,641,973,646,949,650,701,684"/>
+<area shape="rect" id="Node000013" href="$structConnectorX_1_1Commands_1_1Configuration.html" title=" " alt="" coords="242,672,403,713"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="419,690,522,690,522,695,419,695"/>
+<area shape="rect" id="Node000014" href="$structConnectorX_1_1Commands_1_1LedConfiguration.html" title=" " alt="" coords="5,672,167,713"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="182,690,241,690,241,695,182,695"/>
+<area shape="rect" id="Node000015" href="$structConnectorX_1_1Commands_1_1CommandReadConfig.html" title=" " alt="" coords="523,737,684,778"/>
+<area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="700,749,820,731,885,715,947,694,990,672,1025,646,1029,650,993,676,949,699,886,720,821,736,700,754"/>
+<area shape="rect" id="Node000016" href="$structConnectorX_1_1Commands_1_1CommandRadioSend.html" title=" " alt="" coords="523,803,684,843"/>
+<area shape="poly" id="edge15_Node000001_Node000016" title=" " alt="" coords="700,824,759,820,823,811,887,793,947,765,979,739,1006,707,1040,646,1045,649,1010,710,983,743,950,770,889,798,824,816,759,826,700,829"/>
+<area shape="rect" id="Node000017" href="$structConnectorX_1_1Message.html" title=" " alt="" coords="248,810,397,836"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="412,820,523,820,523,826,412,826"/>
+<area shape="rect" id="Node000018" href="$structConnectorX_1_1Commands_1_1CommandRadioGetLatestReceived.html" title=" " alt="" coords="488,868,719,909"/>
+<area shape="poly" id="edge17_Node000001_Node000018" title=" " alt="" coords="735,898,789,895,844,886,898,869,947,842,970,822,989,798,1018,744,1036,690,1046,647,1051,649,1041,691,1023,746,993,801,973,826,950,847,900,874,845,892,789,900,735,903"/>
+<area shape="rect" id="Node000019" href="$structConnectorX_1_1Commands_1_1CommandGetColor.html" title=" " alt="" coords="523,933,684,974"/>
+<area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="700,968,761,971,826,966,890,950,919,936,947,919,976,890,999,855,1017,818,1030,778,1044,704,1049,648,1054,648,1050,704,1035,780,1022,820,1004,858,980,893,950,923,922,941,892,955,827,971,761,976,700,973"/>
+<area shape="rect" id="Node000020" href="$structConnectorX_1_1Commands_1_1CommandGetPort.html" title=" " alt="" coords="523,999,684,1039"/>
+<area shape="poly" id="edge19_Node000001_Node000020" title=" " alt="" coords="700,1037,761,1042,826,1039,859,1033,890,1024,920,1010,947,992,966,968,984,930,1013,830,1034,725,1046,647,1052,648,1040,726,1018,831,989,932,970,970,950,996,922,1015,892,1029,860,1038,827,1044,761,1047,699,1042"/>
+<area shape="rect" id="Node000021" href="$structConnectorX_1_1Commands_1_1CommandSetPatternZone.html" title=" " alt="" coords="515,1064,692,1105"/>
+<area shape="poly" id="edge20_Node000001_Node000021" title=" " alt="" coords="702,1105,763,1112,828,1110,860,1105,891,1095,920,1082,946,1064,969,1034,989,988,1005,930,1019,866,1038,739,1047,648,1053,648,1043,739,1024,867,1010,931,994,989,974,1037,950,1068,923,1087,893,1100,861,1110,829,1115,763,1117,702,1110"/>
+<area shape="rect" id="Node000022" href="$structConnectorX_1_1Commands_1_1CommandSetNewZones.html" title=" " alt="" coords="519,1129,688,1170"/>
+<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="695,1171,757,1179,824,1179,857,1175,889,1166,919,1152,947,1133,960,1119,972,1098,993,1043,1010,975,1024,899,1041,751,1048,647,1053,648,1046,751,1029,900,1016,976,998,1045,977,1100,964,1122,950,1137,922,1157,891,1171,859,1180,825,1185,757,1185,695,1176"/>
+<area shape="rect" id="Node000023" href="$structConnectorX_1_1Commands_1_1NewZone.html" title=" " alt="" coords="242,1129,403,1170"/>
+<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="419,1147,519,1147,519,1152,419,1152"/>
+<area shape="rect" id="Node000024" href="$structConnectorX_1_1Commands_1_1CommandSyncZoneStates.html" title=" " alt="" coords="513,1195,695,1235"/>
+<area shape="poly" id="edge23_Node000001_Node000024" title=" " alt="" coords="691,1237,754,1246,822,1247,856,1243,889,1234,919,1221,947,1201,962,1184,975,1161,998,1097,1016,1019,1029,932,1044,763,1049,648,1054,648,1049,764,1034,933,1021,1020,1003,1099,980,1163,966,1187,950,1205,922,1225,890,1239,857,1248,822,1253,753,1252,690,1242"/>
+</map>

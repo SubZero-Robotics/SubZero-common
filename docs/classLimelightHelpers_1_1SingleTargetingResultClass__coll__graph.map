@@ -1,0 +1,7 @@
+<map id="LimelightHelpers::SingleTargetingResultClass" name="LimelightHelpers::SingleTargetingResultClass">
+<area shape="rect" id="Node000001" title=" " alt="" coords="86,184,248,225"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,158,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,61,100,109,122,159,143,182,139,186,118,161,95,111,84,62"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="182,13,323,39"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="254,54,247,106,238,135,225,162,202,185,198,182,221,158,233,133,242,105,249,54"/>
+</map>

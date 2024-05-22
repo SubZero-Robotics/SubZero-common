@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classsubzero_1_1ILogger.html" title="Logger interface." alt="" coords="5,31,122,56"/>
+<area shape="rect" id="Node000001" href="$classsubzero_1_1ConsoleLogger.html" title="Outputs formatted strings to stdout." alt="" coords="182,5,341,31"/>
+<area shape="poly" id="edge7_Node000000_Node000001" title=" " alt="" coords="136,32,181,26,182,31,137,37"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1ShuffleboardLogger.html" title="Outputs formatted information to SmartDashboard." alt="" coords="170,55,353,80"/>
+<area shape="poly" id="edge8_Node000000_Node000002" title=" " alt="" coords="137,50,169,54,169,59,137,55"/>
+</map>

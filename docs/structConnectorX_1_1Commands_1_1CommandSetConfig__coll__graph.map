@@ -1,0 +1,7 @@
+<map id="ConnectorX::Commands::CommandSetConfig" name="ConnectorX::Commands::CommandSetConfig">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,228,167,268"/>
+<area shape="rect" id="Node000002" href="$structConnectorX_1_1Commands_1_1Configuration.html" title=" " alt="" coords="5,124,167,165"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="89,180,89,227,83,227,83,180"/>
+<area shape="rect" id="Node000003" href="$structConnectorX_1_1Commands_1_1LedConfiguration.html" title=" " alt="" coords="5,5,167,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,61,89,123,83,123,83,61"/>
+</map>

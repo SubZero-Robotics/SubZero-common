@@ -1,0 +1,7 @@
+<map id="ConnectorX::CachedPort" name="ConnectorX::CachedPort">
+<area shape="rect" id="Node000001" title=" " alt="" coords="8,198,171,223"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="9,94,170,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,150,92,197,87,197,87,150"/>
+<area shape="rect" id="Node000003" href="$structConnectorX_1_1CachedZone.html" title="Stores the state of the Connector&#45;X device locally." alt="" coords="5,5,174,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="92,46,92,93,87,93,87,46"/>
+</map>
