@@ -101,7 +101,7 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
   <div class="headertitle"><div class="title">PidMotorControllerPair.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="PidMotorControllerPair_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;frc/smartdashboard/SmartDashboard.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;rev/CANSparkBase.h&gt;</span></div>
@@ -110,10 +110,10 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;subzero/logging/ConsoleLogger.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;subzero/motor/PidMotorController.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="ConsoleLogger_8h.html">subzero/logging/ConsoleLogger.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="PidMotorController_8h.html">subzero/motor/PidMotorController.h</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>subzero {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> TMotor, <span class="keyword">typename</span> TController, <span class="keyword">typename</span> TRelativeEncoder,</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>          <span class="keyword">typename</span> TAbsoluteEncoder&gt;</div>
@@ -127,7 +127,7 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                         TAbsoluteEncoder&gt; &amp;first,</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <a class="code hl_class" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt;TMotor, TController, TRelativeEncoder,</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                         TAbsoluteEncoder&gt; &amp;second)</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      : m_shuffleboardPrefix{prefix}, m_controllerFirst{first},</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      : <a class="code hl_variable" href="classsubzero_1_1PidMotorControllerPair.html#a20318ce5def79ea74ac4f715e64f5506">m_shuffleboardPrefix</a>{prefix}, m_controllerFirst{first},</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        m_controllerSecond{second} {}</div>
 </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
@@ -153,23 +153,25 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  }</div>
 </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">const</span> <a class="code hl_struct" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp;GetPidSettings()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_pidSettings; }</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPair.html#a6c76577a5577980ab9a303aa79444052">   75</a></span>  <span class="keyword">const</span> <a class="code hl_struct" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp;<a class="code hl_function" href="classsubzero_1_1PidMotorControllerPair.html#a6c76577a5577980ab9a303aa79444052">GetPidSettings</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_pidSettings; }</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordtype">void</span> UpdatePidSettings(PidSettings settings) {</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPair.html#a0baa47de880cc02242ed789897248b1d">   77</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1PidMotorControllerPair.html#a0baa47de880cc02242ed789897248b1d">UpdatePidSettings</a>(<a class="code hl_struct" href="structsubzero_1_1PidSettings.html">PidSettings</a> settings) {</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    m_pidSettings = settings;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    m_controllerFirst.UpdatePidSettings(settings);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    m_controllerSecond.UpdatePidSettings(settings);</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  }</div>
+</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <span class="keyword">const</span> std::string m_shuffleboardPrefix;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPair.html#a20318ce5def79ea74ac4f715e64f5506">   84</a></span>  <span class="keyword">const</span> std::string <a class="code hl_variable" href="classsubzero_1_1PidMotorControllerPair.html#a20318ce5def79ea74ac4f715e64f5506">m_shuffleboardPrefix</a>;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  PidMotorController&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder&gt;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <a class="code hl_class" href="classsubzero_1_1PidMotorController.html">PidMotorController&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder&gt;</a></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      &amp;m_controllerFirst;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  PidMotorController&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder&gt;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <a class="code hl_class" href="classsubzero_1_1PidMotorController.html">PidMotorController&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder&gt;</a></div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      &amp;m_controllerSecond;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  PidSettings m_pidSettings;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <a class="code hl_struct" href="structsubzero_1_1PidSettings.html">PidSettings</a> m_pidSettings;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
 </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
@@ -178,7 +180,8 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="foldopen" id="foldopen00104" data-start="{" data-end="};">
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPairTuner.html">  104</a></span><span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1PidMotorControllerPairTuner.html">PidMotorControllerPairTuner</a> {</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classsubzero_1_1PidMotorControllerPairTuner.html">PidMotorControllerPairTuner</a>(</div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPairTuner.html#aa5fb5236cf4cae06a63e755d174bcacc">  106</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="classsubzero_1_1PidMotorControllerPairTuner.html#aa5fb5236cf4cae06a63e755d174bcacc">PidMotorControllerPairTuner</a>(</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      <a class="code hl_class" href="classsubzero_1_1PidMotorControllerPair.html">PidMotorControllerPair</a>&lt;TMotor, TController, TRelativeEncoder,</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                             TAbsoluteEncoder&gt; &amp;controllerPair)</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      : m_controllerPair{controllerPair} {</div>
@@ -198,6 +201,7 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                                       <span class="stringliteral">&quot; Feed Forward&quot;</span>,</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                                   m_controllerPair.GetPidSettings().ff);</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  }</div>
+</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
 <div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classsubzero_1_1PidMotorControllerPairTuner.html#a2764857570654dd20a871ce4f88b97c1">  128</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1PidMotorControllerPairTuner.html#a2764857570654dd20a871ce4f88b97c1">UpdateFromShuffleboard</a>() {</div>
@@ -228,21 +232,28 @@ $(function(){initNavTree('PidMotorControllerPair_8h_source.html',''); initResiza
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>};</div>
 </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>} <span class="comment">// namespace subzero</span></div>
+<div class="ttc" id="aConsoleLogger_8h_html"><div class="ttname"><a href="ConsoleLogger_8h.html">ConsoleLogger.h</a></div></div>
+<div class="ttc" id="aPidMotorController_8h_html"><div class="ttname"><a href="PidMotorController_8h.html">PidMotorController.h</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPairTuner_html"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPairTuner.html">subzero::PidMotorControllerPairTuner</a></div><div class="ttdoc">Tunes a pair of motors concurrently through SmartDashboard.</div><div class="ttdef"><b>Definition</b> <a href="#l00104">PidMotorControllerPair.h:104</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPairTuner_html_a2764857570654dd20a871ce4f88b97c1"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPairTuner.html#a2764857570654dd20a871ce4f88b97c1">subzero::PidMotorControllerPairTuner::UpdateFromShuffleboard</a></div><div class="ttdeci">void UpdateFromShuffleboard()</div><div class="ttdoc">Call this within the Periodic method of the encapsulating subsystem.</div><div class="ttdef"><b>Definition</b> <a href="#l00128">PidMotorControllerPair.h:128</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1PidMotorControllerPairTuner_html_aa5fb5236cf4cae06a63e755d174bcacc"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPairTuner.html#aa5fb5236cf4cae06a63e755d174bcacc">subzero::PidMotorControllerPairTuner::PidMotorControllerPairTuner</a></div><div class="ttdeci">PidMotorControllerPairTuner(PidMotorControllerPair&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; &amp;controllerPair)</div><div class="ttdef"><b>Definition</b> <a href="#l00106">PidMotorControllerPair.h:106</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html">subzero::PidMotorControllerPair</a></div><div class="ttdoc">Encapsulates a pair of motors that should be treated as a single unit.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">PidMotorControllerPair.h:25</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a0baa47de880cc02242ed789897248b1d"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a0baa47de880cc02242ed789897248b1d">subzero::PidMotorControllerPair::UpdatePidSettings</a></div><div class="ttdeci">void UpdatePidSettings(PidSettings settings)</div><div class="ttdef"><b>Definition</b> <a href="#l00077">PidMotorControllerPair.h:77</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a1b49b77779dc7ca545226823084f9512"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a1b49b77779dc7ca545226823084f9512">subzero::PidMotorControllerPair::RunWithVelocity</a></div><div class="ttdeci">void RunWithVelocity(double percentageFirst, double percentageSecond)</div><div class="ttdoc">Run motors at the given percentage of max RPM.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">PidMotorControllerPair.h:61</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a20318ce5def79ea74ac4f715e64f5506"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a20318ce5def79ea74ac4f715e64f5506">subzero::PidMotorControllerPair::m_shuffleboardPrefix</a></div><div class="ttdeci">const std::string m_shuffleboardPrefix</div><div class="ttdef"><b>Definition</b> <a href="#l00084">PidMotorControllerPair.h:84</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a5d41f7e528a26f3b57e8293c092c2eeb"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a5d41f7e528a26f3b57e8293c092c2eeb">subzero::PidMotorControllerPair::Stop</a></div><div class="ttdeci">void Stop()</div><div class="ttdoc">Stop both motors.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">PidMotorControllerPair.h:70</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a69768388c9865b859c3028f627ffdaa2"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a69768388c9865b859c3028f627ffdaa2">subzero::PidMotorControllerPair::RunWithVelocity</a></div><div class="ttdeci">void RunWithVelocity(units::revolutions_per_minute_t rpmFirst, units::revolutions_per_minute_t rpmSecond)</div><div class="ttdoc">Run motors at the given RPM.</div><div class="ttdef"><b>Definition</b> <a href="#l00049">PidMotorControllerPair.h:49</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_a6c76577a5577980ab9a303aa79444052"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#a6c76577a5577980ab9a303aa79444052">subzero::PidMotorControllerPair::GetPidSettings</a></div><div class="ttdeci">const PidSettings &amp; GetPidSettings() const</div><div class="ttdef"><b>Definition</b> <a href="#l00075">PidMotorControllerPair.h:75</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorControllerPair_html_aea4e1dee23ab3a24fb11df0ad62cd2b4"><div class="ttname"><a href="classsubzero_1_1PidMotorControllerPair.html#aea4e1dee23ab3a24fb11df0ad62cd2b4">subzero::PidMotorControllerPair::PidMotorControllerPair</a></div><div class="ttdeci">PidMotorControllerPair(std::string prefix, PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; &amp;first, PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; &amp;second)</div><div class="ttdoc">Construct a new Pi MotorControllerPair.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">PidMotorControllerPair.h:34</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorController_html"><div class="ttname"><a href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a></div><div class="ttdoc">Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful...</div><div class="ttdef"><b>Definition</b> <a href="PidMotorController_8h_source.html#l00031">PidMotorController.h:31</a></div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 <div class="ttc" id="astructsubzero_1_1PidSettings_html"><div class="ttname"><a href="structsubzero_1_1PidSettings.html">subzero::PidSettings</a></div><div class="ttdef"><b>Definition</b> <a href="PidMotorController_8h_source.html#l00014">PidMotorController.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_e4caf7611a56be115c3233d233b2a691.html">motor</a></li><li class="navelem"><b>PidMotorControllerPair.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_e4caf7611a56be115c3233d233b2a691.html">motor</a></li><li class="navelem"><a class="el" href="PidMotorControllerPair_8h.html">PidMotorControllerPair.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

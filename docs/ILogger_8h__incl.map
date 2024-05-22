@@ -1,0 +1,17 @@
+<map id="include/subzero/logging/ILogger.h" name="include/subzero/logging/ILogger.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="405,5,561,46"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,94,97,120"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="405,43,112,96,111,91,404,38"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="121,94,272,120"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="412,49,256,92,255,87,411,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="297,94,376,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="448,49,373,89,371,84,445,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="400,94,566,120"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="486,46,486,78,480,78,480,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="590,94,654,120"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="519,44,589,84,586,88,516,49"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="678,94,731,120"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="539,44,664,88,662,93,537,49"/>
+<area shape="rect" id="Node000008" href="$UtilConstants_8h.html" title=" " alt="" coords="755,94,942,120"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="562,41,778,88,777,93,561,47"/>
+</map>

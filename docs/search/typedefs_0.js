@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['taggedchooserentry_0',['TaggedChooserEntry',['../classsubzero_1_1TaggedChooser.html#a7c2525eceef0c91e160211b8a3a20ad6',1,'subzero::TaggedChooser']]],
-  ['taggedchooserselectorgroup_1',['TaggedChooserSelectorGroup',['../classsubzero_1_1TaggedChooser.html#abf4af9649ae0c72b91253a3f6108fecb',1,'subzero::TaggedChooser']]],
-  ['taggedchooservalue_2',['TaggedChooserValue',['../classsubzero_1_1TaggedChooser.html#aa6929b987b93f092e1b211a6b4b20c81',1,'subzero::TaggedChooser']]]
+  ['acceleration_0',['Acceleration',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a4ed079491b07c06a096539d6461943cf',1,'subzero::BaseSingleAxisSubsystem::Acceleration'],['../classsubzero_1_1ISingleAxisSubsystem.html#a77b3e7201f6d87758169066f87254cda',1,'subzero::ISingleAxisSubsystem::Acceleration']]],
+  ['acceleration_5ft_1',['Acceleration_t',['../classsubzero_1_1BaseSingleAxisSubsystem.html#accef8023a79c84c1f64f134ab1b4b1c8',1,'subzero::BaseSingleAxisSubsystem::Acceleration_t'],['../classsubzero_1_1ISingleAxisSubsystem.html#aac224603908b3d5abd7b720d65b89a15',1,'subzero::ISingleAxisSubsystem::Acceleration_t']]]
 ];

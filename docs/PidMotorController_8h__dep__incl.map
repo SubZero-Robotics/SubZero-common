@@ -1,0 +1,11 @@
+<map id="include/subzero/motor/PidMotorController.h" name="include/subzero/motor/PidMotorController.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="115,5,264,46"/>
+<area shape="rect" id="Node000002" href="$PidMotorControllerPair_8h.html" title=" " alt="" coords="5,94,171,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,58,113,96,109,92,153,54"/>
+<area shape="rect" id="Node000003" href="$BaseSingleAxisSubsystem_8h.html" title=" " alt="" coords="195,94,386,135"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,54,269,92,266,96,222,58"/>
+<area shape="rect" id="Node000004" href="$LinearSingleAxisSubsystem_8h.html" title=" " alt="" coords="76,183,273,223"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="254,146,202,184,199,180,250,142"/>
+<area shape="rect" id="Node000005" href="$RotationalSingleAxisSubsystem_8h.html" title=" " alt="" coords="297,183,516,223"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="331,142,382,180,379,184,328,146"/>
+</map>

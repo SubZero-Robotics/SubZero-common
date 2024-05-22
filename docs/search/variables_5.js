@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['ignorelimit_0',['ignoreLimit',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#a699d194e00b9ea226106d16a7333c23f',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]],
-  ['invalidtrackedpose_1',['invalidTrackedPose',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#aecbfd07853dd183ec4fc290ee2f460f4',1,'subzero::TargetTracker::TargetTrackerConfig']]]
+  ['encoderdistanceperrevolution_0',['encoderDistancePerRevolution',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#a4bf6d0bb7ed450e9fba2989dcf160ff6',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]],
+  ['estimator_1',['estimator',['../classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html#a3583133b9a816cbd38ff075ec4ae594d',1,'subzero::PhotonVisionEstimators::PhotonCameraEstimator']]]
 ];

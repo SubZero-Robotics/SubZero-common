@@ -101,7 +101,7 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
   <div class="headertitle"><div class="title">ModifiableChooser.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// See</span></div>
+<a href="ModifiableChooser_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// See</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// https://github.com/frc1675/frc1675-2024/blob/42d94881e7dd001fac9bb410892267b4d4dd8063/src/main/java/frc/robot/util/ChangableSendableChooser.java</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
@@ -121,7 +121,7 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span>subzero {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html">   29</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1ModifiableChooser.html">ModifiableChooser</a> : <span class="keyword">public</span> wpi::Sendable {</div>
@@ -143,12 +143,14 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  std::recursive_mutex m_mutex;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_class" href="classsubzero_1_1ModifiableChooser.html">ModifiableChooser</a>() {</div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#a9c9c7a816c129b2a78ad6850caff68ae">   48</a></span>  <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a9c9c7a816c129b2a78ad6850caff68ae">ModifiableChooser</a>() {</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    m_instance = m_instances.fetch_add(1);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    wpi::SendableRegistry::Add(<span class="keyword">this</span>, <span class="stringliteral">&quot;SendableChangableChooser&quot;</span>, m_instance);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
+</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <a class="code hl_class" href="classsubzero_1_1ModifiableChooser.html">~ModifiableChooser</a>() { wpi::SendableRegistry::Remove(<span class="keyword">this</span>); }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#a121b2afcf66ab87c783666be5bc4a17f">   53</a></span>  <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a121b2afcf66ab87c783666be5bc4a17f">~ModifiableChooser</a>() { wpi::SendableRegistry::Remove(<span class="keyword">this</span>); }</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765">   61</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765">AddOption</a>(std::string name, T <span class="keywordtype">object</span>) { m_map[name] = object; }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
@@ -237,7 +239,8 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  }</div>
 </div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  std::string GetNtSelected() {</div>
+<div class="foldopen" id="foldopen00171" data-start="{" data-end="}">
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#a15e03e8d02c34a48e68b7b1f7d376067">  171</a></span>  std::string <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a15e03e8d02c34a48e68b7b1f7d376067">GetNtSelected</a>() {</div>
 <div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    std::optional&lt;T&gt; choice;</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    std::function&lt;void(std::optional&lt;T&gt;)&gt; listener;</div>
 <div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    std::string setSelectedTo;</div>
@@ -271,8 +274,10 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
 <div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> setSelectedTo;</div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  }</div>
+</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>  <span class="keywordtype">void</span> SetNtSelected(std::string val) {</div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#ab22e8647280d0ab0c8700ab02ec110a1">  206</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#ab22e8647280d0ab0c8700ab02ec110a1">SetNtSelected</a>(std::string val) {</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    std::optional&lt;T&gt; choice;</div>
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    std::function&lt;void(std::optional&lt;T&gt;)&gt; listener;</div>
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
@@ -302,6 +307,7 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      std::cerr &lt;&lt; ex.what() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>  }</div>
+</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
 <div class="foldopen" id="foldopen00243" data-start="{" data-end="}">
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#afdfec1de6af3619bc9e8c6db6edd4685">  243</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#afdfec1de6af3619bc9e8c6db6edd4685">OnChange</a>(std::function&lt;<span class="keywordtype">void</span>(std::optional&lt;T&gt;)&gt; listener) {</div>
@@ -310,7 +316,8 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  }</div>
 </div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <span class="keywordtype">void</span> InitSendable(wpi::SendableBuilder &amp;builder)<span class="keyword"> override </span>{</div>
+<div class="foldopen" id="foldopen00248" data-start="{" data-end="}">
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="classsubzero_1_1ModifiableChooser.html#a6c4da9e858ac872d24a981a91c466a76">  248</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a6c4da9e858ac872d24a981a91c466a76">InitSendable</a>(wpi::SendableBuilder &amp;builder)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    builder.SetSmartDashboardType(<span class="stringliteral">&quot;String Chooser&quot;</span>);</div>
 <div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    builder.PublishConstInteger(kInstance, m_instance);</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    builder.AddStringProperty(</div>
@@ -325,28 +332,35 @@ $(function(){initNavTree('ModifiableChooser_8h_source.html',''); initResizable(t
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    builder.AddStringProperty(</div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        kActive, std::bind(&amp;<a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a2de25fdfcc2f60f6de4655d8afc3f661">ModifiableChooser::GetSelectedKey</a>, <span class="keyword">this</span>), <span class="keyword">nullptr</span>);</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    builder.AddStringProperty(</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        kSelected, std::bind(&amp;ModifiableChooser::GetNtSelected, <span class="keyword">this</span>),</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        [<span class="keyword">this</span>](std::string_view val) { SetNtSelected(std::string{val}); });</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        kSelected, std::bind(&amp;<a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#a15e03e8d02c34a48e68b7b1f7d376067">ModifiableChooser::GetNtSelected</a>, <span class="keyword">this</span>),</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        [<span class="keyword">this</span>](std::string_view val) { <a class="code hl_function" href="classsubzero_1_1ModifiableChooser.html#ab22e8647280d0ab0c8700ab02ec110a1">SetNtSelected</a>(std::string{val}); });</div>
 <div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>  }</div>
+</div>
 <div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>};</div>
 </div>
 <div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>} <span class="comment">// namespace subzero</span></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html">subzero::ModifiableChooser</a></div><div class="ttdoc">A SmartDashboard drop-down that can have its options dynamically change.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">ModifiableChooser.h:29</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a121b2afcf66ab87c783666be5bc4a17f"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a121b2afcf66ab87c783666be5bc4a17f">subzero::ModifiableChooser::~ModifiableChooser</a></div><div class="ttdeci">~ModifiableChooser()</div><div class="ttdef"><b>Definition</b> <a href="#l00053">ModifiableChooser.h:53</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a15e03e8d02c34a48e68b7b1f7d376067"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a15e03e8d02c34a48e68b7b1f7d376067">subzero::ModifiableChooser::GetNtSelected</a></div><div class="ttdeci">std::string GetNtSelected()</div><div class="ttdef"><b>Definition</b> <a href="#l00171">ModifiableChooser.h:171</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a2de25fdfcc2f60f6de4655d8afc3f661"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a2de25fdfcc2f60f6de4655d8afc3f661">subzero::ModifiableChooser::GetSelectedKey</a></div><div class="ttdeci">std::string GetSelectedKey()</div><div class="ttdoc">Get the selected key rather than the value.</div><div class="ttdef"><b>Definition</b> <a href="#l00156">ModifiableChooser.h:156</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a2e28703b34da6848d881c7e1e2f87470"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a2e28703b34da6848d881c7e1e2f87470">subzero::ModifiableChooser::SetOptions</a></div><div class="ttdeci">void SetOptions(std::map&lt; std::string, T &gt; options, std::string defaultName, T defaultObject)</div><div class="ttdoc">Set the options from an existing set along with a default.</div><div class="ttdef"><b>Definition</b> <a href="#l00122">ModifiableChooser.h:122</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a518d99811f27f307360e7cc967837c87"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a518d99811f27f307360e7cc967837c87">subzero::ModifiableChooser::RemoveOption</a></div><div class="ttdeci">void RemoveOption(std::string name)</div><div class="ttdoc">Removes the option and updates the default option accoringly.</div><div class="ttdef"><b>Definition</b> <a href="#l00068">ModifiableChooser.h:68</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a6c4da9e858ac872d24a981a91c466a76"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a6c4da9e858ac872d24a981a91c466a76">subzero::ModifiableChooser::InitSendable</a></div><div class="ttdeci">void InitSendable(wpi::SendableBuilder &amp;builder) override</div><div class="ttdef"><b>Definition</b> <a href="#l00248">ModifiableChooser.h:248</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a962878d0bd247e52fc3957ac39da6f76"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a962878d0bd247e52fc3957ac39da6f76">subzero::ModifiableChooser::ClearOptions</a></div><div class="ttdeci">void ClearOptions()</div><div class="ttdoc">Clears all options.</div><div class="ttdef"><b>Definition</b> <a href="#l00086">ModifiableChooser.h:86</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_a9c9c7a816c129b2a78ad6850caff68ae"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#a9c9c7a816c129b2a78ad6850caff68ae">subzero::ModifiableChooser::ModifiableChooser</a></div><div class="ttdeci">ModifiableChooser()</div><div class="ttdef"><b>Definition</b> <a href="#l00048">ModifiableChooser.h:48</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_aa071d341266391f4a421f35fe0398765"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765">subzero::ModifiableChooser::AddOption</a></div><div class="ttdeci">void AddOption(std::string name, T object)</div><div class="ttdoc">Add a new option to the chooser.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">ModifiableChooser.h:61</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_ab22e8647280d0ab0c8700ab02ec110a1"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#ab22e8647280d0ab0c8700ab02ec110a1">subzero::ModifiableChooser::SetNtSelected</a></div><div class="ttdeci">void SetNtSelected(std::string val)</div><div class="ttdef"><b>Definition</b> <a href="#l00206">ModifiableChooser.h:206</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_ac80bdc631f67d74a17185d5e9fd7ee65"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#ac80bdc631f67d74a17185d5e9fd7ee65">subzero::ModifiableChooser::GetSelected</a></div><div class="ttdeci">T GetSelected()</div><div class="ttdoc">Get the selected option.</div><div class="ttdef"><b>Definition</b> <a href="#l00136">ModifiableChooser.h:136</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_ad6ef9637078e330904a6a7ed49a14aa4"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#ad6ef9637078e330904a6a7ed49a14aa4">subzero::ModifiableChooser::SetOptions</a></div><div class="ttdeci">void SetOptions(std::map&lt; std::string, T &gt; options)</div><div class="ttdoc">Populates options from an existing set.</div><div class="ttdef"><b>Definition</b> <a href="#l00098">ModifiableChooser.h:98</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_adbcf58f8bae2394886d5a33c8d9fdec2"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#adbcf58f8bae2394886d5a33c8d9fdec2">subzero::ModifiableChooser::SetDefaultOption</a></div><div class="ttdeci">void SetDefaultOption(std::string name, T object)</div><div class="ttdoc">Set the default option to return.</div><div class="ttdef"><b>Definition</b> <a href="#l00110">ModifiableChooser.h:110</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1ModifiableChooser_html_afdfec1de6af3619bc9e8c6db6edd4685"><div class="ttname"><a href="classsubzero_1_1ModifiableChooser.html#afdfec1de6af3619bc9e8c6db6edd4685">subzero::ModifiableChooser::OnChange</a></div><div class="ttdeci">void OnChange(std::function&lt; void(std::optional&lt; T &gt;)&gt; listener)</div><div class="ttdoc">Register a callback that gets executed whenever the selection changes.</div><div class="ttdef"><b>Definition</b> <a href="#l00243">ModifiableChooser.h:243</a></div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_54dcc2ba4fbc7b4e36841ff66fcf29fa.html">frc</a></li><li class="navelem"><a class="el" href="dir_95b5d1dfe995228eda4a146866726517.html">smartdashboard</a></li><li class="navelem"><b>ModifiableChooser.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_54dcc2ba4fbc7b4e36841ff66fcf29fa.html">frc</a></li><li class="navelem"><a class="el" href="dir_95b5d1dfe995228eda4a146866726517.html">smartdashboard</a></li><li class="navelem"><a class="el" href="ModifiableChooser_8h.html">ModifiableChooser.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

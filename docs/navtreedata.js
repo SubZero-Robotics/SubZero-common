@@ -25,19 +25,32 @@
 var NAVTREE =
 [
   [ "SubZero Common", "index.html", [
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
   ] ]
@@ -45,8 +58,13 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"AutoFactory_8h_source.html",
-"structsubzero_1_1InputUtils_1_1DeadzoneAxes.html"
+"AutoFactory_8h.html",
+"classConnectorX_1_1ConnectorXBoard.html#ac8b44a88c6b042b5f9f4435d0c1f35a8",
+"classsubzero_1_1BaseSingleAxisSubsystem.html#ab6770b352ddc52c876488edb0a1de2b3",
+"classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765",
+"dir_0a216d29a2e77e348f7f25242d38f93a.html",
+"namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815a68be4837f6c739877233e527a996dd00",
+"structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2990da8bfc9240fb09f0b49093c11b47"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

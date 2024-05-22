@@ -1,6 +1,11 @@
 var classsubzero_1_1ISingleAxisSubsystem =
 [
     [ "SingleAxisConfig", "structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html", "structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig" ],
+    [ "Acceleration", "classsubzero_1_1ISingleAxisSubsystem.html#a77b3e7201f6d87758169066f87254cda", null ],
+    [ "Acceleration_t", "classsubzero_1_1ISingleAxisSubsystem.html#aac224603908b3d5abd7b720d65b89a15", null ],
+    [ "Distance_t", "classsubzero_1_1ISingleAxisSubsystem.html#a0c5ba66b6c8a6f1bdffd91fe54e099fa", null ],
+    [ "Velocity", "classsubzero_1_1ISingleAxisSubsystem.html#a5eeedc925be4e59c62d059eec740739e", null ],
+    [ "Velocity_t", "classsubzero_1_1ISingleAxisSubsystem.html#aaea407e414091126f7fdc0555367b31a", null ],
     [ "AtHome", "classsubzero_1_1ISingleAxisSubsystem.html#a9ca59aeba0c4c3f7f6aacf564f48c36c", null ],
     [ "AtLimitSwitchMax", "classsubzero_1_1ISingleAxisSubsystem.html#a06e88330a7cde5ca2031a8865e22d2c0", null ],
     [ "AtLimitSwitchMin", "classsubzero_1_1ISingleAxisSubsystem.html#ad5211d2e2bef1ae86de218e05b0bc6c4", null ],

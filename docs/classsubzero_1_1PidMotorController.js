@@ -1,6 +1,10 @@
 var classsubzero_1_1PidMotorController =
 [
     [ "PidMotorController", "classsubzero_1_1PidMotorController.html#a5b821d88804b0d467b67aae087fefd19", null ],
+    [ "GetAbsoluteEncoderPosition", "classsubzero_1_1PidMotorController.html#af555199f23101a46c4a0bd4b2e9fd32a", null ],
+    [ "GetEncoderPosition", "classsubzero_1_1PidMotorController.html#af42d9069079c003e3916070395fc8601", null ],
+    [ "GetPidSettings", "classsubzero_1_1PidMotorController.html#aef9f331fddb69cca7a0419ffff734eec", null ],
+    [ "ResetEncoder", "classsubzero_1_1PidMotorController.html#a7219c7838479c52054d67dca75f391f7", null ],
     [ "RunToPosition", "classsubzero_1_1PidMotorController.html#a2cbc1f3eb6977e01c19a0486ccb1330d", null ],
     [ "RunWithVelocity", "classsubzero_1_1PidMotorController.html#ad75b3d88eaa65d06d52888d53af49e1e", null ],
     [ "RunWithVelocity", "classsubzero_1_1PidMotorController.html#a12be0f9b6de8007bf69626424d49408f", null ],
@@ -10,5 +14,16 @@ var classsubzero_1_1PidMotorController =
     [ "SetEncoderConversionFactor", "classsubzero_1_1PidMotorController.html#a7fffc276902219af00ee9c8db6bf9738", null ],
     [ "SetPidTolerance", "classsubzero_1_1PidMotorController.html#a7f4996eee9f70e31a6c9574c30d1ca6e", null ],
     [ "Stop", "classsubzero_1_1PidMotorController.html#adc89ecdc8c9e1476840dd4b671e4d579", null ],
-    [ "Update", "classsubzero_1_1PidMotorController.html#a388a4b0789e667964690e8cefdc54498", null ]
+    [ "Update", "classsubzero_1_1PidMotorController.html#a388a4b0789e667964690e8cefdc54498", null ],
+    [ "UpdatePidSettings", "classsubzero_1_1PidMotorController.html#a1202b029f44c0e92deb99c0886ca66c4", null ],
+    [ "m_absEncoder", "classsubzero_1_1PidMotorController.html#a8f94ad02d862b831904869d8dd6821d9", null ],
+    [ "m_absolutePositionEnabled", "classsubzero_1_1PidMotorController.html#a4d1462b0164cd7fab6e276171fa22aad", null ],
+    [ "m_absoluteTarget", "classsubzero_1_1PidMotorController.html#afb86b25a868d5018b66623bbf5e04830", null ],
+    [ "m_controller", "classsubzero_1_1PidMotorController.html#a7d2dc1651b611ed6ba9fa252bb0629ed", null ],
+    [ "m_encoder", "classsubzero_1_1PidMotorController.html#a7daf8de0b79667121125622a692a3b2b", null ],
+    [ "m_maxRpm", "classsubzero_1_1PidMotorController.html#a68a8a6d2445164e41a25f185fc184d82", null ],
+    [ "m_motor", "classsubzero_1_1PidMotorController.html#a7a8058012f56b4e1a5da334621d1ab07", null ],
+    [ "m_name", "classsubzero_1_1PidMotorController.html#a04baaa993b24132553d280db7ed782b8", null ],
+    [ "m_pidController", "classsubzero_1_1PidMotorController.html#aa52605e1f26f3ca405836a99e98b0d32", null ],
+    [ "m_settings", "classsubzero_1_1PidMotorController.html#a024f7bea668e70409fff3bc5c357c119", null ]
 ];

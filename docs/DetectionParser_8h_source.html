@@ -101,45 +101,49 @@ $(function(){initNavTree('DetectionParser_8h_source.html',''); initResizable(tru
   <div class="headertitle"><div class="title">DetectionParser.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DETECTION_PARSER_H</span></div>
+<a href="DetectionParser_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DETECTION_PARSER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DETECTION_PARSER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;subzero/utils/UtilConstants.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="UtilConstants_8h.html">subzero/utils/UtilConstants.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>subzero {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>DetectionParser {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacesubzero_1_1DetectionParser.html">   11</a></span><span class="keyword">namespace </span>DetectionParser {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">BoundingBox</a> {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>  <span class="comment">// An ordered pair representing X and Y of the top left coordinate</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  std::pair&lt;double, double&gt; topLeft;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a9817622ac2430209638fb337c525a18b">   15</a></span>  std::pair&lt;double, double&gt; <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a9817622ac2430209638fb337c525a18b">topLeft</a>;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <span class="comment">// An ordered pair representing X and Y of the bottom right coordinate</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  std::pair&lt;double, double&gt; bottomRight;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keywordtype">double</span> width;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">double</span> height;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2dedb3cf1d5cd2ef5a7020620f8be405">   17</a></span>  std::pair&lt;double, double&gt; <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2dedb3cf1d5cd2ef5a7020620f8be405">bottomRight</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a22122e9d3d9030277aaaf8a424f7206a">   18</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a22122e9d3d9030277aaaf8a424f7206a">width</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2990da8bfc9240fb09f0b49093c11b47">   19</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2990da8bfc9240fb09f0b49093c11b47">height</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="comment">// [topLeftY, topLeftX, bottomRightY, bottomRightX]</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">static</span> <a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">BoundingBox</a> parse(std::array&lt;double, 4&gt; boxes) {</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#ada23f795914134a541841ce89b818a3c">   22</a></span>  <span class="keyword">static</span> <a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">BoundingBox</a> <a class="code hl_function" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#ada23f795914134a541841ce89b818a3c">parse</a>(std::array&lt;double, 4&gt; boxes) {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordflow">return</span> {std::make_pair(boxes.at(1), boxes.at(0)), <span class="comment">// top-left (X, Y)</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            std::make_pair(boxes.at(3), boxes.at(2)), <span class="comment">// bottom-right (X, y)</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            boxes.at(3) - boxes.at(1),                <span class="comment">// width</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            boxes.at(2) - boxes.at(0)};               <span class="comment">// height</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  }</div>
+</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>};</div>
 </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html">DetectedObject</a> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  ObjectClasses classId;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordtype">double</span> confidence;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">BoundingBox</a> bbox;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5df2f3e339492af03a4a2b080bb7d8b3">   31</a></span>  <a class="code hl_enumeration" href="namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815">ObjectClasses</a> <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5df2f3e339492af03a4a2b080bb7d8b3">classId</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae984d24b2d4dd6dde337daed3eb52659">   32</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae984d24b2d4dd6dde337daed3eb52659">confidence</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae8035ef5c8b84b50eb6476ebaaf556fa">   33</a></span>  <a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">BoundingBox</a> <a class="code hl_variable" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae8035ef5c8b84b50eb6476ebaaf556fa">bbox</a>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">static</span> std::vector&lt;DetectedObject&gt;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  parse(std::vector&lt;double&gt; flattenedOutputList) {</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5d71054870378e973a3aaca226299b26">   36</a></span>  <a class="code hl_function" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5d71054870378e973a3aaca226299b26">parse</a>(std::vector&lt;double&gt; flattenedOutputList) {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::vector&lt;DetectedObject&gt; detectedObjects;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    detectedObjects.reserve(10);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
@@ -153,27 +157,41 @@ $(function(){initNavTree('DetectionParser_8h_source.html',''); initResizable(tru
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                                 flattenedOutputList.at(startNum + 4),</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>                                 flattenedOutputList.at(startNum + 5)});</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      <a class="code hl_struct" href="structsubzero_1_1DetectionParser_1_1DetectedObject.html">DetectedObject</a> box = {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>          (ObjectClasses)flattenedOutputList.at(startNum), <span class="comment">// classId</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>          (<a class="code hl_enumeration" href="namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815">ObjectClasses</a>)flattenedOutputList.at(startNum), <span class="comment">// classId</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>          flattenedOutputList.at(startNum + 1),            <span class="comment">// confidence score</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>          BoundingBox::parse(bound)};                      <span class="comment">// bbox</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>          <a class="code hl_function" href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#ada23f795914134a541841ce89b818a3c">BoundingBox::parse</a>(bound)};                      <span class="comment">// bbox</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      detectedObjects.push_back(box);</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    }</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> detectedObjects;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  }</div>
+</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>};</div>
 </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace DetectionParser</span></div>
+</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} <span class="comment">// namespace subzero</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aUtilConstants_8h_html"><div class="ttname"><a href="UtilConstants_8h.html">UtilConstants.h</a></div></div>
+<div class="ttc" id="anamespacesubzero_1_1DetectionParser_html_aa4cd21a72f3b80dec8661629a4fb0815"><div class="ttname"><a href="namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815">subzero::DetectionParser::ObjectClasses</a></div><div class="ttdeci">ObjectClasses</div><div class="ttdef"><b>Definition</b> <a href="UtilConstants_8h_source.html#l00018">UtilConstants.h:18</a></div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 <div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html">subzero::DetectionParser::BoundingBox</a></div><div class="ttdef"><b>Definition</b> <a href="#l00013">DetectionParser.h:13</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html_a22122e9d3d9030277aaaf8a424f7206a"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a22122e9d3d9030277aaaf8a424f7206a">subzero::DetectionParser::BoundingBox::width</a></div><div class="ttdeci">double width</div><div class="ttdef"><b>Definition</b> <a href="#l00018">DetectionParser.h:18</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html_a2990da8bfc9240fb09f0b49093c11b47"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2990da8bfc9240fb09f0b49093c11b47">subzero::DetectionParser::BoundingBox::height</a></div><div class="ttdeci">double height</div><div class="ttdef"><b>Definition</b> <a href="#l00019">DetectionParser.h:19</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html_a2dedb3cf1d5cd2ef5a7020620f8be405"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2dedb3cf1d5cd2ef5a7020620f8be405">subzero::DetectionParser::BoundingBox::bottomRight</a></div><div class="ttdeci">std::pair&lt; double, double &gt; bottomRight</div><div class="ttdef"><b>Definition</b> <a href="#l00017">DetectionParser.h:17</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html_a9817622ac2430209638fb337c525a18b"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#a9817622ac2430209638fb337c525a18b">subzero::DetectionParser::BoundingBox::topLeft</a></div><div class="ttdeci">std::pair&lt; double, double &gt; topLeft</div><div class="ttdef"><b>Definition</b> <a href="#l00015">DetectionParser.h:15</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1BoundingBox_html_ada23f795914134a541841ce89b818a3c"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1BoundingBox.html#ada23f795914134a541841ce89b818a3c">subzero::DetectionParser::BoundingBox::parse</a></div><div class="ttdeci">static BoundingBox parse(std::array&lt; double, 4 &gt; boxes)</div><div class="ttdef"><b>Definition</b> <a href="#l00022">DetectionParser.h:22</a></div></div>
 <div class="ttc" id="astructsubzero_1_1DetectionParser_1_1DetectedObject_html"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1DetectedObject.html">subzero::DetectionParser::DetectedObject</a></div><div class="ttdef"><b>Definition</b> <a href="#l00030">DetectionParser.h:30</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1DetectedObject_html_a5d71054870378e973a3aaca226299b26"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5d71054870378e973a3aaca226299b26">subzero::DetectionParser::DetectedObject::parse</a></div><div class="ttdeci">static std::vector&lt; DetectedObject &gt; parse(std::vector&lt; double &gt; flattenedOutputList)</div><div class="ttdef"><b>Definition</b> <a href="#l00036">DetectionParser.h:36</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1DetectedObject_html_a5df2f3e339492af03a4a2b080bb7d8b3"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#a5df2f3e339492af03a4a2b080bb7d8b3">subzero::DetectionParser::DetectedObject::classId</a></div><div class="ttdeci">ObjectClasses classId</div><div class="ttdef"><b>Definition</b> <a href="#l00031">DetectionParser.h:31</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1DetectedObject_html_ae8035ef5c8b84b50eb6476ebaaf556fa"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae8035ef5c8b84b50eb6476ebaaf556fa">subzero::DetectionParser::DetectedObject::bbox</a></div><div class="ttdeci">BoundingBox bbox</div><div class="ttdef"><b>Definition</b> <a href="#l00033">DetectionParser.h:33</a></div></div>
+<div class="ttc" id="astructsubzero_1_1DetectionParser_1_1DetectedObject_html_ae984d24b2d4dd6dde337daed3eb52659"><div class="ttname"><a href="structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae984d24b2d4dd6dde337daed3eb52659">subzero::DetectionParser::DetectedObject::confidence</a></div><div class="ttdeci">double confidence</div><div class="ttdef"><b>Definition</b> <a href="#l00032">DetectionParser.h:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_075008f2de043488b57d8fa917769a1d.html">utils</a></li><li class="navelem"><b>DetectionParser.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_075008f2de043488b57d8fa917769a1d.html">utils</a></li><li class="navelem"><a class="el" href="DetectionParser_8h.html">DetectionParser.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

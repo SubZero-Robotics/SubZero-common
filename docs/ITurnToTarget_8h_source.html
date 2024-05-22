@@ -101,33 +101,38 @@ $(function(){initNavTree('ITurnToTarget_8h_source.html',''); initResizable(true)
   <div class="headertitle"><div class="title">ITurnToTarget.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="ITurnToTarget_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;frc/controller/HolonomicDriveController.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;frc/geometry/Pose2d.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;frc/geometry/Rotation2d.h&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;frc/kinematics/ChassisSpeeds.h&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>subzero {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classsubzero_1_1ITurnToTarget.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1ITurnToTarget.html">ITurnToTarget</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  <span class="keyword">virtual</span> frc::ChassisSpeeds GetSpeedCorrection() = 0;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">virtual</span> frc::ChassisSpeeds BlendWithInput(<span class="keyword">const</span> frc::ChassisSpeeds &amp;other,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classsubzero_1_1ITurnToTarget.html#a1dd73a23bdc61fd282006fb7a6af8b35">   17</a></span>  <span class="keyword">virtual</span> frc::ChassisSpeeds <a class="code hl_function" href="classsubzero_1_1ITurnToTarget.html#a1dd73a23bdc61fd282006fb7a6af8b35">GetSpeedCorrection</a>() = 0;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classsubzero_1_1ITurnToTarget.html#a488b2d4cc1a1cf483901bbdd07908857">   18</a></span>  <span class="keyword">virtual</span> frc::ChassisSpeeds <a class="code hl_function" href="classsubzero_1_1ITurnToTarget.html#a488b2d4cc1a1cf483901bbdd07908857">BlendWithInput</a>(<span class="keyword">const</span> frc::ChassisSpeeds &amp;other,</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>                                            <span class="keywordtype">double</span> correctionFactor) = 0;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> AtGoal() = 0;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update() = 0;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classsubzero_1_1ITurnToTarget.html#ad44e767cc62097184ba7471d355e1dde">   20</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classsubzero_1_1ITurnToTarget.html#ad44e767cc62097184ba7471d355e1dde">AtGoal</a>() = 0;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classsubzero_1_1ITurnToTarget.html#a58c5f334eba4ed67d4b7dc540f4983b1">   21</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classsubzero_1_1ITurnToTarget.html#a58c5f334eba4ed67d4b7dc540f4983b1">Update</a>() = 0;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
 </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>} <span class="comment">// namespace subzero</span></div>
 <div class="ttc" id="aclasssubzero_1_1ITurnToTarget_html"><div class="ttname"><a href="classsubzero_1_1ITurnToTarget.html">subzero::ITurnToTarget</a></div><div class="ttdoc">Interface for classes that move towards a target while maintaining driver input.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">ITurnToTarget.h:15</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1ITurnToTarget_html_a1dd73a23bdc61fd282006fb7a6af8b35"><div class="ttname"><a href="classsubzero_1_1ITurnToTarget.html#a1dd73a23bdc61fd282006fb7a6af8b35">subzero::ITurnToTarget::GetSpeedCorrection</a></div><div class="ttdeci">virtual frc::ChassisSpeeds GetSpeedCorrection()=0</div></div>
+<div class="ttc" id="aclasssubzero_1_1ITurnToTarget_html_a488b2d4cc1a1cf483901bbdd07908857"><div class="ttname"><a href="classsubzero_1_1ITurnToTarget.html#a488b2d4cc1a1cf483901bbdd07908857">subzero::ITurnToTarget::BlendWithInput</a></div><div class="ttdeci">virtual frc::ChassisSpeeds BlendWithInput(const frc::ChassisSpeeds &amp;other, double correctionFactor)=0</div></div>
+<div class="ttc" id="aclasssubzero_1_1ITurnToTarget_html_a58c5f334eba4ed67d4b7dc540f4983b1"><div class="ttname"><a href="classsubzero_1_1ITurnToTarget.html#a58c5f334eba4ed67d4b7dc540f4983b1">subzero::ITurnToTarget::Update</a></div><div class="ttdeci">virtual void Update()=0</div></div>
+<div class="ttc" id="aclasssubzero_1_1ITurnToTarget_html_ad44e767cc62097184ba7471d355e1dde"><div class="ttname"><a href="classsubzero_1_1ITurnToTarget.html#ad44e767cc62097184ba7471d355e1dde">subzero::ITurnToTarget::AtGoal</a></div><div class="ttdeci">virtual bool AtGoal()=0</div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_62eda5d77ea7fd37e35b36493bfa2cc7.html">target</a></li><li class="navelem"><b>ITurnToTarget.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_62eda5d77ea7fd37e35b36493bfa2cc7.html">target</a></li><li class="navelem"><a class="el" href="ITurnToTarget_8h.html">ITurnToTarget.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

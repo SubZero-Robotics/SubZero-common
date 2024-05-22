@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['initialize_0',['Initialize',['../classsubzero_1_1TaggedChooser.html#a6a82e7bc4095f92a722433eddfc980ba',1,'subzero::TaggedChooser']]],
-  ['initialize_1',['initialize',['../classConnectorX_1_1ConnectorXBoard.html#a23cb4d6a008edf9881c23087617a97ac',1,'ConnectorX::ConnectorXBoard']]],
-  ['isenabled_2',['IsEnabled',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a6231bdfc15caa5cf79e43b0a984eeb09',1,'subzero::BaseSingleAxisSubsystem::IsEnabled()'],['../classsubzero_1_1ISingleAxisSubsystem.html#aa57bd469af249492dcb609996972d2a0',1,'subzero::ISingleAxisSubsystem::IsEnabled()']]]
+  ['hastargetlock_0',['HasTargetLock',['../classsubzero_1_1TargetTracker.html#a3cd47ea400537c44c0fb3f80f6ae4a88',1,'subzero::TargetTracker']]],
+  ['home_1',['Home',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a33885f09165c318e1ab7e0bf1c87bf96',1,'subzero::BaseSingleAxisSubsystem::Home()'],['../classsubzero_1_1ISingleAxisSubsystem.html#ab50a2b2485736bc4a48f987d7229d230',1,'subzero::ISingleAxisSubsystem::Home()']]]
 ];

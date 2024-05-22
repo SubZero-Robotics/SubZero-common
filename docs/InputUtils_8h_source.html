@@ -101,37 +101,46 @@ $(function(){initNavTree('InputUtils_8h_source.html',''); initResizable(true); }
   <div class="headertitle"><div class="title">InputUtils.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="InputUtils_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>subzero {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>InputUtils {</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespacesubzero_1_1InputUtils.html">    6</a></span><span class="keyword">namespace </span>InputUtils {</div>
 <div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html">    7</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>  <span class="keywordtype">double</span> x;</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="keywordtype">double</span> y;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keywordtype">bool</span> deadzoneApplied;</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a8dac61132941ab2033b733cdd4f92be6">    8</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a8dac61132941ab2033b733cdd4f92be6">x</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#ab0b4bd9ef091bfbafe92eccccb072f52">    9</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#ab0b4bd9ef091bfbafe92eccccb072f52">y</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a2ec0e103d3f81fd52e6d1f00ae16ca69">   10</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a2ec0e103d3f81fd52e6d1f00ae16ca69">deadzoneApplied</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>} <a class="code hl_struct" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html">DeadzoneAxes</a>;</div>
 </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><a class="code hl_struct" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html">DeadzoneAxes</a> CalculateCircularDeadzone(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y,</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="}">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacesubzero_1_1InputUtils.html#af050671c12196a44292407665fd3f63c">   21</a></span><a class="code hl_struct" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html">DeadzoneAxes</a> <a class="code hl_function" href="namespacesubzero_1_1InputUtils.html#af050671c12196a44292407665fd3f63c">CalculateCircularDeadzone</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y,</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>                                       <span class="keywordtype">double</span> deadzoneDistance) {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keywordflow">if</span> (std::hypot(x, y) &gt; deadzoneDistance) {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> {.x = x, .y = y, .deadzoneApplied = <span class="keyword">false</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">return</span> {.<a class="code hl_variable" href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a8dac61132941ab2033b733cdd4f92be6">x</a> = x, .y = y, .deadzoneApplied = <span class="keyword">false</span>};</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordflow">return</span> {.x = 0, .y = 0, .deadzoneApplied = <span class="keyword">true</span>};</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <span class="comment">// namespace InputUtils</span></div>
+</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace subzero</span></div>
+<div class="ttc" id="anamespacesubzero_1_1InputUtils_html_af050671c12196a44292407665fd3f63c"><div class="ttname"><a href="namespacesubzero_1_1InputUtils.html#af050671c12196a44292407665fd3f63c">subzero::InputUtils::CalculateCircularDeadzone</a></div><div class="ttdeci">DeadzoneAxes CalculateCircularDeadzone(double x, double y, double deadzoneDistance)</div><div class="ttdoc">Remaps x/y inputs to a combined value before applying a deadzone.</div><div class="ttdef"><b>Definition</b> <a href="#l00021">InputUtils.h:21</a></div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 <div class="ttc" id="astructsubzero_1_1InputUtils_1_1DeadzoneAxes_html"><div class="ttname"><a href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html">subzero::InputUtils::DeadzoneAxes</a></div><div class="ttdef"><b>Definition</b> <a href="#l00007">InputUtils.h:7</a></div></div>
+<div class="ttc" id="astructsubzero_1_1InputUtils_1_1DeadzoneAxes_html_a2ec0e103d3f81fd52e6d1f00ae16ca69"><div class="ttname"><a href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a2ec0e103d3f81fd52e6d1f00ae16ca69">subzero::InputUtils::DeadzoneAxes::deadzoneApplied</a></div><div class="ttdeci">bool deadzoneApplied</div><div class="ttdef"><b>Definition</b> <a href="#l00010">InputUtils.h:10</a></div></div>
+<div class="ttc" id="astructsubzero_1_1InputUtils_1_1DeadzoneAxes_html_a8dac61132941ab2033b733cdd4f92be6"><div class="ttname"><a href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a8dac61132941ab2033b733cdd4f92be6">subzero::InputUtils::DeadzoneAxes::x</a></div><div class="ttdeci">double x</div><div class="ttdef"><b>Definition</b> <a href="#l00008">InputUtils.h:8</a></div></div>
+<div class="ttc" id="astructsubzero_1_1InputUtils_1_1DeadzoneAxes_html_ab0b4bd9ef091bfbafe92eccccb072f52"><div class="ttname"><a href="structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#ab0b4bd9ef091bfbafe92eccccb072f52">subzero::InputUtils::DeadzoneAxes::y</a></div><div class="ttdeci">double y</div><div class="ttdef"><b>Definition</b> <a href="#l00009">InputUtils.h:9</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_075008f2de043488b57d8fa917769a1d.html">utils</a></li><li class="navelem"><b>InputUtils.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_075008f2de043488b57d8fa917769a1d.html">utils</a></li><li class="navelem"><a class="el" href="InputUtils_8h.html">InputUtils.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

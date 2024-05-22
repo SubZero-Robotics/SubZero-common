@@ -1,6 +1,7 @@
 var classsubzero_1_1TargetTracker =
 [
     [ "TargetTrackerConfig", "structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html", "structsubzero_1_1TargetTracker_1_1TargetTrackerConfig" ],
+    [ "TargetTracker", "classsubzero_1_1TargetTracker.html#a3ea465764bc0afc1a0f42a4b25d2c81b", null ],
     [ "GetBestTarget", "classsubzero_1_1TargetTracker.html#a3cbec595fa4340ca308af889204f1807", null ],
     [ "GetBestTargetPose", "classsubzero_1_1TargetTracker.html#a1c134e8ce1aa520a0741c1ebb8d6d074", null ],
     [ "GetDistanceToTarget", "classsubzero_1_1TargetTracker.html#af9efa0c5da054fe5cef8b3fb2bee1738", null ],

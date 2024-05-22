@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['cameraangle_0',['cameraAngle',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#adead5d836260f1d34d5d132a93958cf7',1,'subzero::TargetTracker::TargetTrackerConfig']]],
-  ['cameralensheight_1',['cameraLensHeight',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a56b7112b72edf8dcde263577c9a5ca94',1,'subzero::TargetTracker::TargetTrackerConfig']]],
-  ['confidencethreshold_2',['confidenceThreshold',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#aa1923a6d20896bc741f5811792dbec98',1,'subzero::TargetTracker::TargetTrackerConfig']]],
-  ['conversionfunction_3',['conversionFunction',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#a8decffb9a89472f86fe5973dba412e9c',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]]
+  ['absoluteencoderdistanceperrevolution_0',['absoluteEncoderDistancePerRevolution',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#acb2cd6469c90b8460f3b1f1b6c5bb993',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]],
+  ['ambiguity_1',['ambiguity',['../classLimelightHelpers_1_1RawFiducial.html#a04c1aaf30f2a5637b983ce959b8b56fb',1,'LimelightHelpers::RawFiducial']]],
+  ['areapercentage_2',['areaPercentage',['../structsubzero_1_1DetectedObject.html#a43df086e15a6d2594fdc011f3477c510',1,'subzero::DetectedObject']]],
+  ['areapercentagethreshold_3',['areaPercentageThreshold',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a4b6c03115f0c1a373680cf5fcb474e81',1,'subzero::TargetTracker::TargetTrackerConfig']]],
+  ['avgtagarea_4',['avgTagArea',['../classLimelightHelpers_1_1PoseEstimate.html#a8be702fed1493928193970e772725af8',1,'LimelightHelpers::PoseEstimate']]],
+  ['avgtagdist_5',['avgTagDist',['../classLimelightHelpers_1_1PoseEstimate.html#a161f4e041cd9d5ebe65d07ac81f3b18f',1,'LimelightHelpers::PoseEstimate']]]
 ];

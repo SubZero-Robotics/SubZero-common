@@ -1,4 +1,7 @@
 <map id="include/subzero/moduledrivers" name="include/subzero/moduledrivers">
-<area shape="rect" id="node1" href="dir_5b3eee5823f64052cd1dacfc5639e277.html" title="moduledrivers" alt="" coords="26,52,129,78"/>
-<area shape="rect" id="clust1" href="dir_d669cb0aa992110f76a4601eedd1dd73.html" title="subzero" alt="" coords="16,16,139,89"/>
+<area shape="rect" id="node1" href="dir_aa08deb51f47010ed95b8e5c8c67938c.html" title="logging" alt="" coords="46,126,109,152"/>
+<area shape="rect" id="node2" href="dir_5b3eee5823f64052cd1dacfc5639e277.html" title="moduledrivers" alt="" coords="26,52,129,78"/>
+<area shape="poly" id="edge1" href="dir_000008_000007.html" alt="" coords="80,78,80,110,75,110,75,78"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000008_000007.html" title="2" alt="" coords="82,100,89,115"/>
+<area shape="rect" id="clust1" href="dir_d669cb0aa992110f76a4601eedd1dd73.html" title="subzero" alt="" coords="16,16,139,162"/>
 </map>

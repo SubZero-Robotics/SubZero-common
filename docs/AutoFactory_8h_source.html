@@ -101,7 +101,7 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">AutoFactory.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="AutoFactory_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;frc/DriverStation.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;frc/Filesystem.h&gt;</span></div>
@@ -117,16 +117,19 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;subzero/frc2/command/EmptyCommand.h&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;subzero/logging/ConsoleLogger.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="EmptyCommand_8h.html">subzero/frc2/command/EmptyCommand.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="ConsoleLogger_8h.html">subzero/logging/ConsoleLogger.h</a>&quot;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span>subzero {</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacesubzero.html">   20</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacesubzero.html">subzero</a> {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classsubzero_1_1AutoFactory.html">   29</a></span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1AutoFactory.html">AutoFactory</a> {</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="classsubzero_1_1AutoFactory.html">AutoFactory</a>(<span class="keyword">const</span> std::map&lt;T, std::string&gt; &amp;autos)</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classsubzero_1_1AutoFactory.html#ac006d4b529484322236baa91316b016a">   31</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="classsubzero_1_1AutoFactory.html#ac006d4b529484322236baa91316b016a">AutoFactory</a>(<span class="keyword">const</span> std::map&lt;T, std::string&gt; &amp;autos)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      : m_autos{autos} {}</div>
+</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">const</span> std::map&lt;T, std::string&gt; &amp;m_autos;</div>
@@ -148,10 +151,10 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  frc2::CommandPtr PathPlannerPathFromName(<span class="keyword">const</span> std::string autoName) {</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (!AutoFileExists(autoName)) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      ConsoleWriter.logError(<span class="stringliteral">&quot;Auto Factory&quot;</span>,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <a class="code hl_define" href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a>.logError(<span class="stringliteral">&quot;Auto Factory&quot;</span>,</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                             <span class="stringliteral">&quot;AUTO &#39;%s&#39; DOES NOT EXIST HELP US EVAN&quot;</span>,</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                             autoName.c_str());</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classsubzero_1_1EmptyCommand.html">EmptyCommand</a>().ToPtr();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="keywordflow">return</span> EmptyCommand().ToPtr();</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> pathplanner::PathPlannerAuto(autoName).ToPtr();</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
@@ -160,7 +163,7 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
 <div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">   69</a></span>  frc2::CommandPtr <a class="code hl_function" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">GetAuto</a>(T type) {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keywordflow">if</span> (!m_autos.contains(type)) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      ConsoleWriter.logWarning(</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      <a class="code hl_define" href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a>.logWarning(</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>          <span class="stringliteral">&quot;Auto Factory&quot;</span>,</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>          <span class="stringliteral">&quot;Auto type %d does not exist, defaulting to empty &quot;</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="stringliteral">&quot;auto&quot;</span>,</div>
@@ -174,15 +177,21 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
 </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>} <span class="comment">// namespace subzero</span></div>
+</div>
+<div class="ttc" id="aConsoleLogger_8h_html"><div class="ttname"><a href="ConsoleLogger_8h.html">ConsoleLogger.h</a></div></div>
+<div class="ttc" id="aConsoleLogger_8h_html_addb44682eef1608a06ae0ad2fa0330ab"><div class="ttname"><a href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a></div><div class="ttdeci">#define ConsoleWriter</div><div class="ttdef"><b>Definition</b> <a href="ConsoleLogger_8h_source.html#l00073">ConsoleLogger.h:73</a></div></div>
+<div class="ttc" id="aEmptyCommand_8h_html"><div class="ttname"><a href="EmptyCommand_8h.html">EmptyCommand.h</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1AutoFactory_html"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html">subzero::AutoFactory</a></div><div class="ttdoc">Safely get an auto command from PPLib without the risk of crashing from a missing auto file.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">AutoFactory.h:29</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1AutoFactory_html_a5c64c38fca5f653bcb72744cd4a40d80"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">subzero::AutoFactory::GetAuto</a></div><div class="ttdeci">frc2::CommandPtr GetAuto(T type)</div><div class="ttdoc">Get the auto command specified by the key.</div><div class="ttdef"><b>Definition</b> <a href="#l00069">AutoFactory.h:69</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1AutoFactory_html_ac006d4b529484322236baa91316b016a"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html#ac006d4b529484322236baa91316b016a">subzero::AutoFactory::AutoFactory</a></div><div class="ttdeci">AutoFactory(const std::map&lt; T, std::string &gt; &amp;autos)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">AutoFactory.h:31</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1EmptyCommand_html"><div class="ttname"><a href="classsubzero_1_1EmptyCommand.html">subzero::EmptyCommand</a></div><div class="ttdef"><b>Definition</b> <a href="EmptyCommand_8h_source.html#l00010">EmptyCommand.h:11</a></div></div>
+<div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="#l00020">AutoFactory.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_0a216d29a2e77e348f7f25242d38f93a.html">autonomous</a></li><li class="navelem"><b>AutoFactory.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_d669cb0aa992110f76a4601eedd1dd73.html">subzero</a></li><li class="navelem"><a class="el" href="dir_0a216d29a2e77e348f7f25242d38f93a.html">autonomous</a></li><li class="navelem"><a class="el" href="AutoFactory_8h.html">AutoFactory.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>

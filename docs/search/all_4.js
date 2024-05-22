@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['emptycommand_0',['EmptyCommand',['../classsubzero_1_1EmptyCommand.html',1,'subzero']]],
-  ['enablepid_1',['EnablePid',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a93aa78a64bfe95d03b836891683c7942',1,'subzero::BaseSingleAxisSubsystem::EnablePid()'],['../classsubzero_1_1ISingleAxisSubsystem.html#a030600a873b123d39ab0285a9995e18c',1,'subzero::ISingleAxisSubsystem::EnablePid()']]]
+  ['d_0',['d',['../structsubzero_1_1PidSettings.html#ab4b53c38942e3cb1d621e2dac405ec94',1,'subzero::PidSettings']]],
+  ['d0_1',['D0',['../namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a0e3e06c992d1ead056a6861bb46b28a8',1,'ConnectorX']]],
+  ['d1_2',['D1',['../namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a4a4079e06eb2f7ba7a12821c7c58a3f6',1,'ConnectorX']]],
+  ['d2_3',['D2',['../namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5ac4d62b6dcca08e5caf06c01889282859',1,'ConnectorX']]],
+  ['data_4',['data',['../structConnectorX_1_1Message.html#a4e98dcff68f28305db4a08f46937e015',1,'ConnectorX::Message']]],
+  ['deadzoneapplied_5',['deadzoneApplied',['../structsubzero_1_1InputUtils_1_1DeadzoneAxes.html#a2ec0e103d3f81fd52e6d1f00ae16ca69',1,'subzero::InputUtils::DeadzoneAxes']]],
+  ['deadzoneaxes_6',['DeadzoneAxes',['../structsubzero_1_1InputUtils_1_1DeadzoneAxes.html',1,'subzero::InputUtils']]],
+  ['defaultspeed_7',['defaultSpeed',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#a3d4b89044e8de95d2b37f60ed7c50fad',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]],
+  ['delay_8',['delay',['../structConnectorX_1_1Commands_1_1CommandPattern.html#abf72e23491fc29b0d8835497f9cea22d',1,'ConnectorX::Commands::CommandPattern']]],
+  ['detectedcorner_9',['DetectedCorner',['../structsubzero_1_1DetectedCorner.html',1,'subzero::DetectedCorner'],['../structsubzero_1_1DetectedCorner.html#a13a0e17f14494b36c568f0d23274e1e4',1,'subzero::DetectedCorner::DetectedCorner()'],['../structsubzero_1_1DetectedCorner.html#ac8ee3793e7caf8ce600dfeb645642574',1,'subzero::DetectedCorner::DetectedCorner(const std::vector&lt; double &gt; &amp;coord)']]],
+  ['detectedcorners_10',['DetectedCorners',['../structsubzero_1_1DetectedCorners.html',1,'subzero::DetectedCorners'],['../structsubzero_1_1DetectedCorners.html#a6729a2f7b5ee56a14007f62f4a22356b',1,'subzero::DetectedCorners::DetectedCorners()'],['../structsubzero_1_1DetectedCorners.html#a552c0a866155e16ec74b1049eec9505e',1,'subzero::DetectedCorners::DetectedCorners(const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;corners)'],['../structsubzero_1_1DetectedCorners.html#a2da71c3cbc12f0aa6df8806af98b7d9d',1,'subzero::DetectedCorners::DetectedCorners(const std::vector&lt; double &gt; &amp;rawCorners)']]],
+  ['detectedcorners_11',['detectedCorners',['../structsubzero_1_1DetectedObject.html#aaeec4adc77f2483aa37a1b9b7845c236',1,'subzero::DetectedObject']]],
+  ['detectedobject_12',['DetectedObject',['../structsubzero_1_1DetectedObject.html',1,'subzero::DetectedObject'],['../structsubzero_1_1DetectionParser_1_1DetectedObject.html',1,'subzero::DetectionParser::DetectedObject'],['../structsubzero_1_1DetectedObject.html#ab573faee203faf8da052c0b126c48707',1,'subzero::DetectedObject::DetectedObject()'],['../structsubzero_1_1DetectedObject.html#a47533c3ec18d050e7050094041e7e4fa',1,'subzero::DetectedObject::DetectedObject(uint8_t id, double conf, units::degree_t cX, units::degree_t cY, double area, std::vector&lt; std::vector&lt; double &gt; &gt; corners)'],['../structsubzero_1_1DetectedObject.html#a7884cca610796cd24c8f54102a850f29',1,'subzero::DetectedObject::DetectedObject(const LimelightHelpers::DetectionResultClass &amp;detectionResult)']]],
+  ['detectionparser_2eh_13',['DetectionParser.h',['../DetectionParser_8h.html',1,'']]],
+  ['detectionresultclass_14',['DetectionResultClass',['../classLimelightHelpers_1_1DetectionResultClass.html',1,'LimelightHelpers::DetectionResultClass'],['../classLimelightHelpers_1_1DetectionResultClass.html#a61b6f84c863e826140096e7196d63ae6',1,'LimelightHelpers::DetectionResultClass::DetectionResultClass()']]],
+  ['detectionresults_15',['DetectionResults',['../classLimelightHelpers_1_1VisionResultsClass.html#adb4a71aafa55b2a64a386fe3c04a6fa3',1,'LimelightHelpers::VisionResultsClass']]],
+  ['digitalport_16',['DigitalPort',['../namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5',1,'ConnectorX']]],
+  ['digitalread_17',['DigitalRead',['../namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a1010edf06878e779695cefcff178fba3',1,'ConnectorX::Commands']]],
+  ['digitalsetup_18',['DigitalSetup',['../namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a3f1458700011dac3ca0592ac5979f37e',1,'ConnectorX::Commands']]],
+  ['digitalwrite_19',['DigitalWrite',['../namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a974604e564f7c4aafde1df292b3cad16',1,'ConnectorX::Commands']]],
+  ['disablepid_20',['DisablePid',['../classsubzero_1_1BaseSingleAxisSubsystem.html#aa827a060da7b8282ea68a64c42610608',1,'subzero::BaseSingleAxisSubsystem::DisablePid()'],['../classsubzero_1_1ISingleAxisSubsystem.html#a373c8d770bee8adff601a609f348e751',1,'subzero::ISingleAxisSubsystem::DisablePid()']]],
+  ['distance_5ft_21',['Distance_t',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a2c3c5641b38976f4279b0b982be722ad',1,'subzero::BaseSingleAxisSubsystem::Distance_t'],['../classsubzero_1_1ISingleAxisSubsystem.html#a0c5ba66b6c8a6f1bdffd91fe54e099fa',1,'subzero::ISingleAxisSubsystem::Distance_t']]],
+  ['disttocamera_22',['distToCamera',['../classLimelightHelpers_1_1RawFiducial.html#a8a787513be597e9c2af177741608407c',1,'LimelightHelpers::RawFiducial']]],
+  ['disttorobot_23',['distToRobot',['../classLimelightHelpers_1_1RawFiducial.html#ac41c658d9fed25316f4aa873c1134d4a',1,'LimelightHelpers::RawFiducial']]],
+  ['done_24',['done',['../structConnectorX_1_1Commands_1_1ResponsePatternDone.html#a1550c28e36b60e395ac96307a363abbe',1,'ConnectorX::Commands::ResponsePatternDone']]]
 ];

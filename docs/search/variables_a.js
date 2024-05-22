@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simgamepiecepose_0',['simGamepiecePose',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a4dc95d5f96ad2ac5f19353d291dc050b',1,'subzero::TargetTracker::TargetTrackerConfig']]]
+  ['kminloglevel_0',['kMinLogLevel',['../namespacesubzero_1_1Logging.html#af5e662b8143337e47d5ed28892cb812f',1,'subzero::Logging']]]
 ];

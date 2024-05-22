@@ -124,16 +124,16 @@ Public Types</h2></td></tr>
 <tr class="separator:a0c5ba66b6c8a6f1bdffd91fe54e099fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eeedc925be4e59c62d059eec740739e" id="r_a5eeedc925be4e59c62d059eec740739e"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eeedc925be4e59c62d059eec740739e">Velocity</a></td></tr>
 <tr class="separator:a5eeedc925be4e59c62d059eec740739e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaea407e414091126f7fdc0555367b31a" id="r_aaea407e414091126f7fdc0555367b31a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaea407e414091126f7fdc0555367b31a">Velocity_t</a> = units::unit_t&lt;Velocity&gt;</td></tr>
+<tr class="memitem:aaea407e414091126f7fdc0555367b31a" id="r_aaea407e414091126f7fdc0555367b31a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaea407e414091126f7fdc0555367b31a">Velocity_t</a> = units::unit_t&lt;<a class="el" href="#a5eeedc925be4e59c62d059eec740739e">Velocity</a>&gt;</td></tr>
 <tr class="separator:aaea407e414091126f7fdc0555367b31a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77b3e7201f6d87758169066f87254cda" id="r_a77b3e7201f6d87758169066f87254cda"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77b3e7201f6d87758169066f87254cda">Acceleration</a></td></tr>
 <tr class="separator:a77b3e7201f6d87758169066f87254cda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac224603908b3d5abd7b720d65b89a15" id="r_aac224603908b3d5abd7b720d65b89a15"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac224603908b3d5abd7b720d65b89a15">Acceleration_t</a> = units::unit_t&lt;Acceleration&gt;</td></tr>
+<tr class="memitem:aac224603908b3d5abd7b720d65b89a15" id="r_aac224603908b3d5abd7b720d65b89a15"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac224603908b3d5abd7b720d65b89a15">Acceleration_t</a> = units::unit_t&lt;<a class="el" href="#a77b3e7201f6d87758169066f87254cda">Acceleration</a>&gt;</td></tr>
 <tr class="separator:aac224603908b3d5abd7b720d65b89a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab5d19783f386b917e07b8d96125d2685" id="r_ab5d19783f386b917e07b8d96125d2685"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d19783f386b917e07b8d96125d2685">RunMotorVelocity</a> (Velocity_t speed, bool ignoreEncoder=false)=0</td></tr>
+<tr class="memitem:ab5d19783f386b917e07b8d96125d2685" id="r_ab5d19783f386b917e07b8d96125d2685"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5d19783f386b917e07b8d96125d2685">RunMotorVelocity</a> (<a class="el" href="#aaea407e414091126f7fdc0555367b31a">Velocity_t</a> speed, bool ignoreEncoder=false)=0</td></tr>
 <tr class="memdesc:ab5d19783f386b917e07b8d96125d2685"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run at the given velocity; disables any in-progress absolute movements.  <br /></td></tr>
 <tr class="separator:ab5d19783f386b917e07b8d96125d2685"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6e7695018e6da9a4a061acedd1aa290" id="r_ac6e7695018e6da9a4a061acedd1aa290"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6e7695018e6da9a4a061acedd1aa290">RunMotorPercentage</a> (double percentSpeed, bool ignoreEncoder=false)=0</td></tr>
@@ -145,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4261fd5b6b93d54b09be00ee76c61ba" id="r_aa4261fd5b6b93d54b09be00ee76c61ba"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4261fd5b6b93d54b09be00ee76c61ba">ResetEncoder</a> ()=0</td></tr>
 <tr class="memdesc:aa4261fd5b6b93d54b09be00ee76c61ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset encoder back to 0 ticks.  <br /></td></tr>
 <tr class="separator:aa4261fd5b6b93d54b09be00ee76c61ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7acdd248c060bf9afa2afd80e313f1a1" id="r_a7acdd248c060bf9afa2afd80e313f1a1"><td class="memItemLeft" align="right" valign="top">virtual Distance_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7acdd248c060bf9afa2afd80e313f1a1">GetCurrentPosition</a> ()=0</td></tr>
+<tr class="memitem:a7acdd248c060bf9afa2afd80e313f1a1" id="r_a7acdd248c060bf9afa2afd80e313f1a1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7acdd248c060bf9afa2afd80e313f1a1">GetCurrentPosition</a> ()=0</td></tr>
 <tr class="memdesc:a7acdd248c060bf9afa2afd80e313f1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current position in terms of converted distance.  <br /></td></tr>
 <tr class="separator:a7acdd248c060bf9afa2afd80e313f1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca59aeba0c4c3f7f6aacf564f48c36c" id="r_a9ca59aeba0c4c3f7f6aacf564f48c36c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ca59aeba0c4c3f7f6aacf564f48c36c">AtHome</a> ()=0</td></tr>
@@ -160,10 +160,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06e88330a7cde5ca2031a8865e22d2c0" id="r_a06e88330a7cde5ca2031a8865e22d2c0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06e88330a7cde5ca2031a8865e22d2c0">AtLimitSwitchMax</a> ()=0</td></tr>
 <tr class="memdesc:a06e88330a7cde5ca2031a8865e22d2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only check the limit switch for maximum extent.  <br /></td></tr>
 <tr class="separator:a06e88330a7cde5ca2031a8865e22d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c565bdce69e366abdd04ac6ca05ea22" id="r_a5c565bdce69e366abdd04ac6ca05ea22"><td class="memItemLeft" align="right" valign="top">virtual frc2::CommandPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c565bdce69e366abdd04ac6ca05ea22">MoveToPositionAbsolute</a> (Distance_t position)=0</td></tr>
+<tr class="memitem:a5c565bdce69e366abdd04ac6ca05ea22" id="r_a5c565bdce69e366abdd04ac6ca05ea22"><td class="memItemLeft" align="right" valign="top">virtual frc2::CommandPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c565bdce69e366abdd04ac6ca05ea22">MoveToPositionAbsolute</a> (<a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a> position)=0</td></tr>
 <tr class="memdesc:a5c565bdce69e366abdd04ac6ca05ea22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start moving to the absolute position.  <br /></td></tr>
 <tr class="separator:a5c565bdce69e366abdd04ac6ca05ea22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5848d6e6988378df592f52c8246aa54c" id="r_a5848d6e6988378df592f52c8246aa54c"><td class="memItemLeft" align="right" valign="top">virtual frc2::CommandPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5848d6e6988378df592f52c8246aa54c">MoveToPositionRelative</a> (Distance_t position)=0</td></tr>
+<tr class="memitem:a5848d6e6988378df592f52c8246aa54c" id="r_a5848d6e6988378df592f52c8246aa54c"><td class="memItemLeft" align="right" valign="top">virtual frc2::CommandPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5848d6e6988378df592f52c8246aa54c">MoveToPositionRelative</a> (<a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a> position)=0</td></tr>
 <tr class="memdesc:a5848d6e6988378df592f52c8246aa54c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start moving to the position given the current distance and relative position.  <br /></td></tr>
 <tr class="separator:a5848d6e6988378df592f52c8246aa54c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab50a2b2485736bc4a48f987d7229d230" id="r_ab50a2b2485736bc4a48f987d7229d230"><td class="memItemLeft" align="right" valign="top">virtual frc2::CommandPtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab50a2b2485736bc4a48f987d7229d230">Home</a> ()=0</td></tr>
@@ -223,7 +223,7 @@ template&lt;typename Distance &gt; </div>
 template&lt;typename Distance &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::Acceleration_t = units::unit_t&lt;Acceleration&gt;</td>
+          <td class="memname">using <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::Acceleration_t = units::unit_t&lt;<a class="el" href="#a77b3e7201f6d87758169066f87254cda">Acceleration</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -279,7 +279,7 @@ template&lt;typename Distance &gt; </div>
 template&lt;typename Distance &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::Velocity_t = units::unit_t&lt;Velocity&gt;</td>
+          <td class="memname">using <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::Velocity_t = units::unit_t&lt;<a class="el" href="#a5eeedc925be4e59c62d059eec740739e">Velocity</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -499,7 +499,7 @@ template&lt;typename Distance &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual Distance_t <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::GetCurrentPosition </td>
+          <td class="memname">virtual <a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a> <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::GetCurrentPosition </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -599,7 +599,7 @@ template&lt;typename Distance &gt; </div>
         <tr>
           <td class="memname">virtual frc2::CommandPtr <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::MoveToPositionAbsolute </td>
           <td>(</td>
-          <td class="paramtype">Distance_t</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -637,7 +637,7 @@ template&lt;typename Distance &gt; </div>
         <tr>
           <td class="memname">virtual frc2::CommandPtr <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::MoveToPositionRelative </td>
           <td>(</td>
-          <td class="paramtype">Distance_t</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a0c5ba66b6c8a6f1bdffd91fe54e099fa">Distance_t</a></td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -785,7 +785,7 @@ template&lt;typename Distance &gt; </div>
         <tr>
           <td class="memname">virtual void <a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">subzero::ISingleAxisSubsystem</a>&lt; Distance &gt;::RunMotorVelocity </td>
           <td>(</td>
-          <td class="paramtype">Velocity_t</td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#aaea407e414091126f7fdc0555367b31a">Velocity_t</a></td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -852,7 +852,7 @@ template&lt;typename Distance &gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>subzero</b></li><li class="navelem"><a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">ISingleAxisSubsystem</a></li>
+    <li class="navelem"><a class="el" href="namespacesubzero.html">subzero</a></li><li class="navelem"><a class="el" href="classsubzero_1_1ISingleAxisSubsystem.html">ISingleAxisSubsystem</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>
