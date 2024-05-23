@@ -12,32 +12,32 @@ using namespace Keys;
 
 static GamepadButton keyMapping[RowCount][ColCount] = {
     /* Row 0 */ {
-        GamepadButton::ButtonVirtual0,
-        GamepadButton::ButtonVirtual1,
-        GamepadButton::ButtonVirtual2,
+        GamepadButton::ButtonA,
+        GamepadButton::ButtonVirtual4,
+        GamepadButton::ButtonX,
     },
     /* Row 1 */
     {
-        GamepadButton::ButtonX,
-        GamepadButton::ButtonB,
-        GamepadButton::ButtonA,
+        GamepadButton::ButtonY,
+        GamepadButton::ButtonBumperLeft,
+        GamepadButton::ButtonBumperRight,
     },
     /* Row 2 */
     {
-        GamepadButton::ButtonY,
-        GamepadButton::ButtonVirtual4,
-        GamepadButton::ButtonVirtual5,
+        GamepadButton::ButtonBack,
+        GamepadButton::ButtonStart,
+        GamepadButton::ButtonLeftStick,
     },
     /* Row 3 */
     {
-        GamepadButton::ButtonBumperLeft,
-        GamepadButton::ButtonBumperRight,
-        GamepadButton::ButtonLeftStick,
+        GamepadButton::ButtonRightStick,
+        GamepadButton::ButtonVirtual0,
+        GamepadButton::ButtonVirtual1,
     },
     /* Row 4 */
     {
-        GamepadButton::ButtonRightStick,
-        GamepadButton::ButtonRightStick,
+        GamepadButton::ButtonVirtual2,
+        GamepadButton::None,
         GamepadButton::ButtonVirtual3,
     },
 };

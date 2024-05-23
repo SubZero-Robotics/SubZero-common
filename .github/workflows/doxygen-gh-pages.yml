@@ -1,0 +1,39 @@
+name: 'Doxygen'
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+  pull_request:
+
+# defaults:
+# run:
+#    working-directory: lib
+  
+permissions:
+  contents: write
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: set version
+        run: echo "PROJECT_NUMBER = `git describe --tags`" >> Doxyfile
+      - name: Generate Documentation
+        uses: mattnotmitt/doxygen-action@edge
+        with:
+          working-directory: 'lib/'
+      - name: Give permissions
+        run: sudo chmod -R a+rw lib/docs/**/*
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: lib/docs/html # The folder the action should deploy.
+          target-folder: docs/
+          force: true
