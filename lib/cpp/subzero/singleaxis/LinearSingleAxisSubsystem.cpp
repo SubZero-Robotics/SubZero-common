@@ -1,6 +1,7 @@
 #pragma once
 
 #include "subzero/singleaxis/LinearSingleAxisSubsystem.h"
+
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.cpp"
 
 using namespace subzero;
@@ -21,7 +22,8 @@ void LinearSingleAxisSubsystem<TController>::Periodic() {
 }
 
 template <typename TController>
-void RunMotorVelocity(units::meters_per_second_t speed, bool ignoreEncoder) {
+void LinearSingleAxisSubsystem<TController>::RunMotorVelocity(
+    units::meters_per_second_t speed, bool ignoreEncoder) {
   BaseSingleAxisSubsystem<TController, units::meter>::DisablePid();
   ConsoleWriter.logWarning(
       BaseSingleAxisSubsystem<TController, units::meter>::m_name,
