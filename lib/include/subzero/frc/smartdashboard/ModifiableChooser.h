@@ -18,112 +18,109 @@
 #include <string>
 #include <vector>
 
-namespace subzero
-{
+namespace subzero {
+
+/**
+ * @brief A SmartDashboard drop-down that can have its options dynamically
+ * change
+ *
+ * @tparam T The underlying value to return for a selected option
+ */
+template <typename T> class ModifiableChooser : public wpi::Sendable {
+private:
+  static inline const std::string kDefault = "default";
+  static inline const std::string kSelected = "selected";
+  static inline const std::string kActive = "active";
+  static inline const std::string kOptions = "options";
+  static inline const std::string kInstance = ".instance";
+
+  std::map<std::string, T> m_map;
+
+  std::string m_defaultChoice = "";
+  int m_instance;
+  std::string m_previousValue;
+  std::function<void(std::optional<T>)> m_listener;
+  std::atomic_int m_instances{0};
+  std::string m_selected;
+  std::recursive_mutex m_mutex;
+
+public:
+  ModifiableChooser();
+
+  ~ModifiableChooser();
 
   /**
-   * @brief A SmartDashboard drop-down that can have its options dynamically
-   * change
+   * @brief Add a new option to the chooser
    *
-   * @tparam T The underlying value to return for a selected option
+   * @param name Name to display
+   * @param object Value that gets returned upon selection
    */
-  template <typename T>
-  class ModifiableChooser : public wpi::Sendable
-  {
-  private:
-    static inline const std::string kDefault = "default";
-    static inline const std::string kSelected = "selected";
-    static inline const std::string kActive = "active";
-    static inline const std::string kOptions = "options";
-    static inline const std::string kInstance = ".instance";
+  void AddOption(std::string name, T object);
 
-    std::map<std::string, T> m_map;
+  /**
+   * @brief Removes the option and updates the default option accoringly
+   *
+   * @param name
+   */
+  void RemoveOption(std::string name);
 
-    std::string m_defaultChoice = "";
-    int m_instance;
-    std::string m_previousValue;
-    std::function<void(std::optional<T>)> m_listener;
-    std::atomic_int m_instances{0};
-    std::string m_selected;
-    std::recursive_mutex m_mutex;
+  /**
+   * @brief Clears all options
+   *
+   */
+  void ClearOptions();
 
-  public:
-    ModifiableChooser();
+  /**
+   * @brief Populates options from an existing set
+   *
+   * @param options
+   */
+  void SetOptions(std::map<std::string, T> options);
 
-    ~ModifiableChooser();
+  /**
+   * @brief Set the default option to return
+   *
+   * @param name
+   * @param object
+   */
+  void SetDefaultOption(std::string name, T object);
 
-    /**
-     * @brief Add a new option to the chooser
-     *
-     * @param name Name to display
-     * @param object Value that gets returned upon selection
-     */
-    void AddOption(std::string name, T object);
+  /**
+   * @brief Set the options from an existing set along with a default
+   *
+   * @param options
+   * @param defaultName
+   * @param defaultObject
+   */
+  void SetOptions(std::map<std::string, T> options, std::string defaultName,
+                  T defaultObject);
 
-    /**
-     * @brief Removes the option and updates the default option accoringly
-     *
-     * @param name
-     */
-    void RemoveOption(std::string name);
+  /**
+   * @brief Get the selected option
+   *
+   * @return T
+   */
+  T GetSelected();
 
-    /**
-     * @brief Clears all options
-     *
-     */
-    void ClearOptions();
+  /**
+   * @brief Get the selected key rather than the value
+   *
+   * @return std::string
+   */
+  std::string GetSelectedKey();
 
-    /**
-     * @brief Populates options from an existing set
-     *
-     * @param options
-     */
-    void SetOptions(std::map<std::string, T> options);
+  std::string GetNtSelected();
 
-    /**
-     * @brief Set the default option to return
-     *
-     * @param name
-     * @param object
-     */
-    void SetDefaultOption(std::string name, T object);
+  void SetNtSelected(std::string val);
 
-    /**
-     * @brief Set the options from an existing set along with a default
-     *
-     * @param options
-     * @param defaultName
-     * @param defaultObject
-     */
-    void SetOptions(std::map<std::string, T> options, std::string defaultName,
-                    T defaultObject);
+  /**
+   * @brief Register a callback that gets executed whenever the selection
+   * changes
+   *
+   * @param listener
+   */
+  void OnChange(std::function<void(std::optional<T>)> listener);
 
-    /**
-     * @brief Get the selected option
-     *
-     * @return T
-     */
-    T GetSelected();
-
-    /**
-     * @brief Get the selected key rather than the value
-     *
-     * @return std::string
-     */
-    std::string GetSelectedKey();
-
-    std::string GetNtSelected();
-
-    void SetNtSelected(std::string val);
-
-    /**
-     * @brief Register a callback that gets executed whenever the selection
-     * changes
-     *
-     * @param listener
-     */
-    void OnChange(std::function<void(std::optional<T>)> listener);
-
-    void InitSendable(wpi::SendableBuilder &builder) override;
-  };
+  void InitSendable(wpi::SendableBuilder &builder) override;
+};
 } // namespace subzero

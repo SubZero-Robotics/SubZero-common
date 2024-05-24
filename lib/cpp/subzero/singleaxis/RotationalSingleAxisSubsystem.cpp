@@ -6,36 +6,30 @@
 using namespace subzero;
 
 template <typename TController>
-void RotationalSingleAxisSubsystem<TController>::Periodic()
-{
-    using RotationalBase = BaseSingleAxisSubsystem<TController, units::degree>;
+void RotationalSingleAxisSubsystem<TController>::Periodic() {
+  using RotationalBase = BaseSingleAxisSubsystem<TController, units::degree>;
 
-    RotationalBase::Periodic();
+  RotationalBase::Periodic();
 
-    if (RotationalBase::m_ligament2d)
-    {
-        RotationalBase::m_ligament2d
-            ->SetAngle(
-                (RotationalBase::m_config.reversed
-                     ? -RotationalBase::GetCurrentPosition()
-                     : RotationalBase::GetCurrentPosition()) +
-                RotationalBase::m_config
-                    .mechanismConfig.minimumAngle);
-    }
+  if (RotationalBase::m_ligament2d) {
+    RotationalBase::m_ligament2d->SetAngle(
+        (RotationalBase::m_config.reversed
+             ? -RotationalBase::GetCurrentPosition()
+             : RotationalBase::GetCurrentPosition()) +
+        RotationalBase::m_config.mechanismConfig.minimumAngle);
+  }
 }
 
 template <typename TController>
-void RotationalSingleAxisSubsystem<TController>::RunMotorVelocity(units::degrees_per_second_t speed,
-                                                                  bool ignoreEncoder)
-{
-    if (!BaseSingleAxisSubsystem<TController,
-                                 units::degree>::IsMovementAllowed(speed.value(), ignoreEncoder))
-    {
-        return;
-    }
+void RotationalSingleAxisSubsystem<TController>::RunMotorVelocity(
+    units::degrees_per_second_t speed, bool ignoreEncoder) {
+  if (!BaseSingleAxisSubsystem<TController, units::degree>::IsMovementAllowed(
+          speed.value(), ignoreEncoder)) {
+    return;
+  }
 
-    BaseSingleAxisSubsystem<TController, units::degree>::DisablePid();
+  BaseSingleAxisSubsystem<TController, units::degree>::DisablePid();
 
-    BaseSingleAxisSubsystem<TController, units::degree>::m_controller
-        .RunWithVelocity(speed);
+  BaseSingleAxisSubsystem<TController, units::degree>::m_controller
+      .RunWithVelocity(speed);
 }
