@@ -34,30 +34,9 @@ public:
 private:
   const std::map<T, std::string> &m_autos;
 
-  bool AutoFileExists(const std::string fileName) {
-    const std::string filePath = frc::filesystem::GetDeployDirectory() +
-                                 "/pathplanner/autos/" + fileName + ".auto";
+  bool AutoFileExists(const std::string fileName);
 
-    std::error_code error_code;
-    std::unique_ptr<wpi::MemoryBuffer> fileBuffer =
-        wpi::MemoryBuffer::GetFile(filePath, error_code);
-
-    if (fileBuffer == nullptr || error_code) {
-      return false;
-    }
-
-    return true;
-  }
-
-  frc2::CommandPtr PathPlannerPathFromName(const std::string autoName) {
-    if (!AutoFileExists(autoName)) {
-      ConsoleWriter.logError("Auto Factory",
-                             "AUTO '%s' DOES NOT EXIST HELP US EVAN",
-                             autoName.c_str());
-      return EmptyCommand().ToPtr();
-    }
-    return pathplanner::PathPlannerAuto(autoName).ToPtr();
-  }
+  frc2::CommandPtr PathPlannerPathFromName(const std::string autoName);
 
 public:
   /**
@@ -66,17 +45,6 @@ public:
    * @param type
    * @return frc2::CommandPtr The schedulable auto command
    */
-  frc2::CommandPtr GetAuto(T type) {
-    if (!m_autos.contains(type)) {
-      ConsoleWriter.logWarning(
-          "Auto Factory",
-          "Auto type %d does not exist, defaulting to empty "
-          "auto",
-          static_cast<int>(type));
-      return EmptyCommand().ToPtr();
-    }
-
-    return PathPlannerPathFromName(m_autos.at(type));
-  }
+  frc2::CommandPtr GetAuto(T type);
 };
 } // namespace subzero

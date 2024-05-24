@@ -46,122 +46,64 @@ public:
                               TRelativeEncoder &encoder,
                               TController &controller, PidSettings pidSettings,
                               TAbsoluteEncoder *absEncoder,
-                              units::revolutions_per_minute_t maxRpm)
-      : m_name{name}, m_motor{motor}, m_controller{controller},
-        m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
-        m_pidController{
-            frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
-        m_maxRpm{maxRpm} {
-    // Doing it here so the PID controllers themselves get updated
-    UpdatePidSettings(pidSettings);
-  }
+                              units::revolutions_per_minute_t maxRpm);
 
   /**
    * @brief Set the motor to a percentage of max voltage
    *
    * @param percentage
    */
-  void Set(double percentage) { m_motor.Set(percentage); }
+  inline void Set(double percentage) { m_motor.Set(percentage); }
 
   /**
    * @brief Set a motor to a voltage
    *
    * @param volts
    */
-  void Set(units::volt_t volts) {
-    frc::SmartDashboard::PutNumber(m_name + " Commanded volts", volts.value());
-    m_motor.SetVoltage(volts);
-  }
+  void Set(units::volt_t volts);
 
   /**
    * @brief Absolute positioning is considered 'Done' when within this zone
    *
    * @param tolerance
    */
-  void SetPidTolerance(double tolerance) {
-    m_pidController.SetTolerance(tolerance);
-  }
+  void SetPidTolerance(double tolerance);
 
   /**
    * @brief ! Call this every loop in Periodic !
    *
    */
-  void Update() {
-    if (m_absolutePositionEnabled) {
-      // ConsoleWriter.logVerbose(
-      //     m_name,
-      //     "relative position %0.3f, absolute position %0.3f, absolute target"
-      //     "%0.3f",
-      //     GetEncoderPosition(), GetAbsoluteEncoderPosition(),
-      //     m_absoluteTarget);
-      auto effort =
-          m_pidController.Calculate(GetEncoderPosition(), m_absoluteTarget);
-      double totalEffort = effort;
-      Set(units::volt_t(totalEffort));
-
-      if (m_pidController.AtSetpoint()) {
-        m_pidController.Reset();
-        m_absolutePositionEnabled = false;
-        Stop();
-      }
-    }
-  }
+  void Update();
 
   /**
    * @brief Set to this velocity
    *
    * @param rpm
    */
-  void RunWithVelocity(units::revolutions_per_minute_t rpm) {
-    m_absolutePositionEnabled = false;
-    frc::SmartDashboard::PutNumber(m_name + "commanded rpm", rpm.value());
-    m_controller.SetReference(rpm.value(),
-                              rev::CANSparkBase::ControlType::kVelocity);
-  }
+  void RunWithVelocity(units::revolutions_per_minute_t rpm);
 
   /**
    * @brief Set to a percentage of max RPM
    *
    * @param percentage
    */
-  void RunWithVelocity(double percentage) {
-    if (abs(percentage) > 1.0) {
-      ConsoleWriter.logError("PidMotorController",
-                             "Incorrect percentages for motor %s: Value=%.4f ",
-                             m_name.c_str(), percentage);
-      return;
-    }
-    auto rpm = units::revolutions_per_minute_t(m_maxRpm) * percentage;
-    RunWithVelocity(rpm);
-  }
+  void RunWithVelocity(double percentage);
 
   /**
    * @brief Enables absolute positioning and sets the target to the position
    *
    * @param position
    */
-  void RunToPosition(double position) {
-    ConsoleWriter.logVerbose(m_name + " Target position", position);
-    Stop();
-    m_pidController.Reset();
-    m_absolutePositionEnabled = true;
-    m_absoluteTarget = position;
-  }
+  void RunToPosition(double position);
 
-  virtual void ResetEncoder() {
+  inline virtual void ResetEncoder() {
     m_encoder.SetPosition(0);
     ConsoleWriter.logInfo(m_name + " PID Controller", "Reset encoder%s", "");
   }
 
-  double GetEncoderPosition() { return m_encoder.GetPosition(); }
+  inline double GetEncoderPosition() { return m_encoder.GetPosition(); }
 
-  std::optional<double> GetAbsoluteEncoderPosition() {
-    if (m_absEncoder) {
-      return m_absEncoder->GetPosition();
-    }
-
-    return std::nullopt;
-  }
+  std::optional<double> GetAbsoluteEncoderPosition();
 
   /**
    * @brief Sets the multiplier for going between encoder ticks and actual
@@ -169,7 +111,7 @@ public:
    *
    * @param factor
    */
-  void SetEncoderConversionFactor(double factor) {
+  inline void SetEncoderConversionFactor(double factor) {
     m_encoder.SetPositionConversionFactor(factor);
   }
 
@@ -179,7 +121,7 @@ public:
    *
    * @param factor
    */
-  void SetAbsoluteEncoderConversionFactor(double factor) {
+  inline void SetAbsoluteEncoderConversionFactor(double factor) {
     if (m_absEncoder) {
       m_absEncoder->SetPositionConversionFactor(factor);
     }
@@ -189,47 +131,11 @@ public:
    * @brief Disable absolute positioning and stop the motor
    *
    */
-  void Stop() {
-    m_absolutePositionEnabled = false;
-    m_motor.Set(0);
-  }
+  void Stop();
 
-  const PidSettings &GetPidSettings() { return m_settings; }
+  inline const PidSettings &GetPidSettings() { return m_settings; }
 
-  void UpdatePidSettings(PidSettings settings) {
-    if (settings.p != m_settings.p) {
-      ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
-                            settings.p, m_name.c_str());
-      m_controller.SetP(settings.p);
-    }
-
-    if (settings.i != m_settings.i) {
-      ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
-                            settings.i, m_name.c_str());
-      m_controller.SetI(settings.i);
-    }
-
-    if (settings.d != m_settings.d) {
-      ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
-                            settings.d, m_name.c_str());
-      m_controller.SetD(settings.d);
-    }
-
-    if (settings.iZone != m_settings.iZone) {
-      ConsoleWriter.logInfo("PidMotorController",
-                            "Setting IZone to %.6f for %s", settings.iZone,
-                            m_name.c_str());
-      m_controller.SetIZone(settings.iZone);
-    }
-
-    if (settings.ff != m_settings.ff) {
-      ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
-                            settings.ff, m_name.c_str());
-      m_controller.SetFF(settings.ff);
-    }
-
-    m_settings = settings;
-  }
+  void UpdatePidSettings(PidSettings settings);
 
   const std::string m_name;
 

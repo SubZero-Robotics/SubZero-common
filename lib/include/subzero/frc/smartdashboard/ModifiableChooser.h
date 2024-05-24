@@ -45,12 +45,9 @@ private:
   std::recursive_mutex m_mutex;
 
 public:
-  ModifiableChooser() {
-    m_instance = m_instances.fetch_add(1);
-    wpi::SendableRegistry::Add(this, "SendableChangableChooser", m_instance);
-  }
+  ModifiableChooser();
 
-  ~ModifiableChooser() { wpi::SendableRegistry::Remove(this); }
+  ~ModifiableChooser();
 
   /**
    * @brief Add a new option to the chooser
@@ -58,48 +55,27 @@ public:
    * @param name Name to display
    * @param object Value that gets returned upon selection
    */
-  void AddOption(std::string name, T object) { m_map[name] = object; }
+  void AddOption(std::string name, T object);
 
   /**
    * @brief Removes the option and updates the default option accoringly
    *
    * @param name
    */
-  void RemoveOption(std::string name) {
-    if (m_map.contains(name)) {
-      if (m_defaultChoice == name) {
-        m_defaultChoice = "";
-      }
-
-      if (m_selected == name) {
-        m_selected = m_defaultChoice;
-      }
-
-      m_map.erase(name);
-    }
-  }
+  void RemoveOption(std::string name);
 
   /**
    * @brief Clears all options
    *
    */
-  void ClearOptions() {
-    m_defaultChoice = "";
-    m_selected = m_defaultChoice;
-
-    m_map.clear();
-  }
+  void ClearOptions();
 
   /**
    * @brief Populates options from an existing set
    *
    * @param options
    */
-  void SetOptions(std::map<std::string, T> options) {
-    ClearOptions();
-
-    m_map = options;
-  }
+  void SetOptions(std::map<std::string, T> options);
 
   /**
    * @brief Set the default option to return
@@ -107,10 +83,7 @@ public:
    * @param name
    * @param object
    */
-  void SetDefaultOption(std::string name, T object) {
-    m_defaultChoice = name;
-    AddOption(name, object);
-  }
+  void SetDefaultOption(std::string name, T object);
 
   /**
    * @brief Set the options from an existing set along with a default
@@ -120,119 +93,25 @@ public:
    * @param defaultObject
    */
   void SetOptions(std::map<std::string, T> options, std::string defaultName,
-                  T defaultObject) {
-    SetOptions(options);
-    SetDefaultOption(defaultName, defaultObject);
-    if (m_selected == "") {
-      m_selected = defaultName;
-    }
-  }
+                  T defaultObject);
 
   /**
    * @brief Get the selected option
    *
    * @return T
    */
-  T GetSelected() {
-    std::lock_guard<std::recursive_mutex> lk(m_mutex);
-
-    try {
-      // TODO
-      if (m_selected != "") {
-        return m_map[m_selected];
-      }
-
-      return m_map[m_defaultChoice];
-    } catch (const std::exception &ex) {
-      std::cerr << ex.what() << '\n';
-    }
-  }
+  T GetSelected();
 
   /**
    * @brief Get the selected key rather than the value
    *
    * @return std::string
    */
-  std::string GetSelectedKey() {
-    std::lock_guard<std::recursive_mutex> lk(m_mutex);
+  std::string GetSelectedKey();
 
-    try {
-      // TODO
-      if (m_selected != "") {
-        return m_selected;
-      }
+  std::string GetNtSelected();
 
-      return m_defaultChoice;
-    } catch (const std::exception &ex) {
-      std::cerr << ex.what() << '\n';
-    }
-  }
-
-  std::string GetNtSelected() {
-    std::optional<T> choice;
-    std::function<void(std::optional<T>)> listener;
-    std::string setSelectedTo;
-
-    std::lock_guard<std::recursive_mutex> lk(m_mutex);
-
-    try {
-      if (m_selected != "") {
-        setSelectedTo = m_selected;
-      } else {
-        setSelectedTo = m_defaultChoice;
-      }
-
-      if (setSelectedTo != m_previousValue && m_listener &&
-          m_map.contains(setSelectedTo)) {
-        choice = m_map[setSelectedTo];
-        listener = m_listener;
-      } else {
-        choice = std::nullopt;
-        listener = nullptr;
-      }
-
-      m_previousValue = setSelectedTo;
-
-      if (listener) {
-        listener(choice);
-      }
-    } catch (const std::exception &ex) {
-      std::cerr << ex.what() << '\n';
-    }
-
-    return setSelectedTo;
-  }
-
-  void SetNtSelected(std::string val) {
-    std::optional<T> choice;
-    std::function<void(std::optional<T>)> listener;
-
-    std::lock_guard<std::recursive_mutex> lk(m_mutex);
-
-    try {
-      m_selected = val;
-
-      if (!m_map.contains(m_selected)) {
-        m_selected = m_defaultChoice;
-      }
-
-      if (m_selected != m_previousValue && m_listener) {
-        choice = m_map[val];
-        listener = m_listener;
-      } else {
-        choice = std::nullopt;
-        listener = nullptr;
-      }
-
-      m_previousValue = val;
-
-      if (listener) {
-        listener(choice);
-      }
-    } catch (const std::exception &ex) {
-      std::cerr << ex.what() << '\n';
-    }
-  }
+  void SetNtSelected(std::string val);
 
   /**
    * @brief Register a callback that gets executed whenever the selection
@@ -240,28 +119,8 @@ public:
    *
    * @param listener
    */
-  void OnChange(std::function<void(std::optional<T>)> listener) {
-    std::lock_guard<std::recursive_mutex> lk(m_mutex);
-    m_listener = listener;
-  }
+  void OnChange(std::function<void(std::optional<T>)> listener);
 
-  void InitSendable(wpi::SendableBuilder &builder) override {
-    builder.SetSmartDashboardType("String Chooser");
-    builder.PublishConstInteger(kInstance, m_instance);
-    builder.AddStringProperty(
-        kDefault, [this] { return m_defaultChoice; }, nullptr);
-    builder.AddStringArrayProperty(
-        kOptions,
-        [this] {
-          auto keys = std::views::keys(m_map);
-          return std::vector<std::string>{keys.begin(), keys.end()};
-        },
-        nullptr);
-    builder.AddStringProperty(
-        kActive, std::bind(&ModifiableChooser::GetSelectedKey, this), nullptr);
-    builder.AddStringProperty(
-        kSelected, std::bind(&ModifiableChooser::GetNtSelected, this),
-        [this](std::string_view val) { SetNtSelected(std::string{val}); });
-  }
+  void InitSendable(wpi::SendableBuilder &builder) override;
 };
 } // namespace subzero
