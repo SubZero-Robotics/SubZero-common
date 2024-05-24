@@ -4,6 +4,7 @@
 #include <frc/trajectory/TrapezoidProfile.h>
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/SubsystemBase.h>
+#include <frc/util/Color8Bit.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 #include <units/length.h>
