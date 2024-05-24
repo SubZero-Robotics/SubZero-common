@@ -1,10 +1,10 @@
 var classsubzero_1_1BaseSingleAxisSubsystem =
 [
-    [ "Acceleration", "classsubzero_1_1BaseSingleAxisSubsystem.html#a626ba0161f951ad78bdbed0c0d15b748", null ],
+    [ "Acceleration", "classsubzero_1_1BaseSingleAxisSubsystem.html#a8498fed4fa8a18927a4e105d15a90af6", null ],
     [ "Acceleration_t", "classsubzero_1_1BaseSingleAxisSubsystem.html#adda04a0d7e846adac4ba8dadd30847a9", null ],
     [ "Distance_t", "classsubzero_1_1BaseSingleAxisSubsystem.html#aa7e55bfe7c183205fe9830222b04c323", null ],
     [ "PidState", "classsubzero_1_1BaseSingleAxisSubsystem.html#a56723b1f021450b1c83f1f7e84d80c49", null ],
-    [ "Velocity", "classsubzero_1_1BaseSingleAxisSubsystem.html#a3939ba8efba25764ec8d54de2a9629c1", null ],
+    [ "Velocity", "classsubzero_1_1BaseSingleAxisSubsystem.html#ae216293514224d6fa5efd2261944253b", null ],
     [ "Velocity_t", "classsubzero_1_1BaseSingleAxisSubsystem.html#a83c409f6429c9274476d579096c9bd64", null ],
     [ "BaseSingleAxisSubsystem", "classsubzero_1_1BaseSingleAxisSubsystem.html#ab51a99c2aa65012f0c81a7fbfc46d07d", null ],
     [ "AtHome", "classsubzero_1_1BaseSingleAxisSubsystem.html#a6989da2b3471dae35c0b9e8946747fd9", null ],

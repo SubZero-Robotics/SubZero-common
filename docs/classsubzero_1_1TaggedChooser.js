@@ -1,7 +1,7 @@
 var classsubzero_1_1TaggedChooser =
 [
-    [ "TaggedChooserEntry", "classsubzero_1_1TaggedChooser.html#add8e9e58c100b4df43f1589fc7801edf", null ],
-    [ "TaggedChooserSelectorGroup", "classsubzero_1_1TaggedChooser.html#a4aab6088466ed5637213d87e9d2de56f", null ],
+    [ "TaggedChooserEntry", "classsubzero_1_1TaggedChooser.html#a7c2525eceef0c91e160211b8a3a20ad6", null ],
+    [ "TaggedChooserSelectorGroup", "classsubzero_1_1TaggedChooser.html#abf4af9649ae0c72b91253a3f6108fecb", null ],
     [ "TaggedChooserValue", "classsubzero_1_1TaggedChooser.html#aa6929b987b93f092e1b211a6b4b20c81", null ],
     [ "TaggedChooser", "classsubzero_1_1TaggedChooser.html#a7be90075d7bf5ac1f49a1e271c1ddea5", null ],
     [ "GetAvailableEntries", "classsubzero_1_1TaggedChooser.html#afa9a4c242f829cee8f33f690f10afaf9", null ],
