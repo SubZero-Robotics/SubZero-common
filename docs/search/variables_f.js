@@ -2,7 +2,7 @@ var searchData=
 [
   ['rawfiducials_0',['rawFiducials',['../classLimelightHelpers_1_1PoseEstimate.html#aa5dfdf199f0bb02e2e11a60985736da9',1,'LimelightHelpers::PoseEstimate']]],
   ['red_1',['red',['../structConnectorX_1_1Commands_1_1CommandColor.html#a32a0a985d0ceb7a00fa8ee07d2dbfa44',1,'ConnectorX::Commands::CommandColor']]],
-  ['resetoccurred_2',['resetOccurred',['../classsubzero_1_1BaseSingleAxisSubsystem.html#ae5941975bd3dc8f81269f7474996e606',1,'subzero::BaseSingleAxisSubsystem']]],
+  ['resetoccurred_2',['resetOccurred',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a64bb9a560fbdda0b85754c4e11c51f29',1,'subzero::BaseSingleAxisSubsystem']]],
   ['responsedata_3',['responseData',['../structConnectorX_1_1Commands_1_1Response.html#a73e6b6263ea9bebc37129c19f2044751',1,'ConnectorX::Commands::Response']]],
   ['responsedigitalread_4',['responseDigitalRead',['../unionConnectorX_1_1Commands_1_1ResponseData.html#a84452cc37c0237eed97de10e044478d3',1,'ConnectorX::Commands::ResponseData']]],
   ['responsepatterndone_5',['responsePatternDone',['../unionConnectorX_1_1Commands_1_1ResponseData.html#a81b9ece86e8908bdb1cc443bf570150f',1,'ConnectorX::Commands::ResponseData']]],

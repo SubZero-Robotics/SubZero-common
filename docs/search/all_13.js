@@ -5,6 +5,6 @@ var searchData=
   ['updatefromshuffleboard_2',['UpdateFromShuffleboard',['../classsubzero_1_1PidMotorControllerTuner.html#aa4998249c3238a96ed561580c55b18bf',1,'subzero::PidMotorControllerTuner::UpdateFromShuffleboard()'],['../classsubzero_1_1PidMotorControllerPairTuner.html#a2764857570654dd20a871ce4f88b97c1',1,'subzero::PidMotorControllerPairTuner::UpdateFromShuffleboard()']]],
   ['updatepidsettings_3',['UpdatePidSettings',['../classsubzero_1_1PidMotorController.html#a1202b029f44c0e92deb99c0886ca66c4',1,'subzero::PidMotorController::UpdatePidSettings()'],['../classsubzero_1_1PidMotorControllerPair.html#a0baa47de880cc02242ed789897248b1d',1,'subzero::PidMotorControllerPair::UpdatePidSettings()']]],
   ['updatetrackedtargets_4',['UpdateTrackedTargets',['../classsubzero_1_1TargetTracker.html#ab91a5289a746f8b8cf8ea3b892afd9c7',1,'subzero::TargetTracker']]],
-  ['usestate_5',['UseState',['../classsubzero_1_1BaseSingleAxisSubsystem.html#ae9c1140833bde159c4f563f9cdfb78ec',1,'subzero::BaseSingleAxisSubsystem']]],
+  ['usestate_5',['UseState',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a3d8797275a0d7183a001e98f41e6c7a6',1,'subzero::BaseSingleAxisSubsystem']]],
   ['utilconstants_2eh_6',['UtilConstants.h',['../UtilConstants_8h.html',1,'']]]
 ];

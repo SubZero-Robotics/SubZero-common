@@ -116,30 +116,30 @@ Public Types</h2></td></tr>
 <tr class="memitem:aa6929b987b93f092e1b211a6b4b20c81" id="r_aa6929b987b93f092e1b211a6b4b20c81"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6929b987b93f092e1b211a6b4b20c81">TaggedChooserValue</a> = std::pair&lt;TKey, std::string&gt;</td></tr>
 <tr class="memdesc:aa6929b987b93f092e1b211a6b4b20c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pair composed of the key and its name.  <br /></td></tr>
 <tr class="separator:aa6929b987b93f092e1b211a6b4b20c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c2525eceef0c91e160211b8a3a20ad6" id="r_a7c2525eceef0c91e160211b8a3a20ad6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c2525eceef0c91e160211b8a3a20ad6">TaggedChooserEntry</a></td></tr>
-<tr class="memdesc:a7c2525eceef0c91e160211b8a3a20ad6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pair composed of TaggedChooserValue and a set of associated tags.  <br /></td></tr>
-<tr class="separator:a7c2525eceef0c91e160211b8a3a20ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf4af9649ae0c72b91253a3f6108fecb" id="r_abf4af9649ae0c72b91253a3f6108fecb"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf4af9649ae0c72b91253a3f6108fecb">TaggedChooserSelectorGroup</a></td></tr>
-<tr class="memdesc:abf4af9649ae0c72b91253a3f6108fecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a single group which has a name and a set of available tags from which to choose.  <br /></td></tr>
-<tr class="separator:abf4af9649ae0c72b91253a3f6108fecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add8e9e58c100b4df43f1589fc7801edf" id="r_add8e9e58c100b4df43f1589fc7801edf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add8e9e58c100b4df43f1589fc7801edf">TaggedChooserEntry</a></td></tr>
+<tr class="memdesc:add8e9e58c100b4df43f1589fc7801edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pair composed of TaggedChooserValue and a set of associated tags.  <br /></td></tr>
+<tr class="separator:add8e9e58c100b4df43f1589fc7801edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aab6088466ed5637213d87e9d2de56f" id="r_a4aab6088466ed5637213d87e9d2de56f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4aab6088466ed5637213d87e9d2de56f">TaggedChooserSelectorGroup</a></td></tr>
+<tr class="memdesc:a4aab6088466ed5637213d87e9d2de56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a single group which has a name and a set of available tags from which to choose.  <br /></td></tr>
+<tr class="separator:a4aab6088466ed5637213d87e9d2de56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7be90075d7bf5ac1f49a1e271c1ddea5" id="r_a7be90075d7bf5ac1f49a1e271c1ddea5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7be90075d7bf5ac1f49a1e271c1ddea5">TaggedChooser</a> (const std::vector&lt; <a class="el" href="#a7c2525eceef0c91e160211b8a3a20ad6">TaggedChooserEntry</a> &gt; &amp;entries, const std::vector&lt; <a class="el" href="#abf4af9649ae0c72b91253a3f6108fecb">TaggedChooserSelectorGroup</a> &gt; &amp;groups, std::string chooserName)</td></tr>
+<tr class="memitem:a7be90075d7bf5ac1f49a1e271c1ddea5" id="r_a7be90075d7bf5ac1f49a1e271c1ddea5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7be90075d7bf5ac1f49a1e271c1ddea5">TaggedChooser</a> (const std::vector&lt; <a class="el" href="#add8e9e58c100b4df43f1589fc7801edf">TaggedChooserEntry</a> &gt; &amp;entries, const std::vector&lt; <a class="el" href="#a4aab6088466ed5637213d87e9d2de56f">TaggedChooserSelectorGroup</a> &gt; &amp;groups, std::string chooserName)</td></tr>
 <tr class="memdesc:a7be90075d7bf5ac1f49a1e271c1ddea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classsubzero_1_1TaggedChooser.html" title="Each key of type T has a vector&lt;string&gt; of tags; accepts a list of groups that each have a name and l...">TaggedChooser</a>.  <br /></td></tr>
 <tr class="separator:a7be90075d7bf5ac1f49a1e271c1ddea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a82e7bc4095f92a722433eddfc980ba" id="r_a6a82e7bc4095f92a722433eddfc980ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a82e7bc4095f92a722433eddfc980ba">Initialize</a> ()</td></tr>
-<tr class="memdesc:a6a82e7bc4095f92a722433eddfc980ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this one on startup to populate and push to SmartDashboard.  <br /></td></tr>
-<tr class="separator:a6a82e7bc4095f92a722433eddfc980ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ece299536d5f4381db240fb22238df" id="r_ae5ece299536d5f4381db240fb22238df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5ece299536d5f4381db240fb22238df">Initialize</a> (void)</td></tr>
+<tr class="memdesc:ae5ece299536d5f4381db240fb22238df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this one on startup to populate and push to SmartDashboard.  <br /></td></tr>
+<tr class="separator:ae5ece299536d5f4381db240fb22238df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeca194c54cf21accc58a6c20d787c313" id="r_aeca194c54cf21accc58a6c20d787c313"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeca194c54cf21accc58a6c20d787c313">SetOnChangeCallback</a> (std::function&lt; void(TKey)&gt; cb)</td></tr>
 <tr class="memdesc:aeca194c54cf21accc58a6c20d787c313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a callback that gets executed each time the selected option changes.  <br /></td></tr>
 <tr class="separator:aeca194c54cf21accc58a6c20d787c313"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b353597262731db07064baaed8d1203" id="r_a1b353597262731db07064baaed8d1203"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="#aa6929b987b93f092e1b211a6b4b20c81">TaggedChooserValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b353597262731db07064baaed8d1203">GetAvailableEntries</a> ()</td></tr>
-<tr class="memdesc:a1b353597262731db07064baaed8d1203"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of all available entries in the selector.  <br /></td></tr>
-<tr class="separator:a1b353597262731db07064baaed8d1203"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96035dbf6fa73fd1278240b44789d642" id="r_a96035dbf6fa73fd1278240b44789d642"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96035dbf6fa73fd1278240b44789d642">PopulateChooser</a> ()</td></tr>
-<tr class="memdesc:a96035dbf6fa73fd1278240b44789d642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repopulate the chooser based on the selected group filters.  <br /></td></tr>
-<tr class="separator:a96035dbf6fa73fd1278240b44789d642"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9a4c242f829cee8f33f690f10afaf9" id="r_afa9a4c242f829cee8f33f690f10afaf9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="#aa6929b987b93f092e1b211a6b4b20c81">TaggedChooserValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9a4c242f829cee8f33f690f10afaf9">GetAvailableEntries</a> (void)</td></tr>
+<tr class="memdesc:afa9a4c242f829cee8f33f690f10afaf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of all available entries in the selector.  <br /></td></tr>
+<tr class="separator:afa9a4c242f829cee8f33f690f10afaf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a755e44192ff86cc9971a9afa030aa2ae" id="r_a755e44192ff86cc9971a9afa030aa2ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a755e44192ff86cc9971a9afa030aa2ae">PopulateChooser</a> (void)</td></tr>
+<tr class="memdesc:a755e44192ff86cc9971a9afa030aa2ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Repopulate the chooser based on the selected group filters.  <br /></td></tr>
+<tr class="separator:a755e44192ff86cc9971a9afa030aa2ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada7ea95d61c705abc31060c8e7eda759" id="r_ada7ea95d61c705abc31060c8e7eda759"><td class="memItemLeft" align="right" valign="top">TKey&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada7ea95d61c705abc31060c8e7eda759">GetSelectedValue</a> ()</td></tr>
 <tr class="memdesc:ada7ea95d61c705abc31060c8e7eda759"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently-selected option.  <br /></td></tr>
 <tr class="separator:ada7ea95d61c705abc31060c8e7eda759"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,10 +154,10 @@ class subzero::TaggedChooser&lt; TKey &gt;</div><p>Each key of type T has a vect
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00027">27</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00029">29</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
-<a id="a7c2525eceef0c91e160211b8a3a20ad6" name="a7c2525eceef0c91e160211b8a3a20ad6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c2525eceef0c91e160211b8a3a20ad6">&#9670;&#160;</a></span>TaggedChooserEntry</h2>
+<a id="add8e9e58c100b4df43f1589fc7801edf" name="add8e9e58c100b4df43f1589fc7801edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add8e9e58c100b4df43f1589fc7801edf">&#9670;&#160;</a></span>TaggedChooserEntry</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,16 +170,16 @@ template&lt;typename TKey &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> </div>
-<div class="line">      std::pair&lt;TaggedChooserValue, std::set&lt;std::string&gt;&gt;</div>
+<div class="line">        std::pair&lt;TaggedChooserValue, std::set&lt;std::string&gt;&gt;</div>
 </div><!-- fragment -->
 <p>A pair composed of TaggedChooserValue and a set of associated tags. </p>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00038">38</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00041">41</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
-<a id="abf4af9649ae0c72b91253a3f6108fecb" name="abf4af9649ae0c72b91253a3f6108fecb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf4af9649ae0c72b91253a3f6108fecb">&#9670;&#160;</a></span>TaggedChooserSelectorGroup</h2>
+<a id="a4aab6088466ed5637213d87e9d2de56f" name="a4aab6088466ed5637213d87e9d2de56f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aab6088466ed5637213d87e9d2de56f">&#9670;&#160;</a></span>TaggedChooserSelectorGroup</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,11 +192,11 @@ template&lt;typename TKey &gt; </div>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> </div>
-<div class="line">      std::pair&lt;std::string, std::set&lt;std::string&gt;&gt;</div>
+<div class="line">        std::pair&lt;std::string, std::set&lt;std::string&gt;&gt;</div>
 </div><!-- fragment -->
 <p>Describes a single group which has a name and a set of available tags from which to choose. </p>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00045">45</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00048">48</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +216,7 @@ template&lt;typename TKey &gt; </div>
 
 <p>A pair composed of the key and its name. </p>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00033">33</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00036">36</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
@@ -228,19 +228,16 @@ template&lt;typename TKey &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TKey &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classsubzero_1_1TaggedChooser.html">subzero::TaggedChooser</a>&lt; TKey &gt;::TaggedChooser </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="#a7c2525eceef0c91e160211b8a3a20ad6">TaggedChooserEntry</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>entries</em></span>, </td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="#add8e9e58c100b4df43f1589fc7801edf">TaggedChooserEntry</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>entries</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; <a class="el" href="#abf4af9649ae0c72b91253a3f6108fecb">TaggedChooserSelectorGroup</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>groups</em></span>, </td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="#a4aab6088466ed5637213d87e9d2de56f">TaggedChooserSelectorGroup</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>groups</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -248,11 +245,6 @@ template&lt;typename TKey &gt; </div>
           <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>chooserName</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Construct a new <a class="el" href="classsubzero_1_1TaggedChooser.html" title="Each key of type T has a vector&lt;string&gt; of tags; accepts a list of groups that each have a name and l...">TaggedChooser</a>. </p>
@@ -265,40 +257,28 @@ template&lt;typename TKey &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00055">55</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1b353597262731db07064baaed8d1203" name="a1b353597262731db07064baaed8d1203"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b353597262731db07064baaed8d1203">&#9670;&#160;</a></span>GetAvailableEntries()</h2>
+<a id="afa9a4c242f829cee8f33f690f10afaf9" name="afa9a4c242f829cee8f33f690f10afaf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9a4c242f829cee8f33f690f10afaf9">&#9670;&#160;</a></span>GetAvailableEntries()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TKey &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; <a class="el" href="#aa6929b987b93f092e1b211a6b4b20c81">TaggedChooserValue</a> &gt; <a class="el" href="classsubzero_1_1TaggedChooser.html">subzero::TaggedChooser</a>&lt; TKey &gt;::GetAvailableEntries </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get the list of all available entries in the selector. </p>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;TaggedChooserValue&gt; List of entries </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00120">120</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
@@ -330,69 +310,49 @@ template&lt;typename TKey &gt; </div>
 <p>Get the currently-selected option. </p>
 <dl class="section return"><dt>Returns</dt><dd>TKey </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00170">170</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00094">94</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
-<a id="a6a82e7bc4095f92a722433eddfc980ba" name="a6a82e7bc4095f92a722433eddfc980ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a82e7bc4095f92a722433eddfc980ba">&#9670;&#160;</a></span>Initialize()</h2>
+<a id="ae5ece299536d5f4381db240fb22238df" name="ae5ece299536d5f4381db240fb22238df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5ece299536d5f4381db240fb22238df">&#9670;&#160;</a></span>Initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TKey &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsubzero_1_1TaggedChooser.html">subzero::TaggedChooser</a>&lt; TKey &gt;::Initialize </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Call this one on startup to populate and push to SmartDashboard. </p>
 
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00082">82</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
-
 </div>
 </div>
-<a id="a96035dbf6fa73fd1278240b44789d642" name="a96035dbf6fa73fd1278240b44789d642"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96035dbf6fa73fd1278240b44789d642">&#9670;&#160;</a></span>PopulateChooser()</h2>
+<a id="a755e44192ff86cc9971a9afa030aa2ae" name="a755e44192ff86cc9971a9afa030aa2ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a755e44192ff86cc9971a9afa030aa2ae">&#9670;&#160;</a></span>PopulateChooser()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TKey &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsubzero_1_1TaggedChooser.html">subzero::TaggedChooser</a>&lt; TKey &gt;::PopulateChooser </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Repopulate the chooser based on the selected group filters. </p>
-
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00151">151</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>
@@ -403,9 +363,6 @@ template&lt;typename TKey &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename TKey &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="classsubzero_1_1TaggedChooser.html">subzero::TaggedChooser</a>&lt; TKey &gt;::SetOnChangeCallback </td>
@@ -414,11 +371,6 @@ template&lt;typename TKey &gt; </div>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Register a callback that gets executed each time the selected option changes. </p>
@@ -428,8 +380,6 @@ template&lt;typename TKey &gt; </div>
   </table>
   </dd>
 </dl>
-
-<p class="definition">Definition at line <a class="el" href="TaggedChooser_8h_source.html#l00113">113</a> of file <a class="el" href="TaggedChooser_8h_source.html">TaggedChooser.h</a>.</p>
 
 </div>
 </div>

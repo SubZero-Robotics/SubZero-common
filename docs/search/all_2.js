@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['basesingleaxissubsystem_0',['BaseSingleAxisSubsystem',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero::BaseSingleAxisSubsystem&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TDistance &gt;'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#a5c8119db341ec1f450a1216d272a7e4a',1,'subzero::BaseSingleAxisSubsystem::BaseSingleAxisSubsystem()']]],
+  ['basesingleaxissubsystem_0',['BaseSingleAxisSubsystem',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero::BaseSingleAxisSubsystem&lt; TController, TDistance &gt;'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#ab51a99c2aa65012f0c81a7fbfc46d07d',1,'subzero::BaseSingleAxisSubsystem::BaseSingleAxisSubsystem()']]],
   ['basesingleaxissubsystem_2eh_1',['BaseSingleAxisSubsystem.h',['../BaseSingleAxisSubsystem_8h.html',1,'']]],
-  ['basesingleaxissubsystem_3c_20tmotor_2c_20tcontroller_2c_20trelativeencoder_2c_20tabsoluteencoder_2c_20units_3a_3adegree_20_3e_2',['BaseSingleAxisSubsystem&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::degree &gt;',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero']]],
-  ['basesingleaxissubsystem_3c_20tmotor_2c_20tcontroller_2c_20trelativeencoder_2c_20tabsoluteencoder_2c_20units_3a_3ameter_20_3e_3',['BaseSingleAxisSubsystem&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::meter &gt;',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero']]],
+  ['basesingleaxissubsystem_3c_20tcontroller_2c_20units_3a_3adegree_20_3e_2',['BaseSingleAxisSubsystem&lt; TController, units::degree &gt;',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero']]],
+  ['basesingleaxissubsystem_3c_20tcontroller_2c_20units_3a_3ameter_20_3e_3',['BaseSingleAxisSubsystem&lt; TController, units::meter &gt;',['../classsubzero_1_1BaseSingleAxisSubsystem.html',1,'subzero']]],
   ['bbox_4',['bbox',['../structsubzero_1_1DetectionParser_1_1DetectedObject.html#ae8035ef5c8b84b50eb6476ebaaf556fa',1,'subzero::DetectionParser::DetectedObject']]],
   ['blendwithinput_5',['BlendWithInput',['../classsubzero_1_1ITurnToTarget.html#a488b2d4cc1a1cf483901bbdd07908857',1,'subzero::ITurnToTarget::BlendWithInput()'],['../classsubzero_1_1TurnToPose.html#a6e935a73049dcbf687635ca3b414780d',1,'subzero::TurnToPose::BlendWithInput()']]],
   ['blink_6',['Blink',['../namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539acfad0a7419f44ea0c64db24197abbf70',1,'ConnectorX']]],

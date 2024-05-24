@@ -8,7 +8,7 @@ var searchData=
   ['on_5',['on',['../structConnectorX_1_1CachedPort.html#aa07fe76e845c71027c45969db15ebec1',1,'ConnectorX::CachedPort']]],
   ['onchange_6',['OnChange',['../classsubzero_1_1ModifiableChooser.html#afdfec1de6af3619bc9e8c6db6edd4685',1,'subzero::ModifiableChooser']]],
   ['oneshot_7',['oneShot',['../structConnectorX_1_1Commands_1_1CommandPattern.html#a2fc37adfb0a10ae76680cae6b1f3772a',1,'ConnectorX::Commands::CommandPattern']]],
-  ['oninit_8',['OnInit',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a226a3b3097643258d09e055637cd5025',1,'subzero::BaseSingleAxisSubsystem']]],
+  ['oninit_8',['OnInit',['../classsubzero_1_1BaseSingleAxisSubsystem.html#ad4f341d618a6cab632bceac5be035c14',1,'subzero::BaseSingleAxisSubsystem']]],
   ['output_9',['OUTPUT',['../namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea50a87f0d71f7221582dad4bf507a0f34',1,'ConnectorX']]],
   ['output_5f12ma_10',['OUTPUT_12MA',['../namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea787a3eef52ce3516bd3915c298c9f4d9',1,'ConnectorX']]],
   ['output_5f2ma_11',['OUTPUT_2MA',['../namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea165d830b826a9690a2f578985697180e',1,'ConnectorX']]],

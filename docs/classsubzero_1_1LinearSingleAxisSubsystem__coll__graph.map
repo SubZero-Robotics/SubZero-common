@@ -1,14 +1,14 @@
-<map id="subzero::LinearSingleAxisSubsystem&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;" name="subzero::LinearSingleAxisSubsystem&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;">
-<area shape="rect" id="Node000001" title="A single axis representing a linear path of motion in meters." alt="" coords="793,49,1043,104"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1BaseSingleAxisSubsystem.html" title=" " alt="" coords="487,49,744,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="759,74,793,74,793,79,759,79"/>
+<map id="subzero::LinearSingleAxisSubsystem&lt; TController &gt;" name="subzero::LinearSingleAxisSubsystem&lt; TController &gt;">
+<area shape="rect" id="Node000001" title="A single axis representing a linear path of motion in meters." alt="" coords="765,56,936,97"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1BaseSingleAxisSubsystem.html" title=" " alt="" coords="487,56,716,97"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="731,74,765,74,765,79,731,79"/>
 <area shape="rect" id="Node000003" href="$classsubzero_1_1ISingleAxisSubsystem.html" title=" " alt="" coords="180,5,382,46"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,27,464,35,514,45,513,50,463,40,397,33"/>
-<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="380,47,409,53,487,63,487,69,408,58,379,52"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="398,27,464,35,537,53,536,58,463,40,398,32"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="381,47,409,53,487,64,486,69,408,58,380,53"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="178,77,384,118"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="400,87,487,82,487,87,400,93"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="400,87,487,81,487,87,400,92"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="243,142,320,168"/>
-<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="334,140,493,102,495,107,335,145"/>
+<area shape="poly" id="edge5_Node000002_Node000005" title=" " alt="" coords="334,140,515,95,516,100,335,145"/>
 <area shape="rect" id="Node000006" title=" " alt="" coords="5,135,129,175"/>
 <area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="144,152,242,152,242,158,144,158"/>
 </map>

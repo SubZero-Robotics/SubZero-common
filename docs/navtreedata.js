@@ -60,7 +60,7 @@ var NAVTREEINDEX =
 [
 "AutoFactory_8h.html",
 "classConnectorX_1_1ConnectorXBoard.html#ac8b44a88c6b042b5f9f4435d0c1f35a8",
-"classsubzero_1_1BaseSingleAxisSubsystem.html#ab6770b352ddc52c876488edb0a1de2b3",
+"classsubzero_1_1BaseSingleAxisSubsystem.html#a92beaebb24042c7128a5e42a31d26978",
 "classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765",
 "dir_0a216d29a2e77e348f7f25242d38f93a.html",
 "namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815a68be4837f6c739877233e527a996dd00",

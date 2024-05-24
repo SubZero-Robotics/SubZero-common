@@ -41,16 +41,16 @@ var hierarchy =
     ] ],
     [ "subzero::ISingleAxisSubsystem< Distance >", "classsubzero_1_1ISingleAxisSubsystem.html", null ],
     [ "subzero::ISingleAxisSubsystem< TDistance >", "classsubzero_1_1ISingleAxisSubsystem.html", [
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TDistance >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ]
+      [ "subzero::BaseSingleAxisSubsystem< TController, TDistance >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ]
     ] ],
     [ "subzero::ISingleAxisSubsystem< units::degree >", "classsubzero_1_1ISingleAxisSubsystem.html", [
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::degree >", "classsubzero_1_1BaseSingleAxisSubsystem.html", [
-        [ "subzero::RotationalSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1RotationalSingleAxisSubsystem.html", null ]
+      [ "subzero::BaseSingleAxisSubsystem< TController, units::degree >", "classsubzero_1_1BaseSingleAxisSubsystem.html", [
+        [ "subzero::RotationalSingleAxisSubsystem< TController >", "classsubzero_1_1RotationalSingleAxisSubsystem.html", null ]
       ] ]
     ] ],
     [ "subzero::ISingleAxisSubsystem< units::meter >", "classsubzero_1_1ISingleAxisSubsystem.html", [
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::meter >", "classsubzero_1_1BaseSingleAxisSubsystem.html", [
-        [ "subzero::LinearSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1LinearSingleAxisSubsystem.html", null ]
+      [ "subzero::BaseSingleAxisSubsystem< TController, units::meter >", "classsubzero_1_1BaseSingleAxisSubsystem.html", [
+        [ "subzero::LinearSingleAxisSubsystem< TController >", "classsubzero_1_1LinearSingleAxisSubsystem.html", null ]
       ] ]
     ] ],
     [ "subzero::ITurnToTarget", "classsubzero_1_1ITurnToTarget.html", [
@@ -102,9 +102,9 @@ var hierarchy =
     [ "subzero::TargetTracker::TargetTrackerConfig", "structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html", null ],
     [ "subzero::TrackedTarget", "structsubzero_1_1TrackedTarget.html", null ],
     [ "frc2::TrapezoidProfileSubsystem", null, [
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::meter >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ],
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, units::degree >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ],
-      [ "subzero::BaseSingleAxisSubsystem< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TDistance >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ]
+      [ "subzero::BaseSingleAxisSubsystem< TController, units::meter >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ],
+      [ "subzero::BaseSingleAxisSubsystem< TController, units::degree >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ],
+      [ "subzero::BaseSingleAxisSubsystem< TController, TDistance >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ]
     ] ],
     [ "subzero::TurnToPose::TurnToPoseConfig", "structsubzero_1_1TurnToPose_1_1TurnToPoseConfig.html", null ],
     [ "LimelightHelpers::VisionResultsClass", "classLimelightHelpers_1_1VisionResultsClass.html", null ]

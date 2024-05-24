@@ -1,7 +1,7 @@
 var classsubzero_1_1RotationalSingleAxisSubsystem =
 [
-    [ "RotationalSingleAxisSubsystem", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a93a03833caa17c6a82d958e52640e420", null ],
-    [ "Periodic", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a9e7a9e25724484426cbe72468d827eef", null ],
-    [ "RunMotorVelocity", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a0732d3f1c65e7368b8aad6db2a74595b", null ],
-    [ "m_armatureLength", "classsubzero_1_1RotationalSingleAxisSubsystem.html#ae1a3cb2fc932d991bb8113fb1c8c659c", null ]
+    [ "RotationalSingleAxisSubsystem", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a631d5bc68d55bc2f5ec2ca62cd982e0f", null ],
+    [ "Periodic", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a015340da1ba2cbe30e914e2808816607", null ],
+    [ "RunMotorVelocity", "classsubzero_1_1RotationalSingleAxisSubsystem.html#ac86c1be3cc6d27bdd97168d05a6b73a9", null ],
+    [ "m_armatureLength", "classsubzero_1_1RotationalSingleAxisSubsystem.html#a108c483de6632138afb3d8b5f7e6c7a1", null ]
 ];
