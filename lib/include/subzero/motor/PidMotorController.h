@@ -26,7 +26,7 @@ namespace subzero {
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorController : public IPidMotorController {
- public:
+public:
   /**
    * @brief Construct a new PidMotorController
    *
@@ -136,7 +136,7 @@ class PidMotorController : public IPidMotorController {
 
   void UpdatePidSettings(PidSettings settings) override;
 
- protected:
+protected:
   TMotor &m_motor;
   TController &m_controller;
   TRelativeEncoder &m_encoder;
@@ -161,7 +161,7 @@ class PidMotorController : public IPidMotorController {
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
 class PidMotorControllerTuner {
- public:
+public:
   explicit PidMotorControllerTuner(
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder> &controller)
@@ -199,7 +199,7 @@ class PidMotorControllerTuner {
         {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward});
   }
 
- private:
+private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
       &m_controller;
 };
@@ -208,4 +208,4 @@ class RevPidMotorController
     : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
                                 rev::SparkRelativeEncoder,
                                 rev::SparkAbsoluteEncoder> {};
-}  // namespace subzero
+} // namespace subzero

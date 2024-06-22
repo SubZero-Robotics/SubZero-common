@@ -12,7 +12,7 @@ struct PidSettings {
 };
 
 class IPidMotorController {
- public:
+public:
   explicit IPidMotorController(std::string name) : m_name{name} {}
 
   virtual void Set(double percentage) = 0;
@@ -28,9 +28,9 @@ class IPidMotorController {
   virtual void SetEncoderConversionFactor(double factor) = 0;
   virtual void SetAbsoluteEncoderConversionFactor(double factor) = 0;
   virtual void Stop(void) = 0;
-  virtual const PidSettings& GetPidSettings(void) = 0;
+  virtual const PidSettings &GetPidSettings(void) = 0;
   virtual void UpdatePidSettings(PidSettings settings) = 0;
 
   const std::string m_name;
 };
-}  // namespace subzero
+} // namespace subzero

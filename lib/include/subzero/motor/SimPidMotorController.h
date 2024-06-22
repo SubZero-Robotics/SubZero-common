@@ -9,7 +9,7 @@
 
 namespace subzero {
 class SimPidMotorController : public IPidMotorController {
- public:
+public:
   explicit SimPidMotorController(std::string name, PidSettings pidSettings,
                                  units::revolutions_per_minute_t maxRpm);
 
@@ -49,8 +49,7 @@ class SimPidMotorController : public IPidMotorController {
     m_conversionFactor = factor;
   }
 
-  inline void SetAbsoluteEncoderConversionFactor(double factor) override {
-  }
+  inline void SetAbsoluteEncoderConversionFactor(double factor) override {}
 
   void Stop() override;
 
@@ -60,7 +59,7 @@ class SimPidMotorController : public IPidMotorController {
     m_settings = settings;
   }
 
- private:
+private:
   PidSettings m_settings;
   frc::PIDController m_pidController;
   double m_currentRelativePosition = 0;
@@ -70,4 +69,4 @@ class SimPidMotorController : public IPidMotorController {
   const units::revolutions_per_minute_t m_maxRpm;
   units::revolutions_per_minute_t m_currentRpm = 0_rpm;
 };
-}  // namespace subzero
+} // namespace subzero

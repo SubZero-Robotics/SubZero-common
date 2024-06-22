@@ -9,8 +9,7 @@ constexpr auto test = (kSampleRevs / (1_min / 1_s)) * kLoopTime;
 SimPidMotorController::SimPidMotorController(
     std::string name, PidSettings pidSettings,
     units::revolutions_per_minute_t maxRpm)
-    : IPidMotorController(name),
-      m_settings{pidSettings},
+    : IPidMotorController(name), m_settings{pidSettings},
       m_pidController{
           frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
       m_maxRpm{maxRpm} {}

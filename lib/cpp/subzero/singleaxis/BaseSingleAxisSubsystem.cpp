@@ -13,11 +13,8 @@ BaseSingleAxisSubsystem<TController, TDistance>::BaseSingleAxisSubsystem(
     frc::MechanismObject2d *mechanismNode)
     : frc2::TrapezoidProfileSubsystem<TDistance>{config.profileConstraints},
       m_minLimitSwitch{config.minLimitSwitch},
-      m_maxLimitSwitch{config.maxLimitSwitch},
-      m_controller{controller},
-      m_config{config},
-      m_name{name},
-      m_pidEnabled{false} {
+      m_maxLimitSwitch{config.maxLimitSwitch}, m_controller{controller},
+      m_config{config}, m_name{name}, m_pidEnabled{false} {
   m_pidEnabled = false;
 
   if (mechanismNode) {
@@ -197,7 +194,8 @@ void BaseSingleAxisSubsystem<TController, TDistance>::OnInit() {
 template <typename TController, typename TDistance>
 bool BaseSingleAxisSubsystem<TController, TDistance>::IsMovementAllowed(
     double speed, bool ignoreEncoder) {
-  if (m_config.ignoreLimit()) return true;
+  if (m_config.ignoreLimit())
+    return true;
 
   bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
   bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
@@ -219,7 +217,8 @@ bool BaseSingleAxisSubsystem<TController, TDistance>::IsMovementAllowed(
 template <typename TController, typename TDistance>
 bool BaseSingleAxisSubsystem<TController, TDistance>::IsMovementAllowed(
     bool ignoreEncoder) {
-  if (m_config.ignoreLimit()) return true;
+  if (m_config.ignoreLimit())
+    return true;
 
   bool atMin = ignoreEncoder ? AtLimitSwitchMin() : AtHome();
   bool atMax = ignoreEncoder ? AtLimitSwitchMax() : AtMax();
