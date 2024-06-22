@@ -3,19 +3,16 @@
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include <rev/CANSparkBase.h>
+#include <rev/CANSparkMax.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
 #include <string>
 
 #include "subzero/logging/ConsoleLogger.h"
+#include "subzero/motor/IPidMotorController.h"
 
 namespace subzero {
-struct PidSettings {
-  double p, i, d, iZone, ff;
-};
-
-// TODO: Group into a single, combined typename
 /**
  * @brief Combines a motor, motor drvier, relative encoder, and absolute encoder
  * into a single wrapper; helpful for absolute positioning, setting velocities,
@@ -28,7 +25,7 @@ struct PidSettings {
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder>
-class PidMotorController {
+class PidMotorController : public IPidMotorController {
 public:
   /**
    * @brief Construct a new PidMotorController
@@ -53,57 +50,59 @@ public:
    *
    * @param percentage
    */
-  inline void Set(double percentage) { m_motor.Set(percentage); }
+  void Set(double percentage) override;
 
   /**
    * @brief Set a motor to a voltage
    *
    * @param volts
    */
-  void Set(units::volt_t volts);
+  void Set(units::volt_t volts) override;
 
   /**
    * @brief Absolute positioning is considered 'Done' when within this zone
    *
    * @param tolerance
    */
-  void SetPidTolerance(double tolerance);
+  void SetPidTolerance(double tolerance) override;
 
   /**
    * @brief ! Call this every loop in Periodic !
    *
    */
-  void Update();
+  void Update() override;
 
   /**
    * @brief Set to this velocity
    *
    * @param rpm
    */
-  void RunWithVelocity(units::revolutions_per_minute_t rpm);
+  void RunWithVelocity(units::revolutions_per_minute_t rpm) override;
 
   /**
    * @brief Set to a percentage of max RPM
    *
    * @param percentage
    */
-  void RunWithVelocity(double percentage);
+  void RunWithVelocity(double percentage) override;
 
   /**
    * @brief Enables absolute positioning and sets the target to the position
    *
    * @param position
    */
-  void RunToPosition(double position);
+  void RunToPosition(double position) override;
 
-  inline virtual void ResetEncoder() {
+  inline virtual void ResetEncoder() override {
     m_encoder.SetPosition(0);
     ConsoleWriter.logInfo(m_name + " PID Controller", "Reset encoder%s", "");
   }
 
-  inline double GetEncoderPosition() { return m_encoder.GetPosition(); }
+  inline double GetEncoderPosition() override {
+    return m_encoder.GetPosition();
+  }
 
-  std::optional<double> GetAbsoluteEncoderPosition();
+  std::optional<double> GetAbsoluteEncoderPosition() override;
 
   /**
    * @brief Sets the multiplier for going between encoder ticks and actual
@@ -111,7 +110,7 @@ public:
    *
    * @param factor
    */
-  inline void SetEncoderConversionFactor(double factor) {
+  inline void SetEncoderConversionFactor(double factor) override {
     m_encoder.SetPositionConversionFactor(factor);
   }
 
@@ -121,7 +120,7 @@ public:
    *
    * @param factor
    */
-  inline void SetAbsoluteEncoderConversionFactor(double factor) {
+  inline void SetAbsoluteEncoderConversionFactor(double factor) override {
     if (m_absEncoder) {
       m_absEncoder->SetPositionConversionFactor(factor);
     }
@@ -131,13 +130,11 @@ public:
    * @brief Disable absolute positioning and stop the motor
    *
    */
-  void Stop();
+  void Stop() override;
 
-  inline const PidSettings &GetPidSettings() { return m_settings; }
+  inline const PidSettings &GetPidSettings() override { return m_settings; }
 
-  void UpdatePidSettings(PidSettings settings);
-
-  const std::string m_name;
+  void UpdatePidSettings(PidSettings settings) override;
 
 protected:
   TMotor &m_motor;
@@ -151,6 +148,7 @@ protected:
   const units::revolutions_per_minute_t m_maxRpm;
 };
 
+// TODO: Move to its own file and make it work with IPidMotorController
 /**
  * @brief Intended for use alongside a PidMotorController for simple tuning
  * through SmartDashboard

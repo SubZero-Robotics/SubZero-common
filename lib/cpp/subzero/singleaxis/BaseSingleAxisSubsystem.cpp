@@ -1,6 +1,7 @@
 #pragma once
 
 #include "subzero/singleaxis/BaseSingleAxisSubsystem.h"
+
 #include "subzero/motor/PidMotorController.cpp"
 
 using namespace subzero;
@@ -58,8 +59,9 @@ void BaseSingleAxisSubsystem<TController, TDistance>::Periodic() {
 
   if (m_pidEnabled) {
     frc2::TrapezoidProfileSubsystem<TDistance>::Periodic();
-    m_controller.Update();
   }
+
+  m_controller.Update();
 
   if (!m_pidEnabled && !IsMovementAllowed(m_latestSpeed)) {
     ConsoleWriter.logInfo(m_name,
