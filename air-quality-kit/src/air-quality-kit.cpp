@@ -151,7 +151,7 @@ void createEventPayload(String airQuality)
     data.set("dust", dustData);
   }
 
-  ledger.set(data);
+  ledger.set(data, Ledger::SetMode::MERGE);
 }
 
 void updateDisplay(String airQuality)
