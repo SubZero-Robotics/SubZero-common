@@ -39,6 +39,13 @@ var hierarchy =
       [ "subzero::ConsoleLogger", "classsubzero_1_1ConsoleLogger.html", null ],
       [ "subzero::ShuffleboardLogger", "classsubzero_1_1ShuffleboardLogger.html", null ]
     ] ],
+    [ "subzero::IPidMotorController", "classsubzero_1_1IPidMotorController.html", [
+      [ "subzero::PidMotorController< rev::CANSparkMax, rev::SparkPIDController, rev::SparkRelativeEncoder, rev::SparkAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", [
+        [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
+      ] ],
+      [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],
+      [ "subzero::SimPidMotorController", "classsubzero_1_1SimPidMotorController.html", null ]
+    ] ],
     [ "subzero::ISingleAxisSubsystem< Distance >", "classsubzero_1_1ISingleAxisSubsystem.html", null ],
     [ "subzero::ISingleAxisSubsystem< TDistance >", "classsubzero_1_1ISingleAxisSubsystem.html", [
       [ "subzero::BaseSingleAxisSubsystem< TController, TDistance >", "classsubzero_1_1BaseSingleAxisSubsystem.html", null ]
@@ -62,10 +69,6 @@ var hierarchy =
     [ "ConnectorX::Commands::NewZone", "structConnectorX_1_1Commands_1_1NewZone.html", null ],
     [ "subzero::PhotonVisionEstimators::PhotonCameraEstimator", "classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html", null ],
     [ "subzero::PhotonVisionEstimators", "classsubzero_1_1PhotonVisionEstimators.html", null ],
-    [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],
-    [ "subzero::PidMotorController< rev::CANSparkMax, rev::SparkPIDController, rev::SparkRelativeEncoder, rev::SparkAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", [
-      [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
-    ] ],
     [ "subzero::PidMotorControllerPair< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerPair.html", null ],
     [ "subzero::PidMotorControllerPairTuner< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerPairTuner.html", null ],
     [ "subzero::PidMotorControllerTuner< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerTuner.html", null ],

@@ -1,11 +1,13 @@
 <map id="subzero::RevPidMotorController" name="subzero::RevPidMotorController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="659,40,862,65"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="431,10,611,95"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="627,50,659,50,659,55,627,55"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="208,13,285,39"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,28,431,41,430,46,300,33"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,5,129,46"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="144,23,207,23,207,28,144,28"/>
-<area shape="rect" id="Node000005" href="$structsubzero_1_1PidSettings.html" title=" " alt="" coords="177,62,316,88"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="332,74,407,70,430,67,431,72,407,75,332,79"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="882,40,1084,65"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="653,10,834,95"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="850,50,881,50,881,55,850,55"/>
+<area shape="rect" id="Node000003" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="355,13,538,39"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="554,33,653,42,653,47,554,38"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="177,13,254,39"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="270,23,355,23,355,28,270,28"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,5,129,46"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="144,23,176,23,176,28,144,28"/>
+<area shape="rect" id="Node000006" href="$structsubzero_1_1PidSettings.html" title=" " alt="" coords="377,62,516,88"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="532,74,629,70,653,67,653,72,630,75,532,79"/>
 </map>

@@ -26,7 +26,7 @@ var searchData=
   ['m_5fmaxrpm_23',['m_maxRpm',['../classsubzero_1_1PidMotorController.html#a68a8a6d2445164e41a25f185fc184d82',1,'subzero::PidMotorController']]],
   ['m_5fminlimitswitch_24',['m_minLimitSwitch',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a088bd7df04599de841793aee3037aaee',1,'subzero::BaseSingleAxisSubsystem']]],
   ['m_5fmotor_25',['m_motor',['../classsubzero_1_1PidMotorController.html#a7a8058012f56b4e1a5da334621d1ab07',1,'subzero::PidMotorController']]],
-  ['m_5fname_26',['m_name',['../classsubzero_1_1PidMotorController.html#a04baaa993b24132553d280db7ed782b8',1,'subzero::PidMotorController::m_name'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#a854f41fe3fea4f063ea5fea5e1b38fd0',1,'subzero::BaseSingleAxisSubsystem::m_name']]],
+  ['m_5fname_26',['m_name',['../classsubzero_1_1IPidMotorController.html#afca8b0cf9ae4b057f73785567cd2a5e4',1,'subzero::IPidMotorController::m_name'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#a854f41fe3fea4f063ea5fea5e1b38fd0',1,'subzero::BaseSingleAxisSubsystem::m_name']]],
   ['m_5fpi_27',['M_PI',['../LimelightHelpers_8h.html#ae71449b1cc6e6250b91f539153a7a0d3',1,'LimelightHelpers.h']]],
   ['m_5fpidcontroller_28',['m_pidController',['../classsubzero_1_1PidMotorController.html#aa52605e1f26f3ca405836a99e98b0d32',1,'subzero::PidMotorController']]],
   ['m_5fpidenabled_29',['m_pidEnabled',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a34b1f19480bb9122f971aea158885d0a',1,'subzero::BaseSingleAxisSubsystem']]],

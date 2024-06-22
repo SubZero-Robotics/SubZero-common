@@ -59,12 +59,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AutoFactory_8h.html",
-"classConnectorX_1_1ConnectorXBoard.html#ac8b44a88c6b042b5f9f4435d0c1f35a8",
-"classsubzero_1_1BaseSingleAxisSubsystem.html#a98c7c453d091e9d5be6ef7e152455a6c",
-"classsubzero_1_1ModifiableChooser.html#aa071d341266391f4a421f35fe0398765",
-"dir_0a216d29a2e77e348f7f25242d38f93a.html",
-"namespacesubzero_1_1DetectionParser.html#aa4cd21a72f3b80dec8661629a4fb0815a68be4837f6c739877233e527a996dd00",
-"structsubzero_1_1DetectionParser_1_1BoundingBox.html#a2990da8bfc9240fb09f0b49093c11b47"
+"classConnectorX_1_1ConnectorXBoard.html#abf3ab16b9f7f6b7efc5db0fae65832aa",
+"classsubzero_1_1BaseSingleAxisSubsystem.html#a8d865e909fea43e073bac06eee826bfa",
+"classsubzero_1_1ISingleAxisSubsystem.html#ac6e7695018e6da9a4a061acedd1aa290",
+"classsubzero_1_1SimPidMotorController.html#ae0dab6d95528a9b5b41d7c980d2b738c",
+"namespaceLimelightHelpers.html#a7cf89fd9e6f75b5dc905ad7503e0548a",
+"structConnectorX_1_1Commands_1_1ResponseReadColor.html#a8ae95016ec275cbc4cbc1625fffe5388",
+"unionConnectorX_1_1Commands_1_1ResponseData.html#a84452cc37c0237eed97de10e044478d3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

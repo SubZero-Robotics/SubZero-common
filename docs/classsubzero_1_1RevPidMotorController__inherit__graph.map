@@ -1,5 +1,7 @@
 <map id="subzero::RevPidMotorController" name="subzero::RevPidMotorController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="234,35,436,61"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="5,5,186,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,46,233,46,233,51,202,51"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="465,35,667,61"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="237,5,417,91"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="433,46,465,46,465,51,433,51"/>
+<area shape="rect" id="Node000003" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="5,35,189,61"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="204,46,236,46,236,51,204,51"/>
 </map>

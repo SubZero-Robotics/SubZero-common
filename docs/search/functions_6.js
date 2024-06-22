@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getabsoluteencoderposition_0',['GetAbsoluteEncoderPosition',['../classsubzero_1_1PidMotorController.html#af555199f23101a46c4a0bd4b2e9fd32a',1,'subzero::PidMotorController']]],
+  ['getabsoluteencoderposition_0',['GetAbsoluteEncoderPosition',['../classsubzero_1_1IPidMotorController.html#ad413ec667491af816f790e7d61b3db19',1,'subzero::IPidMotorController::GetAbsoluteEncoderPosition()'],['../classsubzero_1_1PidMotorController.html#afdbc1578d8aed1bd5db54e9b41382ee6',1,'subzero::PidMotorController::GetAbsoluteEncoderPosition()'],['../classsubzero_1_1SimPidMotorController.html#af7c93941790854375d4397f33caf70c5',1,'subzero::SimPidMotorController::GetAbsoluteEncoderPosition()']]],
   ['getanglefromotherpose_1',['GetAngleFromOtherPose',['../classsubzero_1_1TurnToPose.html#a2e3ddcf324003f59b8401a777c536439',1,'subzero::TurnToPose']]],
   ['getauto_2',['GetAuto',['../classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80',1,'subzero::AutoFactory']]],
   ['getavailableentries_3',['GetAvailableEntries',['../classsubzero_1_1TaggedChooser.html#afa9a4c242f829cee8f33f690f10afaf9',1,'subzero::TaggedChooser']]],
@@ -24,7 +24,7 @@ var searchData=
   ['getcurrentposition_21',['GetCurrentPosition',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a00fe266937b50f16e78f86039cdc70ae',1,'subzero::BaseSingleAxisSubsystem::GetCurrentPosition()'],['../classsubzero_1_1ISingleAxisSubsystem.html#a7acdd248c060bf9afa2afd80e313f1a1',1,'subzero::ISingleAxisSubsystem::GetCurrentPosition()']]],
   ['getcurrentzone_22',['getCurrentZone',['../classConnectorX_1_1ConnectorXBoard.html#a656687f467630662af049c4c8ef08d0d',1,'ConnectorX::ConnectorXBoard']]],
   ['getdistancetotarget_23',['GetDistanceToTarget',['../classsubzero_1_1TargetTracker.html#af9efa0c5da054fe5cef8b3fb2bee1738',1,'subzero::TargetTracker']]],
-  ['getencoderposition_24',['GetEncoderPosition',['../classsubzero_1_1PidMotorController.html#af42d9069079c003e3916070395fc8601',1,'subzero::PidMotorController']]],
+  ['getencoderposition_24',['GetEncoderPosition',['../classsubzero_1_1IPidMotorController.html#ae9fe47b605fe4ef836129e0e21a9b206',1,'subzero::IPidMotorController::GetEncoderPosition()'],['../classsubzero_1_1PidMotorController.html#af768098f9ebc61e356a39d791f564da4',1,'subzero::PidMotorController::GetEncoderPosition()'],['../classsubzero_1_1SimPidMotorController.html#a5d15f8cc9ad96aeddf5cee0e5f08c47e',1,'subzero::SimPidMotorController::GetEncoderPosition()']]],
   ['getestimationstddevs_25',['GetEstimationStdDevs',['../classsubzero_1_1PhotonVisionEstimators.html#a29e592c9d6e2e4c6d795b9560d6b31aa',1,'subzero::PhotonVisionEstimators']]],
   ['getfiducialid_26',['getFiducialID',['../namespaceLimelightHelpers.html#a805b69f2fb466d6da2fe27ad3c80399b',1,'LimelightHelpers']]],
   ['getinstance_27',['getInstance',['../classsubzero_1_1ConsoleLogger.html#a9599febe5518e17bbdf61e5ee80ddd14',1,'subzero::ConsoleLogger::getInstance()'],['../classsubzero_1_1ShuffleboardLogger.html#ab53b13c0280748904d9d7a98170888e1',1,'subzero::ShuffleboardLogger::getInstance()']]],
@@ -42,7 +42,7 @@ var searchData=
   ['getneuralclassid_39',['getNeuralClassID',['../namespaceLimelightHelpers.html#abdae95544756b2173d5c7a2b1bc75050',1,'LimelightHelpers']]],
   ['getntselected_40',['GetNtSelected',['../classsubzero_1_1ModifiableChooser.html#a15e03e8d02c34a48e68b7b1f7d376067',1,'subzero::ModifiableChooser']]],
   ['getpatterndone_41',['getPatternDone',['../classConnectorX_1_1ConnectorXBoard.html#ac7dcf8dcbefe1774bccf82a17c14408c',1,'ConnectorX::ConnectorXBoard']]],
-  ['getpidsettings_42',['GetPidSettings',['../classsubzero_1_1PidMotorController.html#aef9f331fddb69cca7a0419ffff734eec',1,'subzero::PidMotorController::GetPidSettings()'],['../classsubzero_1_1PidMotorControllerPair.html#a6c76577a5577980ab9a303aa79444052',1,'subzero::PidMotorControllerPair::GetPidSettings()']]],
+  ['getpidsettings_42',['GetPidSettings',['../classsubzero_1_1IPidMotorController.html#a3bf0f2604e8bb9142a7b72cdf0bdccb5',1,'subzero::IPidMotorController::GetPidSettings()'],['../classsubzero_1_1PidMotorController.html#ae97bcb96df631ae47953ffe3d9023879',1,'subzero::PidMotorController::GetPidSettings()'],['../classsubzero_1_1PidMotorControllerPair.html#a6c76577a5577980ab9a303aa79444052',1,'subzero::PidMotorControllerPair::GetPidSettings()'],['../classsubzero_1_1SimPidMotorController.html#a2bac987f3c9e104c6f41ffdd57cf60a5',1,'subzero::SimPidMotorController::GetPidSettings()']]],
   ['getposefromcamera_43',['GetPoseFromCamera',['../classsubzero_1_1PhotonVisionEstimators.html#a6c3a70102bf48fbad039928526629b5a',1,'subzero::PhotonVisionEstimators']]],
   ['getpythonscriptdata_44',['getPythonScriptData',['../namespaceLimelightHelpers.html#ac07af430312120b3581900648f452521',1,'LimelightHelpers']]],
   ['getselected_45',['GetSelected',['../classsubzero_1_1ModifiableChooser.html#ac80bdc631f67d74a17185d5e9fd7ee65',1,'subzero::ModifiableChooser']]],

@@ -1,0 +1,5 @@
+<map id="subzero::SimPidMotorController" name="subzero::SimPidMotorController">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,208,105"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="15,5,198,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,46,109,79,104,79,104,46"/>
+</map>

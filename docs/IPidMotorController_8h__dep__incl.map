@@ -1,0 +1,15 @@
+<map id="include/subzero/motor/IPidMotorController.h" name="include/subzero/motor/IPidMotorController.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="206,5,354,46"/>
+<area shape="rect" id="Node000002" href="$PidMotorController_8h.html" title=" " alt="" coords="115,94,264,135"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,59,212,95,208,92,247,55"/>
+<area shape="rect" id="Node000007" href="$SimPidMotorController_8h.html" title=" " alt="" coords="288,94,453,135"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="313,55,352,92,348,95,309,59"/>
+<area shape="rect" id="Node000003" href="$PidMotorControllerPair_8h.html" title=" " alt="" coords="5,183,171,223"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="156,147,113,184,109,180,153,143"/>
+<area shape="rect" id="Node000004" href="$BaseSingleAxisSubsystem_8h.html" title=" " alt="" coords="195,183,386,223"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="226,143,269,180,266,184,222,147"/>
+<area shape="rect" id="Node000005" href="$LinearSingleAxisSubsystem_8h.html" title=" " alt="" coords="76,271,273,312"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="254,235,202,273,199,269,250,231"/>
+<area shape="rect" id="Node000006" href="$RotationalSingleAxisSubsystem_8h.html" title=" " alt="" coords="297,271,516,312"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="331,231,382,269,379,273,328,235"/>
+</map>
