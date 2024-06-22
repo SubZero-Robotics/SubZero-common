@@ -11,8 +11,12 @@ PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>::
                        TRelativeEncoder &encoder, TController &controller,
                        PidSettings pidSettings, TAbsoluteEncoder *absEncoder,
                        units::revolutions_per_minute_t maxRpm)
-    : m_name{name}, m_motor{motor}, m_controller{controller},
-      m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
+    : IPidMotorController(name),
+      m_motor{motor},
+      m_controller{controller},
+      m_encoder{encoder},
+      m_absEncoder{absEncoder},
+      m_settings{pidSettings},
       m_pidController{
           frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
       m_maxRpm{maxRpm} {
@@ -26,6 +30,13 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
                         TAbsoluteEncoder>::Set(units::volt_t volts) {
   frc::SmartDashboard::PutNumber(m_name + " Commanded volts", volts.value());
   m_motor.SetVoltage(volts);
+}
+
+template <typename TMotor, typename TController, typename TRelativeEncoder,
+          typename TAbsoluteEncoder>
+void PidMotorController<TMotor, TController, TRelativeEncoder,
+                        TAbsoluteEncoder>::Set(double percentage) {
+  m_motor.Set(percentage);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,

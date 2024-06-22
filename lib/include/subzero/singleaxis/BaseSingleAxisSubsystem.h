@@ -44,7 +44,7 @@ template <typename TController, typename TDistance>
 class BaseSingleAxisSubsystem
     : public ISingleAxisSubsystem<TDistance>,
       public frc2::TrapezoidProfileSubsystem<TDistance> {
-public:
+ public:
   using PidState = typename frc::TrapezoidProfile<TDistance>::State;
   using Distance_t = units::unit_t<TDistance>;
   using Velocity =
@@ -54,12 +54,12 @@ public:
       units::compound_unit<Velocity, units::inverse<units::seconds>>;
   using Acceleration_t = units::unit_t<Acceleration>;
 
-protected:
+ protected:
   bool IsMovementAllowed(double speed, bool ignoreEncoder = false);
 
   bool IsMovementAllowed(bool ignoreEncoder = false);
 
-public:
+ public:
   BaseSingleAxisSubsystem(
       std::string name, TController &controller,
       ISingleAxisSubsystem<TDistance>::SingleAxisConfig config,
@@ -132,7 +132,7 @@ public:
    */
   void OnInit();
 
-protected:
+ protected:
   std::optional<frc::DigitalInput *> m_minLimitSwitch;
   std::optional<frc::DigitalInput *> m_maxLimitSwitch;
   TController &m_controller;
@@ -146,4 +146,4 @@ protected:
   frc2::CommandPtr m_resetEncCmd = EmptyCommand().ToPtr();
   frc::MechanismLigament2d *m_ligament2d;
 };
-} // namespace subzero
+}  // namespace subzero
