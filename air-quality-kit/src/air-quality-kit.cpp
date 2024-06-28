@@ -1,4 +1,4 @@
-/* 
+/*
  * Project Distributed Air Quality Monitors
  * Author: SubZero 5690
  * Date: June 22, 2024
@@ -57,8 +57,14 @@ void setup()
   SeeedOled.init();
 
   SeeedOled.clearDisplay();
-  SeeedOled.setNormalDisplay();
+  SeeedOled.setInverseDisplay();
   SeeedOled.setPageMode();
+
+  SeeedOled.sendCommand(0xA8);
+	SeeedOled.sendCommand(0x3F);
+  SeeedOled.sendCommand(0xA0);
+  SeeedOled.sendCommand(0xC9);
+  SeeedOled.sendCommand(0xA1);
 
   SeeedOled.setTextXY(2, 0);
   SeeedOled.putString("Particle");
