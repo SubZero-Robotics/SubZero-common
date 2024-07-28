@@ -1,5 +1,5 @@
 <map id="subzero::ILogger" name="subzero::ILogger">
-<area shape="rect" id="Node000001" title="Logger interface." alt="" coords="124,5,241,31"/>
+<area shape="rect" id="Node000001" title="Logger interface." alt="" coords="124,5,240,31"/>
 <area shape="rect" id="Node000002" href="$classsubzero_1_1ConsoleLogger.html" title="Outputs formatted strings to stdout." alt="" coords="5,79,165,105"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,43,103,81,100,76,152,38"/>
 <area shape="rect" id="Node000003" href="$classsubzero_1_1ShuffleboardLogger.html" title="Outputs formatted information to SmartDashboard." alt="" coords="189,79,373,105"/>

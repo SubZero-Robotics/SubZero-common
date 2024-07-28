@@ -2,10 +2,10 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="133,5,290,46"/>
 <area shape="rect" id="Node000002" href="$ConnectorX_8h.html" title=" " alt="" coords="5,94,202,135"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="177,58,130,96,126,91,173,54"/>
-<area shape="rect" id="Node000003" href="$BaseSingleAxisSubsystem_8h.html" title=" " alt="" coords="225,94,417,135"/>
+<area shape="rect" id="Node000003" href="$BaseSingleAxisSubsystem_8h.html" title=" " alt="" coords="225,94,416,135"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="250,54,298,91,294,96,247,58"/>
 <area shape="rect" id="Node000004" href="$LinearSingleAxisSubsystem_8h.html" title=" " alt="" coords="106,183,304,223"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="284,146,233,184,229,180,281,142"/>
-<area shape="rect" id="Node000005" href="$RotationalSingleAxisSubsystem_8h.html" title=" " alt="" coords="327,183,547,223"/>
+<area shape="rect" id="Node000005" href="$RotationalSingleAxisSubsystem_8h.html" title=" " alt="" coords="327,183,546,223"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="361,142,412,180,409,184,358,146"/>
 </map>

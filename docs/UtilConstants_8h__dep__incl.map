@@ -14,16 +14,16 @@
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="439,227,542,268,540,273,437,232"/>
 <area shape="rect" id="Node000006" href="$PidMotorController_8h.html" title=" " alt="" coords="267,271,415,312"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="365,239,351,272,347,270,360,237"/>
-<area shape="rect" id="Node000007" href="$PidMotorControllerPair_8h.html" title=" " alt="" coords="157,360,323,401"/>
+<area shape="rect" id="Node000007" href="$PidMotorControllerPair_8h.html" title=" " alt="" coords="157,360,322,401"/>
 <area shape="poly" id="edge10_Node000003_Node000007" title=" " alt="" coords="304,233,278,250,257,273,246,294,241,317,240,360,235,360,236,316,241,292,252,270,275,246,301,228"/>
 <area shape="rect" id="Node000008" href="$BaseSingleAxisSubsystem_8h.html" title=" " alt="" coords="358,360,549,401"/>
 <area shape="poly" id="edge11_Node000003_Node000008" title=" " alt="" coords="407,234,430,270,446,317,454,359,448,360,441,319,425,272,402,237"/>
 <area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="308,324,264,362,261,358,305,320"/>
 <area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="380,319,429,357,426,362,377,324"/>
-<area shape="rect" id="Node000009" href="$LinearSingleAxisSubsystem_8h.html" title=" " alt="" coords="239,449,436,489"/>
+<area shape="rect" id="Node000009" href="$LinearSingleAxisSubsystem_8h.html" title=" " alt="" coords="238,449,436,489"/>
 <area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="416,412,365,450,362,446,413,408"/>
 <area shape="rect" id="Node000010" href="$RotationalSingleAxisSubsystem_8h.html" title=" " alt="" coords="460,449,679,489"/>
 <area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="493,408,545,446,541,450,490,412"/>
-<area shape="poly" id="edge13_Node000011_Node000005" title=" " alt="" coords="592,239,592,271,587,271,587,239"/>
+<area shape="poly" id="edge13_Node000011_Node000005" title=" " alt="" coords="592,239,592,271,586,271,586,239"/>
 <area shape="poly" id="edge14_Node000011_Node000008" title=" " alt="" coords="659,229,683,247,702,270,710,292,702,314,678,331,641,346,550,368,548,363,639,341,676,327,698,310,705,292,698,273,679,250,656,233"/>
 </map>

@@ -1,5 +1,5 @@
 <map id="include/subzero/singleaxis" name="include/subzero/singleaxis">
-<area shape="rect" id="node1" href="dir_aa08deb51f47010ed95b8e5c8c67938c.html" title="logging" alt="" coords="26,126,89,152"/>
+<area shape="rect" id="node1" href="dir_aa08deb51f47010ed95b8e5c8c67938c.html" title="logging" alt="" coords="26,126,88,152"/>
 <area shape="rect" id="node2" href="dir_e4caf7611a56be115c3233d233b2a691.html" title="motor" alt="" coords="113,126,167,152"/>
 <area shape="rect" id="node3" href="dir_ece3d5d4a8f2f44482d2a4f4c37c3992.html" title="frc2" alt="" coords="192,126,235,152"/>
 <area shape="rect" id="node4" href="dir_15537c2fffae2c469a38c9ec5b0bf024.html" title="singleaxis" alt="" coords="101,52,179,78"/>
