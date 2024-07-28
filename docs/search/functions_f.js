@@ -42,8 +42,8 @@ var searchData=
   ['simpidmotorcontroller_39',['SimPidMotorController',['../classsubzero_1_1SimPidMotorController.html#a359c020a486b02fb985ef19ad379c25a',1,'subzero::SimPidMotorController']]],
   ['singleaxisconfig_40',['SingleAxisConfig',['../structsubzero_1_1ISingleAxisSubsystem_1_1SingleAxisConfig.html#af57198597771e44506470d830f0be35e',1,'subzero::ISingleAxisSubsystem::SingleAxisConfig']]],
   ['singletargetingresultclass_41',['SingleTargetingResultClass',['../classLimelightHelpers_1_1SingleTargetingResultClass.html#acb545eb26f53dfeffb56b383db190585',1,'LimelightHelpers::SingleTargetingResultClass']]],
-  ['steptowards_42',['StepTowards',['../classsubzero_1_1SwerveUtils.html#a0335303b0d9a1f65a5629212ad6e8af0',1,'subzero::SwerveUtils']]],
-  ['steptowardscircular_43',['StepTowardsCircular',['../classsubzero_1_1SwerveUtils.html#aa9e021a74844b1fb9db44957fbd3c796',1,'subzero::SwerveUtils']]],
+  ['steptowards_42',['StepTowards',['../classsubzero_1_1SwerveUtils.html#a08f2a2629a96257a97e59e10ace4fd55',1,'subzero::SwerveUtils']]],
+  ['steptowardscircular_43',['StepTowardsCircular',['../classsubzero_1_1SwerveUtils.html#aff85a0521a3ac1824a69001600352acb',1,'subzero::SwerveUtils']]],
   ['stop_44',['Stop',['../classsubzero_1_1IPidMotorController.html#afd01dd3edebf91519f2f71e402094bad',1,'subzero::IPidMotorController::Stop()'],['../classsubzero_1_1PidMotorController.html#a21149cca4d46ba691cb67d418c07b6f7',1,'subzero::PidMotorController::Stop()'],['../classsubzero_1_1PidMotorControllerPair.html#a5d41f7e528a26f3b57e8293c092c2eeb',1,'subzero::PidMotorControllerPair::Stop()'],['../classsubzero_1_1SimPidMotorController.html#ae72036862a171f762540612ad3740fd6',1,'subzero::SimPidMotorController::Stop()'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#a6542444f3e75b673729fb8d08f759e1f',1,'subzero::BaseSingleAxisSubsystem::Stop()'],['../classsubzero_1_1ISingleAxisSubsystem.html#aa2d63e58a07d9043bdc44711de0bf43a',1,'subzero::ISingleAxisSubsystem::Stop()']]],
   ['synczones_45',['syncZones',['../classConnectorX_1_1ConnectorXBoard.html#a29dab459ce57a5865e8bb365d99a13f4',1,'ConnectorX::ConnectorXBoard']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['ambiguity_4',['ambiguity',['../classLimelightHelpers_1_1RawFiducial.html#a04c1aaf30f2a5637b983ce959b8b56fb',1,'LimelightHelpers::RawFiducial']]],
   ['amogus_5',['Amogus',['../namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539adf8d76a413d2fafcd328edd725b8551f',1,'ConnectorX']]],
   ['analogport_6',['AnalogPort',['../namespaceConnectorX.html#aac92a66beb895061e7f605aaf2bcfd47',1,'ConnectorX']]],
-  ['angledifference_7',['AngleDifference',['../classsubzero_1_1SwerveUtils.html#ae15b952d8b7f289cf7dbec2ecac0ae10',1,'subzero::SwerveUtils']]],
+  ['angledifference_7',['AngleDifference',['../classsubzero_1_1SwerveUtils.html#a2dc520181f60ab2e41f39c4f5b4998d4',1,'subzero::SwerveUtils']]],
   ['angryeyes_8',['AngryEyes',['../namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539abc9accfbb6cd8e2a2ba12804ee03c376',1,'ConnectorX']]],
   ['areapercentage_9',['areaPercentage',['../structsubzero_1_1DetectedObject.html#a43df086e15a6d2594fdc011f3477c510',1,'subzero::DetectedObject']]],
   ['areapercentagethreshold_10',['areaPercentageThreshold',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a4b6c03115f0c1a373680cf5fcb474e81',1,'subzero::TargetTracker::TargetTrackerConfig']]],
