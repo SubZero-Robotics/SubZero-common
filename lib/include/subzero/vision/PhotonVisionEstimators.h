@@ -14,7 +14,7 @@
 namespace subzero {
 
 /**
- * @brief Combines estimated poses from an aritrary number of PhotonVision
+ * @brief Combines estimated poses from an arbitrary number of PhotonVision
  * cameras and applies them to a Holonomic pose estimator
  *
  */
@@ -26,13 +26,12 @@ public:
    */
   class PhotonCameraEstimator {
   public:
-    explicit PhotonCameraEstimator(photon::PhotonPoseEstimator &est)
-        : estimator{est} {
-      camera = estimator.GetCamera();
+    explicit PhotonCameraEstimator(photon::PhotonPoseEstimator &est, photon::PhotonCamera &cam)
+        : estimator{est}, camera{cam} {
     }
 
     photon::PhotonPoseEstimator &estimator;
-    std::shared_ptr<photon::PhotonCamera> camera;
+    photon::PhotonCamera &camera; // Changed to reference
   };
 
   explicit PhotonVisionEstimators(std::vector<PhotonCameraEstimator> &estms,
@@ -46,34 +45,37 @@ public:
     }
   }
 
-  std::optional<photon::EstimatedRobotPose>
-  GetPoseFromCamera(frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
-                    photon::PhotonCamera &camera, double maxAbmiguity = 0.2) {
+  std::vector<photon::EstimatedRobotPose>
+  GetPosesFromCamera(frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
+                  photon::PhotonCamera &camera, double maxAmbiguity = 0.2) {
     est.SetReferencePose(prevPose);
-    auto camResult = camera.GetLatestResult();
 
-    std::optional<photon::EstimatedRobotPose> visionEst;
+    std::vector<photon::EstimatedRobotPose> validPoses;
 
-    if (camResult.HasTargets() &&
-        (camResult.targets.size() > 1 ||
-         camResult.targets[0].GetPoseAmbiguity() <= maxAbmiguity)) {
-      visionEst = est.Update(camResult);
+    // Photon now returns all of the poses that we haven't integrated
+    // rather than just the latest, so we must return all that are valid
+    for (const auto& result : camera.GetAllUnreadResults()) {
+        // Check if the result has valid targets
+        if (result.HasTargets() && 
+            (result.targets.size() > 1 || result.targets[0].GetPoseAmbiguity() <= maxAmbiguity)) {
+            // Attempt to update the pose estimator with the result
+            std::optional<photon::EstimatedRobotPose> visionEst = est.Update(result);
+
+            // If a valid pose is produced, check its boundaries
+            if (visionEst.has_value()) {
+                auto estimatedPose = visionEst.value().estimatedPose;
+                if (estimatedPose.X() > 0_m && estimatedPose.X() <= 100_m &&
+                    estimatedPose.Y() > 0_m && estimatedPose.Y() <= 100_m) {
+                    // Add the valid pose to the vector
+                    validPoses.push_back(visionEst.value());
+                }
+            }
+        }
     }
 
-    if (visionEst.has_value()) {
-      auto estimatedPose = visionEst.value().estimatedPose;
-      // Replace 100_m with actual field dimensions
-      if (estimatedPose.X() > 0_m && estimatedPose.X() <= 100_m &&
-          estimatedPose.Y() > 0_m && estimatedPose.Y() <= 100_m) {
-        return visionEst;
-      }
-    }
-
-    return std::nullopt;
+    return validPoses;
   }
 
-  // See:
-  // https://github.com/Hemlock5712/2023-Robot/blob/Joe-Test/src/main/java/frc/robot/subsystems/PoseEstimatorSubsystem.java
   /**
    * @brief Call in the drivetrain's Periodic method to update the estimated
    * robot's position
@@ -84,12 +86,18 @@ public:
   void UpdateEstimatedGlobalPose(frc::SwerveDrivePoseEstimator<4U> &estimator,
                                  bool test) {
     for (auto &est : m_cameraEstimators) {
-      auto camPose =
-          GetPoseFromCamera(frc::Pose3d(estimator.GetEstimatedPosition()),
-                            est.estimator, *est.camera);
-      if (camPose.has_value()) {
-        auto pose = camPose.value();
-        AddVisionMeasurement(pose, estimator, est);
+      auto camPoses =
+          GetPosesFromCamera(frc::Pose3d(estimator.GetEstimatedPosition()),
+                            est.estimator, est.camera);
+      // if (camPose.has_value()) {
+      //   auto pose = camPose.value();
+      //   AddVisionMeasurement(pose, estimator, est);
+      // }
+
+      if (camPoses.size() > 0) {
+        for (auto &pose: camPoses) {
+          AddVisionMeasurement(pose, estimator, est);
+        }
       }
     }
   }
@@ -101,8 +109,6 @@ public:
     Eigen::Matrix<double, 3, 1> estStdDevs = m_singleTagStdDevs;
     int numTags = 0;
     units::meter_t avgDist = 0_m;
-    // ConsoleWriter.logVerbose("Vision", "targets used length
-    // %d", pose.targetsUsed.size());
     for (const auto &tgt : pose.targetsUsed) {
       auto tagPose =
           photonEst.estimator.GetFieldLayout().GetTagPose(tgt.GetFiducialId());
@@ -119,7 +125,6 @@ public:
 
     avgDist /= numTags;
     if (numTags > 1) {
-      // TODO:
       estStdDevs = m_multiTagStdDevs;
     }
 
@@ -151,4 +156,5 @@ private:
 
   units::second_t lastEstTimestamp{0_s};
 };
+
 } // namespace subzero
