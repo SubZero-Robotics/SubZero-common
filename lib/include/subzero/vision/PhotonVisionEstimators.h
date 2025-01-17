@@ -26,9 +26,9 @@ public:
    */
   class PhotonCameraEstimator {
   public:
-    explicit PhotonCameraEstimator(photon::PhotonPoseEstimator &est, photon::PhotonCamera &cam)
-        : estimator{est}, camera{cam} {
-    }
+    explicit PhotonCameraEstimator(photon::PhotonPoseEstimator &est,
+                                   photon::PhotonCamera &cam)
+        : estimator{est}, camera{cam} {}
 
     photon::PhotonPoseEstimator &estimator;
     photon::PhotonCamera &camera; // Changed to reference
@@ -47,30 +47,32 @@ public:
 
   std::vector<photon::EstimatedRobotPose>
   GetPosesFromCamera(frc::Pose3d prevPose, photon::PhotonPoseEstimator &est,
-                  photon::PhotonCamera &camera, double maxAmbiguity = 0.2) {
+                     photon::PhotonCamera &camera, double maxAmbiguity = 0.2) {
     est.SetReferencePose(prevPose);
 
     std::vector<photon::EstimatedRobotPose> validPoses;
 
     // Photon now returns all of the poses that we haven't integrated
     // rather than just the latest, so we must return all that are valid
-    for (const auto& result : camera.GetAllUnreadResults()) {
-        // Check if the result has valid targets
-        if (result.HasTargets() && 
-            (result.targets.size() > 1 || result.targets[0].GetPoseAmbiguity() <= maxAmbiguity)) {
-            // Attempt to update the pose estimator with the result
-            std::optional<photon::EstimatedRobotPose> visionEst = est.Update(result);
+    for (const auto &result : camera.GetAllUnreadResults()) {
+      // Check if the result has valid targets
+      if (result.HasTargets() &&
+          (result.targets.size() > 1 ||
+           result.targets[0].GetPoseAmbiguity() <= maxAmbiguity)) {
+        // Attempt to update the pose estimator with the result
+        std::optional<photon::EstimatedRobotPose> visionEst =
+            est.Update(result);
 
-            // If a valid pose is produced, check its boundaries
-            if (visionEst.has_value()) {
-                auto estimatedPose = visionEst.value().estimatedPose;
-                if (estimatedPose.X() > 0_m && estimatedPose.X() <= 100_m &&
-                    estimatedPose.Y() > 0_m && estimatedPose.Y() <= 100_m) {
-                    // Add the valid pose to the vector
-                    validPoses.push_back(visionEst.value());
-                }
-            }
+        // If a valid pose is produced, check its boundaries
+        if (visionEst.has_value()) {
+          auto estimatedPose = visionEst.value().estimatedPose;
+          if (estimatedPose.X() > 0_m && estimatedPose.X() <= 100_m &&
+              estimatedPose.Y() > 0_m && estimatedPose.Y() <= 100_m) {
+            // Add the valid pose to the vector
+            validPoses.push_back(visionEst.value());
+          }
         }
+      }
     }
 
     return validPoses;
@@ -88,14 +90,14 @@ public:
     for (auto &est : m_cameraEstimators) {
       auto camPoses =
           GetPosesFromCamera(frc::Pose3d(estimator.GetEstimatedPosition()),
-                            est.estimator, est.camera);
+                             est.estimator, est.camera);
       // if (camPose.has_value()) {
       //   auto pose = camPose.value();
       //   AddVisionMeasurement(pose, estimator, est);
       // }
 
       if (camPoses.size() > 0) {
-        for (auto &pose: camPoses) {
+        for (auto &pose : camPoses) {
           AddVisionMeasurement(pose, estimator, est);
         }
       }

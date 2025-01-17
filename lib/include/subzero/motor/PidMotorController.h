@@ -204,7 +204,8 @@ private:
 };
 
 class RevPidMotorController
-    : public PidMotorController<rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
-                                rev::spark::SparkRelativeEncoder,
-                                rev::spark::SparkAbsoluteEncoder> {};
+    : public PidMotorController<
+          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
+          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder> {
+};
 } // namespace subzero
