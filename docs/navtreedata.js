@@ -59,14 +59,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "AutoFactory_8h.html",
-"classConnectorX_1_1ConnectorXBoard.html#abf3ab16b9f7f6b7efc5db0fae65832aa",
-"classsubzero_1_1BaseSingleAxisSubsystem.html#a8d865e909fea43e073bac06eee826bfa",
-"classsubzero_1_1ISingleAxisSubsystem.html#ac6e7695018e6da9a4a061acedd1aa290",
-"classsubzero_1_1SimPidMotorController.html#ae0dab6d95528a9b5b41d7c980d2b738c",
-"namespaceLimelightHelpers.html#a7cf89fd9e6f75b5dc905ad7503e0548a",
-"structConnectorX_1_1Commands_1_1ResponseReadColor.html#a8ae95016ec275cbc4cbc1625fffe5388",
-"unionConnectorX_1_1Commands_1_1ResponseData.html#a84452cc37c0237eed97de10e044478d3"
+"classLimelightHelpers_1_1VisionResultsClass.html",
+"classsubzero_1_1ILogger.html#acdcf2c180c4211057bf365b4465ce184",
+"classsubzero_1_1RotationalSingleAxisSubsystem.html#a631d5bc68d55bc2f5ec2ca62cd982e0f",
+"functions_~.html",
+"structConnectorX_1_1Commands_1_1CommandPattern.html#a59f43a650fac1a7a539a5caf125971f8",
+"structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a56b7112b72edf8dcde263577c9a5ca94"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';

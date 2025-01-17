@@ -4,7 +4,7 @@ var searchData=
   ['cachedport_1',['CachedPort',['../structConnectorX_1_1CachedPort.html',1,'ConnectorX']]],
   ['cachedzone_2',['CachedZone',['../structConnectorX_1_1CachedZone.html',1,'ConnectorX::CachedZone'],['../structConnectorX_1_1CachedZone.html#a78c0b3af4ecc33de5af9aabccde79c14',1,'ConnectorX::CachedZone::CachedZone()']]],
   ['calculatecirculardeadzone_3',['CalculateCircularDeadzone',['../namespacesubzero_1_1InputUtils.html#af050671c12196a44292407665fd3f63c',1,'subzero::InputUtils']]],
-  ['camera_4',['camera',['../classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html#adfa22dfdb0a90ce92afa1fe499344f8c',1,'subzero::PhotonVisionEstimators::PhotonCameraEstimator']]],
+  ['camera_4',['camera',['../classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html#a9852ab7d8593795636dbc941cb937760',1,'subzero::PhotonVisionEstimators::PhotonCameraEstimator']]],
   ['cameraangle_5',['cameraAngle',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#adead5d836260f1d34d5d132a93958cf7',1,'subzero::TargetTracker::TargetTrackerConfig']]],
   ['cameralensheight_6',['cameraLensHeight',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a56b7112b72edf8dcde263577c9a5ca94',1,'subzero::TargetTracker::TargetTrackerConfig']]],
   ['centerx_7',['centerX',['../structsubzero_1_1DetectedObject.html#a5684b67395279e00b9b2d41783c8266c',1,'subzero::DetectedObject']]],

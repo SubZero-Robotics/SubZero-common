@@ -38,61 +38,61 @@ var ConnectorX_8h =
     [ "ConnectorX::CachedPort", "structConnectorX_1_1CachedPort.html", "structConnectorX_1_1CachedPort" ],
     [ "ConnectorX::CachedDevice", "structConnectorX_1_1CachedDevice.html", "structConnectorX_1_1CachedDevice" ],
     [ "ConnectorX::ConnectorXBoard", "classConnectorX_1_1ConnectorXBoard.html", "classConnectorX_1_1ConnectorXBoard" ],
-    [ "AnalogPort", "ConnectorX_8h.html#aac92a66beb895061e7f605aaf2bcfd47", null ],
-    [ "CommandType", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20", [
-      [ "On", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a521c36a31c2762741cf0f8890cbe05e3", null ],
-      [ "Off", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20ad15305d7a4e34e02489c74a5ef542f36", null ],
-      [ "Pattern", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a57391192dfa1f247ad015a0fe2eca48e", null ],
-      [ "ChangeColor", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a42c1b4656d363422315489b4611066ea", null ],
-      [ "ReadPatternDone", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a83f10304a3462b15bdbb826470ffd6d5", null ],
-      [ "SetLedPort", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20ab18c70e03193c29879b50d03ed0b70be", null ],
-      [ "ReadAnalog", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20af95157ffd6cb9f0ffef95db8e1392c22", null ],
-      [ "DigitalSetup", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a3f1458700011dac3ca0592ac5979f37e", null ],
-      [ "DigitalWrite", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a974604e564f7c4aafde1df292b3cad16", null ],
-      [ "DigitalRead", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a1010edf06878e779695cefcff178fba3", null ],
-      [ "SetConfig", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a40c0308f9923fd5a8726b54cc8ba3137", null ],
-      [ "ReadConfig", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a6c5215f4e658abdfd7bf4a639fb29cbf", null ],
-      [ "RadioSend", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20ae43359250833ba3f9324746b93b2c7eb", null ],
-      [ "RadioGetLatestReceived", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a5517d8a88533e778b138e2b9a50aaef4", null ],
-      [ "GetColor", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20ad2dc1e5f838efa7d9de96ef929d26fa8", null ],
-      [ "GetPort", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a7b0a3b30185d32cea6fdd6a7f391a417", null ],
-      [ "SetPatternZone", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20ae83fc3aef51479651ef7f3faa9f6889a", null ],
-      [ "SetNewZones", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a5f43b8fbb3634808ef98c677417b29ad", null ],
-      [ "SyncStates", "ConnectorX_8h.html#a4faec956f6df46734f6fd4f6dee69d20a4b9dc6150e3ff30bb6a66e9c8a21a99e", null ]
+    [ "ConnectorX::AnalogPort", "namespaceConnectorX.html#aac92a66beb895061e7f605aaf2bcfd47", null ],
+    [ "ConnectorX::Commands::CommandType", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20", [
+      [ "ConnectorX::Commands::CommandType::On", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a521c36a31c2762741cf0f8890cbe05e3", null ],
+      [ "ConnectorX::Commands::CommandType::Off", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20ad15305d7a4e34e02489c74a5ef542f36", null ],
+      [ "ConnectorX::Commands::CommandType::Pattern", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a57391192dfa1f247ad015a0fe2eca48e", null ],
+      [ "ConnectorX::Commands::CommandType::ChangeColor", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a42c1b4656d363422315489b4611066ea", null ],
+      [ "ConnectorX::Commands::CommandType::ReadPatternDone", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a83f10304a3462b15bdbb826470ffd6d5", null ],
+      [ "ConnectorX::Commands::CommandType::SetLedPort", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20ab18c70e03193c29879b50d03ed0b70be", null ],
+      [ "ConnectorX::Commands::CommandType::ReadAnalog", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20af95157ffd6cb9f0ffef95db8e1392c22", null ],
+      [ "ConnectorX::Commands::CommandType::DigitalSetup", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a3f1458700011dac3ca0592ac5979f37e", null ],
+      [ "ConnectorX::Commands::CommandType::DigitalWrite", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a974604e564f7c4aafde1df292b3cad16", null ],
+      [ "ConnectorX::Commands::CommandType::DigitalRead", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a1010edf06878e779695cefcff178fba3", null ],
+      [ "ConnectorX::Commands::CommandType::SetConfig", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a40c0308f9923fd5a8726b54cc8ba3137", null ],
+      [ "ConnectorX::Commands::CommandType::ReadConfig", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a6c5215f4e658abdfd7bf4a639fb29cbf", null ],
+      [ "ConnectorX::Commands::CommandType::RadioSend", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20ae43359250833ba3f9324746b93b2c7eb", null ],
+      [ "ConnectorX::Commands::CommandType::RadioGetLatestReceived", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a5517d8a88533e778b138e2b9a50aaef4", null ],
+      [ "ConnectorX::Commands::CommandType::GetColor", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20ad2dc1e5f838efa7d9de96ef929d26fa8", null ],
+      [ "ConnectorX::Commands::CommandType::GetPort", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a7b0a3b30185d32cea6fdd6a7f391a417", null ],
+      [ "ConnectorX::Commands::CommandType::SetPatternZone", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20ae83fc3aef51479651ef7f3faa9f6889a", null ],
+      [ "ConnectorX::Commands::CommandType::SetNewZones", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a5f43b8fbb3634808ef98c677417b29ad", null ],
+      [ "ConnectorX::Commands::CommandType::SyncStates", "namespaceConnectorX_1_1Commands.html#a4faec956f6df46734f6fd4f6dee69d20a4b9dc6150e3ff30bb6a66e9c8a21a99e", null ]
     ] ],
-    [ "DigitalPort", "ConnectorX_8h.html#aa8f43a86fbd508c6d490b4c1acbdb9a5", [
-      [ "D0", "ConnectorX_8h.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a0e3e06c992d1ead056a6861bb46b28a8", null ],
-      [ "D1", "ConnectorX_8h.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a4a4079e06eb2f7ba7a12821c7c58a3f6", null ],
-      [ "D2", "ConnectorX_8h.html#aa8f43a86fbd508c6d490b4c1acbdb9a5ac4d62b6dcca08e5caf06c01889282859", null ]
+    [ "ConnectorX::DigitalPort", "namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5", [
+      [ "ConnectorX::DigitalPort::D0", "namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a0e3e06c992d1ead056a6861bb46b28a8", null ],
+      [ "ConnectorX::DigitalPort::D1", "namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5a4a4079e06eb2f7ba7a12821c7c58a3f6", null ],
+      [ "ConnectorX::DigitalPort::D2", "namespaceConnectorX.html#aa8f43a86fbd508c6d490b4c1acbdb9a5ac4d62b6dcca08e5caf06c01889282859", null ]
     ] ],
-    [ "LedPort", "ConnectorX_8h.html#a13cf5c33083d225f68b8b2ec7d48696f", [
-      [ "P0", "ConnectorX_8h.html#a13cf5c33083d225f68b8b2ec7d48696fa16a2e561c536a77cbfd10490ea398be6", null ],
-      [ "P1", "ConnectorX_8h.html#a13cf5c33083d225f68b8b2ec7d48696fa5f2b9323c39ee3c861a7b382d205c3d3", null ]
+    [ "ConnectorX::LedPort", "namespaceConnectorX.html#a13cf5c33083d225f68b8b2ec7d48696f", [
+      [ "ConnectorX::LedPort::P0", "namespaceConnectorX.html#a13cf5c33083d225f68b8b2ec7d48696fa16a2e561c536a77cbfd10490ea398be6", null ],
+      [ "ConnectorX::LedPort::P1", "namespaceConnectorX.html#a13cf5c33083d225f68b8b2ec7d48696fa5f2b9323c39ee3c861a7b382d205c3d3", null ]
     ] ],
-    [ "PatternType", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539", [
-      [ "None", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539a6adf97f83acf6453d4a6a4b1070f3754", null ],
-      [ "SetAll", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539a2f679c328a774eb155141342eb8e434a", null ],
-      [ "Blink", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539acfad0a7419f44ea0c64db24197abbf70", null ],
-      [ "RGBFade", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539a68779abbd9fb1170a773d4a0ca863ad5", null ],
-      [ "HackerMode", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539a35e71fc6334bd9f97ec175f0f9b06415", null ],
-      [ "Breathe", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539a0d9b0a3b3a93a8f759c9d8ac8eef97ca", null ],
-      [ "SineRoll", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539ac79294762cdf880aa585c0c8b246a3b2", null ],
-      [ "Chase", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539aeaff692e84900d6b0999355abb0f3e43", null ],
-      [ "AngryEyes", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539abc9accfbb6cd8e2a2ba12804ee03c376", null ],
-      [ "HappyEyes", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539aaea10f6ca24505d633e2e5bf0eab7b8f", null ],
-      [ "BlinkingEyes", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539ac5635cbd38f8ec99a38bace61e18eab3", null ],
-      [ "SurprisedEyes", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539acb590a7f45649f694d13c40465ec2a07", null ],
-      [ "Amogus", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539adf8d76a413d2fafcd328edd725b8551f", null ],
-      [ "OwOEyes", "ConnectorX_8h.html#ac7dfb9eacdb1b4981c51031f29817539ab33d69a5fddd0b7218b1c1e83b6ec396", null ]
+    [ "ConnectorX::PatternType", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539", [
+      [ "ConnectorX::PatternType::None", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539a6adf97f83acf6453d4a6a4b1070f3754", null ],
+      [ "ConnectorX::PatternType::SetAll", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539a2f679c328a774eb155141342eb8e434a", null ],
+      [ "ConnectorX::PatternType::Blink", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539acfad0a7419f44ea0c64db24197abbf70", null ],
+      [ "ConnectorX::PatternType::RGBFade", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539a68779abbd9fb1170a773d4a0ca863ad5", null ],
+      [ "ConnectorX::PatternType::HackerMode", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539a35e71fc6334bd9f97ec175f0f9b06415", null ],
+      [ "ConnectorX::PatternType::Breathe", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539a0d9b0a3b3a93a8f759c9d8ac8eef97ca", null ],
+      [ "ConnectorX::PatternType::SineRoll", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539ac79294762cdf880aa585c0c8b246a3b2", null ],
+      [ "ConnectorX::PatternType::Chase", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539aeaff692e84900d6b0999355abb0f3e43", null ],
+      [ "ConnectorX::PatternType::AngryEyes", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539abc9accfbb6cd8e2a2ba12804ee03c376", null ],
+      [ "ConnectorX::PatternType::HappyEyes", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539aaea10f6ca24505d633e2e5bf0eab7b8f", null ],
+      [ "ConnectorX::PatternType::BlinkingEyes", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539ac5635cbd38f8ec99a38bace61e18eab3", null ],
+      [ "ConnectorX::PatternType::SurprisedEyes", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539acb590a7f45649f694d13c40465ec2a07", null ],
+      [ "ConnectorX::PatternType::Amogus", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539adf8d76a413d2fafcd328edd725b8551f", null ],
+      [ "ConnectorX::PatternType::OwOEyes", "namespaceConnectorX.html#ac7dfb9eacdb1b4981c51031f29817539ab33d69a5fddd0b7218b1c1e83b6ec396", null ]
     ] ],
-    [ "PinMode", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11be", [
-      [ "INPUT", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11beaa84cc046d48610b05c21fd3670d0c829", null ],
-      [ "OUTPUT", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea50a87f0d71f7221582dad4bf507a0f34", null ],
-      [ "INPUT_PULLUP", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11beace9c2fb3e41547f8dfb11145f7485786", null ],
-      [ "INPUT_PULLDOWN", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea5953ff74bf620b2bb72efb16d1a9b26e", null ],
-      [ "OUTPUT_2MA", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea165d830b826a9690a2f578985697180e", null ],
-      [ "OUTPUT_4MA", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea218fca00c71435cc4575edebfa3c238e", null ],
-      [ "OUTPUT_8MA", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11beafd1c579d56980309218ea2e36b2ea418", null ],
-      [ "OUTPUT_12MA", "ConnectorX_8h.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea787a3eef52ce3516bd3915c298c9f4d9", null ]
+    [ "ConnectorX::PinMode", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11be", [
+      [ "ConnectorX::PinMode::INPUT", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11beaa84cc046d48610b05c21fd3670d0c829", null ],
+      [ "ConnectorX::PinMode::OUTPUT", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea50a87f0d71f7221582dad4bf507a0f34", null ],
+      [ "ConnectorX::PinMode::INPUT_PULLUP", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11beace9c2fb3e41547f8dfb11145f7485786", null ],
+      [ "ConnectorX::PinMode::INPUT_PULLDOWN", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea5953ff74bf620b2bb72efb16d1a9b26e", null ],
+      [ "ConnectorX::PinMode::OUTPUT_2MA", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea165d830b826a9690a2f578985697180e", null ],
+      [ "ConnectorX::PinMode::OUTPUT_4MA", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea218fca00c71435cc4575edebfa3c238e", null ],
+      [ "ConnectorX::PinMode::OUTPUT_8MA", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11beafd1c579d56980309218ea2e36b2ea418", null ],
+      [ "ConnectorX::PinMode::OUTPUT_12MA", "namespaceConnectorX.html#a3ea6aded3e55a988bfa5d3f3ab4e11bea787a3eef52ce3516bd3915c298c9f4d9", null ]
     ] ]
 ];

@@ -40,7 +40,7 @@ var hierarchy =
       [ "subzero::ShuffleboardLogger", "classsubzero_1_1ShuffleboardLogger.html", null ]
     ] ],
     [ "subzero::IPidMotorController", "classsubzero_1_1IPidMotorController.html", [
-      [ "subzero::PidMotorController< rev::CANSparkMax, rev::SparkPIDController, rev::SparkRelativeEncoder, rev::SparkAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", [
+      [ "subzero::PidMotorController< rev::spark::SparkMax, rev::spark::SparkClosedLoopController, rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", [
         [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
       ] ],
       [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],

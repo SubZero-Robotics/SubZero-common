@@ -1,13 +1,13 @@
 <map id="subzero::RevPidMotorController" name="subzero::RevPidMotorController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="884,45,1087,70"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="655,15,835,100"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="850,55,884,55,884,60,850,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="952,45,1155,70"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="655,15,903,100"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="919,55,952,55,952,60,919,60"/>
 <area shape="rect" id="Node000003" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="356,13,540,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="555,35,654,45,654,51,555,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="556,33,655,43,654,48,555,39"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="178,13,255,38"/>
 <area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="271,23,356,23,356,28,271,28"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="5,5,129,46"/>
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="144,23,178,23,178,28,144,28"/>
 <area shape="rect" id="Node000006" href="$structsubzero_1_1PidSettings.html" title=" " alt="" coords="378,62,518,88"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="533,70,631,65,654,63,654,68,631,70,534,75"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="533,69,631,65,654,63,654,69,631,70,533,75"/>
 </map>

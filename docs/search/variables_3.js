@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['camera_0',['camera',['../classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html#adfa22dfdb0a90ce92afa1fe499344f8c',1,'subzero::PhotonVisionEstimators::PhotonCameraEstimator']]],
+  ['camera_0',['camera',['../classsubzero_1_1PhotonVisionEstimators_1_1PhotonCameraEstimator.html#a9852ab7d8593795636dbc941cb937760',1,'subzero::PhotonVisionEstimators::PhotonCameraEstimator']]],
   ['cameraangle_1',['cameraAngle',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#adead5d836260f1d34d5d132a93958cf7',1,'subzero::TargetTracker::TargetTrackerConfig']]],
   ['cameralensheight_2',['cameraLensHeight',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a56b7112b72edf8dcde263577c9a5ca94',1,'subzero::TargetTracker::TargetTrackerConfig']]],
   ['centerx_3',['centerX',['../structsubzero_1_1DetectedObject.html#a5684b67395279e00b9b2d41783c8266c',1,'subzero::DetectedObject']]],
