@@ -2,8 +2,7 @@
 
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <rev/CANSparkBase.h>
-#include <rev/CANSparkMax.h>
+#include <rev/SparkMax.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -205,7 +204,8 @@ private:
 };
 
 class RevPidMotorController
-    : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
-                                rev::SparkRelativeEncoder,
-                                rev::SparkAbsoluteEncoder> {};
+    : public PidMotorController<
+          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
+          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder> {
+};
 } // namespace subzero
