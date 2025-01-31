@@ -1,7 +1,7 @@
 #pragma once
 
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <rev/CANSparkBase.h>
+#include <rev/SparkBase.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 

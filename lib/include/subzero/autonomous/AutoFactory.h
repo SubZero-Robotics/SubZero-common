@@ -4,7 +4,7 @@
 #include <frc/Filesystem.h>
 #include <frc2/command/CommandPtr.h>
 #include <frc2/command/WaitCommand.h>
-#include <pathplanner/lib/commands/FollowPathHolonomic.h>
+#include <pathplanner/lib/commands/FollowPathCommand.h>
 #include <wpi/MemoryBuffer.h>
 
 #include <filesystem>

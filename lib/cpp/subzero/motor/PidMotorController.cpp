@@ -74,7 +74,7 @@ void PidMotorController<
   m_absolutePositionEnabled = false;
   frc::SmartDashboard::PutNumber(m_name + "commanded rpm", rpm.value());
   m_controller.SetReference(rpm.value(),
-                            rev::CANSparkBase::ControlType::kVelocity);
+                            rev::spark::SparkBase::ControlType::kVelocity);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
@@ -127,6 +127,13 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 void PidMotorController<TMotor, TController, TRelativeEncoder,
                         TAbsoluteEncoder>::UpdatePidSettings(PidSettings
                                                                  settings) {
+
+    rev::spark::SparkMax m;
+
+    rev::spark::SparkMaxConfig m;
+
+    m.Configure()                                                     
+
   if (settings.p != m_settings.p) {
     ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
                           settings.p, m_name.c_str());
@@ -136,7 +143,7 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
   if (settings.i != m_settings.i) {
     ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
                           settings.i, m_name.c_str());
-    m_controller.SetI(settings.i);
+    m_controller.SetP(settings.i);
   }
 
   if (settings.d != m_settings.d) {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <frc/smartdashboard/Field2d.h>
-#include <pathplanner/lib/commands/FollowPathHolonomic.h>
+#include <pathplanner/lib/controllers/PPHolonomicDriveController.h>
 
 #include <functional>
 #include <string>

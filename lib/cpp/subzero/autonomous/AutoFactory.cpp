@@ -11,7 +11,7 @@ bool AutoFactory<T>::AutoFileExists(const std::string fileName) {
 
   std::error_code error_code;
   std::unique_ptr<wpi::MemoryBuffer> fileBuffer =
-      wpi::MemoryBuffer::GetFile(filePath, error_code);
+      wpi::MemoryBuffer::GetFile(filePath);
 
   if (fileBuffer == nullptr || error_code) {
     return false;

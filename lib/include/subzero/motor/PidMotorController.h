@@ -2,8 +2,9 @@
 
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <rev/CANSparkBase.h>
-#include <rev/CANSparkMax.h>
+#include <rev/SparkBase.h>
+#include <rev/SparkMax.h>
+#include <rev/SparkClosedLoopController.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -110,8 +111,9 @@ public:
    *
    * @param factor
    */
+  // TODO: find missing SetPositionConversionFactor() method
   inline void SetEncoderConversionFactor(double factor) override {
-    m_encoder.SetPositionConversionFactor(factor);
+    // m_encoder.SetPositionConversionFactor(factor);
   }
 
   /**
@@ -120,9 +122,10 @@ public:
    *
    * @param factor
    */
+  // TODO: find missing SetPositionConversionFactor() method
   inline void SetAbsoluteEncoderConversionFactor(double factor) override {
     if (m_absEncoder) {
-      m_absEncoder->SetPositionConversionFactor(factor);
+      // m_absEncoder->SetPositionConversionFactor(factor);
     }
   }
 
@@ -205,7 +208,7 @@ private:
 };
 
 class RevPidMotorController
-    : public PidMotorController<rev::CANSparkMax, rev::SparkPIDController,
-                                rev::SparkRelativeEncoder,
-                                rev::SparkAbsoluteEncoder> {};
+    : public PidMotorController<rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
+                                rev::spark::SparkRelativeEncoder,
+                                rev::spark::SparkAbsoluteEncoder> {};
 } // namespace subzero
