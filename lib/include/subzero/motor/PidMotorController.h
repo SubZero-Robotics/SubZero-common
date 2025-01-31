@@ -5,6 +5,8 @@
 #include <rev/SparkBase.h>
 #include <rev/SparkMax.h>
 #include <rev/SparkClosedLoopController.h>
+#include <rev/ClosedLoopSlot.h>
+#include <rev/SparkFlex.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -181,6 +183,13 @@ public:
                                    m_controller.GetPidSettings().ff);
   }
 
+  /// @brief Sets the setpoint of the pid controller
+  /// @param setPoint The setpoint of the PID
+  void SetSetpoint(double setPoint);
+
+  /// @brief Sets the PID coefficients
+  void SetPidCoefficients(double p, double i, double d, double iZone, double ff);
+
   /**
    * @brief Call this within the Periodic method of the encapsulating subsystem
    *
@@ -206,6 +215,8 @@ private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
       &m_controller;
 };
+
+
 
 class RevPidMotorController
     : public PidMotorController<rev::spark::SparkMax, rev::spark::SparkClosedLoopController,

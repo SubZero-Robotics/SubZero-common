@@ -128,41 +128,41 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
                         TAbsoluteEncoder>::UpdatePidSettings(PidSettings
                                                                  settings) {
 
-    rev::spark::SparkMax m;
+  //   rev::spark::SparkMax m;
 
-    rev::spark::SparkMaxConfig m;
+  //   rev::spark::SparkMaxConfig m;
 
-    m.Configure()                                                     
+  //   m.Configure()                                                     
 
-  if (settings.p != m_settings.p) {
-    ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
-                          settings.p, m_name.c_str());
-    m_controller.SetP(settings.p);
-  }
+  // if (settings.p != m_settings.p) {
+  //   ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
+  //                         settings.p, m_name.c_str());
+  //   m_controller.SetP(settings.p);
+  // }
 
-  if (settings.i != m_settings.i) {
-    ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
-                          settings.i, m_name.c_str());
-    m_controller.SetP(settings.i);
-  }
+  // if (settings.i != m_settings.i) {
+  //   ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
+  //                         settings.i, m_name.c_str());
+  //   m_controller.SetP(settings.i);
+  // }
 
-  if (settings.d != m_settings.d) {
-    ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
-                          settings.d, m_name.c_str());
-    m_controller.SetD(settings.d);
-  }
+  // if (settings.d != m_settings.d) {
+  //   ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
+  //                         settings.d, m_name.c_str());
+  //   m_controller.SetD(settings.d);
+  // }
 
-  if (settings.iZone != m_settings.iZone) {
-    ConsoleWriter.logInfo("PidMotorController", "Setting IZone to %.6f for %s",
-                          settings.iZone, m_name.c_str());
-    m_controller.SetIZone(settings.iZone);
-  }
+  // if (settings.iZone != m_settings.iZone) {
+  //   ConsoleWriter.logInfo("PidMotorController", "Setting IZone to %.6f for %s",
+  //                         settings.iZone, m_name.c_str());
+  //   m_controller.SetIZone(settings.iZone);
+  // }
 
-  if (settings.ff != m_settings.ff) {
-    ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
-                          settings.ff, m_name.c_str());
-    m_controller.SetFF(settings.ff);
-  }
+  // if (settings.ff != m_settings.ff) {
+  //   ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
+  //                         settings.ff, m_name.c_str());
+  //   m_controller.SetFF(settings.ff);
+  // }
 
   m_settings = settings;
 }
