@@ -5,6 +5,7 @@
 #include <rev/ClosedLoopSlot.h>
 #include <rev/SparkBase.h>
 #include <rev/SparkClosedLoopController.h>
+#include <rev/config/SparkMaxConfig.h>
 #include <rev/SparkFlex.h>
 #include <rev/SparkMax.h>
 #include <rev/config/SparkFlexConfig.h>
@@ -159,8 +160,7 @@ protected:
   TController &m_controller;
   TRelativeEncoder &m_encoder;
   TAbsoluteEncoder *m_absEncoder;
-  // TODO, use template type for config
-  rev::spark::SparkFlexConfig m_config;
+  TPidConfig m_config;
   PidSettings m_settings;
   frc::PIDController m_pidController;
   bool m_absolutePositionEnabled = false;
@@ -179,13 +179,12 @@ protected:
  * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 class PidMotorControllerTuner {
 public:
   explicit PidMotorControllerTuner(
-      // TODO, use template type for config
       PidMotorController<TMotor, TController, TRelativeEncoder,
-                         TAbsoluteEncoder, rev::spark::SparkFlexConfig>
+                         TAbsoluteEncoder, TPidConfig>
           &controller)
       : m_controller{controller} {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
@@ -230,5 +229,5 @@ class RevPidMotorController
     : public PidMotorController<
           rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
           rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,
-          rev::spark::SparkBaseConfig> {};
+          rev::spark::SparkMaxConfig> {};
 } // namespace subzero
