@@ -61,10 +61,10 @@ var NAVTREEINDEX =
 "AutoFactory_8h.html",
 "classLimelightHelpers_1_1VisionResultsClass.html",
 "classsubzero_1_1ILogger.html#acdcf2c180c4211057bf365b4465ce184",
-"classsubzero_1_1RotationalSingleAxisSubsystem.html#a631d5bc68d55bc2f5ec2ca62cd982e0f",
-"functions_~.html",
-"structConnectorX_1_1Commands_1_1CommandPattern.html#a59f43a650fac1a7a539a5caf125971f8",
-"structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a56b7112b72edf8dcde263577c9a5ca94"
+"classsubzero_1_1RotationalSingleAxisSubsystem.html#a108c483de6632138afb3d8b5f7e6c7a1",
+"functions_y.html",
+"structConnectorX_1_1Commands_1_1CommandPattern.html#a2fc37adfb0a10ae76680cae6b1f3772a",
+"structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#a4dc95d5f96ad2ac5f19353d291dc050b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

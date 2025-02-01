@@ -40,10 +40,12 @@ var hierarchy =
       [ "subzero::ShuffleboardLogger", "classsubzero_1_1ShuffleboardLogger.html", null ]
     ] ],
     [ "subzero::IPidMotorController", "classsubzero_1_1IPidMotorController.html", [
-      [ "subzero::PidMotorController< rev::spark::SparkMax, rev::spark::SparkClosedLoopController, rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", [
+      [ "subzero::PidMotorController< rev::spark::SparkMax, rev::spark::SparkClosedLoopController, rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder, rev::spark::SparkBaseConfig >", "classsubzero_1_1PidMotorController.html", [
         [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
       ] ],
       [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],
+      [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig >", "classsubzero_1_1PidMotorController.html", null ],
+      [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig >", "classsubzero_1_1PidMotorController.html", null ],
       [ "subzero::SimPidMotorController", "classsubzero_1_1SimPidMotorController.html", null ]
     ] ],
     [ "subzero::ISingleAxisSubsystem< Distance >", "classsubzero_1_1ISingleAxisSubsystem.html", null ],

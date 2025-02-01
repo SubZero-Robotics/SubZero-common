@@ -105,7 +105,7 @@ $(function(){initNavTree('PidMotorControllerPair_8h.html',''); initResizable(tru
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;frc/smartdashboard/SmartDashboard.h&gt;</code><br />
-<code>#include &lt;rev/CANSparkBase.h&gt;</code><br />
+<code>#include &lt;rev/SparkBase.h&gt;</code><br />
 <code>#include &lt;units/angle.h&gt;</code><br />
 <code>#include &lt;units/angular_velocity.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -118,55 +118,64 @@ $(function(){initNavTree('PidMotorControllerPair_8h.html',''); initResizable(tru
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="PidMotorControllerPair_8h__incl.png" border="0" usemap="#ainclude_2subzero_2motor_2PidMotorControllerPair_8h" alt=""/></div>
 <map name="ainclude_2subzero_2motor_2PidMotorControllerPair_8h" id="ainclude_2subzero_2motor_2PidMotorControllerPair_8h">
-<area shape="rect" title=" " alt="" coords="865,5,1030,46"/>
-<area shape="rect" title=" " alt="" coords="27,168,161,208"/>
-<area shape="poly" title=" " alt="" coords="865,45,196,170,176,174,175,169,195,165,864,40"/>
-<area shape="rect" title=" " alt="" coords="1273,94,1419,120"/>
-<area shape="poly" title=" " alt="" coords="1031,41,1270,88,1269,93,1030,46"/>
-<area shape="rect" title=" " alt="" coords="883,256,977,282"/>
-<area shape="poly" title=" " alt="" coords="948,46,934,241,929,241,943,46"/>
-<area shape="rect" title=" " alt="" coords="120,256,276,282"/>
-<area shape="poly" title=" " alt="" coords="864,29,659,33,533,40,403,52,277,69,165,94,117,110,76,127,42,147,17,169,9,183,9,196,16,207,29,218,68,236,115,250,113,255,66,241,26,222,12,211,4,197,4,182,13,166,39,143,73,122,115,105,164,89,276,64,402,46,532,35,659,28,864,24"/>
-<area shape="rect" title=" " alt="" coords="918,330,971,356"/>
-<area shape="poly" title=" " alt="" coords="1031,43,1102,67,1137,83,1168,102,1194,124,1212,149,1219,177,1212,209,1199,236,1185,254,1140,284,987,332,985,326,1138,280,1181,250,1195,233,1207,207,1213,178,1207,151,1190,127,1165,106,1134,88,1100,72,1030,48"/>
-<area shape="rect" href="ConsoleLogger_8h.html" title=" " alt="" coords="985,175,1197,201"/>
-<area shape="poly" title=" " alt="" coords="967,45,1072,162,1068,165,963,48"/>
-<area shape="rect" href="PidMotorController_8h.html" title=" " alt="" coords="640,94,865,120"/>
-<area shape="poly" title=" " alt="" coords="900,49,797,90,795,85,898,44"/>
-<area shape="poly" title=" " alt="" coords="1082,203,968,321,964,317,1078,199"/>
-<area shape="rect" title=" " alt="" coords="1056,256,1127,282"/>
-<area shape="poly" title=" " alt="" coords="1094,201,1094,240,1089,240,1089,201"/>
-<area shape="rect" href="ILogger_8h.html" title=" " alt="" coords="1273,256,1443,282"/>
-<area shape="poly" title=" " alt="" coords="1133,199,1303,249,1302,254,1132,204"/>
-<area shape="poly" title=" " alt="" coords="1273,283,1142,303,987,332,986,327,1141,297,1272,278"/>
-<area shape="rect" title=" " alt="" coords="1764,330,1856,356"/>
-<area shape="poly" title=" " alt="" coords="1443,280,1749,327,1748,332,1442,285"/>
-<area shape="rect" title=" " alt="" coords="996,330,1147,356"/>
-<area shape="poly" title=" " alt="" coords="1310,285,1135,328,1134,323,1309,280"/>
-<area shape="rect" title=" " alt="" coords="1172,330,1251,356"/>
-<area shape="poly" title=" " alt="" coords="1334,285,1251,325,1249,320,1332,280"/>
-<area shape="rect" title=" " alt="" coords="1275,330,1441,356"/>
-<area shape="poly" title=" " alt="" coords="1361,282,1361,314,1355,314,1355,282"/>
-<area shape="rect" title=" " alt="" coords="1464,330,1529,356"/>
-<area shape="poly" title=" " alt="" coords="1383,280,1460,320,1458,325,1380,285"/>
-<area shape="rect" href="UtilConstants_8h.html" title=" " alt="" coords="1552,330,1740,356"/>
-<area shape="poly" title=" " alt="" coords="1407,280,1583,323,1581,328,1406,285"/>
-<area shape="poly" title=" " alt="" coords="640,119,426,138,180,170,176,171,175,166,179,165,425,133,640,113"/>
-<area shape="poly" title=" " alt="" coords="786,118,826,137,866,166,898,203,920,241,916,244,894,206,863,170,824,142,784,123"/>
-<area shape="poly" title=" " alt="" coords="640,117,389,137,281,152,245,161,225,170,213,185,205,203,199,241,194,240,200,202,208,182,222,166,243,155,280,147,388,131,640,111"/>
-<area shape="poly" title=" " alt="" coords="772,118,797,139,823,166,840,197,848,224,856,251,873,280,893,301,914,319,911,323,889,305,869,284,851,253,843,226,835,199,818,169,794,143,768,122"/>
-<area shape="poly" title=" " alt="" coords="805,118,1025,169,1024,174,804,123"/>
-<area shape="rect" title=" " alt="" coords="488,175,673,201"/>
-<area shape="poly" title=" " alt="" coords="727,123,622,171,620,166,725,118"/>
-<area shape="rect" title=" " alt="" coords="697,175,808,201"/>
-<area shape="poly" title=" " alt="" coords="755,120,755,159,750,159,750,120"/>
-<area shape="rect" href="IPidMotorController_8h.html" title=" " alt="" coords="236,175,464,201"/>
-<area shape="poly" title=" " alt="" coords="691,123,427,174,426,169,690,118"/>
-<area shape="poly" title=" " alt="" coords="430,199,477,206,868,257,867,263,476,211,429,204"/>
-<area shape="poly" title=" " alt="" coords="328,204,236,251,234,246,326,199"/>
-<area shape="poly" title=" " alt="" coords="352,201,356,241,363,262,377,280,405,291,457,302,607,319,773,331,903,337,902,342,773,336,607,324,457,307,403,297,374,284,359,265,351,242,347,201"/>
-<area shape="rect" title=" " alt="" coords="388,256,493,282"/>
-<area shape="poly" title=" " alt="" coords="365,199,417,244,414,248,362,203"/>
+<area shape="rect" title=" " alt="" coords="724,5,890,46"/>
+<area shape="rect" title=" " alt="" coords="591,168,724,208"/>
+<area shape="poly" title=" " alt="" coords="791,48,688,158,684,155,787,45"/>
+<area shape="rect" title=" " alt="" coords="748,175,866,201"/>
+<area shape="poly" title=" " alt="" coords="810,47,810,160,804,160,804,47"/>
+<area shape="rect" title=" " alt="" coords="856,256,950,282"/>
+<area shape="poly" title=" " alt="" coords="745,49,675,77,640,95,609,115,585,136,571,159,568,182,581,207,598,220,623,231,691,247,769,258,841,263,841,268,768,263,690,253,621,236,595,224,577,210,563,183,566,157,581,132,606,110,637,90,673,72,743,44"/>
+<area shape="rect" title=" " alt="" coords="1804,256,1960,282"/>
+<area shape="poly" title=" " alt="" coords="890,26,1229,35,1452,44,1685,57,1909,75,2103,99,2184,113,2249,129,2298,146,2328,166,2335,177,2337,188,2335,199,2328,210,2304,228,2269,242,2227,252,2178,260,2073,269,1976,272,1975,266,2073,264,2177,255,2226,247,2268,237,2301,223,2324,207,2330,197,2332,188,2330,179,2324,170,2296,151,2248,134,2182,118,2103,104,1908,81,1685,63,1452,49,1228,40,890,31"/>
+<area shape="rect" title=" " alt="" coords="995,330,1048,356"/>
+<area shape="poly" title=" " alt="" coords="890,25,1158,31,1519,42,1878,62,2027,75,2139,91,2205,100,2259,105,2283,112,2307,123,2329,140,2350,166,2375,206,2383,234,2381,244,2374,252,2351,261,2266,268,2208,274,2139,285,2040,299,1907,311,1588,329,1277,339,1064,344,1064,338,1276,334,1588,323,1906,306,2039,294,2139,279,2207,269,2266,263,2349,255,2371,247,2376,241,2378,234,2371,208,2346,169,2325,144,2304,127,2282,117,2258,110,2204,105,2139,97,2026,80,1878,67,1519,47,1158,36,890,31"/>
+<area shape="rect" href="ConsoleLogger_8h.html" title=" " alt="" coords="304,175,516,201"/>
+<area shape="poly" title=" " alt="" coords="724,41,632,62,583,77,536,96,480,131,435,167,431,163,477,126,534,92,581,72,630,57,723,36"/>
+<area shape="rect" href="PidMotorController_8h.html" title=" " alt="" coords="1228,94,1452,120"/>
+<area shape="poly" title=" " alt="" coords="891,37,1243,89,1243,94,890,42"/>
+<area shape="poly" title=" " alt="" coords="428,199,495,244,559,280,643,299,761,315,980,336,980,341,760,320,642,304,557,284,493,249,425,203"/>
+<area shape="rect" title=" " alt="" coords="570,256,641,282"/>
+<area shape="poly" title=" " alt="" coords="441,199,563,248,561,253,439,204"/>
+<area shape="rect" href="ILogger_8h.html" title=" " alt="" coords="325,256,494,282"/>
+<area shape="poly" title=" " alt="" coords="412,201,412,240,407,240,407,201"/>
+<area shape="poly" title=" " alt="" coords="495,278,980,334,979,339,494,283"/>
+<area shape="rect" title=" " alt="" coords="5,330,97,356"/>
+<area shape="poly" title=" " alt="" coords="348,285,113,332,112,327,347,280"/>
+<area shape="rect" title=" " alt="" coords="121,330,272,356"/>
+<area shape="poly" title=" " alt="" coords="374,285,248,327,246,322,373,280"/>
+<area shape="rect" title=" " alt="" coords="297,330,376,356"/>
+<area shape="poly" title=" " alt="" coords="399,284,361,321,358,317,396,280"/>
+<area shape="rect" title=" " alt="" coords="400,330,566,356"/>
+<area shape="poly" title=" " alt="" coords="424,280,462,317,458,321,420,284"/>
+<area shape="rect" title=" " alt="" coords="590,330,654,356"/>
+<area shape="poly" title=" " alt="" coords="446,280,576,323,574,328,445,285"/>
+<area shape="rect" href="UtilConstants_8h.html" title=" " alt="" coords="677,330,865,356"/>
+<area shape="poly" title=" " alt="" coords="472,280,695,324,694,329,471,285"/>
+<area shape="poly" title=" " alt="" coords="1228,117,1006,136,875,150,740,170,739,165,874,145,1006,130,1228,112"/>
+<area shape="poly" title=" " alt="" coords="1228,122,1065,142,885,170,868,174,867,169,884,165,1065,136,1227,117"/>
+<area shape="poly" title=" " alt="" coords="1228,113,1142,119,1055,129,979,146,950,157,930,170,918,185,910,203,905,241,899,240,905,202,913,182,927,166,948,152,977,141,1054,124,1142,114,1227,108"/>
+<area shape="poly" title=" " alt="" coords="1453,112,1697,132,1801,147,1837,156,1858,166,1871,182,1880,202,1885,240,1880,241,1874,203,1867,185,1855,170,1835,161,1800,152,1697,137,1453,117"/>
+<area shape="poly" title=" " alt="" coords="1453,108,1692,115,1973,127,2213,144,2291,154,2327,166,2335,177,2337,188,2328,210,2302,229,2258,245,2198,260,2125,273,1948,296,1745,313,1341,335,1064,343,1064,338,1340,329,1745,308,1947,290,2124,268,2197,255,2256,240,2299,224,2324,207,2332,187,2330,179,2324,170,2289,159,2212,149,1973,133,1692,121,1453,114"/>
+<area shape="poly" title=" " alt="" coords="1228,118,934,140,579,170,528,176,528,170,579,165,934,135,1228,113"/>
+<area shape="rect" title=" " alt="" coords="1919,175,2103,201"/>
+<area shape="poly" title=" " alt="" coords="1453,115,1661,136,1901,165,1930,169,1929,175,1900,170,1661,141,1452,121"/>
+<area shape="rect" title=" " alt="" coords="2128,175,2313,201"/>
+<area shape="poly" title=" " alt="" coords="1453,111,1753,129,1934,145,2115,165,2145,169,2144,175,2115,170,1934,150,1753,135,1453,116"/>
+<area shape="rect" title=" " alt="" coords="1193,175,1304,201"/>
+<area shape="poly" title=" " alt="" coords="1328,122,1276,167,1272,163,1325,118"/>
+<area shape="rect" title=" " alt="" coords="1328,175,1539,201"/>
+<area shape="poly" title=" " alt="" coords="1356,118,1410,163,1406,167,1353,122"/>
+<area shape="rect" title=" " alt="" coords="1564,175,1709,201"/>
+<area shape="poly" title=" " alt="" coords="1387,118,1577,168,1575,173,1385,123"/>
+<area shape="rect" title=" " alt="" coords="1733,175,1844,201"/>
+<area shape="poly" title=" " alt="" coords="1441,118,1575,137,1722,165,1735,168,1733,173,1721,170,1574,143,1440,123"/>
+<area shape="rect" href="IPidMotorController_8h.html" title=" " alt="" coords="941,175,1169,201"/>
+<area shape="poly" title=" " alt="" coords="1297,123,1114,173,1113,168,1296,118"/>
+<area shape="poly" title=" " alt="" coords="1033,204,941,251,939,246,1031,199"/>
+<area shape="poly" title=" " alt="" coords="1130,199,1181,206,1515,239,1788,259,1788,265,1515,244,1180,211,1129,204"/>
+<area shape="poly" title=" " alt="" coords="1055,202,1030,315,1025,314,1050,201"/>
+<area shape="rect" title=" " alt="" coords="1060,256,1165,282"/>
+<area shape="poly" title=" " alt="" coords="1066,200,1097,242,1092,245,1062,203"/>
 </map>
 </div>
 </div>

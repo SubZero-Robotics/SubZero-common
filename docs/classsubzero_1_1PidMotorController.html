@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SubZero Common: subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; Class Template Reference</title>
+<title>SubZero Common: subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -102,7 +102,7 @@ $(function(){initNavTree('classsubzero_1_1PidMotorController.html',''); initResi
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classsubzero_1_1PidMotorController-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -111,25 +111,25 @@ $(function(){initNavTree('classsubzero_1_1PidMotorController.html',''); initResi
 
 <p><code>#include &lt;<a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;:</div>
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classsubzero_1_1PidMotorController__inherit__graph.png" border="0" usemap="#asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_inherit__map" id="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_inherit__map">
-<area shape="rect" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="5,79,211,135"/>
-<area shape="rect" href="classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="16,5,200,31"/>
-<area shape="poly" title=" " alt="" coords="111,47,111,78,105,78,105,47"/>
+<div class="center"><img src="classsubzero_1_1PidMotorController__inherit__graph.png" border="0" usemap="#asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_inherit__map" id="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_inherit__map">
+<area shape="rect" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="5,79,268,135"/>
+<area shape="rect" href="classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="45,5,228,31"/>
+<area shape="poly" title=" " alt="" coords="139,47,139,78,134,78,134,47"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;:</div>
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="classsubzero_1_1PidMotorController__coll__graph.png" border="0" usemap="#asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_coll__map" id="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_01_4_coll__map">
-<area shape="rect" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="133,273,338,328"/>
+<div class="center"><img src="classsubzero_1_1PidMotorController__coll__graph.png" border="0" usemap="#asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_coll__map" id="asubzero_1_1PidMotorController_3_01TMotor_00_01TController_00_01TRelativeEncoder_00_01TAbsoluteEncoder_00_01TPidConfig_01_4_coll__map">
+<area shape="rect" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="104,273,367,328"/>
 <area shape="rect" href="classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="5,184,189,210"/>
 <area shape="poly" title=" " alt="" coords="127,217,200,270,197,274,124,221"/>
 <area shape="rect" title=" " alt="" coords="58,95,136,121"/>
@@ -143,73 +143,75 @@ $(function(){initNavTree('classsubzero_1_1PidMotorController.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b821d88804b0d467b67aae087fefd19" id="r_a5b821d88804b0d467b67aae087fefd19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b821d88804b0d467b67aae087fefd19">PidMotorController</a> (std::string name, TMotor &amp;motor, TRelativeEncoder &amp;encoder, TController &amp;controller, <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> pidSettings, TAbsoluteEncoder *absEncoder, units::revolutions_per_minute_t maxRpm)</td></tr>
-<tr class="memdesc:a5b821d88804b0d467b67aae087fefd19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful...">PidMotorController</a>.  <br /></td></tr>
-<tr class="separator:a5b821d88804b0d467b67aae087fefd19"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e4883f9f3d553c71e8b169347e7c23f" id="r_a4e4883f9f3d553c71e8b169347e7c23f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e4883f9f3d553c71e8b169347e7c23f">Set</a> (double percentage) override</td></tr>
-<tr class="memdesc:a4e4883f9f3d553c71e8b169347e7c23f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the motor to a percentage of max voltage.  <br /></td></tr>
-<tr class="separator:a4e4883f9f3d553c71e8b169347e7c23f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04e91173610b3b5fbd37fa3c0c54def6" id="r_a04e91173610b3b5fbd37fa3c0c54def6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04e91173610b3b5fbd37fa3c0c54def6">Set</a> (units::volt_t volts) override</td></tr>
-<tr class="memdesc:a04e91173610b3b5fbd37fa3c0c54def6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a motor to a voltage.  <br /></td></tr>
-<tr class="separator:a04e91173610b3b5fbd37fa3c0c54def6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af91cf21bb614fd6381014cb65c245a6b" id="r_af91cf21bb614fd6381014cb65c245a6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af91cf21bb614fd6381014cb65c245a6b">SetPidTolerance</a> (double tolerance) override</td></tr>
-<tr class="memdesc:af91cf21bb614fd6381014cb65c245a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute positioning is considered 'Done' when within this zone.  <br /></td></tr>
-<tr class="separator:af91cf21bb614fd6381014cb65c245a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b5a8d6bf337fd7d7c736d9b58e4aad4" id="r_a9b5a8d6bf337fd7d7c736d9b58e4aad4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b5a8d6bf337fd7d7c736d9b58e4aad4">Update</a> () override</td></tr>
-<tr class="memdesc:a9b5a8d6bf337fd7d7c736d9b58e4aad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Call this every loop in Periodic !  <br /></td></tr>
-<tr class="separator:a9b5a8d6bf337fd7d7c736d9b58e4aad4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83c74d835fe1a11126ae9461cdf88149" id="r_a83c74d835fe1a11126ae9461cdf88149"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83c74d835fe1a11126ae9461cdf88149">RunWithVelocity</a> (units::revolutions_per_minute_t rpm) override</td></tr>
-<tr class="memdesc:a83c74d835fe1a11126ae9461cdf88149"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to this velocity.  <br /></td></tr>
-<tr class="separator:a83c74d835fe1a11126ae9461cdf88149"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c9c40cd82dd78e07c954d07aaa87844" id="r_a3c9c40cd82dd78e07c954d07aaa87844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c9c40cd82dd78e07c954d07aaa87844">RunWithVelocity</a> (double percentage) override</td></tr>
-<tr class="memdesc:a3c9c40cd82dd78e07c954d07aaa87844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to a percentage of max RPM.  <br /></td></tr>
-<tr class="separator:a3c9c40cd82dd78e07c954d07aaa87844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa99e0e96dcbcc56b9d352084a204400a" id="r_aa99e0e96dcbcc56b9d352084a204400a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa99e0e96dcbcc56b9d352084a204400a">RunToPosition</a> (double position) override</td></tr>
-<tr class="memdesc:aa99e0e96dcbcc56b9d352084a204400a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables absolute positioning and sets the target to the position.  <br /></td></tr>
-<tr class="separator:aa99e0e96dcbcc56b9d352084a204400a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7e6eb6dd8696662a79316379c5ffff4" id="r_ad7e6eb6dd8696662a79316379c5ffff4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7e6eb6dd8696662a79316379c5ffff4">ResetEncoder</a> () override</td></tr>
-<tr class="separator:ad7e6eb6dd8696662a79316379c5ffff4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af768098f9ebc61e356a39d791f564da4" id="r_af768098f9ebc61e356a39d791f564da4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af768098f9ebc61e356a39d791f564da4">GetEncoderPosition</a> () override</td></tr>
-<tr class="separator:af768098f9ebc61e356a39d791f564da4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdbc1578d8aed1bd5db54e9b41382ee6" id="r_afdbc1578d8aed1bd5db54e9b41382ee6"><td class="memItemLeft" align="right" valign="top">std::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdbc1578d8aed1bd5db54e9b41382ee6">GetAbsoluteEncoderPosition</a> () override</td></tr>
-<tr class="separator:afdbc1578d8aed1bd5db54e9b41382ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a297e196b1325e289c44fa35be1404030" id="r_a297e196b1325e289c44fa35be1404030"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a297e196b1325e289c44fa35be1404030">SetEncoderConversionFactor</a> (double factor) override</td></tr>
-<tr class="memdesc:a297e196b1325e289c44fa35be1404030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the multiplier for going between encoder ticks and actual distance.  <br /></td></tr>
-<tr class="separator:a297e196b1325e289c44fa35be1404030"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac495d98db2ddaf103c6e55ea67df6525" id="r_ac495d98db2ddaf103c6e55ea67df6525"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac495d98db2ddaf103c6e55ea67df6525">SetAbsoluteEncoderConversionFactor</a> (double factor) override</td></tr>
-<tr class="memdesc:ac495d98db2ddaf103c6e55ea67df6525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the multiplier for going between encoder ticks and actual distance.  <br /></td></tr>
-<tr class="separator:ac495d98db2ddaf103c6e55ea67df6525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21149cca4d46ba691cb67d418c07b6f7" id="r_a21149cca4d46ba691cb67d418c07b6f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21149cca4d46ba691cb67d418c07b6f7">Stop</a> () override</td></tr>
-<tr class="memdesc:a21149cca4d46ba691cb67d418c07b6f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable absolute positioning and stop the motor.  <br /></td></tr>
-<tr class="separator:a21149cca4d46ba691cb67d418c07b6f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae97bcb96df631ae47953ffe3d9023879" id="r_ae97bcb96df631ae47953ffe3d9023879"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae97bcb96df631ae47953ffe3d9023879">GetPidSettings</a> () override</td></tr>
-<tr class="separator:ae97bcb96df631ae47953ffe3d9023879"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae39f371816ec1ee2c2d14813fee421d0" id="r_ae39f371816ec1ee2c2d14813fee421d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae39f371816ec1ee2c2d14813fee421d0">UpdatePidSettings</a> (<a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> settings) override</td></tr>
-<tr class="separator:ae39f371816ec1ee2c2d14813fee421d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc853ddc81b6a906df67f994dad77c00" id="r_afc853ddc81b6a906df67f994dad77c00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc853ddc81b6a906df67f994dad77c00">PidMotorController</a> (std::string name, TMotor &amp;motor, TRelativeEncoder &amp;encoder, TController &amp;controller, <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> pidSettings, TAbsoluteEncoder *absEncoder, units::revolutions_per_minute_t maxRpm)</td></tr>
+<tr class="memdesc:afc853ddc81b6a906df67f994dad77c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful...">PidMotorController</a>.  <br /></td></tr>
+<tr class="separator:afc853ddc81b6a906df67f994dad77c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94110adeabf99d6ed4bfc0785c0ad6ec" id="r_a94110adeabf99d6ed4bfc0785c0ad6ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94110adeabf99d6ed4bfc0785c0ad6ec">Set</a> (double percentage) override</td></tr>
+<tr class="memdesc:a94110adeabf99d6ed4bfc0785c0ad6ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the motor to a percentage of max voltage.  <br /></td></tr>
+<tr class="separator:a94110adeabf99d6ed4bfc0785c0ad6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec8e90f590694911678585e07ccc8d9" id="r_a4ec8e90f590694911678585e07ccc8d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ec8e90f590694911678585e07ccc8d9">Set</a> (units::volt_t volts) override</td></tr>
+<tr class="memdesc:a4ec8e90f590694911678585e07ccc8d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a motor to a voltage.  <br /></td></tr>
+<tr class="separator:a4ec8e90f590694911678585e07ccc8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad92bd26bd0c9b7c834d93ebb8764849d" id="r_ad92bd26bd0c9b7c834d93ebb8764849d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad92bd26bd0c9b7c834d93ebb8764849d">SetPidTolerance</a> (double tolerance) override</td></tr>
+<tr class="memdesc:ad92bd26bd0c9b7c834d93ebb8764849d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute positioning is considered 'Done' when within this zone.  <br /></td></tr>
+<tr class="separator:ad92bd26bd0c9b7c834d93ebb8764849d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc476170bb2b62ee2bd89b2cb4499315" id="r_afc476170bb2b62ee2bd89b2cb4499315"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc476170bb2b62ee2bd89b2cb4499315">Update</a> () override</td></tr>
+<tr class="memdesc:afc476170bb2b62ee2bd89b2cb4499315"><td class="mdescLeft">&#160;</td><td class="mdescRight">! Call this every loop in Periodic !  <br /></td></tr>
+<tr class="separator:afc476170bb2b62ee2bd89b2cb4499315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c3a35cd654fd3430c804f6a34d56f9" id="r_a90c3a35cd654fd3430c804f6a34d56f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c3a35cd654fd3430c804f6a34d56f9">RunWithVelocity</a> (units::revolutions_per_minute_t rpm) override</td></tr>
+<tr class="memdesc:a90c3a35cd654fd3430c804f6a34d56f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to this velocity.  <br /></td></tr>
+<tr class="separator:a90c3a35cd654fd3430c804f6a34d56f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f68936c083e348a2da2773c03a44444" id="r_a8f68936c083e348a2da2773c03a44444"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f68936c083e348a2da2773c03a44444">RunWithVelocity</a> (double percentage) override</td></tr>
+<tr class="memdesc:a8f68936c083e348a2da2773c03a44444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set to a percentage of max RPM.  <br /></td></tr>
+<tr class="separator:a8f68936c083e348a2da2773c03a44444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf745fc516fb0ea25c0a1adf89b1026" id="r_abbf745fc516fb0ea25c0a1adf89b1026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbf745fc516fb0ea25c0a1adf89b1026">RunToPosition</a> (double position) override</td></tr>
+<tr class="memdesc:abbf745fc516fb0ea25c0a1adf89b1026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables absolute positioning and sets the target to the position.  <br /></td></tr>
+<tr class="separator:abbf745fc516fb0ea25c0a1adf89b1026"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6d6ac8c8807490b08c5abe84541890" id="r_aec6d6ac8c8807490b08c5abe84541890"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec6d6ac8c8807490b08c5abe84541890">ResetEncoder</a> () override</td></tr>
+<tr class="separator:aec6d6ac8c8807490b08c5abe84541890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd46d7c1cbaf51df07c12cad8d57139" id="r_a0bd46d7c1cbaf51df07c12cad8d57139"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bd46d7c1cbaf51df07c12cad8d57139">GetEncoderPosition</a> () override</td></tr>
+<tr class="separator:a0bd46d7c1cbaf51df07c12cad8d57139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0be3d2e3c13e4403520a0c56f92ce9" id="r_adc0be3d2e3c13e4403520a0c56f92ce9"><td class="memItemLeft" align="right" valign="top">std::optional&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc0be3d2e3c13e4403520a0c56f92ce9">GetAbsoluteEncoderPosition</a> () override</td></tr>
+<tr class="separator:adc0be3d2e3c13e4403520a0c56f92ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e5f8c57124329a8edec57f75804927c" id="r_a9e5f8c57124329a8edec57f75804927c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e5f8c57124329a8edec57f75804927c">SetEncoderConversionFactor</a> (double factor) override</td></tr>
+<tr class="memdesc:a9e5f8c57124329a8edec57f75804927c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the multiplier for going between encoder ticks and actual distance.  <br /></td></tr>
+<tr class="separator:a9e5f8c57124329a8edec57f75804927c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d3df5daa5c1eaf47cff21cdedcfb30d" id="r_a9d3df5daa5c1eaf47cff21cdedcfb30d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d3df5daa5c1eaf47cff21cdedcfb30d">SetAbsoluteEncoderConversionFactor</a> (double factor) override</td></tr>
+<tr class="memdesc:a9d3df5daa5c1eaf47cff21cdedcfb30d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the multiplier for going between encoder ticks and actual distance.  <br /></td></tr>
+<tr class="separator:a9d3df5daa5c1eaf47cff21cdedcfb30d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b8109e4a66c25618d84c30c72d664bc" id="r_a5b8109e4a66c25618d84c30c72d664bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b8109e4a66c25618d84c30c72d664bc">Stop</a> () override</td></tr>
+<tr class="memdesc:a5b8109e4a66c25618d84c30c72d664bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable absolute positioning and stop the motor.  <br /></td></tr>
+<tr class="separator:a5b8109e4a66c25618d84c30c72d664bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f9ea28109e20fcdf0de7b554c9f6550" id="r_a6f9ea28109e20fcdf0de7b554c9f6550"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f9ea28109e20fcdf0de7b554c9f6550">GetPidSettings</a> () override</td></tr>
+<tr class="separator:a6f9ea28109e20fcdf0de7b554c9f6550"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04dc0c45fa57f58dda7e8e07470fdc1f" id="r_a04dc0c45fa57f58dda7e8e07470fdc1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04dc0c45fa57f58dda7e8e07470fdc1f">UpdatePidSettings</a> (<a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> settings)</td></tr>
+<tr class="separator:a04dc0c45fa57f58dda7e8e07470fdc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classsubzero_1_1IPidMotorController"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_classsubzero_1_1IPidMotorController')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classsubzero_1_1IPidMotorController.html">subzero::IPidMotorController</a></td></tr>
 <tr class="memitem:a1f5ac81ebdf29a7fb1d53497fadcc837 inherit pub_methods_classsubzero_1_1IPidMotorController" id="r_a1f5ac81ebdf29a7fb1d53497fadcc837"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsubzero_1_1IPidMotorController.html#a1f5ac81ebdf29a7fb1d53497fadcc837">IPidMotorController</a> (std::string name)</td></tr>
 <tr class="separator:a1f5ac81ebdf29a7fb1d53497fadcc837 inherit pub_methods_classsubzero_1_1IPidMotorController"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a7a8058012f56b4e1a5da334621d1ab07" id="r_a7a8058012f56b4e1a5da334621d1ab07"><td class="memItemLeft" align="right" valign="top">TMotor &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a8058012f56b4e1a5da334621d1ab07">m_motor</a></td></tr>
-<tr class="separator:a7a8058012f56b4e1a5da334621d1ab07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d2dc1651b611ed6ba9fa252bb0629ed" id="r_a7d2dc1651b611ed6ba9fa252bb0629ed"><td class="memItemLeft" align="right" valign="top">TController &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d2dc1651b611ed6ba9fa252bb0629ed">m_controller</a></td></tr>
-<tr class="separator:a7d2dc1651b611ed6ba9fa252bb0629ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7daf8de0b79667121125622a692a3b2b" id="r_a7daf8de0b79667121125622a692a3b2b"><td class="memItemLeft" align="right" valign="top">TRelativeEncoder &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7daf8de0b79667121125622a692a3b2b">m_encoder</a></td></tr>
-<tr class="separator:a7daf8de0b79667121125622a692a3b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f94ad02d862b831904869d8dd6821d9" id="r_a8f94ad02d862b831904869d8dd6821d9"><td class="memItemLeft" align="right" valign="top">TAbsoluteEncoder *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f94ad02d862b831904869d8dd6821d9">m_absEncoder</a></td></tr>
-<tr class="separator:a8f94ad02d862b831904869d8dd6821d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a024f7bea668e70409fff3bc5c357c119" id="r_a024f7bea668e70409fff3bc5c357c119"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a024f7bea668e70409fff3bc5c357c119">m_settings</a></td></tr>
-<tr class="separator:a024f7bea668e70409fff3bc5c357c119"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa52605e1f26f3ca405836a99e98b0d32" id="r_aa52605e1f26f3ca405836a99e98b0d32"><td class="memItemLeft" align="right" valign="top">frc::PIDController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa52605e1f26f3ca405836a99e98b0d32">m_pidController</a></td></tr>
-<tr class="separator:aa52605e1f26f3ca405836a99e98b0d32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1462b0164cd7fab6e276171fa22aad" id="r_a4d1462b0164cd7fab6e276171fa22aad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d1462b0164cd7fab6e276171fa22aad">m_absolutePositionEnabled</a> = false</td></tr>
-<tr class="separator:a4d1462b0164cd7fab6e276171fa22aad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb86b25a868d5018b66623bbf5e04830" id="r_afb86b25a868d5018b66623bbf5e04830"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb86b25a868d5018b66623bbf5e04830">m_absoluteTarget</a> = 0</td></tr>
-<tr class="separator:afb86b25a868d5018b66623bbf5e04830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68a8a6d2445164e41a25f185fc184d82" id="r_a68a8a6d2445164e41a25f185fc184d82"><td class="memItemLeft" align="right" valign="top">const units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68a8a6d2445164e41a25f185fc184d82">m_maxRpm</a></td></tr>
-<tr class="separator:a68a8a6d2445164e41a25f185fc184d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb925697c08ce12a36e36c2959043d9" id="r_addb925697c08ce12a36e36c2959043d9"><td class="memItemLeft" align="right" valign="top">TMotor &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addb925697c08ce12a36e36c2959043d9">m_motor</a></td></tr>
+<tr class="separator:addb925697c08ce12a36e36c2959043d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b667542e29828c0f5be49ecc5af948a" id="r_a9b667542e29828c0f5be49ecc5af948a"><td class="memItemLeft" align="right" valign="top">TController &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b667542e29828c0f5be49ecc5af948a">m_controller</a></td></tr>
+<tr class="separator:a9b667542e29828c0f5be49ecc5af948a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa500c4d96cd4ee974db5a0887353257d" id="r_aa500c4d96cd4ee974db5a0887353257d"><td class="memItemLeft" align="right" valign="top">TRelativeEncoder &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa500c4d96cd4ee974db5a0887353257d">m_encoder</a></td></tr>
+<tr class="separator:aa500c4d96cd4ee974db5a0887353257d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa87a34956bd02d9f556551b69bad860c" id="r_aa87a34956bd02d9f556551b69bad860c"><td class="memItemLeft" align="right" valign="top">TAbsoluteEncoder *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa87a34956bd02d9f556551b69bad860c">m_absEncoder</a></td></tr>
+<tr class="separator:aa87a34956bd02d9f556551b69bad860c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a921ff0a4084fbb72b7f926de00761b3a" id="r_a921ff0a4084fbb72b7f926de00761b3a"><td class="memItemLeft" align="right" valign="top">rev::spark::SparkFlexConfig&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a921ff0a4084fbb72b7f926de00761b3a">m_config</a></td></tr>
+<tr class="separator:a921ff0a4084fbb72b7f926de00761b3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bcb7e6c7cfb7df17c870dee6c946982" id="r_a7bcb7e6c7cfb7df17c870dee6c946982"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bcb7e6c7cfb7df17c870dee6c946982">m_settings</a></td></tr>
+<tr class="separator:a7bcb7e6c7cfb7df17c870dee6c946982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb85608fd8fc6f8f49fee7771e1f3cf" id="r_a2cb85608fd8fc6f8f49fee7771e1f3cf"><td class="memItemLeft" align="right" valign="top">frc::PIDController&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cb85608fd8fc6f8f49fee7771e1f3cf">m_pidController</a></td></tr>
+<tr class="separator:a2cb85608fd8fc6f8f49fee7771e1f3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079e0e07441c581316e8d2517274f7c7" id="r_a079e0e07441c581316e8d2517274f7c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a079e0e07441c581316e8d2517274f7c7">m_absolutePositionEnabled</a> = false</td></tr>
+<tr class="separator:a079e0e07441c581316e8d2517274f7c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5128fdfc9af3056f32a9b10fdcf8017" id="r_aa5128fdfc9af3056f32a9b10fdcf8017"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5128fdfc9af3056f32a9b10fdcf8017">m_absoluteTarget</a> = 0</td></tr>
+<tr class="separator:aa5128fdfc9af3056f32a9b10fdcf8017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc10e6c3ad3d93e6491a71b5ef3fa882" id="r_adc10e6c3ad3d93e6491a71b5ef3fa882"><td class="memItemLeft" align="right" valign="top">const units::revolutions_per_minute_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc10e6c3ad3d93e6491a71b5ef3fa882">m_maxRpm</a></td></tr>
+<tr class="separator:adc10e6c3ad3d93e6491a71b5ef3fa882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -218,8 +220,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:afca8b0cf9ae4b057f73785567cd2a5e4 inherit pub_attribs_classsubzero_1_1IPidMotorController"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt;<br />
-class subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;</div><p>Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful for absolute positioning, setting velocities, or tuning PID values. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt;<br />
+class subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;</div><p>Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful for absolute positioning, setting velocities, or tuning PID values. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TMotor</td><td></td></tr>
@@ -230,21 +232,21 @@ class subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAb
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00027">27</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00032">32</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5b821d88804b0d467b67aae087fefd19" name="a5b821d88804b0d467b67aae087fefd19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b821d88804b0d467b67aae087fefd19">&#9670;&#160;</a></span>PidMotorController()</h2>
+<a id="afc853ddc81b6a906df67f994dad77c00" name="afc853ddc81b6a906df67f994dad77c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc853ddc81b6a906df67f994dad77c00">&#9670;&#160;</a></span>PidMotorController()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::PidMotorController </td>
+          <td class="memname"><a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::PidMotorController </td>
           <td>(</td>
           <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
@@ -303,19 +305,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afdbc1578d8aed1bd5db54e9b41382ee6" name="afdbc1578d8aed1bd5db54e9b41382ee6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdbc1578d8aed1bd5db54e9b41382ee6">&#9670;&#160;</a></span>GetAbsoluteEncoderPosition()</h2>
+<a id="adc0be3d2e3c13e4403520a0c56f92ce9" name="adc0be3d2e3c13e4403520a0c56f92ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0be3d2e3c13e4403520a0c56f92ce9">&#9670;&#160;</a></span>GetAbsoluteEncoderPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; double &gt; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::GetAbsoluteEncoderPosition </td>
+          <td class="memname">std::optional&lt; double &gt; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::GetAbsoluteEncoderPosition </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -332,19 +334,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="af768098f9ebc61e356a39d791f564da4" name="af768098f9ebc61e356a39d791f564da4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af768098f9ebc61e356a39d791f564da4">&#9670;&#160;</a></span>GetEncoderPosition()</h2>
+<a id="a0bd46d7c1cbaf51df07c12cad8d57139" name="a0bd46d7c1cbaf51df07c12cad8d57139"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd46d7c1cbaf51df07c12cad8d57139">&#9670;&#160;</a></span>GetEncoderPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::GetEncoderPosition </td>
+          <td class="memname">double <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::GetEncoderPosition </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -359,23 +361,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Implements <a class="el" href="classsubzero_1_1IPidMotorController.html#ae9fe47b605fe4ef836129e0e21a9b206">subzero::IPidMotorController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00100">100</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00107">107</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="ae97bcb96df631ae47953ffe3d9023879" name="ae97bcb96df631ae47953ffe3d9023879"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae97bcb96df631ae47953ffe3d9023879">&#9670;&#160;</a></span>GetPidSettings()</h2>
+<a id="a6f9ea28109e20fcdf0de7b554c9f6550" name="a6f9ea28109e20fcdf0de7b554c9f6550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f9ea28109e20fcdf0de7b554c9f6550">&#9670;&#160;</a></span>GetPidSettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::GetPidSettings </td>
+          <td class="memname">const <a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> &amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::GetPidSettings </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -390,23 +392,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Implements <a class="el" href="classsubzero_1_1IPidMotorController.html#a3bf0f2604e8bb9142a7b72cdf0bdccb5">subzero::IPidMotorController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00134">134</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00151">151</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="ad7e6eb6dd8696662a79316379c5ffff4" name="ad7e6eb6dd8696662a79316379c5ffff4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7e6eb6dd8696662a79316379c5ffff4">&#9670;&#160;</a></span>ResetEncoder()</h2>
+<a id="aec6d6ac8c8807490b08c5abe84541890" name="aec6d6ac8c8807490b08c5abe84541890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec6d6ac8c8807490b08c5abe84541890">&#9670;&#160;</a></span>ResetEncoder()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::ResetEncoder </td>
+          <td class="memname">virtual void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::ResetEncoder </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -421,23 +423,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Implements <a class="el" href="classsubzero_1_1IPidMotorController.html#adfc2c58c672466a21a894899c1f6e4bc">subzero::IPidMotorController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00095">95</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00102">102</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="aa99e0e96dcbcc56b9d352084a204400a" name="aa99e0e96dcbcc56b9d352084a204400a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa99e0e96dcbcc56b9d352084a204400a">&#9670;&#160;</a></span>RunToPosition()</h2>
+<a id="abbf745fc516fb0ea25c0a1adf89b1026" name="abbf745fc516fb0ea25c0a1adf89b1026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf745fc516fb0ea25c0a1adf89b1026">&#9670;&#160;</a></span>RunToPosition()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::RunToPosition </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::RunToPosition </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>position</em></span></td><td>)</td>
           <td></td>
@@ -462,19 +464,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a3c9c40cd82dd78e07c954d07aaa87844" name="a3c9c40cd82dd78e07c954d07aaa87844"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c9c40cd82dd78e07c954d07aaa87844">&#9670;&#160;</a></span>RunWithVelocity() <span class="overload">[1/2]</span></h2>
+<a id="a8f68936c083e348a2da2773c03a44444" name="a8f68936c083e348a2da2773c03a44444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f68936c083e348a2da2773c03a44444">&#9670;&#160;</a></span>RunWithVelocity() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::RunWithVelocity </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::RunWithVelocity </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>percentage</em></span></td><td>)</td>
           <td></td>
@@ -499,19 +501,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a83c74d835fe1a11126ae9461cdf88149" name="a83c74d835fe1a11126ae9461cdf88149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83c74d835fe1a11126ae9461cdf88149">&#9670;&#160;</a></span>RunWithVelocity() <span class="overload">[2/2]</span></h2>
+<a id="a90c3a35cd654fd3430c804f6a34d56f9" name="a90c3a35cd654fd3430c804f6a34d56f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c3a35cd654fd3430c804f6a34d56f9">&#9670;&#160;</a></span>RunWithVelocity() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::RunWithVelocity </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::RunWithVelocity </td>
           <td>(</td>
           <td class="paramtype">units::revolutions_per_minute_t</td>          <td class="paramname"><span class="paramname"><em>rpm</em></span></td><td>)</td>
           <td></td>
@@ -536,19 +538,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a4e4883f9f3d553c71e8b169347e7c23f" name="a4e4883f9f3d553c71e8b169347e7c23f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e4883f9f3d553c71e8b169347e7c23f">&#9670;&#160;</a></span>Set() <span class="overload">[1/2]</span></h2>
+<a id="a94110adeabf99d6ed4bfc0785c0ad6ec" name="a94110adeabf99d6ed4bfc0785c0ad6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94110adeabf99d6ed4bfc0785c0ad6ec">&#9670;&#160;</a></span>Set() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::Set </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::Set </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>percentage</em></span></td><td>)</td>
           <td></td>
@@ -573,19 +575,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a04e91173610b3b5fbd37fa3c0c54def6" name="a04e91173610b3b5fbd37fa3c0c54def6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04e91173610b3b5fbd37fa3c0c54def6">&#9670;&#160;</a></span>Set() <span class="overload">[2/2]</span></h2>
+<a id="a4ec8e90f590694911678585e07ccc8d9" name="a4ec8e90f590694911678585e07ccc8d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec8e90f590694911678585e07ccc8d9">&#9670;&#160;</a></span>Set() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::Set </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::Set </td>
           <td>(</td>
           <td class="paramtype">units::volt_t</td>          <td class="paramname"><span class="paramname"><em>volts</em></span></td><td>)</td>
           <td></td>
@@ -610,19 +612,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="ac495d98db2ddaf103c6e55ea67df6525" name="ac495d98db2ddaf103c6e55ea67df6525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac495d98db2ddaf103c6e55ea67df6525">&#9670;&#160;</a></span>SetAbsoluteEncoderConversionFactor()</h2>
+<a id="a9d3df5daa5c1eaf47cff21cdedcfb30d" name="a9d3df5daa5c1eaf47cff21cdedcfb30d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3df5daa5c1eaf47cff21cdedcfb30d">&#9670;&#160;</a></span>SetAbsoluteEncoderConversionFactor()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::SetAbsoluteEncoderConversionFactor </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::SetAbsoluteEncoderConversionFactor </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>factor</em></span></td><td>)</td>
           <td></td>
@@ -645,23 +647,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Implements <a class="el" href="classsubzero_1_1IPidMotorController.html#a5956e6675b67ccb1070675e42c9e45a4">subzero::IPidMotorController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00122">122</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00135">135</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a297e196b1325e289c44fa35be1404030" name="a297e196b1325e289c44fa35be1404030"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a297e196b1325e289c44fa35be1404030">&#9670;&#160;</a></span>SetEncoderConversionFactor()</h2>
+<a id="a9e5f8c57124329a8edec57f75804927c" name="a9e5f8c57124329a8edec57f75804927c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e5f8c57124329a8edec57f75804927c">&#9670;&#160;</a></span>SetEncoderConversionFactor()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::SetEncoderConversionFactor </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::SetEncoderConversionFactor </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>factor</em></span></td><td>)</td>
           <td></td>
@@ -684,23 +686,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Implements <a class="el" href="classsubzero_1_1IPidMotorController.html#a12c49eef914a4167a114fd3905724d82">subzero::IPidMotorController</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00112">112</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00120">120</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="af91cf21bb614fd6381014cb65c245a6b" name="af91cf21bb614fd6381014cb65c245a6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af91cf21bb614fd6381014cb65c245a6b">&#9670;&#160;</a></span>SetPidTolerance()</h2>
+<a id="ad92bd26bd0c9b7c834d93ebb8764849d" name="ad92bd26bd0c9b7c834d93ebb8764849d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92bd26bd0c9b7c834d93ebb8764849d">&#9670;&#160;</a></span>SetPidTolerance()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::SetPidTolerance </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::SetPidTolerance </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span></td><td>)</td>
           <td></td>
@@ -725,19 +727,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a21149cca4d46ba691cb67d418c07b6f7" name="a21149cca4d46ba691cb67d418c07b6f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21149cca4d46ba691cb67d418c07b6f7">&#9670;&#160;</a></span>Stop()</h2>
+<a id="a5b8109e4a66c25618d84c30c72d664bc" name="a5b8109e4a66c25618d84c30c72d664bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b8109e4a66c25618d84c30c72d664bc">&#9670;&#160;</a></span>Stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::Stop </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::Stop </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -756,19 +758,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="a9b5a8d6bf337fd7d7c736d9b58e4aad4" name="a9b5a8d6bf337fd7d7c736d9b58e4aad4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b5a8d6bf337fd7d7c736d9b58e4aad4">&#9670;&#160;</a></span>Update()</h2>
+<a id="afc476170bb2b62ee2bd89b2cb4499315" name="afc476170bb2b62ee2bd89b2cb4499315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc476170bb2b62ee2bd89b2cb4499315">&#9670;&#160;</a></span>Update()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::Update </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::Update </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -787,19 +789,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 </div>
 </div>
-<a id="ae39f371816ec1ee2c2d14813fee421d0" name="ae39f371816ec1ee2c2d14813fee421d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae39f371816ec1ee2c2d14813fee421d0">&#9670;&#160;</a></span>UpdatePidSettings()</h2>
+<a id="a04dc0c45fa57f58dda7e8e07470fdc1f" name="a04dc0c45fa57f58dda7e8e07470fdc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04dc0c45fa57f58dda7e8e07470fdc1f">&#9670;&#160;</a></span>UpdatePidSettings()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::UpdatePidSettings </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::UpdatePidSettings </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a></td>          <td class="paramname"><span class="paramname"><em>settings</em></span></td><td>)</td>
           <td></td>
@@ -807,7 +809,7 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -817,19 +819,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8f94ad02d862b831904869d8dd6821d9" name="a8f94ad02d862b831904869d8dd6821d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f94ad02d862b831904869d8dd6821d9">&#9670;&#160;</a></span>m_absEncoder</h2>
+<a id="aa87a34956bd02d9f556551b69bad860c" name="aa87a34956bd02d9f556551b69bad860c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa87a34956bd02d9f556551b69bad860c">&#9670;&#160;</a></span>m_absEncoder</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TAbsoluteEncoder* <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_absEncoder</td>
+          <td class="memname">TAbsoluteEncoder* <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_absEncoder</td>
         </tr>
       </table>
   </td>
@@ -839,23 +841,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00142">142</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00159">159</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a4d1462b0164cd7fab6e276171fa22aad" name="a4d1462b0164cd7fab6e276171fa22aad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d1462b0164cd7fab6e276171fa22aad">&#9670;&#160;</a></span>m_absolutePositionEnabled</h2>
+<a id="a079e0e07441c581316e8d2517274f7c7" name="a079e0e07441c581316e8d2517274f7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a079e0e07441c581316e8d2517274f7c7">&#9670;&#160;</a></span>m_absolutePositionEnabled</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_absolutePositionEnabled = false</td>
+          <td class="memname">bool <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_absolutePositionEnabled = false</td>
         </tr>
       </table>
   </td>
@@ -865,23 +867,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00145">145</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00164">164</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="afb86b25a868d5018b66623bbf5e04830" name="afb86b25a868d5018b66623bbf5e04830"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb86b25a868d5018b66623bbf5e04830">&#9670;&#160;</a></span>m_absoluteTarget</h2>
+<a id="aa5128fdfc9af3056f32a9b10fdcf8017" name="aa5128fdfc9af3056f32a9b10fdcf8017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5128fdfc9af3056f32a9b10fdcf8017">&#9670;&#160;</a></span>m_absoluteTarget</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_absoluteTarget = 0</td>
+          <td class="memname">double <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_absoluteTarget = 0</td>
         </tr>
       </table>
   </td>
@@ -891,23 +893,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00146">146</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00165">165</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a7d2dc1651b611ed6ba9fa252bb0629ed" name="a7d2dc1651b611ed6ba9fa252bb0629ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d2dc1651b611ed6ba9fa252bb0629ed">&#9670;&#160;</a></span>m_controller</h2>
+<a id="a921ff0a4084fbb72b7f926de00761b3a" name="a921ff0a4084fbb72b7f926de00761b3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a921ff0a4084fbb72b7f926de00761b3a">&#9670;&#160;</a></span>m_config</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TController&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_controller</td>
+          <td class="memname">rev::spark::SparkFlexConfig <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_config</td>
         </tr>
       </table>
   </td>
@@ -917,23 +919,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00140">140</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00161">161</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a7daf8de0b79667121125622a692a3b2b" name="a7daf8de0b79667121125622a692a3b2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7daf8de0b79667121125622a692a3b2b">&#9670;&#160;</a></span>m_encoder</h2>
+<a id="a9b667542e29828c0f5be49ecc5af948a" name="a9b667542e29828c0f5be49ecc5af948a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b667542e29828c0f5be49ecc5af948a">&#9670;&#160;</a></span>m_controller</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TRelativeEncoder&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_encoder</td>
+          <td class="memname">TController&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_controller</td>
         </tr>
       </table>
   </td>
@@ -943,23 +945,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00141">141</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00157">157</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a68a8a6d2445164e41a25f185fc184d82" name="a68a8a6d2445164e41a25f185fc184d82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68a8a6d2445164e41a25f185fc184d82">&#9670;&#160;</a></span>m_maxRpm</h2>
+<a id="aa500c4d96cd4ee974db5a0887353257d" name="aa500c4d96cd4ee974db5a0887353257d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa500c4d96cd4ee974db5a0887353257d">&#9670;&#160;</a></span>m_encoder</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const units::revolutions_per_minute_t <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_maxRpm</td>
+          <td class="memname">TRelativeEncoder&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_encoder</td>
         </tr>
       </table>
   </td>
@@ -969,23 +971,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00147">147</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00158">158</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a7a8058012f56b4e1a5da334621d1ab07" name="a7a8058012f56b4e1a5da334621d1ab07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a8058012f56b4e1a5da334621d1ab07">&#9670;&#160;</a></span>m_motor</h2>
+<a id="adc10e6c3ad3d93e6491a71b5ef3fa882" name="adc10e6c3ad3d93e6491a71b5ef3fa882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc10e6c3ad3d93e6491a71b5ef3fa882">&#9670;&#160;</a></span>m_maxRpm</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TMotor&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_motor</td>
+          <td class="memname">const units::revolutions_per_minute_t <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_maxRpm</td>
         </tr>
       </table>
   </td>
@@ -995,23 +997,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00139">139</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00166">166</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="aa52605e1f26f3ca405836a99e98b0d32" name="aa52605e1f26f3ca405836a99e98b0d32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa52605e1f26f3ca405836a99e98b0d32">&#9670;&#160;</a></span>m_pidController</h2>
+<a id="addb925697c08ce12a36e36c2959043d9" name="addb925697c08ce12a36e36c2959043d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb925697c08ce12a36e36c2959043d9">&#9670;&#160;</a></span>m_motor</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">frc::PIDController <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_pidController</td>
+          <td class="memname">TMotor&amp; <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_motor</td>
         </tr>
       </table>
   </td>
@@ -1021,23 +1023,23 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00144">144</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00156">156</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>
-<a id="a024f7bea668e70409fff3bc5c357c119" name="a024f7bea668e70409fff3bc5c357c119"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a024f7bea668e70409fff3bc5c357c119">&#9670;&#160;</a></span>m_settings</h2>
+<a id="a2cb85608fd8fc6f8f49fee7771e1f3cf" name="a2cb85608fd8fc6f8f49fee7771e1f3cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cb85608fd8fc6f8f49fee7771e1f3cf">&#9670;&#160;</a></span>m_pidController</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::m_settings</td>
+          <td class="memname">frc::PIDController <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_pidController</td>
         </tr>
       </table>
   </td>
@@ -1047,7 +1049,33 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00143">143</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00163">163</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+
+</div>
+</div>
+<a id="a7bcb7e6c7cfb7df17c870dee6c946982" name="a7bcb7e6c7cfb7df17c870dee6c946982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bcb7e6c7cfb7df17c870dee6c946982">&#9670;&#160;</a></span>m_settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structsubzero_1_1PidSettings.html">PidSettings</a> <a class="el" href="classsubzero_1_1PidMotorController.html">subzero::PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::m_settings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00162">162</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>

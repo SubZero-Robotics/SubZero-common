@@ -1,5 +1,5 @@
-<map id="subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;" name="subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;">
-<area shape="rect" id="Node000001" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="5,79,211,135"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="16,5,200,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,47,111,78,105,78,105,47"/>
+<map id="subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;" name="subzero::PidMotorController&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;">
+<area shape="rect" id="Node000001" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="5,79,268,135"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1IPidMotorController.html" title=" " alt="" coords="45,5,228,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,47,139,78,134,78,134,47"/>
 </map>

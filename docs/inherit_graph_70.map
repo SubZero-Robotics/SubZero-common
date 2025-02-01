@@ -1,7 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
 <area shape="rect" id="Node000000" title=" " alt="" coords="5,42,107,68"/>
 <area shape="rect" id="Node000001" href="$classsubzero_1_1ModifiableChooser.html" title=" " alt="" coords="170,5,348,46"/>
-<area shape="poly" id="edge22_Node000000_Node000001" title=" " alt="" coords="122,43,169,36,170,41,123,48"/>
+<area shape="poly" id="edge24_Node000000_Node000001" title=" " alt="" coords="122,43,169,36,170,41,123,48"/>
 <area shape="rect" id="Node000002" href="$classsubzero_1_1ModifiableChooser.html" title="A SmartDashboard drop&#45;down that can have its options dynamically change." alt="" coords="155,70,363,96"/>
-<area shape="poly" id="edge23_Node000000_Node000002" title=" " alt="" coords="123,61,162,67,161,72,122,67"/>
+<area shape="poly" id="edge25_Node000000_Node000002" title=" " alt="" coords="123,61,162,67,161,72,122,67"/>
 </map>

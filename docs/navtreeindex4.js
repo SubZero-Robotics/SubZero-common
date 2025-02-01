@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"functions_y.html":[1,3,0,21],
+"functions_z.html":[1,3,0,22],
 "functions_~.html":[1,3,0,23],
 "globals.html":[2,1,0],
 "globals_defs.html":[2,1,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "structConnectorX_1_1Commands_1_1CommandOn.html":[0,0,0,0,9],
 "structConnectorX_1_1Commands_1_1CommandOn.html":[1,0,0,0,9],
 "structConnectorX_1_1Commands_1_1CommandPattern.html":[0,0,0,0,10],
-"structConnectorX_1_1Commands_1_1CommandPattern.html":[1,0,0,0,10],
-"structConnectorX_1_1Commands_1_1CommandPattern.html#a2fc37adfb0a10ae76680cae6b1f3772a":[0,0,0,0,10,1],
-"structConnectorX_1_1Commands_1_1CommandPattern.html#a2fc37adfb0a10ae76680cae6b1f3772a":[1,0,0,0,10,1]
+"structConnectorX_1_1Commands_1_1CommandPattern.html":[1,0,0,0,10]
 };

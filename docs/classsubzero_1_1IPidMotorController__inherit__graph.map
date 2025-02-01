@@ -1,11 +1,15 @@
 <map id="subzero::IPidMotorController" name="subzero::IPidMotorController">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,130,189,156"/>
-<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="237,5,485,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,122,239,89,240,94,150,127"/>
-<area shape="rect" id="Node000004" href="$classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="258,115,464,171"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="205,140,258,140,258,146,205,146"/>
-<area shape="rect" id="Node000005" href="$classsubzero_1_1SimPidMotorController.html" title=" " alt="" coords="260,195,462,221"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="157,158,237,180,290,192,289,197,236,185,156,163"/>
-<area shape="rect" id="Node000003" href="$classsubzero_1_1RevPidMotorController.html" title=" " alt="" coords="533,35,735,61"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="501,46,533,46,533,51,501,51"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,232,189,258"/>
+<area shape="rect" id="Node000002" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="244,5,492,106"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,219,170,169,235,116,254,104,257,109,238,121,173,173,122,223"/>
+<area shape="rect" id="Node000004" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="265,130,470,186"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="149,224,236,194,268,184,270,189,237,200,151,229"/>
+<area shape="rect" id="Node000005" href="$classsubzero_1_1PidMotorController.html" title=" " alt="" coords="265,210,471,280"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="204,242,264,242,264,248,204,248"/>
+<area shape="rect" id="Node000006" href="$classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful..." alt="" coords="237,304,499,360"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="152,261,237,289,274,301,272,306,236,294,151,266"/>
+<area shape="rect" id="Node000007" href="$classsubzero_1_1SimPidMotorController.html" title=" " alt="" coords="267,384,469,410"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="120,268,170,320,202,347,238,369,268,381,266,386,235,374,199,352,166,324,116,272"/>
+<area shape="rect" id="Node000003" href="$classsubzero_1_1RevPidMotorController.html" title=" " alt="" coords="547,43,749,68"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="508,53,547,53,547,58,508,58"/>
 </map>
