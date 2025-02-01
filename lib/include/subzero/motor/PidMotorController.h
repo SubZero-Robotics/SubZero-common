@@ -5,10 +5,10 @@
 #include <rev/ClosedLoopSlot.h>
 #include <rev/SparkBase.h>
 #include <rev/SparkClosedLoopController.h>
-#include <rev/config/SparkMaxConfig.h>
 #include <rev/SparkFlex.h>
 #include <rev/SparkMax.h>
 #include <rev/config/SparkFlexConfig.h>
+#include <rev/config/SparkMaxConfig.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -184,8 +184,7 @@ class PidMotorControllerTuner {
 public:
   explicit PidMotorControllerTuner(
       PidMotorController<TMotor, TController, TRelativeEncoder,
-                         TAbsoluteEncoder, TPidConfig>
-          &controller)
+                         TAbsoluteEncoder, TPidConfig> &controller)
       : m_controller{controller} {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
                                    m_controller.GetPidSettings().p);
