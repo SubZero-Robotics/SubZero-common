@@ -134,58 +134,21 @@ $(function(){initNavTree('AutoFactory_8h_source.html',''); initResizable(true); 
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keyword">const</span> std::map&lt;T, std::string&gt; &amp;m_autos;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">bool</span> AutoFileExists(<span class="keyword">const</span> std::string fileName) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> std::string filePath = frc::filesystem::GetDeployDirectory() +</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>                                 <span class="stringliteral">&quot;/pathplanner/autos/&quot;</span> + fileName + <span class="stringliteral">&quot;.auto&quot;</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordtype">bool</span> AutoFileExists(<span class="keyword">const</span> std::string fileName);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  frc2::CommandPtr PathPlannerPathFromName(<span class="keyword">const</span> std::string autoName);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment">// Use wpi::MemoryBuffer::GetFile and handle the wpi::expected result</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">auto</span> fileBufferResult = wpi::MemoryBuffer::GetFile(filePath);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">if</span> (!fileBufferResult) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>      <span class="comment">// fileBufferResult is an error; the file does not exist</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="comment">// fileBufferResult contains a valid std::unique_ptr&lt;wpi::MemoryBuffer&gt;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  frc2::CommandPtr PathPlannerPathFromName(<span class="keyword">const</span> std::string autoName) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">if</span> (!AutoFileExists(autoName)) {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      <a class="code hl_define" href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a>.logError(<span class="stringliteral">&quot;Auto Factory&quot;</span>,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                             <span class="stringliteral">&quot;AUTO &#39;%s&#39; DOES NOT EXIST HELP US EVAN&quot;</span>,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                             autoName.c_str());</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <span class="keywordflow">return</span> EmptyCommand().ToPtr();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> pathplanner::PathPlannerAuto(autoName).ToPtr();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  }</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">   70</a></span>  frc2::CommandPtr <a class="code hl_function" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">GetAuto</a>(T type) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">if</span> (!m_autos.contains(type)) {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      <a class="code hl_define" href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a>.logWarning(</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>          <span class="stringliteral">&quot;Auto Factory&quot;</span>,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="stringliteral">&quot;Auto type %d does not exist, defaulting to empty &quot;</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          <span class="stringliteral">&quot;auto&quot;</span>,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>          <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(type));</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classsubzero_1_1EmptyCommand.html">EmptyCommand</a>().ToPtr();</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">return</span> PathPlannerPathFromName(m_autos.at(type));</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">   48</a></span>  frc2::CommandPtr <a class="code hl_function" href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">GetAuto</a>(T type);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
 </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
-</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>} <span class="comment">// namespace subzero</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <span class="comment">// namespace subzero</span></div>
 </div>
 <div class="ttc" id="aConsoleLogger_8h_html"><div class="ttname"><a href="ConsoleLogger_8h.html">ConsoleLogger.h</a></div></div>
-<div class="ttc" id="aConsoleLogger_8h_html_addb44682eef1608a06ae0ad2fa0330ab"><div class="ttname"><a href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a></div><div class="ttdeci">#define ConsoleWriter</div><div class="ttdef"><b>Definition</b> <a href="ConsoleLogger_8h_source.html#l00073">ConsoleLogger.h:73</a></div></div>
 <div class="ttc" id="aEmptyCommand_8h_html"><div class="ttname"><a href="EmptyCommand_8h.html">EmptyCommand.h</a></div></div>
-<div class="ttc" id="aclasssubzero_1_1AutoFactory_html_a5c64c38fca5f653bcb72744cd4a40d80"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">subzero::AutoFactory::GetAuto</a></div><div class="ttdeci">frc2::CommandPtr GetAuto(T type)</div><div class="ttdoc">Get the auto command specified by the key.</div><div class="ttdef"><b>Definition</b> <a href="#l00070">AutoFactory.h:70</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1AutoFactory_html_a5c64c38fca5f653bcb72744cd4a40d80"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html#a5c64c38fca5f653bcb72744cd4a40d80">subzero::AutoFactory::GetAuto</a></div><div class="ttdeci">frc2::CommandPtr GetAuto(T type)</div><div class="ttdoc">Get the auto command specified by the key.</div></div>
 <div class="ttc" id="aclasssubzero_1_1AutoFactory_html_ac006d4b529484322236baa91316b016a"><div class="ttname"><a href="classsubzero_1_1AutoFactory.html#ac006d4b529484322236baa91316b016a">subzero::AutoFactory::AutoFactory</a></div><div class="ttdeci">AutoFactory(const std::map&lt; T, std::string &gt; &amp;autos)</div><div class="ttdef"><b>Definition</b> <a href="#l00031">AutoFactory.h:31</a></div></div>
-<div class="ttc" id="aclasssubzero_1_1EmptyCommand_html"><div class="ttname"><a href="classsubzero_1_1EmptyCommand.html">subzero::EmptyCommand</a></div><div class="ttdef"><b>Definition</b> <a href="EmptyCommand_8h_source.html#l00010">EmptyCommand.h:11</a></div></div>
 <div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="#l00020">AutoFactory.h:20</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
