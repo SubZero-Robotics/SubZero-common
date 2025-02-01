@@ -75,7 +75,7 @@ void PidMotorController<
   m_absolutePositionEnabled = false;
   frc::SmartDashboard::PutNumber(m_name + "commanded rpm", rpm.value());
   m_controller.SetReference(rpm.value(),
-                            rev::spark::SparkBase::ControlType::kVelocity);
+                            rev::spark::SparkLowLevel::ControlType::kVelocity);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
