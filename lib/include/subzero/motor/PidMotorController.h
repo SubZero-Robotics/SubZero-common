@@ -43,6 +43,8 @@ public:
    * @param maxRpm Max RPM of the motor; used to set velocity based on
    * percentage
    */
+
+  // TODO: make `absEncoder` an `std::optional<>` instead of a raw pointer
   explicit PidMotorController(std::string name, TMotor &motor,
                               TRelativeEncoder &encoder,
                               TController &controller, PidSettings pidSettings,
@@ -116,7 +118,11 @@ public:
    */
   // TODO: find missing SetPositionConversionFactor() method
   inline void SetEncoderConversionFactor(double factor) override {
-    // m_encoder.SetPositionConversionFactor(factor);
+    m_config.encoder.PositionConversionFactor(factor);
+    m_config.encoder.VelocityConversionFactor(factor);
+
+    m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
+      rev::spark::SparkBase::PersistMode::kPersistParameters);
   }
 
   /**
@@ -128,7 +134,11 @@ public:
   // TODO: find missing SetPositionConversionFactor() method
   inline void SetAbsoluteEncoderConversionFactor(double factor) override {
     if (m_absEncoder) {
-      // m_absEncoder->SetPositionConversionFactor(factor);
+      m_config.absoluteEncoder.PositionConversionFactor(factor);
+      m_config.absoluteEncoder.VelocityConversionFactor(factor);
+
+      m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
+        rev::spark::SparkBase::PersistMode::kPersistParameters);
     }
   }
 
