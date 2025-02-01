@@ -6,47 +6,50 @@ using namespace subzero;
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig>::
-    PidMotorController(std::string name, TMotor &motor,
-                       TRelativeEncoder &encoder, TController &controller,
-                       PidSettings pidSettings, TAbsoluteEncoder *absEncoder,
-                       units::revolutions_per_minute_t maxRpm)
+PidMotorController<
+    TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+    TPidConfig>::PidMotorController(std::string name, TMotor &motor,
+                                    TRelativeEncoder &encoder,
+                                    TController &controller,
+                                    PidSettings pidSettings,
+                                    TAbsoluteEncoder *absEncoder,
+                                    units::revolutions_per_minute_t maxRpm)
     : IPidMotorController(name), m_motor{motor}, m_controller{controller},
       m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
       m_pidController{
           frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
       m_maxRpm{maxRpm} {
-      
+
   // Doing it here so the PID controllers themselves get updated
   UpdatePidSettings(pidSettings);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::Set(units::volt_t volts) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::Set(units::volt_t volts) {
   frc::SmartDashboard::PutNumber(m_name + " Commanded volts", volts.value());
   m_motor.SetVoltage(volts);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::Set(double percentage) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::Set(double percentage) {
   m_motor.Set(percentage);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::SetPidTolerance(double tolerance) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::SetPidTolerance(double tolerance) {
   m_pidController.SetTolerance(tolerance);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::Update() {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::Update() {
   if (m_absolutePositionEnabled) {
     // ConsoleWriter.logVerbose(
     //     m_name,
@@ -70,8 +73,8 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<
-    TMotor, TController, TRelativeEncoder,
-    TAbsoluteEncoder, TPidConfig>::RunWithVelocity(units::revolutions_per_minute_t rpm) {
+    TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+    TPidConfig>::RunWithVelocity(units::revolutions_per_minute_t rpm) {
   m_absolutePositionEnabled = false;
   frc::SmartDashboard::PutNumber(m_name + "commanded rpm", rpm.value());
   m_controller.SetReference(rpm.value(),
@@ -80,8 +83,8 @@ void PidMotorController<
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::RunWithVelocity(double percentage) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::RunWithVelocity(double percentage) {
   if (abs(percentage) > 1.0) {
     ConsoleWriter.logError("PidMotorController",
                            "Incorrect percentages for motor %s: Value=%.4f ",
@@ -94,8 +97,8 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::RunToPosition(double position) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::RunToPosition(double position) {
   ConsoleWriter.logVerbose(m_name + " Target position", position);
   Stop();
   m_pidController.Reset();
@@ -106,8 +109,8 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
 std::optional<double>
-PidMotorController<TMotor, TController, TRelativeEncoder,
-                   TAbsoluteEncoder, TPidConfig>::GetAbsoluteEncoderPosition() {
+PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                   TPidConfig>::GetAbsoluteEncoderPosition() {
   if (m_absEncoder) {
     return m_absEncoder->GetPosition();
   }
@@ -117,8 +120,8 @@ PidMotorController<TMotor, TController, TRelativeEncoder,
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::Stop() {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::Stop() {
   m_absolutePositionEnabled = false;
   m_motor.Set(0);
 }
@@ -126,8 +129,8 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 // TODO: make PidSettings params optional since only one is used at a time
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
-void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder, TPidConfig>::UpdatePidSettings(PidSettings settings) {
+void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                        TPidConfig>::UpdatePidSettings(PidSettings settings) {
 
   bool changed = false;
 
@@ -168,8 +171,9 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
   }
 
   if (changed) {
-    m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
-      rev::spark::SparkBase::PersistMode::kPersistParameters);
+    m_motor.Configure(m_config,
+                      rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+                      rev::spark::SparkBase::PersistMode::kPersistParameters);
   }
 
   m_settings = settings;

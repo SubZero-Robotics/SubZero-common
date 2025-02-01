@@ -9,9 +9,9 @@
 #include <frc2/command/FunctionalCommand.h>
 #include <frc2/command/InstantCommand.h>
 #include <frc2/command/TrapezoidProfileSubsystem.h>
+#include <rev/SparkClosedLoopController.h>
 #include <rev/SparkFlex.h>
 #include <rev/SparkMax.h>
-#include <rev/SparkClosedLoopController.h>
 #include <units/acceleration.h>
 #include <units/angle.h>
 #include <units/angular_acceleration.h>

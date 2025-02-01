@@ -2,12 +2,12 @@
 
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <rev/config/SparkFlexConfig.h>
-#include <rev/SparkBase.h>
-#include <rev/SparkMax.h>
-#include <rev/SparkClosedLoopController.h>
 #include <rev/ClosedLoopSlot.h>
+#include <rev/SparkBase.h>
+#include <rev/SparkClosedLoopController.h>
 #include <rev/SparkFlex.h>
+#include <rev/SparkMax.h>
+#include <rev/config/SparkFlexConfig.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -121,8 +121,9 @@ public:
     m_config.encoder.PositionConversionFactor(factor);
     m_config.encoder.VelocityConversionFactor(factor);
 
-    m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
-      rev::spark::SparkBase::PersistMode::kPersistParameters);
+    m_motor.Configure(m_config,
+                      rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+                      rev::spark::SparkBase::PersistMode::kPersistParameters);
   }
 
   /**
@@ -137,8 +138,9 @@ public:
       m_config.absoluteEncoder.PositionConversionFactor(factor);
       m_config.absoluteEncoder.VelocityConversionFactor(factor);
 
-      m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
-        rev::spark::SparkBase::PersistMode::kPersistParameters);
+      m_motor.Configure(
+          m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+          rev::spark::SparkBase::PersistMode::kPersistParameters);
     }
   }
 
@@ -183,7 +185,8 @@ public:
   explicit PidMotorControllerTuner(
       // TODO, use template type for config
       PidMotorController<TMotor, TController, TRelativeEncoder,
-                         TAbsoluteEncoder, rev::spark::SparkFlexConfig> &controller)
+                         TAbsoluteEncoder, rev::spark::SparkFlexConfig>
+          &controller)
       : m_controller{controller} {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
                                    m_controller.GetPidSettings().p);
@@ -219,14 +222,13 @@ public:
   }
 
 private:
-  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig>
-      &m_controller;
+  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                     rev::spark::SparkFlexConfig> &m_controller;
 };
 
-
-
 class RevPidMotorController
-    : public PidMotorController<rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
-                                rev::spark::SparkRelativeEncoder,
-                                rev::spark::SparkAbsoluteEncoder, rev::spark::SparkBaseConfig> {};
+    : public PidMotorController<
+          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
+          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,
+          rev::spark::SparkBaseConfig> {};
 } // namespace subzero
