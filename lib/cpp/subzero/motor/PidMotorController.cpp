@@ -5,8 +5,8 @@
 using namespace subzero;
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
-PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>::
+          typename TAbsoluteEncoder, typename TPidConfig>
+PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig>::
     PidMotorController(std::string name, TMotor &motor,
                        TRelativeEncoder &encoder, TController &controller,
                        PidSettings pidSettings, TAbsoluteEncoder *absEncoder,
@@ -16,36 +16,37 @@ PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>::
       m_pidController{
           frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
       m_maxRpm{maxRpm} {
+      
   // Doing it here so the PID controllers themselves get updated
   UpdatePidSettings(pidSettings);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::Set(units::volt_t volts) {
+                        TAbsoluteEncoder, TPidConfig>::Set(units::volt_t volts) {
   frc::SmartDashboard::PutNumber(m_name + " Commanded volts", volts.value());
   m_motor.SetVoltage(volts);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::Set(double percentage) {
+                        TAbsoluteEncoder, TPidConfig>::Set(double percentage) {
   m_motor.Set(percentage);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::SetPidTolerance(double tolerance) {
+                        TAbsoluteEncoder, TPidConfig>::SetPidTolerance(double tolerance) {
   m_pidController.SetTolerance(tolerance);
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::Update() {
+                        TAbsoluteEncoder, TPidConfig>::Update() {
   if (m_absolutePositionEnabled) {
     // ConsoleWriter.logVerbose(
     //     m_name,
@@ -67,10 +68,10 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<
     TMotor, TController, TRelativeEncoder,
-    TAbsoluteEncoder>::RunWithVelocity(units::revolutions_per_minute_t rpm) {
+    TAbsoluteEncoder, TPidConfig>::RunWithVelocity(units::revolutions_per_minute_t rpm) {
   m_absolutePositionEnabled = false;
   frc::SmartDashboard::PutNumber(m_name + "commanded rpm", rpm.value());
   m_controller.SetReference(rpm.value(),
@@ -78,9 +79,9 @@ void PidMotorController<
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::RunWithVelocity(double percentage) {
+                        TAbsoluteEncoder, TPidConfig>::RunWithVelocity(double percentage) {
   if (abs(percentage) > 1.0) {
     ConsoleWriter.logError("PidMotorController",
                            "Incorrect percentages for motor %s: Value=%.4f ",
@@ -92,9 +93,9 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::RunToPosition(double position) {
+                        TAbsoluteEncoder, TPidConfig>::RunToPosition(double position) {
   ConsoleWriter.logVerbose(m_name + " Target position", position);
   Stop();
   m_pidController.Reset();
@@ -103,10 +104,10 @@ void PidMotorController<TMotor, TController, TRelativeEncoder,
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 std::optional<double>
 PidMotorController<TMotor, TController, TRelativeEncoder,
-                   TAbsoluteEncoder>::GetAbsoluteEncoderPosition() {
+                   TAbsoluteEncoder, TPidConfig>::GetAbsoluteEncoderPosition() {
   if (m_absEncoder) {
     return m_absEncoder->GetPosition();
   }
@@ -115,54 +116,61 @@ PidMotorController<TMotor, TController, TRelativeEncoder,
 }
 
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::Stop() {
+                        TAbsoluteEncoder, TPidConfig>::Stop() {
   m_absolutePositionEnabled = false;
   m_motor.Set(0);
 }
 
+// TODO: make PidSettings params optional since only one is used at a time
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder,
-                        TAbsoluteEncoder>::UpdatePidSettings(PidSettings
-                                                                 settings) {
+                        TAbsoluteEncoder, TPidConfig>::UpdatePidSettings(PidSettings settings) {
 
-  //   rev::spark::SparkMax m;
+  bool changed = false;
 
-  //   rev::spark::SparkMaxConfig m;
+  if (settings.p != m_settings.p) {
+    ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
+                          settings.p, m_name.c_str());
 
-  //   m.Configure()                                                     
+    m_config.closedLoop.P(settings.p);
+    changed = true;
+  }
 
-  // if (settings.p != m_settings.p) {
-  //   ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
-  //                         settings.p, m_name.c_str());
-  //   m_controller.SetP(settings.p);
-  // }
+  if (settings.i != m_settings.i) {
+    ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
+                          settings.i, m_name.c_str());
+    m_config.closedLoop.I(settings.i);
+    changed = true;
+  }
 
-  // if (settings.i != m_settings.i) {
-  //   ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
-  //                         settings.i, m_name.c_str());
-  //   m_controller.SetP(settings.i);
-  // }
+  if (settings.d != m_settings.d) {
+    ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
+                          settings.d, m_name.c_str());
+    m_config.closedLoop.D(settings.d);
+    changed = true;
+  }
 
-  // if (settings.d != m_settings.d) {
-  //   ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
-  //                         settings.d, m_name.c_str());
-  //   m_controller.SetD(settings.d);
-  // }
+  if (settings.iZone != m_settings.iZone) {
+    ConsoleWriter.logInfo("PidMotorController", "Setting IZone to %.6f for %s",
+                          settings.iZone, m_name.c_str());
+    m_config.closedLoop.IZone(settings.iZone);
+    changed = true;
+  }
 
-  // if (settings.iZone != m_settings.iZone) {
-  //   ConsoleWriter.logInfo("PidMotorController", "Setting IZone to %.6f for %s",
-  //                         settings.iZone, m_name.c_str());
-  //   m_controller.SetIZone(settings.iZone);
-  // }
+  if (settings.ff != m_settings.ff) {
+    ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
+                          settings.ff, m_name.c_str());
+    m_config.closedLoop.VelocityFF(settings.ff);
+    changed = true;
+  }
 
-  // if (settings.ff != m_settings.ff) {
-  //   ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
-  //                         settings.ff, m_name.c_str());
-  //   m_controller.SetFF(settings.ff);
-  // }
+  if (changed) {
+    m_motor.Configure(m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters, 
+      rev::spark::SparkBase::PersistMode::kPersistParameters);
+  }
 
   m_settings = settings;
 }

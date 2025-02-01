@@ -2,6 +2,7 @@
 
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <rev/config/SparkFlexConfig.h>
 #include <rev/SparkBase.h>
 #include <rev/SparkMax.h>
 #include <rev/SparkClosedLoopController.h>
@@ -27,7 +28,7 @@ namespace subzero {
  * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 class PidMotorController : public IPidMotorController {
 public:
   /**
@@ -139,13 +140,15 @@ public:
 
   inline const PidSettings &GetPidSettings() override { return m_settings; }
 
-  void UpdatePidSettings(PidSettings settings) override;
+  void UpdatePidSettings(PidSettings settings);
 
 protected:
   TMotor &m_motor;
   TController &m_controller;
   TRelativeEncoder &m_encoder;
   TAbsoluteEncoder *m_absEncoder;
+  // TODO, use template type for config
+  rev::spark::SparkFlexConfig m_config;
   PidSettings m_settings;
   frc::PIDController m_pidController;
   bool m_absolutePositionEnabled = false;
@@ -168,8 +171,9 @@ template <typename TMotor, typename TController, typename TRelativeEncoder,
 class PidMotorControllerTuner {
 public:
   explicit PidMotorControllerTuner(
+      // TODO, use template type for config
       PidMotorController<TMotor, TController, TRelativeEncoder,
-                         TAbsoluteEncoder> &controller)
+                         TAbsoluteEncoder, rev::spark::SparkFlexConfig> &controller)
       : m_controller{controller} {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
                                    m_controller.GetPidSettings().p);
@@ -182,13 +186,6 @@ public:
     frc::SmartDashboard::PutNumber(m_controller.m_name + " Feed Forward",
                                    m_controller.GetPidSettings().ff);
   }
-
-  /// @brief Sets the setpoint of the pid controller
-  /// @param setPoint The setpoint of the PID
-  void SetSetpoint(double setPoint);
-
-  /// @brief Sets the PID coefficients
-  void SetPidCoefficients(double p, double i, double d, double iZone, double ff);
 
   /**
    * @brief Call this within the Periodic method of the encapsulating subsystem
@@ -212,7 +209,7 @@ public:
   }
 
 private:
-  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
+  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig>
       &m_controller;
 };
 
@@ -221,5 +218,5 @@ private:
 class RevPidMotorController
     : public PidMotorController<rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
                                 rev::spark::SparkRelativeEncoder,
-                                rev::spark::SparkAbsoluteEncoder> {};
+                                rev::spark::SparkAbsoluteEncoder, rev::spark::SparkBaseConfig> {};
 } // namespace subzero
