@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SubZero Common: subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; Class Template Reference</title>
+<title>SubZero Common: subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,7 +101,7 @@ $(function(){initNavTree('classsubzero_1_1PidMotorControllerTuner.html',''); ini
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classsubzero_1_1PidMotorControllerTuner-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -112,15 +112,15 @@ $(function(){initNavTree('classsubzero_1_1PidMotorControllerTuner.html',''); ini
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa974b76cdc610f5121cbba48fd3f2648" id="r_aa974b76cdc610f5121cbba48fd3f2648"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa974b76cdc610f5121cbba48fd3f2648">PidMotorControllerTuner</a> (<a class="el" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig &gt; &amp;controller)</td></tr>
-<tr class="separator:aa974b76cdc610f5121cbba48fd3f2648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4998249c3238a96ed561580c55b18bf" id="r_aa4998249c3238a96ed561580c55b18bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4998249c3238a96ed561580c55b18bf">UpdateFromShuffleboard</a> ()</td></tr>
-<tr class="memdesc:aa4998249c3238a96ed561580c55b18bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this within the Periodic method of the encapsulating subsystem.  <br /></td></tr>
-<tr class="separator:aa4998249c3238a96ed561580c55b18bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ed67471a8dee1cb48bdcc35ec9df56" id="r_a23ed67471a8dee1cb48bdcc35ec9df56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23ed67471a8dee1cb48bdcc35ec9df56">PidMotorControllerTuner</a> (<a class="el" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; &amp;controller)</td></tr>
+<tr class="separator:a23ed67471a8dee1cb48bdcc35ec9df56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09f54c6ce1ae3eb323cd8bd18d35fb57" id="r_a09f54c6ce1ae3eb323cd8bd18d35fb57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09f54c6ce1ae3eb323cd8bd18d35fb57">UpdateFromShuffleboard</a> ()</td></tr>
+<tr class="memdesc:a09f54c6ce1ae3eb323cd8bd18d35fb57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call this within the Periodic method of the encapsulating subsystem.  <br /></td></tr>
+<tr class="separator:a09f54c6ce1ae3eb323cd8bd18d35fb57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt;<br />
-class subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;</div><p>Intended for use alongside a <a class="el" href="classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful...">PidMotorController</a> for simple tuning through SmartDashboard. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt;<br />
+class subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;</div><p>Intended for use alongside a <a class="el" href="classsubzero_1_1PidMotorController.html" title="Combines a motor, motor drvier, relative encoder, and absolute encoder into a single wrapper; helpful...">PidMotorController</a> for simple tuning through SmartDashboard. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">TMotor</td><td></td></tr>
@@ -133,21 +133,21 @@ class subzero::PidMotorControllerTuner&lt; TMotor, TController, TRelativeEncoder
 
 <p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00183">183</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa974b76cdc610f5121cbba48fd3f2648" name="aa974b76cdc610f5121cbba48fd3f2648"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa974b76cdc610f5121cbba48fd3f2648">&#9670;&#160;</a></span>PidMotorControllerTuner()</h2>
+<a id="a23ed67471a8dee1cb48bdcc35ec9df56" name="a23ed67471a8dee1cb48bdcc35ec9df56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ed67471a8dee1cb48bdcc35ec9df56">&#9670;&#160;</a></span>PidMotorControllerTuner()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classsubzero_1_1PidMotorControllerTuner.html">subzero::PidMotorControllerTuner</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::PidMotorControllerTuner </td>
+          <td class="memname"><a class="el" href="classsubzero_1_1PidMotorControllerTuner.html">subzero::PidMotorControllerTuner</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::PidMotorControllerTuner </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>controller</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>controller</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -163,19 +163,19 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa4998249c3238a96ed561580c55b18bf" name="aa4998249c3238a96ed561580c55b18bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4998249c3238a96ed561580c55b18bf">&#9670;&#160;</a></span>UpdateFromShuffleboard()</h2>
+<a id="a09f54c6ce1ae3eb323cd8bd18d35fb57" name="a09f54c6ce1ae3eb323cd8bd18d35fb57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09f54c6ce1ae3eb323cd8bd18d35fb57">&#9670;&#160;</a></span>UpdateFromShuffleboard()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder&gt; </div>
+template&lt;typename TMotor, typename TController, typename TRelativeEncoder, typename TAbsoluteEncoder, typename TPidConfig&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorControllerTuner.html">subzero::PidMotorControllerTuner</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder &gt;::UpdateFromShuffleboard </td>
+          <td class="memname">void <a class="el" href="classsubzero_1_1PidMotorControllerTuner.html">subzero::PidMotorControllerTuner</a>&lt; TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig &gt;::UpdateFromShuffleboard </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -190,7 +190,7 @@ template&lt;typename TMotor, typename TController, typename TRelativeEncoder, ty
 
 <p>Call this within the Periodic method of the encapsulating subsystem. </p>
 
-<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00207">207</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PidMotorController_8h_source.html#l00206">206</a> of file <a class="el" href="PidMotorController_8h_source.html">PidMotorController.h</a>.</p>
 
 </div>
 </div>

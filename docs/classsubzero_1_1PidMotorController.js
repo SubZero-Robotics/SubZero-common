@@ -19,7 +19,7 @@ var classsubzero_1_1PidMotorController =
     [ "m_absEncoder", "classsubzero_1_1PidMotorController.html#aa87a34956bd02d9f556551b69bad860c", null ],
     [ "m_absolutePositionEnabled", "classsubzero_1_1PidMotorController.html#a079e0e07441c581316e8d2517274f7c7", null ],
     [ "m_absoluteTarget", "classsubzero_1_1PidMotorController.html#aa5128fdfc9af3056f32a9b10fdcf8017", null ],
-    [ "m_config", "classsubzero_1_1PidMotorController.html#a921ff0a4084fbb72b7f926de00761b3a", null ],
+    [ "m_config", "classsubzero_1_1PidMotorController.html#a88cbdb816fd44d8a2e4d05bb4a5e1b72", null ],
     [ "m_controller", "classsubzero_1_1PidMotorController.html#a9b667542e29828c0f5be49ecc5af948a", null ],
     [ "m_encoder", "classsubzero_1_1PidMotorController.html#aa500c4d96cd4ee974db5a0887353257d", null ],
     [ "m_maxRpm", "classsubzero_1_1PidMotorController.html#adc10e6c3ad3d93e6491a71b5ef3fa882", null ],

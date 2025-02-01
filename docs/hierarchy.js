@@ -40,7 +40,7 @@ var hierarchy =
       [ "subzero::ShuffleboardLogger", "classsubzero_1_1ShuffleboardLogger.html", null ]
     ] ],
     [ "subzero::IPidMotorController", "classsubzero_1_1IPidMotorController.html", [
-      [ "subzero::PidMotorController< rev::spark::SparkMax, rev::spark::SparkClosedLoopController, rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder, rev::spark::SparkBaseConfig >", "classsubzero_1_1PidMotorController.html", [
+      [ "subzero::PidMotorController< rev::spark::SparkMax, rev::spark::SparkClosedLoopController, rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder, rev::spark::SparkMaxConfig >", "classsubzero_1_1PidMotorController.html", [
         [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
       ] ],
       [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],
@@ -73,7 +73,7 @@ var hierarchy =
     [ "subzero::PhotonVisionEstimators", "classsubzero_1_1PhotonVisionEstimators.html", null ],
     [ "subzero::PidMotorControllerPair< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerPair.html", null ],
     [ "subzero::PidMotorControllerPairTuner< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerPairTuner.html", null ],
-    [ "subzero::PidMotorControllerTuner< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorControllerTuner.html", null ],
+    [ "subzero::PidMotorControllerTuner< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig >", "classsubzero_1_1PidMotorControllerTuner.html", null ],
     [ "subzero::PidSettings", "structsubzero_1_1PidSettings.html", null ],
     [ "LimelightHelpers::PoseEstimate", "classLimelightHelpers_1_1PoseEstimate.html", null ],
     [ "LimelightHelpers::RawFiducial", "classLimelightHelpers_1_1RawFiducial.html", null ],
