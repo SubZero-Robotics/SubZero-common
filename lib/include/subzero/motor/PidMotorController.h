@@ -117,7 +117,6 @@ public:
    *
    * @param factor
    */
-  // TODO: find missing SetPositionConversionFactor() method
   inline void SetEncoderConversionFactor(double factor) override {
     m_config.encoder.PositionConversionFactor(factor);
     m_config.encoder.VelocityConversionFactor(factor);
@@ -133,7 +132,6 @@ public:
    *
    * @param factor
    */
-  // TODO: find missing SetPositionConversionFactor() method
   inline void SetAbsoluteEncoderConversionFactor(double factor) override {
     if (m_absEncoder) {
       m_config.absoluteEncoder.PositionConversionFactor(factor);
