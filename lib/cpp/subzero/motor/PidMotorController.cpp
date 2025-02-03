@@ -126,7 +126,6 @@ void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
   m_motor.Set(0);
 }
 
-// TODO: make PidSettings params optional since only one is used at a time
 template <typename TMotor, typename TController, typename TRelativeEncoder,
           typename TAbsoluteEncoder, typename TPidConfig>
 void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
