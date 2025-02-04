@@ -2,7 +2,13 @@
 
 #include <frc/controller/PIDController.h>
 #include <frc/smartdashboard/SmartDashboard.h>
+#include <rev/ClosedLoopSlot.h>
+#include <rev/SparkBase.h>
+#include <rev/SparkClosedLoopController.h>
+#include <rev/SparkFlex.h>
 #include <rev/SparkMax.h>
+#include <rev/config/SparkFlexConfig.h>
+#include <rev/config/SparkMaxConfig.h>
 #include <units/angle.h>
 #include <units/angular_velocity.h>
 
@@ -23,7 +29,7 @@ namespace subzero {
  * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 class PidMotorController : public IPidMotorController {
 public:
   /**
@@ -38,6 +44,8 @@ public:
    * @param maxRpm Max RPM of the motor; used to set velocity based on
    * percentage
    */
+
+  // TODO: make `absEncoder` an `std::optional<>` instead of a raw pointer
   explicit PidMotorController(std::string name, TMotor &motor,
                               TRelativeEncoder &encoder,
                               TController &controller, PidSettings pidSettings,
@@ -110,7 +118,12 @@ public:
    * @param factor
    */
   inline void SetEncoderConversionFactor(double factor) override {
-    m_encoder.SetPositionConversionFactor(factor);
+    m_config.encoder.PositionConversionFactor(factor);
+    m_config.encoder.VelocityConversionFactor(factor);
+
+    m_motor.Configure(m_config,
+                      rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+                      rev::spark::SparkBase::PersistMode::kPersistParameters);
   }
 
   /**
@@ -121,7 +134,12 @@ public:
    */
   inline void SetAbsoluteEncoderConversionFactor(double factor) override {
     if (m_absEncoder) {
-      m_absEncoder->SetPositionConversionFactor(factor);
+      m_config.absoluteEncoder.PositionConversionFactor(factor);
+      m_config.absoluteEncoder.VelocityConversionFactor(factor);
+
+      m_motor.Configure(
+          m_config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+          rev::spark::SparkBase::PersistMode::kPersistParameters);
     }
   }
 
@@ -133,18 +151,20 @@ public:
 
   inline const PidSettings &GetPidSettings() override { return m_settings; }
 
-  void UpdatePidSettings(PidSettings settings) override;
+  void UpdatePidSettings(PidSettings settings);
 
 protected:
   TMotor &m_motor;
   TController &m_controller;
   TRelativeEncoder &m_encoder;
   TAbsoluteEncoder *m_absEncoder;
+  TPidConfig m_config;
   PidSettings m_settings;
   frc::PIDController m_pidController;
   bool m_absolutePositionEnabled = false;
   double m_absoluteTarget = 0;
   const units::revolutions_per_minute_t m_maxRpm;
+  bool m_isInitialized;
 };
 
 // TODO: Move to its own file and make it work with IPidMotorController
@@ -158,12 +178,12 @@ protected:
  * @tparam TAbsoluteEncoder
  */
 template <typename TMotor, typename TController, typename TRelativeEncoder,
-          typename TAbsoluteEncoder>
+          typename TAbsoluteEncoder, typename TPidConfig>
 class PidMotorControllerTuner {
 public:
   explicit PidMotorControllerTuner(
       PidMotorController<TMotor, TController, TRelativeEncoder,
-                         TAbsoluteEncoder> &controller)
+                         TAbsoluteEncoder, TPidConfig> &controller)
       : m_controller{controller} {
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
                                    m_controller.GetPidSettings().p);
@@ -199,13 +219,13 @@ public:
   }
 
 private:
-  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder>
-      &m_controller;
+  PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
+                     rev::spark::SparkFlexConfig> &m_controller;
 };
 
 class RevPidMotorController
     : public PidMotorController<
           rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
-          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder> {
-};
+          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,
+          rev::spark::SparkMaxConfig> {};
 } // namespace subzero
