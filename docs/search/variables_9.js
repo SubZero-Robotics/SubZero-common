@@ -6,5 +6,6 @@ var searchData=
   ['initialteams_3',['initialTeams',['../structConnectorX_1_1Commands_1_1Configuration.html#a45b3c3aad6193a5f19494063b30fae5c',1,'ConnectorX::Commands::Configuration']]],
   ['invalid_5ftarget_4',['INVALID_TARGET',['../namespaceLimelightHelpers.html#a741d2fbd9e1d6e12292c56a830277b1f',1,'LimelightHelpers']]],
   ['invalidtrackedpose_5',['invalidTrackedPose',['../structsubzero_1_1TargetTracker_1_1TargetTrackerConfig.html#aecbfd07853dd183ec4fc290ee2f460f4',1,'subzero::TargetTracker::TargetTrackerConfig']]],
-  ['izone_6',['iZone',['../structsubzero_1_1PidSettings.html#a80ad1ea9307f2d455d66f9e78ddaecc3',1,'subzero::PidSettings']]]
+  ['isidlemodebrake_6',['isIdleModeBrake',['../structsubzero_1_1PidSettings.html#a2c5da4f377065dffde755e436397386c',1,'subzero::PidSettings']]],
+  ['izone_7',['iZone',['../structsubzero_1_1PidSettings.html#a80ad1ea9307f2d455d66f9e78ddaecc3',1,'subzero::PidSettings']]]
 ];

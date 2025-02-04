@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"classsubzero_1_1RotationalSingleAxisSubsystem.html#a015340da1ba2cbe30e914e2808816607":[1,0,2,22,1],
+"classsubzero_1_1RotationalSingleAxisSubsystem.html#a108c483de6632138afb3d8b5f7e6c7a1":[0,0,2,24,3],
 "classsubzero_1_1RotationalSingleAxisSubsystem.html#a108c483de6632138afb3d8b5f7e6c7a1":[1,0,2,22,3],
 "classsubzero_1_1RotationalSingleAxisSubsystem.html#a631d5bc68d55bc2f5ec2ca62cd982e0f":[0,0,2,24,0],
 "classsubzero_1_1RotationalSingleAxisSubsystem.html#a631d5bc68d55bc2f5ec2ca62cd982e0f":[1,0,2,22,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "functions_vars_w.html":[1,3,2,17],
 "functions_vars_x.html":[1,3,2,18],
 "functions_vars_y.html":[1,3,2,19],
-"functions_vars_z.html":[1,3,2,20],
-"functions_w.html":[1,3,0,19],
-"functions_x.html":[1,3,0,20]
+"functions_vars_z.html":[1,3,2,20]
 };

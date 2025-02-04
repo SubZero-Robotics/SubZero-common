@@ -22,6 +22,7 @@ var classsubzero_1_1PidMotorController =
     [ "m_config", "classsubzero_1_1PidMotorController.html#a88cbdb816fd44d8a2e4d05bb4a5e1b72", null ],
     [ "m_controller", "classsubzero_1_1PidMotorController.html#a9b667542e29828c0f5be49ecc5af948a", null ],
     [ "m_encoder", "classsubzero_1_1PidMotorController.html#aa500c4d96cd4ee974db5a0887353257d", null ],
+    [ "m_isInitialized", "classsubzero_1_1PidMotorController.html#ab646bc3e555cae36bdc46fc5df6ce494", null ],
     [ "m_maxRpm", "classsubzero_1_1PidMotorController.html#adc10e6c3ad3d93e6491a71b5ef3fa882", null ],
     [ "m_motor", "classsubzero_1_1PidMotorController.html#addb925697c08ce12a36e36c2959043d9", null ],
     [ "m_pidController", "classsubzero_1_1PidMotorController.html#a2cb85608fd8fc6f8f49fee7771e1f3cf", null ],

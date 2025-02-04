@@ -19,13 +19,14 @@ var searchData=
   ['ipidmotorcontroller_16',['IPidMotorController',['../classsubzero_1_1IPidMotorController.html',1,'subzero::IPidMotorController'],['../classsubzero_1_1IPidMotorController.html#a1f5ac81ebdf29a7fb1d53497fadcc837',1,'subzero::IPidMotorController::IPidMotorController()']]],
   ['ipidmotorcontroller_2eh_17',['IPidMotorController.h',['../IPidMotorController_8h.html',1,'']]],
   ['isenabled_18',['IsEnabled',['../classsubzero_1_1BaseSingleAxisSubsystem.html#ae9cb910426b33a9e809cbb1c5f53cfea',1,'subzero::BaseSingleAxisSubsystem::IsEnabled()'],['../classsubzero_1_1ISingleAxisSubsystem.html#aa57bd469af249492dcb609996972d2a0',1,'subzero::ISingleAxisSubsystem::IsEnabled()']]],
-  ['isingleaxissubsystem_19',['ISingleAxisSubsystem',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
-  ['isingleaxissubsystem_2eh_20',['ISingleAxisSubsystem.h',['../ISingleAxisSubsystem_8h.html',1,'']]],
-  ['isingleaxissubsystem_3c_20tdistance_20_3e_21',['ISingleAxisSubsystem&lt; TDistance &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
-  ['isingleaxissubsystem_3c_20units_3a_3adegree_20_3e_22',['ISingleAxisSubsystem&lt; units::degree &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
-  ['isingleaxissubsystem_3c_20units_3a_3ameter_20_3e_23',['ISingleAxisSubsystem&lt; units::meter &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
-  ['ismovementallowed_24',['IsMovementAllowed',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a5fef494575482b757ef86acecda349f8',1,'subzero::BaseSingleAxisSubsystem::IsMovementAllowed(double speed, bool ignoreEncoder=false)'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#af3974180de318ddb12169ffc4e0ac98a',1,'subzero::BaseSingleAxisSubsystem::IsMovementAllowed(bool ignoreEncoder=false)']]],
-  ['iturntotarget_25',['ITurnToTarget',['../classsubzero_1_1ITurnToTarget.html',1,'subzero']]],
-  ['iturntotarget_2eh_26',['ITurnToTarget.h',['../ITurnToTarget_8h.html',1,'']]],
-  ['izone_27',['iZone',['../structsubzero_1_1PidSettings.html#a80ad1ea9307f2d455d66f9e78ddaecc3',1,'subzero::PidSettings']]]
+  ['isidlemodebrake_19',['isIdleModeBrake',['../structsubzero_1_1PidSettings.html#a2c5da4f377065dffde755e436397386c',1,'subzero::PidSettings']]],
+  ['isingleaxissubsystem_20',['ISingleAxisSubsystem',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
+  ['isingleaxissubsystem_2eh_21',['ISingleAxisSubsystem.h',['../ISingleAxisSubsystem_8h.html',1,'']]],
+  ['isingleaxissubsystem_3c_20tdistance_20_3e_22',['ISingleAxisSubsystem&lt; TDistance &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
+  ['isingleaxissubsystem_3c_20units_3a_3adegree_20_3e_23',['ISingleAxisSubsystem&lt; units::degree &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
+  ['isingleaxissubsystem_3c_20units_3a_3ameter_20_3e_24',['ISingleAxisSubsystem&lt; units::meter &gt;',['../classsubzero_1_1ISingleAxisSubsystem.html',1,'subzero']]],
+  ['ismovementallowed_25',['IsMovementAllowed',['../classsubzero_1_1BaseSingleAxisSubsystem.html#a5fef494575482b757ef86acecda349f8',1,'subzero::BaseSingleAxisSubsystem::IsMovementAllowed(double speed, bool ignoreEncoder=false)'],['../classsubzero_1_1BaseSingleAxisSubsystem.html#af3974180de318ddb12169ffc4e0ac98a',1,'subzero::BaseSingleAxisSubsystem::IsMovementAllowed(bool ignoreEncoder=false)']]],
+  ['iturntotarget_26',['ITurnToTarget',['../classsubzero_1_1ITurnToTarget.html',1,'subzero']]],
+  ['iturntotarget_2eh_27',['ITurnToTarget.h',['../ITurnToTarget_8h.html',1,'']]],
+  ['izone_28',['iZone',['../structsubzero_1_1PidSettings.html#a80ad1ea9307f2d455d66f9e78ddaecc3',1,'subzero::PidSettings']]]
 ];
