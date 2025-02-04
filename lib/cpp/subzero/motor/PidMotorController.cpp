@@ -18,7 +18,7 @@ PidMotorController<
       m_encoder{encoder}, m_absEncoder{absEncoder}, m_settings{pidSettings},
       m_pidController{
           frc::PIDController{pidSettings.p, pidSettings.i, pidSettings.d}},
-      m_maxRpm{maxRpm} {
+      m_maxRpm{maxRpm}, m_isInitialized{false} {
 
   // Doing it here so the PID controllers themselves get updated
   UpdatePidSettings(pidSettings);
@@ -133,7 +133,7 @@ void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
 
   bool changed = false;
 
-  if (settings.p != m_settings.p) {
+  if (settings.p != m_settings.p || !m_isInitialized) {
     ConsoleWriter.logInfo("PidMotorController", "Setting P to %.6f for %s",
                           settings.p, m_name.c_str());
 
@@ -141,38 +141,44 @@ void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
     changed = true;
   }
 
-  if (settings.i != m_settings.i) {
+  if (settings.i != m_settings.i || !m_isInitialized) {
     ConsoleWriter.logInfo("PidMotorController", "Setting I to %.6f for %s",
                           settings.i, m_name.c_str());
     m_config.closedLoop.I(settings.i);
     changed = true;
   }
 
-  if (settings.d != m_settings.d) {
+  if (settings.d != m_settings.d || !m_isInitialized) {
     ConsoleWriter.logInfo("PidMotorController", "Setting D to %.6f for %s",
                           settings.d, m_name.c_str());
     m_config.closedLoop.D(settings.d);
     changed = true;
   }
 
-  if (settings.iZone != m_settings.iZone) {
+  if (settings.iZone != m_settings.iZone || !m_isInitialized) {
     ConsoleWriter.logInfo("PidMotorController", "Setting IZone to %.6f for %s",
                           settings.iZone, m_name.c_str());
     m_config.closedLoop.IZone(settings.iZone);
     changed = true;
   }
 
-  if (settings.ff != m_settings.ff) {
+  if (settings.ff != m_settings.ff || !m_isInitialized) {
     ConsoleWriter.logInfo("PidMotorController", "Setting FF to %.6f for %s",
                           settings.ff, m_name.c_str());
     m_config.closedLoop.VelocityFF(settings.ff);
     changed = true;
   }
 
-  if (changed) {
+  if (settings.isIdleModeBrake != m_settings.isIdleModeBrake || !m_isInitialized) {
+    m_config.SetIdleMode(m_settings.isIdleModeBrake ? rev::spark::SparkBaseConfig::IdleMode::kBrake : rev::spark::SparkBaseConfig::IdleMode::kCoast);
+    changed = true;
+  }
+
+  if (changed || !m_isInitialized) {
     m_motor.Configure(m_config,
                       rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
                       rev::spark::SparkBase::PersistMode::kPersistParameters);
+    m_isInitialized = true;
   }
 
   m_settings = settings;

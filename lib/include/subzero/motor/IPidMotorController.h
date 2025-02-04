@@ -11,6 +11,7 @@ namespace subzero {
 // TODO: Add slot support inside of PidSettings struct
 struct PidSettings {
   double p, i, d, iZone, ff;
+  bool isIdleModeBrake;
 };
 
 class IPidMotorController {
