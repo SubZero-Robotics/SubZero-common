@@ -169,8 +169,11 @@ void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
     changed = true;
   }
 
-  if (settings.isIdleModeBrake != m_settings.isIdleModeBrake || !m_isInitialized) {
-    m_config.SetIdleMode(m_settings.isIdleModeBrake ? rev::spark::SparkBaseConfig::IdleMode::kBrake : rev::spark::SparkBaseConfig::IdleMode::kCoast);
+  if (settings.isIdleModeBrake != m_settings.isIdleModeBrake ||
+      !m_isInitialized) {
+    m_config.SetIdleMode(m_settings.isIdleModeBrake
+                             ? rev::spark::SparkBaseConfig::IdleMode::kBrake
+                             : rev::spark::SparkBaseConfig::IdleMode::kCoast);
     changed = true;
   }
 

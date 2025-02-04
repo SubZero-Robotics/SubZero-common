@@ -48,8 +48,7 @@ public:
   // TODO: make `absEncoder` an `std::optional<>` instead of a raw pointer
   explicit PidMotorController(std::string name, TMotor &motor,
                               TRelativeEncoder &encoder,
-                              TController &controller, 
-                              PidSettings pidSettings,
+                              TController &controller, PidSettings pidSettings,
                               TAbsoluteEncoder *absEncoder,
                               units::revolutions_per_minute_t maxRpm);
 
