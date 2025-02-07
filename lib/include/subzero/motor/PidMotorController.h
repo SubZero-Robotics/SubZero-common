@@ -220,12 +220,12 @@ public:
 
 private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
-                     rev::spark::SparkFlexConfig> &m_controller;
+                     TPidConfig> &m_controller;
 };
 
-class RevPidMotorController
-    : public PidMotorController<
-          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
-          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,
-          rev::spark::SparkMaxConfig> {};
+// class RevPidMotorController
+//     : public PidMotorController<
+//           rev::spark::SparkMax, rev::spark::SparkClosedLoopController,
+//           rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,
+//           rev::spark::SparkMaxConfig> {};
 } // namespace subzero
