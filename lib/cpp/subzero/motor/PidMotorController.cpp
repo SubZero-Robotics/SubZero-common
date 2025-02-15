@@ -182,6 +182,8 @@ void PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
                       rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
                       rev::spark::SparkBase::PersistMode::kPersistParameters);
     m_isInitialized = true;
+
+    std::cout << "Updated PID settings." << std::endl;
   }
 
   m_settings = settings;
