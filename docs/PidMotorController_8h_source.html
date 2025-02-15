@@ -249,24 +249,29 @@ $(function(){initNavTree('PidMotorController_8h_source.html',''); initResizable(
 <div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                                       m_controller.GetPidSettings().ff);</div>
 <div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
 <div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    m_controller.UpdatePidSettings(</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward, .isIdleModeBrake = m_controller.GetPidSettings().isIdleModeBrake});</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  }</div>
-</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  <a class="code hl_class" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                     TPidConfig&gt; &amp;m_controller;         </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>};</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        {.p = tP,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>         .i = tI,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>         .d = tD,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>         .iZone = tIZone,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>         .ff = tFeedForward,</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>         .isIdleModeBrake = m_controller.GetPidSettings().isIdleModeBrake});</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  }</div>
 </div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="foldopen" id="foldopen00228" data-start="{" data-end="};">
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="classsubzero_1_1RevPidMotorController.html">  228</a></span><span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1RevPidMotorController.html">RevPidMotorController</a></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    : <span class="keyword">public</span> <a class="code hl_function" href="classsubzero_1_1PidMotorController.html#afc853ddc81b6a906df67f994dad77c00">PidMotorController</a>&lt;</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>          rev::spark::SparkMaxConfig&gt; {};</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  <a class="code hl_class" href="classsubzero_1_1PidMotorController.html">PidMotorController</a>&lt;TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                     TPidConfig&gt; &amp;m_controller;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>};</div>
 </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>} <span class="comment">// namespace subzero</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="foldopen" id="foldopen00233" data-start="{" data-end="};">
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="classsubzero_1_1RevPidMotorController.html">  233</a></span><span class="keyword">class </span><a class="code hl_class" href="classsubzero_1_1RevPidMotorController.html">RevPidMotorController</a></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    : <span class="keyword">public</span> <a class="code hl_function" href="classsubzero_1_1PidMotorController.html#afc853ddc81b6a906df67f994dad77c00">PidMotorController</a>&lt;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>          rev::spark::SparkMax, rev::spark::SparkClosedLoopController,</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>          rev::spark::SparkRelativeEncoder, rev::spark::SparkAbsoluteEncoder,</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>          rev::spark::SparkMaxConfig&gt; {};</div>
+</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>} <span class="comment">// namespace subzero</span></div>
 <div class="ttc" id="aConsoleLogger_8h_html"><div class="ttname"><a href="ConsoleLogger_8h.html">ConsoleLogger.h</a></div></div>
 <div class="ttc" id="aConsoleLogger_8h_html_addb44682eef1608a06ae0ad2fa0330ab"><div class="ttname"><a href="ConsoleLogger_8h.html#addb44682eef1608a06ae0ad2fa0330ab">ConsoleWriter</a></div><div class="ttdeci">#define ConsoleWriter</div><div class="ttdef"><b>Definition</b> <a href="ConsoleLogger_8h_source.html#l00073">ConsoleLogger.h:73</a></div></div>
 <div class="ttc" id="aIPidMotorController_8h_html"><div class="ttname"><a href="IPidMotorController_8h.html">IPidMotorController.h</a></div></div>
@@ -302,7 +307,7 @@ $(function(){initNavTree('PidMotorController_8h_source.html',''); initResizable(
 <div class="ttc" id="aclasssubzero_1_1PidMotorController_html_aec6d6ac8c8807490b08c5abe84541890"><div class="ttname"><a href="classsubzero_1_1PidMotorController.html#aec6d6ac8c8807490b08c5abe84541890">subzero::PidMotorController::ResetEncoder</a></div><div class="ttdeci">virtual void ResetEncoder() override</div><div class="ttdef"><b>Definition</b> <a href="#l00103">PidMotorController.h:103</a></div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorController_html_afc476170bb2b62ee2bd89b2cb4499315"><div class="ttname"><a href="classsubzero_1_1PidMotorController.html#afc476170bb2b62ee2bd89b2cb4499315">subzero::PidMotorController::Update</a></div><div class="ttdeci">void Update() override</div><div class="ttdoc">! Call this every loop in Periodic !</div></div>
 <div class="ttc" id="aclasssubzero_1_1PidMotorController_html_afc853ddc81b6a906df67f994dad77c00"><div class="ttname"><a href="classsubzero_1_1PidMotorController.html#afc853ddc81b6a906df67f994dad77c00">subzero::PidMotorController::PidMotorController</a></div><div class="ttdeci">PidMotorController(std::string name, TMotor &amp;motor, TRelativeEncoder &amp;encoder, TController &amp;controller, PidSettings pidSettings, TAbsoluteEncoder *absEncoder, units::revolutions_per_minute_t maxRpm)</div><div class="ttdoc">Construct a new PidMotorController.</div></div>
-<div class="ttc" id="aclasssubzero_1_1RevPidMotorController_html"><div class="ttname"><a href="classsubzero_1_1RevPidMotorController.html">subzero::RevPidMotorController</a></div><div class="ttdef"><b>Definition</b> <a href="#l00228">PidMotorController.h:232</a></div></div>
+<div class="ttc" id="aclasssubzero_1_1RevPidMotorController_html"><div class="ttname"><a href="classsubzero_1_1RevPidMotorController.html">subzero::RevPidMotorController</a></div><div class="ttdef"><b>Definition</b> <a href="#l00233">PidMotorController.h:237</a></div></div>
 <div class="ttc" id="anamespacesubzero_html"><div class="ttname"><a href="namespacesubzero.html">subzero</a></div><div class="ttdef"><b>Definition</b> <a href="AutoFactory_8h_source.html#l00020">AutoFactory.h:20</a></div></div>
 <div class="ttc" id="astructsubzero_1_1PidSettings_html"><div class="ttname"><a href="structsubzero_1_1PidSettings.html">subzero::PidSettings</a></div><div class="ttdef"><b>Definition</b> <a href="IPidMotorController_8h_source.html#l00012">IPidMotorController.h:12</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
