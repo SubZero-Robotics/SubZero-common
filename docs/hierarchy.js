@@ -44,7 +44,6 @@ var hierarchy =
         [ "subzero::RevPidMotorController", "classsubzero_1_1RevPidMotorController.html", null ]
       ] ],
       [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder >", "classsubzero_1_1PidMotorController.html", null ],
-      [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, rev::spark::SparkFlexConfig >", "classsubzero_1_1PidMotorController.html", null ],
       [ "subzero::PidMotorController< TMotor, TController, TRelativeEncoder, TAbsoluteEncoder, TPidConfig >", "classsubzero_1_1PidMotorController.html", null ],
       [ "subzero::SimPidMotorController", "classsubzero_1_1SimPidMotorController.html", null ]
     ] ],
