@@ -217,12 +217,17 @@ public:
                                        m_controller.GetPidSettings().ff);
 
     m_controller.UpdatePidSettings(
-        {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward, .isIdleModeBrake = m_controller.GetPidSettings().isIdleModeBrake});
+        {.p = tP,
+         .i = tI,
+         .d = tD,
+         .iZone = tIZone,
+         .ff = tFeedForward,
+         .isIdleModeBrake = m_controller.GetPidSettings().isIdleModeBrake});
   }
 
 private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
-                     TPidConfig> &m_controller;         
+                     TPidConfig> &m_controller;
 };
 
 class RevPidMotorController
