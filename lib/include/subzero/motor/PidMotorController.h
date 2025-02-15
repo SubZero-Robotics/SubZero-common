@@ -185,6 +185,7 @@ public:
       PidMotorController<TMotor, TController, TRelativeEncoder,
                          TAbsoluteEncoder, TPidConfig> &controller)
       : m_controller{controller} {
+
     frc::SmartDashboard::PutNumber(m_controller.m_name + " P Gain",
                                    m_controller.GetPidSettings().p);
     frc::SmartDashboard::PutNumber(m_controller.m_name + " I Gain",
@@ -199,8 +200,9 @@ public:
 
   /**
    * @brief Call this within the Periodic method of the encapsulating subsystem
-   *
+   * Note: You must enable submit button to work in Elastic
    */
+
   void UpdateFromShuffleboard() {
     double tP = frc::SmartDashboard::GetNumber(m_controller.m_name + " P Gain",
                                                m_controller.GetPidSettings().p);
@@ -215,12 +217,17 @@ public:
                                        m_controller.GetPidSettings().ff);
 
     m_controller.UpdatePidSettings(
-        {.p = tP, .i = tI, .d = tD, .iZone = tIZone, .ff = tFeedForward});
+        {.p = tP,
+         .i = tI,
+         .d = tD,
+         .iZone = tIZone,
+         .ff = tFeedForward,
+         .isIdleModeBrake = m_controller.GetPidSettings().isIdleModeBrake});
   }
 
 private:
   PidMotorController<TMotor, TController, TRelativeEncoder, TAbsoluteEncoder,
-                     rev::spark::SparkFlexConfig> &m_controller;
+                     TPidConfig> &m_controller;
 };
 
 class RevPidMotorController
